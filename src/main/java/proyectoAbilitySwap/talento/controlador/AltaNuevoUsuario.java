@@ -1,15 +1,18 @@
 package proyectoAbilitySwap.talento.controlador;
 
+import java.io.IOException;
+
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * Servlet implementation class AltaNuevoUsuario
  */
+
+@MultipartConfig //para recibir info de formulario y ficheros
 public class AltaNuevoUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

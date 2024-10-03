@@ -9,7 +9,7 @@ function loginServidor() {
 
 	let infousuarioJson = JSON.stringify(infousuario);
 
-	fetch("/Login", {
+	fetch("Login", {
 		method: "POST",
 		body: infousuarioJson
 	})//12 ACTUALIZO LA INTERFAZ DE USUARIO

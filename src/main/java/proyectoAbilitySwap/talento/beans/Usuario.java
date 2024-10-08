@@ -45,6 +45,14 @@ public class Usuario {
 		this.password = password;
 	}
 
+	public Usuario(int idusuario, String usuario, String password, byte[] foto) {
+		super();
+		this.idusuario = idusuario;
+		this.usuario = usuario;
+		this.password = password;
+		this.foto = foto;
+	}
+
 	public Usuario(byte[] foto) {
 		super();
 		this.foto = foto;

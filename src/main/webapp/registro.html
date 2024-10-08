@@ -14,11 +14,11 @@
 	<form onsubmit="event.preventDefault(); altaServidor(event);">
 		<ul>
 			<li><label for="usuario">Nombre:</label> <input type="text"
-				id="usuario" name="usuario" /></li>
+				id="usuario" name="usuario" required /></li>
 			<li><label for="password">Contraseña:</label> <input
-				type="password" id="password" name="password" /></li>
+				type="password" id="password" name="password" required/></li>
 			<li><label for="fichero">Foto:</label> <input type="file"
-				id="fichero" name="fichero" /></li>
+				id="fichero" name="fichero" required/></li>
 			<li class="button">
 				<button type="submit">ALTA</button>
 			</li>

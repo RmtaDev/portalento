@@ -7,7 +7,7 @@
 	username="root" 
 	password="root" 
 	driverClassName="com.mysql.cj.jdbc.Driver"  
-	url="jdbc:mysql://localhost:3306/bddni?serverTimezone=UTC" 
+	url="jdbc:mysql://localhost:3306/abilityswapbd?serverTimezone=UTC" 
 	maxTotal="50" 
 	maxIdle="20"/> 
 </Context>

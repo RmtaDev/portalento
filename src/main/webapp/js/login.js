@@ -31,8 +31,6 @@ function loginServidor() {
 				console.log ("Procesando la vuelta ..");
 				switch (respuesta.status) {
 					case 200:
-						console.log("La autencicación ha ido bien");
-						alert ("La autencicación ha ido bien");
 						window.location.href="bienvenida.html";
 						break;
 					case 400:

@@ -1,7 +1,6 @@
 package proyectoAbilitySwap.talento.controlador;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -58,7 +57,7 @@ public class Login extends HttpServlet {
 						System.out.println("El usuario NO existe");
 						response.setStatus(403);
 					}
-			}else {
+			} else {
 				//si no es válido, devolver 400
 				System.out.println("Datos incorrectos");
 				response.setStatus(400);

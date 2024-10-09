@@ -3,7 +3,6 @@ package proyectoAbilitySwap.talento.controlador;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import abilitySwap.validacion.ValidarAltaNuevoUsuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServlet;
@@ -12,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import proyectoAbilitySwap.talento.beans.Usuario;
 import proyectoAbilitySwap.talento.servicio.UsuarioService;
+import proyectoAbilitySwap.talento.validacion.ValidarAltaNuevoUsuario;
 
 /**
  * Servlet implementation class AltaNuevoUsuario

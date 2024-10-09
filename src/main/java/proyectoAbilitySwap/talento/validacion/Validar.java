@@ -1,4 +1,4 @@
-package abilitySwap.validacion;
+package proyectoAbilitySwap.talento.validacion;
 
 public class Validar {
 

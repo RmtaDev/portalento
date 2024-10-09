@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 
 import proyectoAbilitySwap.talento.beans.Usuario;
 import proyectoAbilitySwap.talento.servicio.UsuarioService;
-import abilitySwap.validacion.Validar;
+import proyectoAbilitySwap.talento.validacion.Validar;
 
 /**
  * Servlet implementation class Login

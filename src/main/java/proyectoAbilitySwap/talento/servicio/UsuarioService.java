@@ -6,7 +6,7 @@ import proyectoAbilitySwap.talento.beans.Usuario;
 import proyectoAbilitySwap.talento.repository.UsuarioRepository;
 
 public class UsuarioService {
-	
+
 	public boolean existeUsuario(Usuario usuario) throws SQLException {
 		boolean existe = false;
 
@@ -15,9 +15,13 @@ public class UsuarioService {
 
 		return existe;
 	}
-	
-	public void insertarUsuario(Usuario usuario) throws SQLException {
-		UsuarioRepository usuarioRepository = new UsuarioRepository();
-		usuarioRepository.insertarUsuario(usuario);
+
+	public int insertarUsuario(Usuario usuario) throws SQLException {
+		int idnuevousuario = -1;
+		
+			UsuarioRepository usuarioRepository = new UsuarioRepository();
+			idnuevousuario = usuarioRepository.insertarUsuario(usuario);
+		
+		return idnuevousuario;
 	}
 }

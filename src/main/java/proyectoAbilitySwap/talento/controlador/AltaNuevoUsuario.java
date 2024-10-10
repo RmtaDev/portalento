@@ -1,7 +1,12 @@
 package proyectoAbilitySwap.talento.controlador;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
+import java.util.Date;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -60,57 +65,54 @@ public class AltaNuevoUsuario extends HttpServlet {
 		String hablaSobreTi = request.getParameter("hablaSobreTi");
 		
 		Part filePart = request.getPart("fichero");
-		
-		
-		String confirmPassword = request.getParameter("confirmPassword");
-
-		// Usa la clase de validación
-		if (!ValidarAltaNuevoUsuario.validarNombreUsuario(usuario)) {
-			//request.setAttribute("error", "El nombre de usuario debe tener al menos 5 caracteres.");
-			System.out.println("error, elnombre de ususarui deber tener al menos 5 caracteres");
-			
-			//request.getRequestDispatcher("/error.html").forward(request, response);
-			return;
-		}
-
-		if (!ValidarAltaNuevoUsuario.validarPassword(password)) {
-			//request.setAttribute("error", "La contraseña debe tener al menos 8 caracteres y un número.");
-			System.out.println("error, La contraseña debe tener al menos 8 caracteres y un nombre.");
-			
-			//request.getRequestDispatcher("/error.html").forward(request, response);
-			return;
-		}
-
-		if (!ValidarAltaNuevoUsuario.validarConfirmacionPassword(password, confirmPassword)) {
-			//request.setAttribute("error", "Las contraseñas no coinciden.");
-			System.out.println("error, Las contraseñas no coinciden");
-			
-			//request.getRequestDispatcher("/error.html").forward(request, response);
-			return;
-		}
-
 		byte[] foto = filePart.getInputStream().readAllBytes();
-		String fileName = filePart.getSubmittedFileName();
-		System.out.println("Fichero subido = " + fileName);
-
+		
+		String rutaFotoPerfil = EscuchaInicioFinAltaUsuario.RUTAS_FOTO +File.separator + new Date().getTime();
+		
+		Path fichero = Path.of(rutaFotoPerfil);
+		Files.copy(filePart.getInputStream(), fichero, StandardCopyOption.REPLACE_EXISTING);
+		String confirmPassword = request.getParameter("confirmPassword");
+		
 		Usuario nuevoUsuario = new Usuario(0, usuario, password, nombre,  apellidos, year, genero, telefono, email,foto, rutaFoto, hablaSobreTi);
+		
+		if (ValidarAltaNuevoUsuario.validarUsuario(nuevoUsuario)){
+			
+			
+			String fileName = filePart.getSubmittedFileName();
+			System.out.println("Fichero subido = " + fileName);
 
-		UsuarioService usuarioService = new UsuarioService();
+			
 
-		try {
-			usuarioService.insertarUsuario(nuevoUsuario);
-			/*una linea*/request.getRequestDispatcher("/bienvenida.html").forward(request, response);
-		} catch (SQLException e) {
+			UsuarioService usuarioService = new UsuarioService();
+
+			try {
+				int id = usuarioService.insertarUsuario(nuevoUsuario);
+				//TODO devolvemos 200:
+				//crear la sesión, obtener el id del usuario
+				//y guardarla en la sesión
+				
+				response.setStatus(200);
+				
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+				
+				/*dos linearequest.setAttribute("error", "Error al registrar el usuario. Inténtalo de nuevo.");
+				*/
+				System.out.println("error, error al registrar el usuario. intentelo de nuevo");
+				//TODO devolver 500
+				
+				// redirecciona a la página error para mostrar al usuario, informandole sobre el problema que ocurrio
+				/*tres linearequest.getRequestDispatcher("/error.html").forward(request, response);
+				*/
+			}
 			
-			e.printStackTrace();
-			
-			/*dos linearequest.setAttribute("error", "Error al registrar el usuario. Inténtalo de nuevo.");
-			*/
-			System.out.println("error, error al registrar el usuario. intentelo de nuevo");
-			
-			// redirecciona a la página error para mostrar al usuario, informandole sobre el problema que ocurrio
-			/*tres linearequest.getRequestDispatcher("/error.html").forward(request, response);
-			*/
+		} else {
+			//TODO: declarar log y comentar todo
+			response.setStatus(400);//error en la petición
 		}
+
+		
+		
 	}
 }

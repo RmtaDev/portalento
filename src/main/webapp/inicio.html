@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inicio</title>
-<link rel="icon" href="img/favicon.png">
-<link rel="stylesheet" type="text/css" href="css/inicio.css" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Inicio</title>
+	<link rel="icon" href="img/favicon.png">
+	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" type="text/css" href="css/inicio.css" />
+	<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+		crossorigin="anonymous">
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
 
 </head>
 
@@ -13,11 +23,16 @@
 
 	<header>
 		<nav>
-			<a href="registro.html"> <img src="img/registro.png"
-				title="Registro" alt="registro">
-			</a> <a href="login.html"> <img src="img/login.png" title="Login"
-				alt="login">
-			</a>
+			<div>
+				<a><img alt="inicio" src="img/favicon.png"></a>
+			</div>
+			
+			<div>
+				<a href="registro.html"><img src="img/registro.png"
+					title="Registro" alt="registro" ></a>
+				<a href="login.html"><img src="img/login.png" title="Login"
+					alt="login"></a>
+			</div>
 		</nav>
 
 	</header>
@@ -27,34 +42,34 @@
 			<div class="fondo">
 				<h1>Bienvenido a la Plataforma de Intercambio de Habilidades</h1>
 				<div class="parrafos">
-					<p>- Esta plataforma tiene como finalizar intercambiar
+					<p>- Esta plataforma tiene como finalidad intercambiar
 						diferentes habilidades con otras persora para enriquecer nuestros
 						conocimientos.</p>
 
 					<p>- Regístrate o inicia sesión para empezar a intercambiar tus
 						habilidades.</p>
 				</div>
-				
-				
+
+
 				<div class="contenedor-botones">
-				
-					<button class="boton-inicio"  type="button"
-						id ="boton-registro"
-						onclick="window.location.href='registro.html'"> 
-						Registro 
-					</button> 
-					
-					<button class="boton-inicio" type="button"
-						id ="boton-iniciar" 
-						onclick="window.location.href='login.html'"> 
-						Iniciar sesión 
-					</button>
-					
+
+					<button class="boton-inicio btn btn-secondary" type="button" id="boton-registro"
+						onclick="window.location.href='registro.html'">Registro</button>
+
+					<button class="boton-inicio btn btn-primary" type="button" id="boton-iniciar"
+						onclick="window.location.href='login.html'">Iniciar
+						sesión</button>
 				</div>
 			</div>
 		</div>
 	</main>
 	<footer>
+		<div class="imagenes-footer">
+			<img src="img/instagram.png" title="Instagram" alt="Instagram">
+			<img src="img/facebook.png" title="Facebook" alt="Facebook"> <img
+				src="img/twiter.jpeg" title="Twiter" alt="Twiter">
+		</div>
+
 		<p>Todos los dererechos reservados - @Copyright</p>
 	</footer>
 </body>

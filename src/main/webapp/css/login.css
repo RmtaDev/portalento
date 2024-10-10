@@ -1,0 +1,77 @@
+main {
+	background: url("../img/fondo.png");
+	background-size: contain;
+	background-repeat: repeat;
+	height:100%;
+}
+
+body {
+  	background: url("../img/fondo.png");
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    
+}
+
+.inicio {
+	color: black;
+    font-size: 15px; 
+    font-weight: bolder; 
+    text-decoration: none; 
+}
+
+.container-formulario {
+	background-color: #FFFFFF99;
+	position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding: 3rem;
+    height:100%; 
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    text-align: center;
+    
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"],
+							input[type="number"], textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="tel"]:focus,
+							input[type="password"]:focus, textarea:focus {
+    border-color: #5cb85c;
+    outline: none;
+}
+
+
+.boton-formulario {
+	display: flex;
+	justify-content: center;
+}

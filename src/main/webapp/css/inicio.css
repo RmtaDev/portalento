@@ -1,80 +1,21 @@
-header {
-	background: #F0F0F0;
-	height: 10vh;
+body{
+	height: 100vh;
 }
-
-nav img {
-	width: 40px;
-	height: 40px;
-	margin: 10px;
-}
-
-nav {
-	display: flex;
-	justify-content: flex-end;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.contenedor {
-	background-color: #FFFFFF99;
-	position: relative;
-	height: 78vh; /* Altura del contenedor */
-	overflow: hidden;
-	position: relative;
-	
-}
-
 main {
 	background: url("../img/fondo.png");
-	height: 78vh;
+	height: 100%;
 	background-size: cover;
-	background-repeat: none;
+	background-repeat: no-repeat;
 }
 
-h1{
-	font-family: Lucida Calligraphy;
-	text-align: center; 
-}
 
-.parrafos {
-	padding: 40px 200px; 
-}
-p {
-	font-family: Calibri;
-	font-size: 17px;
-	
+.contenedor {
+	padding: 3rem;
 }
 
 .contenedor-botones {
-	text-align: center;
-}
-.boton-inicio {
-	padding: 1rem 1.5rem;
-	margin: 1rem;
-	border-radius: 30px;
-	cursor: pointer;
-	font:italic;
+	gap: 2rem;
+	display: flex; 
+	justify-content: center; 
 }
 
-#boton-registro {
-	background-color: #8BC34A;
-	color: black; 
-	
-}
-
-#boton-iniciar {
-	background-color: #FFB74D;
-	color: black; 
-}
-
-footer {
-	background: #35495E;
-	height: 8vh;
-	color: white;
-	font-size: 20px;
-}

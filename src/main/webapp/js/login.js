@@ -31,7 +31,7 @@ function loginServidor() {
 				console.log ("Procesando la vuelta ..");
 				switch (respuesta.status) {
 					case 200:
-						window.location.href="bienvenida.html";
+						window.location.href="perfil.html";
 						break;
 					case 400:
 						console.log("Datos incorrectos");

@@ -8,9 +8,9 @@ import java.io.IOException;
 
 import com.google.gson.Gson;
 
-import abilitySwap.bean.Usuario;
-import abilitySwap.service.UsuarioService;
-import abilitySwap.validacion.Validar;
+import proyectoAbilitySwap.talento.beans.Usuario;
+import proyectoAbilitySwap.talento.servicio.UsuarioService;
+import proyectoAbilitySwap.talento.validacion.Validar;
 import org.apache.log4j.Logger;
 /**
  * Servlet implementation class Login

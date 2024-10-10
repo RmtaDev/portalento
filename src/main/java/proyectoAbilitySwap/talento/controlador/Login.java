@@ -8,15 +8,16 @@ import java.io.IOException;
 
 import com.google.gson.Gson;
 
-import proyectoAbilitySwap.talento.beans.Usuario;
-import proyectoAbilitySwap.talento.servicio.UsuarioService;
-import proyectoAbilitySwap.talento.validacion.Validar;
-
+import abilitySwap.bean.Usuario;
+import abilitySwap.service.UsuarioService;
+import abilitySwap.validacion.Validar;
+import org.apache.log4j.Logger;
 /**
  * Servlet implementation class Login
  */
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static Logger log = Logger.getLogger("mylog");	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -40,6 +41,8 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+		log.debug("Peticion en el Servlet Login");
+
 		try {
 			String infoUsuarioJson =  request.getReader().readLine();
 			Gson gson = new Gson();
@@ -53,19 +56,26 @@ public class Login extends HttpServlet {
 					{
 						System.out.println("El usuario existe");
 						response.setStatus(200);
+						log.debug("200 El usuario existe");
 					} else {
 						System.out.println("El usuario NO existe");
 						response.setStatus(403);
+						log.error("403 El usuario no existe");
+
 					}
 			} else {
 				//si no es válido, devolver 400
-				System.out.println("Datos incorrectos");
+				System.out.println("Datos no validados");
 				response.setStatus(400);
+				log.error("400 Datos no validados");
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Hubo un error");
 			response.setStatus(500);
+			log.error("500 Hubo un error", e);
+
 		}
 	}
 }

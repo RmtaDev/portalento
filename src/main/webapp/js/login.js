@@ -1,12 +1,12 @@
 function validarNombre(nombre) {
 	valido = false;
-		valido = ((null!=nombre)&&(nombre.length()>=4)&&(nombre.length()<=100));
+		valido = ((null!=nombre)&&(nombre.length>=4)&&(nombre.length<=100));
 	return valido;
 }
 
 function validarPassword(password) {
 	valido = false;
-		valido = ((null!=password)&&(password.length()>=4)&&(password.length()<=50));
+		valido = ((null!=password)&&(password.length>=4)&&(password.length<=50));
 	return valido;
 }
 
@@ -14,13 +14,14 @@ function loginServidor() {
 	let usuario = document.getElementById("usuario").value;
 	let password = document.getElementById("password").value;
 
-	let infousuario = {
-		usuario: usuario,
-		password: password
-	}
-
 	if (validarNombre(usuario) && validarPassword(password))
 	{
+
+		let infousuario = {
+			usuario: usuario,
+			password: password
+		}
+
 		let infousuarioJson = JSON.stringify(infousuario);
 
 		fetch("Login", {
@@ -34,8 +35,8 @@ function loginServidor() {
 						window.location.href="perfil.html";
 						break;
 					case 400:
-						console.log("Datos incorrectos");
-						alert("Datos incorrectos");
+						console.log("Datos no validados");
+						alert("Datos no validados");
 						break;
 					case 403:
 						console.log("No existe ese usuario password");
@@ -47,5 +48,9 @@ function loginServidor() {
 						break;
 				}
 			})
+	} else {
+		console.log("Datos incorrectos");
+		alert("Datos incorrectos");
+		
 	}
 }

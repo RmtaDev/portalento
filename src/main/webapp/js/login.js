@@ -11,8 +11,8 @@ function validarPassword(password) {
 }
 
 function loginServidor() {
-	let usuario = document.getElementById("usuario").value;
-	let password = document.getElementById("password").value;
+	let usuario = document.getElementById("nombreUsuario").value;
+	let password = document.getElementById("contraseña").value;
 
 	if (validarNombre(usuario) && validarPassword(password))
 	{
@@ -49,8 +49,8 @@ function loginServidor() {
 				}
 			})
 	} else {
-		console.log("Datos incorrectos");
-		alert("Datos incorrectos");
+		console.log("Datos no validados");
+		alert("Datos no validados");
 		
 	}
 }

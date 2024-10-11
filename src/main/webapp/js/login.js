@@ -48,9 +48,5 @@ function loginServidor() {
 						break;
 				}
 			})
-	} else {
-		console.log("Datos no validados");
-		alert("Datos no validados");
-		
 	}
 }

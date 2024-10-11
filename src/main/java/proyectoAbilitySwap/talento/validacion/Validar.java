@@ -14,9 +14,10 @@ public class Validar {
 		return valido;
 	}
 		
-	public boolean validarPasswordRegistro(String password1, String password2) {
-		boolean valido = false;
-			valido = ((password1!=null)&&(password1.equals(password2)));
-		return valido;
+	public boolean validarConfirmacionPassword(String password, String confirmPassword) {
+
+		boolean resultado = password != null && password.equals(confirmPassword);
+
+		return resultado;
 	}
 }

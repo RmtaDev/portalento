@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import proyectoAbilitySwap.talento.beans.Usuario;
 import proyectoAbilitySwap.talento.servicio.UsuarioService;
-import proyectoAbilitySwap.talento.validacion.ValidarAltaNuevoUsuario;
+import proyectoAbilitySwap.talento.validacion.Validar;
 
 /**
  * Servlet implementation class AltaNuevoUsuario
@@ -74,8 +74,8 @@ public class AltaNuevoUsuario extends HttpServlet {
 		String confirmPassword = request.getParameter("confirmPassword");
 		
 		Usuario nuevoUsuario = new Usuario(0, usuario, password, nombre,  apellidos, year, genero, telefono, email,foto, rutaFoto, hablaSobreTi);
-		
-		if (ValidarAltaNuevoUsuario.validarUsuario(nuevoUsuario)){
+		Validar validar = new Validar();
+		if (validar.validarNombre(usuario)&& validar.validarPassword(password) && validar.validarConfirmacionPassword(password, confirmPassword)){
 			
 			
 			String fileName = filePart.getSubmittedFileName();

@@ -54,66 +54,76 @@ public class AltaNuevoUsuario extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		log.debug("### -> Peticion en el Servlet Login");
-		
+
+		log.debug("### -> Solicitud en camino: el Servlet AltaNuevoUsuario está en acción.");
+
 		String usuario = request.getParameter("usuario");// tiene que coincidir con el atributo name del formulario
 		String password = request.getParameter("password");
+		String confirmPassword = request.getParameter("confirmPassword");
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
 		String edad = request.getParameter("edad");
-		int year = Integer.parseInt(edad);
+		int edadPersona = Integer.parseInt(edad);
 		String genero = request.getParameter("genero");
 		String telefono = request.getParameter("telefono");
 		String email = request.getParameter("email");
 		String rutaFoto = request.getParameter("rutaFoto");
 		String hablaSobreTi = request.getParameter("hablaSobreTi");
-		Part filePart = request.getPart("fichero");
-		byte[] foto = filePart.getInputStream().readAllBytes();
-		
-		
-		String rutaFotoPerfil = EscuchaInicioFinAltaUsuario.RUTAS_FOTO +File.separator + new Date().getTime();
-		
-		Path fichero = Path.of(rutaFotoPerfil);
-		Files.copy(filePart.getInputStream(), fichero, StandardCopyOption.REPLACE_EXISTING);
-		String confirmPassword = request.getParameter("confirmPassword");
-		
-		Usuario nuevoUsuario = new Usuario(0, usuario, password, nombre,  apellidos, year, genero, telefono, email,foto, rutaFoto, hablaSobreTi);
-		Validar validar = new Validar();
-		if (validar.validarNombre(usuario) && validar.validarPassword(password) && validar.validarConfirmacionPassword(password, confirmPassword)){
-			
-			
-			String fileName = filePart.getSubmittedFileName();
-			System.out.println("Fichero subido = " + fileName);
+		Part filePart = request.getPart("foto");
 
+		log.info("### -> Datos recibidos: Usuario = " + usuario + ", Email = " + email);
+
+		try {
+			byte[] foto = filePart.getInputStream().readAllBytes();
+			log.debug("###-> foto recibida con tamaño: " + foto.length + " bytes ");
+
+			String rutaFotoPerfil = EscuchaInicioFinAltaUsuario.RUTAS_FOTO + File.separator + new Date().getTime();
+			Path fichero = Path.of(rutaFotoPerfil);
+
+			Files.copy(filePart.getInputStream(), fichero, StandardCopyOption.REPLACE_EXISTING);
+			log.debug("### -> Foto guradada en: " + rutaFotoPerfil);
+
+			Usuario nuevoUsuario = new Usuario(0, usuario, password, nombre, apellidos, edadPersona, genero, telefono, email,
+					foto, rutaFoto, hablaSobreTi);
 			
+			Validar validar = new Validar();
+			if (validar.validarNombre(usuario) && validar.validarPassword(password)
+					&& validar.validarConfirmacionPassword(password, confirmPassword)) {
 
-			UsuarioService usuarioService = new UsuarioService();
+				log.debug("### -> Validacion de usuario exitosa");
 
-			try {
+				String fileName = filePart.getSubmittedFileName();
+
+				log.debug("### -> Nombre del fichero: " + fileName);
+
+				UsuarioService usuarioService = new UsuarioService();
+
 				int idUsuario = usuarioService.insertarUsuario(nuevoUsuario);
-				//TODO devolvemos 200:
-				//crear la sesión, obtener el id del usuario
+				// TODO devolvemos 200:
+				// crear la sesión, obtener el id del usuario
 				HttpSession session = request.getSession(true);
-				//y guardarla en la sesión
+				// y guardarla en la sesión
 				session.setAttribute("idUsuario", idUsuario);
-				
+
 				response.setStatus(200);
-				
-			} catch (SQLException e) {
-				
-				e.printStackTrace();
-				
-				//TODO devolver 500
-				response.setStatus(500);
+
+				log.debug("### -> Usuario insrteado correctamente con ID: " + idUsuario);
+
+			} else {
+				// TODO: declarar log y comentar todo
+
+				response.setStatus(400);// error en la petición
+				log.warn("### error en la validacion de usuario: " + usuario);
 			}
-			
-		} else {
-			//TODO: declarar log y comentar todo
-			response.setStatus(400);//error en la petición
+		} catch (SQLException e) {
+
+			log.error("### -> Error SQL al insertar el usuario " + usuario, e);
+			e.printStackTrace();
+			// TODO devolver 500
+			response.setStatus(500);
+		} catch (Exception e) {
+			log.error("### -> Error inesperado al procesar la solicitud", e);
 		}
 
-		
-		
 	}
 }

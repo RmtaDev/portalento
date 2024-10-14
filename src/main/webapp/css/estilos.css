@@ -62,6 +62,8 @@ footer {
 	height: 5rem;
 	color: white;
 	font-size: 20px;
+	position: relative;
+	margin-block-start: 95vh;
 }
 
 .imagenes-footer {

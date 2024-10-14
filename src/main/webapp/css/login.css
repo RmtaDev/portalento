@@ -1,12 +1,12 @@
 main {
-	background: url("img/fondo.png");
+	background: url("../img/fondo.png");
 	background-size: contain;
 	background-repeat: repeat;
 	height: 100%;
 }
 
 body {
-	background: url("img/fondo.png");
+	
 	margin: 0;
 	padding: 0;
 	height: 100vh;

@@ -55,9 +55,7 @@
 		<div class="container-formulario">
 			<div class="form-container">
 				<h2>Registro</h2>
-				<form onsubmit="event.preventDefault(); loginServidor();" id="formulario" 
-					action="registro" method="post">
-
+				<form onsubmit="validarFormulario(event);" id="formulario" action="registro" method="post">
 					<div class="form-group">
 						<label for="nombre">Usuario: </label> <input type="text"
 							id="nombreUsuario" name="nombreUsuario" placeholder="Introduce tu nombre de usuario"
@@ -129,7 +127,7 @@
 
 					<div class="boton-formulario">
 						<button type="submit" class="btn btn-primary" id="enviar"
-							onclick="window.location.href='perfil.html'">Enviar</button>
+							onclick="window.location.href='inicio.html'" disabled>Enviar</button>
 					</div>
 
 				</form>

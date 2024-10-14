@@ -7,7 +7,11 @@
 	<link rel="icon" href="img/favicon.png">
 	<link rel="stylesheet" href="css/estilos.css">
 	<link rel="stylesheet" href="css/registro.css">
+	<link rel="stylesheet" href="css/accesibilidad.css">
+	<script src="js/registro.js"></script>
+	<script src="js/accesibilidad.js"></script>
 	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<link
 		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 		rel="stylesheet"
@@ -21,6 +25,26 @@
 
 </head>
 <body>
+	<div class="sidebar">
+		<button id="openModalBtn" class="open-btn" aria-label="Menú de accesibilidad">
+			<img class="fa-solid fa-universal-access" src="img/accesibilidad.png">
+		</button>
+		<div id="radialMenu" class="radial-menu">
+			<button id="monocromaticoBtn" aria-label="Activar/Desactivar modo monocromático"
+				title="Activar/Desactivar modo monocromático">
+				<i id="monocromaticoIcon" class="fas fa-eye-slash"></i>
+			</button>
+			<button id="speakerBtn" aria-label="Activar/Desactivar lector de texto"
+				title="Activar/Desactivar lector de texto. Mantener pulsado sobre el texto a leer.">
+				<i id="speakerIcon" class="fas fa-volume-mute"></i>
+			</button>
+			<button id="zoomBtn" aria-label="Aumentar/Disminuir zoom" title="Aumentar/Disminuir zoom">
+				<i id="zoomIcon" class="fa fa-search-plus"></i>
+			</button>
+		</div>
+		<div id="contentContainer"></div>
+	</div>
+	
 	<header>
 		<nav>
 			<a href="inicio.html" class="inicio"> <img alt="inicio" src="img/favicon.png">Inicio</a>
@@ -31,7 +55,7 @@
 		<div class="container-formulario">
 			<div class="form-container">
 				<h2>Registro</h2>
-				<form onsubmit="event.preventDefault(); loginServidor();"
+				<form onsubmit="event.preventDefault(); loginServidor();" id="formulario" 
 					action="registro" method="post">
 
 					<div class="form-group">
@@ -67,13 +91,13 @@
 					</div>
 
 					<div class="form-group">
-						<label for="foto">Foto:</label> <input type="file" multiple
-							accept="image/jpeg">
+						<label for="foto">Foto:</label> 
+						<input type="file" id="foto" multiple accept="image/jpeg">
 					</div>
 
 					<div class="form-group">
 						<label for="descripcion">Habla sobre ti:</label>
-						<textarea name="comentarios" id="comentarios" rows="5" cols="50"
+						<textarea name="comentarios" id="hablaSobreTi" rows="5" cols="50"
 							placeholder="Habla sobre ti..." required>
 	                    </textarea>
 					</div>
@@ -92,20 +116,20 @@
 					</div>
 
 					<div class="form-group">
-						<label for="contraseña">Contraseña:</label> <input type="password"
-							id="contraseña" name="contraseña"
+						<label for="password">Contraseña:</label> <input type="password"
+							id="password" name="password"
 							placeholder="Introduce tu contraseña" required>
 					</div>
 
 					<div class="form-group">
-						<label for="contraseña1">Repite la contraseña:</label> <input
-							type="password" id="contraseña1" name="contraseña1"
+						<label for="confirmPassword">Repite la contraseña:</label> <input
+							type="password" id="confirmPassword" name="confirmPassword"
 							placeholder="Repite la contraseña" required>
 					</div>
 
 					<div class="boton-formulario">
-						<button type="submit" class="btn btn-primary"
-							onclick="window.location.href='perfil.html'">Entrar</button>
+						<button type="submit" class="btn btn-primary" id="enviar"
+							onclick="window.location.href='perfil.html'">Enviar</button>
 					</div>
 
 				</form>

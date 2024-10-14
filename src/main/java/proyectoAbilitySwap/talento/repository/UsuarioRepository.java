@@ -26,7 +26,12 @@ public class UsuarioRepository {
 
 		return existe;
 	}
-
+/**
+ * 
+ * @param usuario
+ * @return
+ * @throws SQLException
+ */
 	public int insertarUsuario(Usuario usuario) throws SQLException {
 		int idnuevo = -1;
 		Connection connection = Pool.getConnection();
@@ -35,10 +40,13 @@ public class UsuarioRepository {
 		ps.setString(1, usuario.getUsuario());
 		ps.setString(2, usuario.getPassword());
 		ps.setBinaryStream(3, new ByteArrayInputStream(usuario.getFoto()), usuario.getFoto().length);
+		//TODO set el resto de parámetros y MODIFICAR la consulta
 		int nfilas = ps.executeUpdate();
 		if (nfilas == 1) {
-			ps.getGeneratedKeys().next();
-			idnuevo = ps.getGeneratedKeys().getInt(1);
+			if (ps.getGeneratedKeys().next())
+			{
+				idnuevo = ps.getGeneratedKeys().getInt(1);
+			}
 		}
 
 		Pool.liberarRecursos(connection, ps, null);

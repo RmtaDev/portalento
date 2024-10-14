@@ -116,11 +116,20 @@ public class AltaNuevoUsuario extends HttpServlet {
 				log.warn("### error en la validacion de usuario: " + usuario);
 			}
 		} catch (SQLException e) {
+			
+			if (e instanceof java.sql.SQLIntegrityConstraintViolationException)
+			{
+				log.error("### -> Error SQL al insertar el usuario " + usuario, e);
+				response.setStatus(404);
+			} else {
+				log.error("### -> Error SQL al insertar el usuario " + usuario, e);
+				e.printStackTrace();
+				// TODO devolver 500
+				response.setStatus(500);
+				
+			}
 
-			log.error("### -> Error SQL al insertar el usuario " + usuario, e);
-			e.printStackTrace();
-			// TODO devolver 500
-			response.setStatus(500);
+			
 		} catch (Exception e) {
 			log.error("### -> Error inesperado al procesar la solicitud", e);
 		}

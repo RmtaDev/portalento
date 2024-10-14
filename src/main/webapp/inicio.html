@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Inicio</title>
 	<link rel="icon" href="img/favicon.png">
 	<link rel="stylesheet" href="css/estilos.css">
-	<link rel="stylesheet" type="text/css" href="css/inicio.css" />
-	<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-		crossorigin="anonymous">
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+	<link rel="stylesheet" href="css/accesibilidad.css">
+	<link rel="stylesheet" href="css/inicio.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 		crossorigin="anonymous"></script>
+	<script src="js/accesibilidad.js"></script>
 
 </head>
 
 <body>
+
+	<div class="sidebar">
+		<button id="openModalBtn" class="open-btn" aria-label="Menú de accesibilidad">
+			<img class="fa-solid fa-universal-access" src="img/accesibilidad.png">
+		</button>
+		<div id="radialMenu" class="radial-menu">
+			<button id="monocromaticoBtn" aria-label="Activar/Desactivar modo monocromático"
+				title="Activar/Desactivar modo monocromático">
+				<i id="monocromaticoIcon" class="fas fa-eye-slash"></i>
+			</button>
+			<button id="speakerBtn" aria-label="Activar/Desactivar lector de texto"
+				title="Activar/Desactivar lector de texto. Mantener pulsado sobre el texto a leer.">
+				<i id="speakerIcon" class="fas fa-volume-mute"></i>
+			</button>
+			<button id="zoomBtn" aria-label="Aumentar/Disminuir zoom" title="Aumentar/Disminuir zoom">
+				<i id="zoomIcon" class="fa fa-search-plus"></i>
+			</button>
+		</div>
+		<div id="contentContainer"></div>
+	</div>
 
 	<header>
 		<nav>
 			<div>
 				<a><img alt="inicio" src="img/favicon.png"></a>
 			</div>
-			
+
 			<div>
-				<a href="registro.html"><img src="img/registro.png"
-					title="Registro" alt="registro" ></a>
-				<a href="login.html"><img src="img/login.png" title="Login"
-					alt="login"></a>
+				<a href="registro.html"><img src="img/registro.png" title="Registro" alt="registro"></a>
+				<a href="login.html"><img src="img/login.png" title="Login" alt="login"></a>
 			</div>
 		</nav>
 
@@ -43,7 +63,7 @@
 				<h1>Bienvenido a la Plataforma de Intercambio de Habilidades</h1>
 				<div class="parrafos">
 					<p>- Esta plataforma tiene como finalidad intercambiar
-						diferentes habilidades con otras persora para enriquecer nuestros
+						diferentes habilidades con otras personas para enriquecer nuestros
 						conocimientos.</p>
 
 					<p>- Regístrate o inicia sesión para empezar a intercambiar tus
@@ -66,11 +86,12 @@
 	<footer>
 		<div class="imagenes-footer">
 			<img src="img/instagram.png" title="Instagram" alt="Instagram">
-			<img src="img/facebook.png" title="Facebook" alt="Facebook"> <img
-				src="img/twiter.jpeg" title="Twiter" alt="Twiter">
+			<img src="img/facebook.png" title="Facebook" alt="Facebook"> <img src="img/twiter.jpeg" title="Twiter"
+				alt="Twiter">
 		</div>
 
 		<p>Todos los dererechos reservados - @Copyright</p>
 	</footer>
 </body>
+
 </html>

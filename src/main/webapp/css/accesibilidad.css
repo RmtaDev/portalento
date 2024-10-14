@@ -1,0 +1,150 @@
+.radial-menu {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #754ef9;
+	border-radius: 50%;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	transition:
+		width 0.5s,
+		height 0.5s,
+		transform 0.5s;
+	transform-origin: right center;
+	transform: translateX(-100%) scaleY(0);
+	z-index: 10;
+}
+
+.radial-menu button {
+	color: #fdfdfd;
+	border: none;
+	margin: 0px 85px 0px 0px;
+	padding: 10px;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: transform 0.5s;
+}
+
+.fa-universal-access {
+	font-size: 4rem;
+	background-color: transparent;
+	margin-top: 4px;
+	border-radius: 50%;
+}
+
+img {
+	width: 50px;
+	height: 50px;
+
+}
+
+.sidebar {
+	position: fixed;
+	right: 0;
+	top: 50%;
+	transform: translateX(5%);
+	border: 2px solid #fdfdfd;
+	z-index: 20;
+}
+
+.sidebar button {
+	background-color: #754ef9;
+	color: #fdfdfd;
+	font-size: 24px;
+	cursor: pointer;
+	z-index: 30;
+	position: relative;
+	border: none;
+}
+
+.radial-menu.show {
+	width: 200px;
+	height: 200px;
+	transform: translateX(-52%) translateY(-58%) scaleY(1);
+	border: 2px solid #fdfdfd;
+	z-index: 20;
+	margin-top: -7px;
+}
+
+.radial-menu.show button {
+	transform: rotate(360deg);
+}
+
+.zoomed-in {
+	transform: scale(1.15);
+	transition: transform 0.5s ease-in-out;
+}
+
+.sidebar {
+	background-color: #754ef9;
+	color: #fdfdfd;
+	padding: 15px;
+	border-top-left-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
+
+.monocromatico {
+	filter: grayscale(100%);
+}
+
+@keyframes fadeToGray {
+	0% {
+		filter: grayscale(0%);
+	}
+
+	100% {
+		filter: grayscale(100%);
+	}
+}
+
+@keyframes fadeFromGray {
+	0% {
+		filter: grayscale(100%);
+	}
+
+	100% {
+		filter: grayscale(0%);
+	}
+}
+
+@keyframes waveEffect {
+	0% {
+		background-position: 100% 0;
+	}
+
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.monocromatico-animate-to {
+	animation: fadeToGray 2s forwards, waveEffect 2s forwards;
+}
+
+.monocromatico-animate-from {
+	animation: fadeFromGray 2s forwards, waveEffect 2s forwards;
+}
+
+.wave-background {
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0) 50%, #754ef9 50%);
+	background-size: 200% 100%;
+}
+
+.monocromatico-animate {
+	animation: fadeToGray 1.5s forwards;
+}
+
+@keyframes pulseOutline {
+
+	0%,
+	100% {
+		outline: 2px dashed red;
+	}
+
+	50% {
+		outline: 4px dashed red;
+	}
+}

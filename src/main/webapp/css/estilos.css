@@ -26,7 +26,8 @@ body {
 .contenedor {
 	background-color: #FFFFFF99;
 	position: relative;
-	height: 100%; /* Altura del contenedor */
+	height: 100%;
+	/* Altura del contenedor */
 	overflow: hidden;
 }
 
@@ -62,9 +63,11 @@ footer {
 	color: white;
 	font-size: 20px;
 }
+
 .imagenes-footer {
 	display: flex;
-	justify-content: flex-end; /* Alinea la imagen a la derecha */
+	justify-content: flex-end;
+	/* Alinea la imagen a la derecha */
 }
 
 .imagenes-footer img {

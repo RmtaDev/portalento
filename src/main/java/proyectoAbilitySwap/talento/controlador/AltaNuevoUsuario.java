@@ -80,17 +80,17 @@ public class AltaNuevoUsuario extends HttpServlet {
 					&& validar.validarConfirmacionPassword(password, confirmPassword)) {
 				
 				byte[] foto = filePart.getInputStream().readAllBytes();
-				log.debug("###-> foto recibida con tamaño: " + foto.length + " bytes ");
+				log.debug("### -> foto recibida con tamaño: " + foto.length + " bytes ");
 
 				String rutaFotoPerfil = EscuchaInicioFinAltaUsuario.RUTAS_FOTO + File.separator + new Date().getTime();
 				Path fichero = Path.of(rutaFotoPerfil);
 
 				Files.copy(filePart.getInputStream(), fichero, StandardCopyOption.REPLACE_EXISTING);
-				log.debug("### -> Foto guradada en: " + rutaFotoPerfil);
+				log.debug("### -> Foto guardada en: " + rutaFotoPerfil);
 				Usuario nuevoUsuario = new Usuario(0, usuario, password, nombre, apellidos, edadPersona, genero, telefono, email,
 						foto, rutaFotoPerfil, hablaSobreTi);
 
-				log.debug("### -> Validacion de usuario exitosa");
+				log.debug("### -> Validación de usuario exitosa.");
 				String fileName = filePart.getSubmittedFileName();
 				log.debug("### -> Nombre del fichero: " + fileName);
 
@@ -102,7 +102,7 @@ public class AltaNuevoUsuario extends HttpServlet {
 
 				response.setStatus(200);
 
-				log.debug("### -> Usuario insrteado correctamente con ID: " + idUsuario);
+				log.debug("### -> Usuario insertado correctamente con ID: " + idUsuario);
 
 			} else {
 				// TODO: declarar log y comentar todo

@@ -67,28 +67,30 @@ public class AltaNuevoUsuario extends HttpServlet {
 		String genero = request.getParameter("genero");
 		String telefono = request.getParameter("telefono");
 		String email = request.getParameter("email");
-		String rutaFoto = request.getParameter("rutaFoto");
+		//String rutaFoto = request.getParameter("rutaFoto");
 		String hablaSobreTi = request.getParameter("hablaSobreTi");
 		Part filePart = request.getPart("foto");
 
 		log.info("### -> Datos recibidos: Usuario = " + usuario + ", Email = " + email);
 
 		try {
-			byte[] foto = filePart.getInputStream().readAllBytes();
-			log.debug("###-> foto recibida con tamaño: " + foto.length + " bytes ");
-
-			String rutaFotoPerfil = EscuchaInicioFinAltaUsuario.RUTAS_FOTO + File.separator + new Date().getTime();
-			Path fichero = Path.of(rutaFotoPerfil);
-
-			Files.copy(filePart.getInputStream(), fichero, StandardCopyOption.REPLACE_EXISTING);
-			log.debug("### -> Foto guradada en: " + rutaFotoPerfil);
-
-			Usuario nuevoUsuario = new Usuario(0, usuario, password, nombre, apellidos, edadPersona, genero, telefono, email,
-					foto, rutaFoto, hablaSobreTi);
+			
 			
 			Validar validar = new Validar();
 			if (validar.validarNombre(usuario) && validar.validarPassword(password)
 					&& validar.validarConfirmacionPassword(password, confirmPassword)) {
+				
+				byte[] foto = filePart.getInputStream().readAllBytes();
+				log.debug("###-> foto recibida con tamaño: " + foto.length + " bytes ");
+
+				String rutaFotoPerfil = EscuchaInicioFinAltaUsuario.RUTAS_FOTO + File.separator + new Date().getTime();
+				Path fichero = Path.of(rutaFotoPerfil);
+
+				Files.copy(filePart.getInputStream(), fichero, StandardCopyOption.REPLACE_EXISTING);
+				log.debug("### -> Foto guradada en: " + rutaFotoPerfil);
+
+				Usuario nuevoUsuario = new Usuario(0, usuario, password, nombre, apellidos, edadPersona, genero, telefono, email,
+						foto, rutaFotoPerfil, hablaSobreTi);
 
 				log.debug("### -> Validacion de usuario exitosa");
 

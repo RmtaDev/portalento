@@ -3,6 +3,7 @@ package proyectoAbilitySwap.talento.repository;
 import java.io.ByteArrayInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -43,9 +44,10 @@ public class UsuarioRepository {
 		//TODO set el resto de parámetros y MODIFICAR la consulta
 		int nfilas = ps.executeUpdate();
 		if (nfilas == 1) {
-			if (ps.getGeneratedKeys().next())
+			ResultSet rs = ps.getGeneratedKeys();
+			if (rs.next())
 			{
-				idnuevo = ps.getGeneratedKeys().getInt(1);
+				idnuevo = rs.getInt(1);
 			}
 		}
 

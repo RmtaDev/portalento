@@ -67,7 +67,6 @@ public class AltaNuevoUsuario extends HttpServlet {
 		String genero = request.getParameter("genero");
 		String telefono = request.getParameter("telefono");
 		String email = request.getParameter("email");
-		//String rutaFoto = request.getParameter("rutaFoto");
 		String hablaSobreTi = request.getParameter("hablaSobreTi");
 		Part filePart = request.getPart("foto");
 
@@ -88,23 +87,17 @@ public class AltaNuevoUsuario extends HttpServlet {
 
 				Files.copy(filePart.getInputStream(), fichero, StandardCopyOption.REPLACE_EXISTING);
 				log.debug("### -> Foto guradada en: " + rutaFotoPerfil);
-
 				Usuario nuevoUsuario = new Usuario(0, usuario, password, nombre, apellidos, edadPersona, genero, telefono, email,
 						foto, rutaFotoPerfil, hablaSobreTi);
 
 				log.debug("### -> Validacion de usuario exitosa");
-
 				String fileName = filePart.getSubmittedFileName();
-
 				log.debug("### -> Nombre del fichero: " + fileName);
 
 				UsuarioService usuarioService = new UsuarioService();
 
 				int idUsuario = usuarioService.insertarUsuario(nuevoUsuario);
-				// TODO devolvemos 200:
-				// crear la sesión, obtener el id del usuario
 				HttpSession session = request.getSession(true);
-				// y guardarla en la sesión
 				session.setAttribute("idUsuario", idUsuario);
 
 				response.setStatus(200);

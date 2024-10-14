@@ -13,19 +13,29 @@ public class UsuarioRepository {
 	public static final String EXISTE_USUARIO = "SELECT * FROM abilityswapbd.usuarios WHERE usuario = ? AND password = ?";
 	public static final String INSERTAR_USUARIO = "INSERT INTO `abilityswapbd`.`usuarios` (`usuario`, `password`, `foto`) VALUES (?,?,?);";
 
-	public boolean existeUsuario(Usuario usuario) throws SQLException {
-		boolean existe = false;
+
+	public Usuario leerUsuario(Usuario usuario) throws SQLException {
+		Usuario usuarioLeido = null;
 
 		Connection connection = Pool.getConnection();
 		PreparedStatement ps = connection.prepareStatement(EXISTE_USUARIO);
 		ps.setString(1, usuario.getUsuario());
 		ps.setString(2, usuario.getPassword());
-		ps.execute();
-		existe = ps.getResultSet().next();
+		ResultSet rs = ps.executeQuery();
 
-		Pool.liberarRecursos(connection, ps, null);
+		if (rs.next())
+		{
+			int idusuario = rs.getInt(1);
+			String nombreu = rs.getString("usuario");
+			String pwdu = rs.getString("password");
+			String rutafoto = rs.getString("rutafoto");
 
-		return existe;
+			usuarioLeido = new Usuario(idusuario, nombreu, pwdu, rutafoto);
+		}
+
+		Pool.liberarRecursos(connection, ps, rs);
+
+		return usuarioLeido;
 	}
 /**
  * 

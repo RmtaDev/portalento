@@ -4,6 +4,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 import com.google.gson.Gson;
@@ -52,9 +54,13 @@ public class Login extends HttpServlet {
 			if (validar.validarNombre(usuario.getUsuario()) && validar.validarPassword(usuario.getPassword()))
 			{
 				UsuarioService usuarioService = new UsuarioService();
-				if (usuarioService.existeUsuario(usuario))
+				Usuario u = usuarioService.leerUsuario(usuario);
+				if (u!=null)
 					{
 						System.out.println("El usuario existe");
+						int idu = u.getIdusuario();
+						HttpSession sesion = request.getSession(true);
+						sesion.setAttribute("idusuario", idu);
 						response.setStatus(200);
 						log.debug("200 El usuario existe");
 					} else {

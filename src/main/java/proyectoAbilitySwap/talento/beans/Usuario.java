@@ -134,6 +134,15 @@ public class Usuario {
 		this.password = password;
 	}
 
+	
+	public Usuario(int idusuario, String usuario, String password, String rutaFoto) {
+		super();
+		this.idusuario = idusuario;
+		this.usuario = usuario;
+		this.password = password;
+		this.rutaFoto = rutaFoto;
+	}
+
 	public Usuario(int idusuario, String usuario, String password, byte[] foto) {
 		super();
 		this.idusuario = idusuario;

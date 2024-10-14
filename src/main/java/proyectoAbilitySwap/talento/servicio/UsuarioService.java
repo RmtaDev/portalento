@@ -7,14 +7,15 @@ import proyectoAbilitySwap.talento.repository.UsuarioRepository;
 
 public class UsuarioService {
 
-	public boolean existeUsuario(Usuario usuario) throws SQLException {
-		boolean existe = false;
+	public Usuario leerUsuario(Usuario usuario) throws SQLException {
+		Usuario usuarioleido = null;
 
-		UsuarioRepository usuarioRepository = new UsuarioRepository();
-		existe = usuarioRepository.existeUsuario(usuario);
+			UsuarioRepository usuarioRepository = new UsuarioRepository();
+			usuarioleido = usuarioRepository.leerUsuario(usuario);
 
-		return existe;
+		return usuarioleido;
 	}
+
 
 	public int insertarUsuario(Usuario usuario) throws SQLException {
 		int idnuevousuario = -1;

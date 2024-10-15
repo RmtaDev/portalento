@@ -1,0 +1,59 @@
+/* Estilo para el contenedor del desplegable */
+.contenedor-desplegable {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Estilo del select (desplegable) */
+.desplegable {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Estilo del select cuando recibe foco */
+.desplegable:focus {
+    border-color: #7a9cb5;
+    box-shadow: 0 0 5px rgba(122, 156, 181, 0.8);
+}
+
+/* Estilo del contenedor general para centrar el contenido */
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Ajusta el tamaño de los íconos en el nav */
+nav img {
+    width: 50px;  /* Ajusta este valor para controlar el tamaño del ícono */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 50%; /* Para asegurarte de que los íconos se mantengan redondos */
+}
+
+/* Estilo del contenedor de navegación */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Añade un espacio entre los íconos */
+}
+
+/* Otros estilos básicos (si ya existían) */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+}

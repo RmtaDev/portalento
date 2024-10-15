@@ -38,4 +38,15 @@
     <servlet-name>ObtenerPerfilUsuario</servlet-name>
     <url-pattern>/ObtenerPerfilUsuario</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+    <description></description>
+    <display-name>ListadoCategoriasHabilidadesServlet</display-name>
+    <servlet-name>ListadoCategoriasHabilidadesServlet</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.ListadoCategoriasHabilidadesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListadoCategoriasHabilidadesServlet</servlet-name>
+    <url-pattern>/ListadoCategoriasHabilidadesServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

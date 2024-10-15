@@ -5,7 +5,7 @@ public class Usuario {
 	private String usuario;
 	private String password;
 	private String nombre;
-	private String Apellidos;
+	private String apellidos;
 	private int edad;
 	private String genero;
 	private String telefono;
@@ -23,11 +23,11 @@ public class Usuario {
 	}
 
 	public String getApellidos() {
-		return Apellidos;
+		return apellidos;
 	}
 
 	public void setApellidos(String apellidos) {
-		Apellidos = apellidos;
+		this.apellidos = apellidos;
 	}
 
 	public int getEdad() {
@@ -117,7 +117,7 @@ public class Usuario {
 		this.usuario = usuario;
 		this.password = password;
 		this.nombre = nombre;
-		Apellidos = apellidos;
+		apellidos = apellidos;
 		this.edad = edad;
 		this.genero = genero;
 		this.telefono = telefono;
@@ -158,4 +158,15 @@ public class Usuario {
 
 	public Usuario() {
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario [idusuario=" + idusuario + ", usuario=" + usuario + ", password=" + password + ", nombre="
+				+ nombre + ", Apellidos=" + apellidos + ", edad=" + edad + ", genero=" + genero + ", telefono="
+				+ telefono + ", email=" + email + ", rutaFoto=" + rutaFoto + ", hablaSobreTi=" + hablaSobreTi + "]";
+	}
+	
+	
+	
+	
 }

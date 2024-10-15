@@ -11,6 +11,7 @@ import proyectoAbilitySwap.talento.beans.Usuario;
 
 public class UsuarioRepository {
 	public static final String EXISTE_USUARIO = "SELECT * FROM abilityswapbd.usuarios WHERE usuario = ? AND password = ?";
+	public static final String CONSULTAR_USUARIO_POR_ID = "SELECT * FROM abilityswapbd.usuarios WHERE id_usuario = ?";
 	public static final String INSERTAR_USUARIO = "INSERT INTO `abilityswapbd`.`usuarios` (`usuario`, `password`, `nombre`, `apellidos`, `edad`, `genero`, `telefono`, `email`, `foto`, `rutaFoto`, `habla_sobre_ti`) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
 
 
@@ -30,6 +31,36 @@ public class UsuarioRepository {
 			String rutafoto = rs.getString("rutafoto");
 
 			usuarioLeido = new Usuario(idusuario, nombreu, pwdu, rutafoto);
+		}
+
+		Pool.liberarRecursos(connection, ps, rs);
+
+		return usuarioLeido;
+	}
+	
+	
+	public Usuario leerUsuarioPorId(int id_usuario) throws SQLException {
+		Usuario usuarioLeido = null;
+
+		Connection connection = Pool.getConnection();
+		PreparedStatement ps = connection.prepareStatement(CONSULTAR_USUARIO_POR_ID);
+		ps.setInt(1, id_usuario);
+		ResultSet rs = ps.executeQuery();
+
+		if (rs.next()) {
+			
+			String nombreu = rs.getString("usuario");
+			String rutafoto = rs.getString("rutafoto");
+			String nombre = rs.getString("nombre");
+			String apellidos = rs.getString("apellidos");
+			int edad = rs.getInt("edad");
+			String genero = rs.getString("genero");
+			String telefono = rs.getString("telefono");
+			String email = rs.getString("email");
+			String sobreti = rs.getString("habla_sobre_ti");
+			//nombre, apellidos, edad, genero ,telefono , email, habla_sobre_ti
+
+			usuarioLeido = new Usuario(id_usuario, nombreu, null, nombre, apellidos, edad, genero, telefono, email, null, rutafoto, sobreti);
 		}
 
 		Pool.liberarRecursos(connection, ps, rs);

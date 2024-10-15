@@ -15,6 +15,15 @@ public class UsuarioService {
 
 		return usuarioleido;
 	}
+	
+	public Usuario leerUsuarioPorId(int idusuario) throws SQLException {
+		Usuario usuarioleido = null;
+
+			UsuarioRepository usuarioRepository = new UsuarioRepository();
+			usuarioleido = usuarioRepository.leerUsuarioPorId(idusuario);
+
+		return usuarioleido;
+	}
 
 
 	public int insertarUsuario(Usuario usuario) throws SQLException {

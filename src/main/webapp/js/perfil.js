@@ -1,5 +1,5 @@
 function obtenerPerfilUsuario() {
-	fetch('/obtenerPerfilUsuario', {
+	fetch('ObtenerPerfilUsuario', {
 		method: 'GET'
 	})
 		.then(response => response.json())

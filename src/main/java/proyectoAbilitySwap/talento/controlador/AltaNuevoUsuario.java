@@ -98,7 +98,7 @@ public class AltaNuevoUsuario extends HttpServlet {
 
 				int idUsuario = usuarioService.insertarUsuario(nuevoUsuario);
 				HttpSession session = request.getSession(true);
-				session.setAttribute("idUsuario", idUsuario);
+				session.setAttribute("idusuario", idUsuario);
 
 				response.setStatus(200);
 

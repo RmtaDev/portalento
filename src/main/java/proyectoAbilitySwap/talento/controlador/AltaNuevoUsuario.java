@@ -82,7 +82,7 @@ public class AltaNuevoUsuario extends HttpServlet {
 				byte[] foto = filePart.getInputStream().readAllBytes();
 				log.debug("### -> foto recibida con tamaño: " + foto.length + " bytes ");
 
-				String rutaFotoPerfil = EscuchaInicioFinAltaUsuario.RUTAS_FOTO + File.separator + new Date().getTime();
+				String rutaFotoPerfil = EscuchaInicioFinApp.RUTAS_FOTO + File.separator + new Date().getTime();
 				Path fichero = Path.of(rutaFotoPerfil);
 
 				Files.copy(filePart.getInputStream(), fichero, StandardCopyOption.REPLACE_EXISTING);

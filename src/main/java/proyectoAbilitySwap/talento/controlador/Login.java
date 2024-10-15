@@ -63,6 +63,7 @@ public class Login extends HttpServlet {
 						sesion.setAttribute("idusuario", idu);
 						response.setStatus(200);
 						log.debug("200 El usuario existe");
+						//response.sendRedirect("perfil.html");
 					} else {
 						System.out.println("El usuario NO existe");
 						response.setStatus(403);

@@ -43,7 +43,7 @@ public class ObtenerPerfilUsuario extends HttpServlet {
 			if (httpSession!=null)
 			{
 				log.debug("El usuario tiene una sesión válida");
-				int idusuario = (int) request.getAttribute("idusuario");
+				int idusuario = (int) httpSession.getAttribute("idusuario");
 				UsuarioService usuarioService = new UsuarioService();
 				Usuario usuario = usuarioService.leerUsuarioPorId(idusuario);
 				Gson gson = new Gson();

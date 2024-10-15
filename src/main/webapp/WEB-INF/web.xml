@@ -26,7 +26,7 @@
   </servlet-mapping>
   <listener>
     <listener-class>
-			proyectoAbilitySwap.talento.controlador.EscuchaInicioFinAltaUsuario</listener-class>
+			proyectoAbilitySwap.talento.controlador.EscuchaInicioFinApp</listener-class>
   </listener>
   <servlet>
     <description></description>
@@ -37,5 +37,15 @@
   <servlet-mapping>
     <servlet-name>ObtenerPerfilUsuario</servlet-name>
     <url-pattern>/ObtenerPerfilUsuario</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ObtenerFoto</display-name>
+    <servlet-name>ObtenerFoto</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.ObtenerFoto</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ObtenerFoto</servlet-name>
+    <url-pattern>/ObtenerFoto</url-pattern>
   </servlet-mapping>
 </web-app>

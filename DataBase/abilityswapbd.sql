@@ -37,7 +37,7 @@ CREATE TABLE `categorias` (
 
 LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
-INSERT INTO `categorias` VALUES (1,'Programacion'),(2,'Comunicacion'),(3,'Relaciones'),(4,'Creatividad'),(5,'Gestion'),(6,'Analisis'),(7,'Adaptacion'),(8,'Digitalizacion'),(9,'Idiomas'),(10,'Ejercicio'),(11,'Organizacion'),(12,'Cocina'),(13,'Mantenimiento'),(14,'Compras'),(15,'Cuidado Personal'),(16,'Otras');
+INSERT INTO `categorias` VALUES (1,'Programación'),(2,'Comunicación'),(3,'Relaciones'),(4,'Creatividad'),(5,'Gestión'),(6,'Análisis'),(7,'Adaptación'),(8,'Digitalización'),(9,'Idiomas'),(10,'Ejercicio'),(11,'Organización'),(12,'Cocina'),(13,'Mantenimiento'),(14,'Compras'),(15,'Cuidado Personal'),(16,'Otras');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,4 +143,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-15 11:38:00
+-- Dump completed on 2024-10-15 12:05:47

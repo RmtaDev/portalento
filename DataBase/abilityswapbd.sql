@@ -28,7 +28,7 @@ CREATE TABLE `categorias` (
   `id_categoria` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `categorias` (
 
 LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
-INSERT INTO `categorias` VALUES (1,'Programacion'),(2,'Comunicacion'),(3,'Relaciones'),(4,'Creatividad'),(5,'Gestion'),(6,'Analisis'),(7,'Adaptacion'),(8,'Digitalizacion'),(9,'Idiomas'),(10,'Ejercicio'),(11,'Organizacion'),(12,'Cocina'),(13,'Mantenimiento'),(14,'Compras'),(15,'Cuidado Personal');
+INSERT INTO `categorias` VALUES (1,'Programacion'),(2,'Comunicacion'),(3,'Relaciones'),(4,'Creatividad'),(5,'Gestion'),(6,'Analisis'),(7,'Adaptacion'),(8,'Digitalizacion'),(9,'Idiomas'),(10,'Ejercicio'),(11,'Organizacion'),(12,'Cocina'),(13,'Mantenimiento'),(14,'Compras'),(15,'Cuidado Personal'),(16,'Otras');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,7 +78,7 @@ DROP TABLE IF EXISTS `habilidades_ofertadas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `habilidades_ofertadas` (
-  `id_habilidad` int NOT NULL,
+  `id_habilidad` int NOT NULL AUTO_INCREMENT,
   `usuario` int NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `id_categoria` int NOT NULL,
@@ -143,4 +143,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-14 10:18:35
+-- Dump completed on 2024-10-15 11:38:00

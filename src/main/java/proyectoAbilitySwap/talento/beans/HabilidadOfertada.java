@@ -1,28 +1,28 @@
 package proyectoAbilitySwap.talento.beans;
 
 public class HabilidadOfertada {
-    private int idHabilidad;
+    private int id_habilidad;
     private String usuario;
     private String nombre;
-    private int idCategoria;
+    private int id_categoria;
     private Categoria categoria; 
 
     public HabilidadOfertada() {
     }
 
     public HabilidadOfertada(int idHabilidad, String usuario, String nombre, int idCategoria) {
-        this.idHabilidad = idHabilidad;
+        this.id_habilidad = idHabilidad;
         this.usuario = usuario;
         this.nombre = nombre;
-        this.idCategoria = idCategoria;
+        this.id_categoria = idCategoria;
     }
 
     public int getIdHabilidad() {
-        return idHabilidad;
+        return id_habilidad;
     }
 
     public void setIdHabilidad(int idHabilidad) {
-        this.idHabilidad = idHabilidad;
+        this.id_habilidad = idHabilidad;
     }
 
     public String getUsuario() {
@@ -42,11 +42,11 @@ public class HabilidadOfertada {
     }
 
     public int getIdCategoria() {
-        return idCategoria;
+        return id_categoria;
     }
 
     public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
+        this.id_categoria = idCategoria;
     }
 
     public Categoria getCategoria() {
@@ -60,10 +60,10 @@ public class HabilidadOfertada {
     @Override
     public String toString() {
         return "HabilidadOfertada{" +
-                "idHabilidad=" + idHabilidad +
+                "idHabilidad=" + id_habilidad +
                 ", usuario='" + usuario + '\'' +
                 ", nombre='" + nombre + '\'' +
-                ", idCategoria=" + idCategoria +
+                ", idCategoria=" + id_categoria +
                 ", categoria=" + (categoria != null ? categoria.getNombre() : "null") +
                 '}';
     }

@@ -1,5 +1,6 @@
 package proyectoAbilitySwap.talento.repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import proyectoAbilitySwap.talento.beans.HabilidadOfertada;
@@ -11,9 +12,9 @@ import proyectoAbilitySwap.talento.beans.HabilidadOfertada;
  */
 public interface IHabilidadesOfertadasRepository {
 
-	void insertarHabilidadOfertada (String nombreHabilidad, int idUsuario, int idCategoria);
+	void insertarHabilidadOfertada (String nombreHabilidad, int idUsuario, int idCategoria) throws SQLException;
 	
-	List<HabilidadOfertada> consultarTodasOfertadas (int idUsuario);
+	List<HabilidadOfertada> consultarTodasOfertadas (int idUsuario) throws SQLException;
 	
-	void borrarHabilidadOfertada (int idHabilidad);
+	void borrarHabilidadOfertada (int idHabilidad) throws SQLException;
 }

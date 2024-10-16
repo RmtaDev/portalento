@@ -2,20 +2,24 @@ package proyectoAbilitySwap.talento.beans;
 
 public class Categoria {
 
-    private String nombre;  // Cambiado a String
+    private String nombre; 
     private int id_categoria;
+    
+    public Categoria() {
 
-    public Categoria(String nombre, int id_categoria) {  // Cambiado a String
+    }
+
+    public Categoria(String nombre, int id_categoria) { 
         super();
         this.nombre = nombre;
         this.id_categoria = id_categoria;
     }
 
-    public String getNombre() {  // Cambiado a String
+    public String getNombre() {  
         return nombre;
     }
 
-    public void setNombre(String nombre) {  // Cambiado a String
+    public void setNombre(String nombre) {  
         this.nombre = nombre;
     }
 

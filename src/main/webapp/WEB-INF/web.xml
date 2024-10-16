@@ -29,7 +29,8 @@
 	</servlet-mapping>
 	<listener>
 		<listener-class>
-			proyectoAbilitySwap.talento.controlador.EscuchaInicioFinApp</listener-class>
+			proyectoAbilitySwap.talento.controlador.EscuchaInicioFinApp
+		</listener-class>
 	</listener>
 	<servlet>
 		<description></description>
@@ -60,5 +61,25 @@
 	<servlet-mapping>
 		<servlet-name>ListadoCategoriasHabilidadesServlet</servlet-name>
 		<url-pattern>/ListadoCategoriasHabilidadesServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ObtenerUsuariosPorHabilidad</display-name>
+		<servlet-name>ObtenerUsuariosPorHabilidad</servlet-name>
+		<servlet-class>proyectoAbilitySwap.talento.controlador.ObtenerUsuariosPorHabilidad</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ObtenerUsuariosPorHabilidad</servlet-name>
+		<url-pattern>/ObtenerUsuariosPorHabilidad</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<display-name>BuscadorHabServlet</display-name>
+		<servlet-name>BuscadorHabServlet</servlet-name>
+		<servlet-class>proyectoAbilitySwap.talento.controlador.BuscadorHabServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BuscadorHabServlet</servlet-name>
+		<url-pattern>/BuscadorHabServlet</url-pattern>
 	</servlet-mapping>
 </web-app>

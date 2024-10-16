@@ -1,7 +1,7 @@
 package proyectoAbilitySwap.talento.beans;
 
 public class HabilidadOfertada {
-	
+
 	
     private int idHabilidad;
     private int usuario;
@@ -64,5 +64,6 @@ public class HabilidadOfertada {
   
 	
     
+
 }
 

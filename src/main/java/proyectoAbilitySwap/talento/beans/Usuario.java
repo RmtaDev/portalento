@@ -156,6 +156,11 @@ public class Usuario {
 		this.foto = foto;
 	}
 
+	public Usuario(String usuario) {
+		super();
+		this.usuario = usuario;
+	}
+
 	public Usuario() {
 	}
 

@@ -1,35 +1,34 @@
 package proyectoAbilitySwap.talento.beans;
 
 public class HabilidadOfertada {
-    private int idHabilidad;
-    private String usuario;
+    private int id_habilidad;
+    private int usuario;
     private String nombre;
-    private int idCategoria;
-    private Categoria categoria; 
+    private int id_categoria;
 
     public HabilidadOfertada() {
     }
 
-    public HabilidadOfertada(int idHabilidad, String usuario, String nombre, int idCategoria) {
-        this.idHabilidad = idHabilidad;
+    public HabilidadOfertada(int idHabilidad, int usuario, String nombre, int idCategoria) {
+        this.id_habilidad = idHabilidad;
         this.usuario = usuario;
         this.nombre = nombre;
-        this.idCategoria = idCategoria;
+        this.id_categoria = idCategoria;
     }
 
     public int getIdHabilidad() {
-        return idHabilidad;
+        return id_habilidad;
     }
 
     public void setIdHabilidad(int idHabilidad) {
-        this.idHabilidad = idHabilidad;
+        this.id_habilidad = idHabilidad;
     }
 
-    public String getUsuario() {
+    public int getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
+    public void setUsuario(int usuario) {
         this.usuario = usuario;
     }
 
@@ -42,29 +41,22 @@ public class HabilidadOfertada {
     }
 
     public int getIdCategoria() {
-        return idCategoria;
+        return id_categoria;
     }
 
     public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
+        this.id_categoria = idCategoria;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
-    }
 
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
 
     @Override
     public String toString() {
         return "HabilidadOfertada{" +
-                "idHabilidad=" + idHabilidad +
+                "idHabilidad=" + id_habilidad +
                 ", usuario='" + usuario + '\'' +
                 ", nombre='" + nombre + '\'' +
-                ", idCategoria=" + idCategoria +
-                ", categoria=" + (categoria != null ? categoria.getNombre() : "null") +
+                ", idCategoria=" + id_categoria +
                 '}';
     }
 }

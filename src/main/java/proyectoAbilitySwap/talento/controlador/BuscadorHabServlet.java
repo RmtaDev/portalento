@@ -6,6 +6,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import proyectoAbilitySwap.talento.beans.Categoria;
+import proyectoAbilitySwap.talento.beans.HabilidadOfertada;
+import proyectoAbilitySwap.talento.servicio.BuscadorHabService;
 import proyectoAbilitySwap.talento.servicio.CategoriasService;
 
 import java.io.IOException;
@@ -39,16 +41,16 @@ private static final long serialVersionUID = 1L;
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		log.debug("Peticion GET en el servlet");
-		HabilidadesService habilidadesService = new HabilidadesService();
+		BuscadorHabService habilidadesService = new BuscadorHabService();
 		
 		try {
-			List<Categoria> categorias = categoriasService.recuperarListadoCategorias();
+			List<HabilidadOfertada> habilidades = habilidadesService.recuperarListadoHabilidades();
 			Gson gson = new Gson();
-			String listaJsonCategorias = gson.toJson(categorias);
-			response.getWriter().write(listaJsonCategorias);
+			String listaJsonHabilidades = gson.toJson(habilidades);
+			response.getWriter().write(listaJsonHabilidades);
 			response.setStatus(200);
 			response.setContentType("application/json");
-			log.debug("La peticion fue bien " + listaJsonCategorias);
+			log.debug("La peticion fue bien " + listaJsonHabilidades);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -6,7 +6,6 @@ import java.util.List;
 import proyectoAbilitySwap.talento.beans.Categoria;
 import proyectoAbilitySwap.talento.beans.HabilidadOfertada;
 import proyectoAbilitySwap.talento.repository.BuscadorHabRepository;
-import proyectoAbilitySwap.talento.repository.CategoriasRepository;
 
 public class BuscadorHabService {
 

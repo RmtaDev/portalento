@@ -40,11 +40,12 @@ private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		log.debug("Peticion GET en el servlet");
+		String consulta = request.getParameter("consulta");
+		log.debug("Peticion GET en el servlet con prefijo " + consulta);
 		BuscadorHabService habilidadesService = new BuscadorHabService();
 		
 		try {
-			List<HabilidadOfertada> habilidades = habilidadesService.recuperarListadoHabilidades();
+			List<HabilidadOfertada> habilidades = habilidadesService.recuperarListadoHabilidades(consulta);
 			Gson gson = new Gson();
 			String listaJsonHabilidades = gson.toJson(habilidades);
 			response.getWriter().write(listaJsonHabilidades);

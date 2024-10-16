@@ -9,12 +9,12 @@ import proyectoAbilitySwap.talento.repository.BuscadorHabRepository;
 
 public class BuscadorHabService {
 
-	public List<HabilidadOfertada> recuperarListadoHabilidades () throws SQLException{
+	public List<HabilidadOfertada> recuperarListadoHabilidades (String consulta) throws SQLException{
 		List<HabilidadOfertada> listaHabilidades = null;
 		BuscadorHabRepository habilidadesRepository = null;
 			
 			habilidadesRepository = new BuscadorHabRepository();
-			listaHabilidades = habilidadesRepository.extraerHabilidad();
+			listaHabilidades = habilidadesRepository.extraerHabilidad(consulta);
 		
 		return listaHabilidades;
 	}

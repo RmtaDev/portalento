@@ -6,8 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import proyectoAbilitySwap.talento.beans.Usuario;
-import talento.dni.Dni;
-import talento.dni.servicio.DniService;
+import proyectoAbilitySwap.talento.servicio.HabilidadesServiceAntonio;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -36,20 +35,13 @@ public class ObtenerUsuariosPorHabilidad extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+		log.debug("Peticion en el Servlet ObtenerUsuariosPorHabilidad");
+		HabilidadesServiceAntonio habilidadesServiceAntonio = new HabilidadesServiceAntonio();// HabilidadesService seria el servicio de habilidades que esta haciendo Carlos
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		log.debug("Peticion en el Servlet ServletListadoDni");
-		HabilidadesService habilidadesService = new HabilidadesService();// HabilidadesService seria el servicio de habilidades que esta haciendo Carlos
-
+		String habilidad = request.getParameter("habilidad");
 		try {
-			List<Usuario> listaUsuarios =  habilidadesService.listadoUsuariosPorHabilidad(habilidad);//definir ListadoUsuariosPorHabilidad en el servicio de habilidades
-																									 //habilidad seria la que haya hecho click el usuario que me la tendrian que pasar
+			List<Usuario> listaUsuarios =  habilidadesServiceAntonio.listadoUsuariosPorHabilidad(habilidad);//definir ListadoUsuariosPorHabilidad en el servicio de habilidades
+																									 		//habilidad seria la que haya hecho click el usuario que me la tendrian que pasar
 			Gson gson = new Gson();
 			String listaJsonUsuarios = gson.toJson(listaUsuarios);
 			response.getWriter().write(listaJsonUsuarios);
@@ -64,5 +56,13 @@ public class ObtenerUsuariosPorHabilidad extends HttpServlet {
 			e.printStackTrace();
 			log.error("Ha habido un error general", e);
 		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 }

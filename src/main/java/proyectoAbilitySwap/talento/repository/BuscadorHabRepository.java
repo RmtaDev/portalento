@@ -10,7 +10,7 @@ import java.util.List;
 import proyectoAbilitySwap.talento.beans.HabilidadOfertada;
 
 public class BuscadorHabRepository {
-    private static final String BUSCAR_HABILIDAD_POR_NOMBRE = "SELECT * FROM abilityswapbd.habilidades_ofertadas WHERE nombre LIKE  ?";
+    private static final String BUSCAR_HABILIDAD_POR_NOMBRE = "SELECT * FROM abilityswapbd.habilidades_ofertadas WHERE nombre LIKE ?";
 	
 	public List<HabilidadOfertada> extraerHabilidad(String consulta) throws SQLException {
 		List<HabilidadOfertada> listaHabilidades = null;

@@ -57,18 +57,14 @@ private static final long serialVersionUID = 1L;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			log.error("Ha fallado exitosamente la base de datos",e);
+			response.setStatus(500);
 		}catch (Exception e) {
 			e.printStackTrace();
 			log.error("la aplicacion ha fallado exitosamente", e);
+			response.setStatus(500);
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+	
 
 }

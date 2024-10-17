@@ -1,14 +1,19 @@
-@charset "ISO-8859-1";
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
+    margin: 10;
 }
-
+main {
+	background-color: #84c6ca;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding-top: 60px;
+	padding-bottom : 60px;
+}
 p {
 	float: left;
+	
 }
 
 .container {
@@ -28,7 +33,7 @@ h2 {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 4fr));
     gap: 20px;
 }
 
@@ -44,6 +49,8 @@ h2 {
 .card img {
     width: 100%;
     border-radius: 8px;
+    height: 250px;
+    
 }
 
 .card h2 {

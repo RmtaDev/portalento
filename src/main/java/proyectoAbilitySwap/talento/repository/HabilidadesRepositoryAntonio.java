@@ -13,7 +13,7 @@ import proyectoAbilitySwap.talento.beans.Usuario;
 
 public class HabilidadesRepositoryAntonio {
 
-	public static final String USUARIOS_POR_HABILIDAD = "SELECT usuarios.usuario " +
+	public static final String USUARIOS_POR_HABILIDAD = "SELECT usuarios.id_usuario, usuarios.usuario, usuarios.edad, usuarios.genero, usuarios.rutafoto " +
 														"FROM abilityswapbd.usuarios INNER JOIN abilityswapbd.habilidades_ofertadas ON habilidades_ofertadas.usuario = usuarios.id_usuario " +
 														"WHERE habilidades_ofertadas.nombre = ?";
 	
@@ -33,9 +33,13 @@ public class HabilidadesRepositoryAntonio {
 
 		while (rs.next())
 		{
+			int id_usuario = rs.getInt("id_usuario");
 			String string_usuario = rs.getString("usuario");
+			int edad = rs.getInt("edad");
+			String genero = rs.getString("genero");
+			String rutafoto = rs.getString("rutafoto");
 
-			Usuario usuario = new Usuario(string_usuario);
+			Usuario usuario = new Usuario(id_usuario, string_usuario, edad, genero, rutafoto);
 			listaUsuarios.add(usuario);
 		}
 

@@ -1,5 +1,10 @@
+function limpiarMensajesError() {
+    const mensajes = document.querySelectorAll('.mensaje-error');
+    mensajes.forEach(mensaje => mensaje.innerHTML = '');
+}
+
 function validarCampos() {
-    const nombreUsuario = document.getElementById('nombreUsuario').value.trim();
+    const usuario = document.getElementById('usuario').value.trim();
     const nombre = document.getElementById('nombre').value.trim();
     const apellidos = document.getElementById('apellidos').value.trim();
     const edad = document.getElementById('edad').value;
@@ -12,89 +17,75 @@ function validarCampos() {
     const hablaSobreTi = document.getElementById('hablaSobreTi').value.trim();
 
     let esValido = true;
-    
-    // Validaciones individuales
-    if (!nombreUsuario || !nombre || !apellidos || !edad || isNaN(edad) || edad <= 0 || 
-        !genero || !telefono || telefono.length < 10 || !email || 
-        password.length < 8 || password !== confirmPassword || !foto || !hablaSobreTi) {
-        esValido = false;
-    }
-
-    // Habilita o deshabilita el botón de enviar según validez
-    document.getElementById('enviar').disabled = !esValido;
-}
-
-// Validación del formulario cuando se envía
-function validarFormulario(event) {
-    event.preventDefault(); // Evitar que se recargue la página
-		console.log("validarFormulario está funcionando");
-    const mensajeDiv = document.getElementById('mensaje');
-    mensajeDiv.innerHTML = '';
-
-    const nombreUsuario = document.getElementById('nombreUsuario').value.trim();
-    const nombre = document.getElementById('nombre').value.trim();
-    const apellidos = document.getElementById('apellidos').value.trim();
-    const edad = document.getElementById('edad').value;
-    const genero = document.querySelector('input[name="genero"]:checked');
-    const telefono = document.getElementById('telefono').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-    const foto = document.getElementById('foto').value;
-    const hablaSobreTi = document.getElementById('hablaSobreTi').value.trim(); 
-
-    let esValido = true;
 
     // Mensajes de error
-    if (!nombreUsuario) {
-        mensajeDiv.innerHTML += 'El nombre de usuario es requerido.<br>';
+    if (!usuario) {
+        document.getElementById("mensajeUsuario").innerHTML = 'El nombre de usuario es requerido.';
         esValido = false;
     }
     if (!nombre) {
-        mensajeDiv.innerHTML += 'El nombre es requerido.<br>';
+        document.getElementById("mensajeNombre").innerHTML = 'El nombre es requerido.';
         esValido = false;
     }
     if (!apellidos) {
-        mensajeDiv.innerHTML += 'Los apellidos son requeridos.<br>';
+        document.getElementById("mensajeApellidos").innerHTML = 'Los apellidos son requeridos.';
         esValido = false;
     }
     if (!edad || isNaN(edad) || edad <= 0) {
-        mensajeDiv.innerHTML += 'Por favor, ingresa una edad válida.<br>';
+        document.getElementById("mensajeEdad").innerHTML = 'Por favor, ingresa una edad válida.';
         esValido = false;
     }
     if (!genero) {
-        mensajeDiv.innerHTML += 'El género es requerido.<br>';
+        document.getElementById("mensajeGenero").innerHTML = 'El género es requerido.';
         esValido = false;
     }
-    if (!telefono || telefono.length < 10) {
-        mensajeDiv.innerHTML += 'El teléfono es inválido.<br>';
+    if (!telefono) {
+        document.getElementById("mensajeTelefono").innerHTML = 'El teléfono es inválido.';
         esValido = false;
     }
-    if (!email) {
-        mensajeDiv.innerHTML += 'El correo electrónico no es válido.<br>';
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regexEmail.test(email)) {
+        document.getElementById("mensajeCorreo").innerHTML = 'El correo electrónico no es válido.';
         esValido = false;
     }
-    if (!password || password.length < 8) {
-        mensajeDiv.innerHTML += 'La contraseña debe tener al menos 8 caracteres.<br>';
+    if (!password) {
+        document.getElementById("mensajeContraseña").innerHTML = 'La contraseña debe tener al menos 8 caracteres.';
         esValido = false;
     }
     if (password !== confirmPassword) {
-        mensajeDiv.innerHTML += 'Las contraseñas no coinciden.<br>';
+        document.getElementById("mensajeContraseña").innerHTML = 'Las contraseñas no coinciden.';
         esValido = false;
     }
     if (!foto) {
-        mensajeDiv.innerHTML += 'Inserta una foto.<br>';
+        document.getElementById("mensajeFoto").innerHTML = 'Inserta una foto.';
         esValido = false;
     }
     if (!hablaSobreTi) {
-        mensajeDiv.innerHTML += 'Comenta sobre ti.<br>';
+        document.getElementById("mensajeSobreTi").innerHTML = 'Comenta sobre ti.';
         esValido = false;
     }
 
-    // Si el formulario es válido, crea el objeto infoUsuario y envía los datos
+    return esValido;
+}
+
+function validarFormulario(event) {
+    event.preventDefault(); // Evitamos que se recargue la página
+    limpiarMensajesError(); // Limpiamos mensajes previos
+
+    const esValido = validarCampos();
+
     if (esValido) {
-        const infoUsuario = {nombreUsuario, nombre, apellidos, edad, genero: genero ? genero.value : '',
-                           telefono, email, password, foto, hablaSobreTi
+        const infoUsuario = {
+            usuario: document.getElementById('usuario').value.trim(),
+            nombre: document.getElementById('nombre').value.trim(),
+            apellidos: document.getElementById('apellidos').value.trim(),
+            edad: document.getElementById('edad').value,
+            genero: document.querySelector('input[name="genero"]:checked') ? document.querySelector('input[name="genero"]:checked').value : '',
+            telefono: document.getElementById('telefono').value,
+            email: document.getElementById('email').value.trim(),
+            password: document.getElementById('password').value,
+            foto: document.getElementById('foto').value,
+            hablaSobreTi: document.getElementById('hablaSobreTi').value.trim()
         };
 
         fetch("AltaNuevoUsuario", {
@@ -128,8 +119,6 @@ function validarFormulario(event) {
     }
 }
 
-// Asociamos la función de validación al formulario
 window.onload = () => {
     document.getElementById('formulario').addEventListener('submit', validarFormulario);
-    
 };

@@ -82,7 +82,6 @@ public class Login extends HttpServlet {
 			System.out.println("Hubo un error");
 			response.setStatus(500);
 			log.error("500 Hubo un error", e);
-
 		}
 	}
 }

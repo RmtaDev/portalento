@@ -161,6 +161,17 @@ public class Usuario {
 		this.usuario = usuario;
 	}
 
+	
+
+	public Usuario(int idusuario, String usuario, int edad, String genero, String rutaFoto) {
+		super();
+		this.idusuario = idusuario;
+		this.usuario = usuario;
+		this.edad = edad;
+		this.genero = genero;
+		this.rutaFoto = rutaFoto;
+	}
+
 	public Usuario() {
 	}
 

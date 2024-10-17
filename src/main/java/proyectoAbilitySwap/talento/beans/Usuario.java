@@ -117,7 +117,7 @@ public class Usuario {
 		this.usuario = usuario;
 		this.password = password;
 		this.nombre = nombre;
-		apellidos = apellidos;
+		this.apellidos = apellidos;
 		this.edad = edad;
 		this.genero = genero;
 		this.telefono = telefono;

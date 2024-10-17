@@ -3,21 +3,22 @@ function limpiarMensajesError() {
     mensajes.forEach(mensaje => mensaje.innerHTML = '');
 }
 
+let hablaSobreTi; //para setearlo individualemente
 function validarCampos() {
     const usuario = document.getElementById('usuario').value.trim();
     const nombre = document.getElementById('nombre').value.trim();
     const apellidos = document.getElementById('apellidos').value.trim();
     const edad = document.getElementById('edad').value;
     const genero = document.querySelector('input[name="genero"]:checked');
-    const telefono = document.getElementById('telefono').value.trim();
+    const telefono = document.getElementById('telefono').value;
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     const foto = document.getElementById('foto').value;
-    const hablaSobreTi = document.getElementById('hablaSobreTi').value.trim();
+    hablaSobreTi = document.getElementById('hablaSobreTi').value.trim();
 
     let esValido = true;
-
+	
     // Mensajes de error
     if (!usuario) {
         document.getElementById("mensajeUsuario").innerHTML = 'El nombre de usuario es requerido.';
@@ -43,8 +44,8 @@ function validarCampos() {
         document.getElementById("mensajeTelefono").innerHTML = 'El teléfono es inválido.';
         esValido = false;
     }
-    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!regexEmail.test(email)) {
+    
+    if (!email) {
         document.getElementById("mensajeCorreo").innerHTML = 'El correo electrónico no es válido.';
         esValido = false;
     }
@@ -67,33 +68,22 @@ function validarCampos() {
 
     return esValido;
 }
+	console.log("validado");
 
 function validarFormulario(event) {
-    event.preventDefault(); // Evitamos que se recargue la página
+    
     limpiarMensajesError(); // Limpiamos mensajes previos
 
     const esValido = validarCampos();
 
     if (esValido) {
-        const infoUsuario = {
-            usuario: document.getElementById('usuario').value.trim(),
-            nombre: document.getElementById('nombre').value.trim(),
-            apellidos: document.getElementById('apellidos').value.trim(),
-            edad: document.getElementById('edad').value,
-            genero: document.querySelector('input[name="genero"]:checked') ? document.querySelector('input[name="genero"]:checked').value : '',
-            telefono: document.getElementById('telefono').value,
-            email: document.getElementById('email').value.trim(),
-            password: document.getElementById('password').value,
-            foto: document.getElementById('foto').value,
-            hablaSobreTi: document.getElementById('hablaSobreTi').value.trim()
-        };
+        
+		let infoUsuario = new FormData(event.target);
+		infoUsuario.append("hablaSobreTi", hablaSobreTi);//hay que setear el textarea a parte pq no lo pilla
 
         fetch("AltaNuevoUsuario", {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(infoUsuario)
+            body: infoUsuario
         })
         .then(respuesta => {
             switch (respuesta.status) {
@@ -119,6 +109,4 @@ function validarFormulario(event) {
     }
 }
 
-window.onload = () => {
-    document.getElementById('formulario').addEventListener('submit', validarFormulario);
-};
+

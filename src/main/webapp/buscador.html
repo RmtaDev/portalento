@@ -1,21 +1,142 @@
 <!DOCTYPE html>
 
 <html lang="es">
-
 	<head>
+		<meta charset=UTF-8>
+		<title>Créditos del proyecto</title>
 
-		<meta charset="UTF-8">
-		<title> DESARROLLO WEB</title>
-
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="icon" href="img/favicon.png">
+		<link rel="stylesheet" href="css/estilosgenerales.css">
+		<link rel="stylesheet" href="css/accesibilidad.css">
+		<link rel="stylesheet" type="text/css" href="css/buscador.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+			crossorigin="anonymous"></script>
+		<script src="js/accesibilidad.js"></script>
 	</head>
-
+	
 	<body>
+		<nav class="navbar fixed-top navbar-light bg-light">
+			<a href="inicio.html" class="inicio"> <img alt="inicio" src="img/favicon.png">Inicio</a>
+		</nav>
 
-		<div align="center">
+   		 
+		<main>
+	        <section>
+		        <div class="container">
+		        	<h2>Encuentra usuarios que ofrecen la habilidad que quieres aprender</h2>
+					<form class=" d-flex" role="search">
+						<label class="buscador d-flex form-control me-2" >
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+							  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+							</svg>
+					    	<input class="input-buscador" type="search" list="habilidades" placeholder="Escribe la habilidad que quieres aprender" aria-label="Search">
+					    	
+					    	<datalist id="habilidades">
+					    	 	<option value="Cocina"></option>
+					    	 	<option value="Karate"></option>
+					    	  	<option value="Sevillanas"></option>
+					    	 	
+					    	</datalist>
+					    	
+					    </label>
+				    	<button class="btn btn-outline-success" type="submit">Buscar</button>
+				    </form>
+        			<div class="grid">
+            			<div class="card">
+                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
+                			<h2>Usuario</h2>
+                			<div class="contenedor-edad-genero">
+                				<div class="contenedor-edad">
+	                				<label>Edad</label>
+	                				<p class="edad">48</p>
+                				</div>
+                				<div class="contenedor-genero">
+	               					<label>Género</label>
+	                				<p class="genero">Masculino</p>
+                				</div>
+                			</div>
+                			<div class="contenedor-boton">
+                				<button class="btn btn-secondary">Contactar</button>
+                			</div>
+            			</div>
+            			
+            			<div class="card">
+                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
+                			<h2>Usuario</h2>
+                			<div class="contenedor-edad-genero">
+                				<div class="contenedor-edad">
+	                				<label>Edad</label>
+	                				<p class="edad">48</p>
+                				</div>
+                				<div class="contenedor-genero">
+	               					<label>Género</label>
+	                				<p class="genero">Masculino</p>
+                				</div>
+                			</div>
+                			<div class="contenedor-boton">
+                				<button class="btn btn-secondary">Contactar</button>
+                			</div>
+            			</div>
+            			
+            			<div class="card">
+                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
+                			<h2>Usuario</h2>
+                			<div class="contenedor-edad-genero">
+                				<div class="contenedor-edad">
+	                				<label>Edad</label>
+	                				<p class="edad">48</p>
+                				</div>
+                				<div class="contenedor-genero">
+	               					<label>Género</label>
+	                				<p class="genero">Masculino</p>
+                				</div>
+                			</div>
+                			<div class="contenedor-boton">
+                				<button class="btn btn-secondary">Contactar</button>
+                			</div>
+            			</div>
+            			
+            			<div class="card">
+                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
+                			<h2>Usuario</h2>
+                			<div class="contenedor-edad-genero">
+                				<div class="contenedor-edad">
+	                				<label>Edad</label>
+	                				<p class="edad">48</p>
+                				</div>
+                				<div class="contenedor-genero">
+	               					<label>Género</label>
+	                				<p class="genero">Masculino</p>
+                				</div>
+                			</div>
+                			<div class="contenedor-boton">
+                				<button class="btn btn-secondary">Contactar</button>
+                			</div>
+            			</div>
+            			
+            			
+       	 			</div>
+    			</div>
+        	</section>
+        </main>
 
-		</div>
-
+		<footer>
+			<div class="imagenes-footer">
+				<p><a href="https://portalentodigital.fundaciononce.es/" target="_blank">
+            	<img src="img/talentodigital.jpg" title= "Por talento Digital" alt="Logo de XTD" style="width: 150px; height: 40px;"></a></p>
+				<p><a href="https://www.instagram.com/portalento_/" target="_blank">
+				<img src="img/instagram.png" title="Instagram" alt="Instagram" style="width: 40px; height: 40px;"></a></p>
+				<p><a href="https://www.facebook.com/PorTalento" target="_blank">
+				<img src="img/facebook.png" title="Facebook" alt="Facebook" style="width: 40px; height: 40px;"></a></p>
+			</div>
+			<p>Todos los dererechos reservados - @Copyright</p>
+		</footer>
 	</body>
-
-
 </html>

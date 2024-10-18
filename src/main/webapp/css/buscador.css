@@ -1,0 +1,85 @@
+section {
+	padding-top: 100px;	
+}
+
+.container {
+	text-align: center;	
+}
+
+.buscador {
+	align-items: center;	
+}
+
+.input-buscador {
+	border: none;
+	width: 100%;
+	margin-left: .5rem;	
+}
+
+.contenedor-edad-genero {
+	display: flex;
+	justify-content: space-around;
+}
+
+.contenedor-edad, .contenedor-genero {
+	display: flex;
+	flex-direction: column;
+	
+}
+
+.contenedor-edad {
+	/*border-right: 1px solid #adb5bd; */
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 4fr));
+    gap: 20px;
+    padding: 3rem 0;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.2s;
+}
+
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    height: 250px;
+}
+
+.card h2 {
+    font-size: 18px;
+    color: #444;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.card label {
+    font-weight: bold;
+}
+
+.card p {
+    margin: 0 0 20px 0;
+}
+
+.card a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.card .contenedor-boton{
+	display:flex;
+	justify-content: center;
+	top: 100%;
+ 	position: sticky;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}

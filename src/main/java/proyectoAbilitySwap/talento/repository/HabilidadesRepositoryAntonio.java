@@ -47,5 +47,5 @@ public class HabilidadesRepositoryAntonio {
 		log.debug("El repositorio fue bien " + listaUsuarios);
 
 		return listaUsuarios;
-}
+	}
 }

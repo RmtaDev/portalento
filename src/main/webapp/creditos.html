@@ -24,6 +24,28 @@
 	
 	
 	<body>
+
+	<div class="sidebar">
+		<button id="openModalBtn" class="open-btn" aria-label="Menú de accesibilidad">
+			<img class="fa-solid fa-universal-access" src="img/accesibilidad.png">
+		</button>
+		<div id="radialMenu" class="radial-menu">
+			<button id="monocromaticoBtn" aria-label="Activar/Desactivar modo monocromático"
+				title="Activar/Desactivar modo monocromático">
+				<i id="monocromaticoIcon" class="fas fa-eye-slash"></i>
+			</button>
+			<button id="speakerBtn" aria-label="Activar/Desactivar lector de texto"
+				title="Activar/Desactivar lector de texto. Mantener pulsado sobre el texto a leer.">
+				<i id="speakerIcon" class="fas fa-volume-mute"></i>
+			</button>
+			<button id="zoomBtn" aria-label="Aumentar/Disminuir zoom" title="Aumentar/Disminuir zoom">
+				<i id="zoomIcon" class="fa fa-search-plus"></i>
+			</button>
+		</div>
+		<div id="contentContainer"></div>
+	</div>
+	
+	
 		<nav class="navbar fixed-top navbar-light bg-light">
 			<a href="inicio.html" class="inicio"> <img alt="inicio" src="img/favicon.png">Inicio</a>
 		</nav>
@@ -38,11 +60,10 @@
             
         <h1>Equipo de Desarrollo</h1>
        	<h2>La formación en el Certificado de Profesionalidad IFCD0210:</h2>
-        	Desarrollo de Aplicaciones con Tecnologías Web, impartida por la empresa 
+        	<p>Desarrollo de Aplicaciones con Tecnologías Web, impartida por la empresa 
         	Por Talento Digital en colaboración con la Fundación ONCE. Este curso nos ha proporcionado las habilidades necesarias para el desarrollo de 
         	aplicaciones web, desde el diseño hasta la implementación, con un enfoque en las últimas tecnologías del sector.
-        	</h2>
-        	<br><br>
+        	</p>
         	
         <div class="grid">
         	
@@ -51,80 +72,90 @@
                 <img src="img/jesusfoto.jpg" alt="Alumno 1">
                 <h2>Jesús Fdez Mena</h2>
                 <p>Diseñador Grafico | Desarrollador de front-end</p>
-                <br><br>
-                <p><a href="https://github.com/JesusMena7" target="_blank">
-                <img src="img/github1.png" alt="Logo de Github" style="width: 40px; height: 40px;"></a></p>
+                
+                <div class="contenedor-logos">
+                <a href="https://github.com/JesusMena7" target="_blank">
+                <img src="img/github1.png" alt="Logo de Github"></a>
                
-                <p><a href="https://www.linkedin.com/in/jesusfernandezmena/" target="_blank">
-                <img src="img/linkedin.png" alt="Logo de LinkedIn" style="width: 40px; height: 40px;"></a></p>
+                <a href="https://www.linkedin.com/in/jesusfernandezmena/" target="_blank">
+                <img src="img/linkedin.png" alt="Logo de LinkedIn"></a>
+            	</div>
             </div>
             <div class="card">
                 <img src="img/antonio1.JPG" alt="foto de Antonio Moreno">
                 <h2>Antonio Moreno Montes</h2>
                 <p>Desarrollador Web | Desarrollador de back-end</p>
-                <br><br>
-                <p><a href="https://github.com/ammm1976" target="_blank">
-                <img src="img/github1.png" alt="Logo de Github" style="width: 40px; height: 40px;"></a></p>
                 
-                <p><a href="https://www.linkedin.com/in/antonio-moreno-montes-511a31205" target="_blank">
-                <img src="img/linkedin.png" alt="Logo de LinkedIn" style="width: 40px; height: 40px;"></a></p>
+                <div class="contenedor-logos">
+                <a href="https://github.com/ammm1976" target="_blank">
+                <img src="img/github1.png" alt="Logo de Github"></a>
                 
+                <a href="https://www.linkedin.com/in/antonio-moreno-montes-511a31205" target="_blank">
+                <img src="img/linkedin.png" alt="Logo de LinkedIn"></a>
+                </div>
             </div>
             <div class="card">
                 <img src="img/carlosalbertofoto.webp" alt="Alumno 3">
                 <h2>Carlos Alberto Garrido Serna</h2>
                 <p>Desarrollador de front-end y back-end</p>
-                <br><br>
-                <p><a href="https://github.com/CarlosAlberto19" target="_blank">
-                <img src="img/github1.png" alt="Logo de Github" style="width: 40px; height: 40px;"></a></p>
+                <div class="contenedor-logos">
+                <a href="https://github.com/CarlosAlberto19" target="_blank">
+                <img src="img/github1.png" alt="Logo de Github" ></a>
                 
-                <p><a href="https://www.linkedin.com/in/carlos-alberto-garrido-serna-96592791" target="_blank">
-                <img src="img/linkedin.png" alt="Logo de LinkedIn" style="width: 40px; height: 40px;"></a></p>
+                <a href="https://www.linkedin.com/in/carlos-alberto-garrido-serna-96592791" target="_blank">
+                <img src="img/linkedin.png" alt="Logo de LinkedIn"></a>
+            	</div>
             </div>
             <div class="card">
                 <img src="img/juanjoimagen.jpg" alt="Alumno 4">
                 <h2>Juan Jose Martinez Dalmedo</h2>
                 <p>Programación Web | Desarrollador de back-end</p>
-                <br><br>
-                <p><a href="https://github.com/JDalmedo" target="_blank">
-                <img src="img/github1.png" alt="Logo de Github" style="width: 40px; height: 40px;"></a></p>
+                <div class="contenedor-logos">
+                <a href="https://github.com/JDalmedo" target="_blank">
+                <img src="img/github1.png" alt="Logo de Github"</a>
                 
-                <p><a href="https://www.linkedin.com/in/-dalmedo0/" target="_blank">
-                <img src="img/linkedin.png" alt="Logo de LinkedIn" style="width: 40px; height: 40px;"></a></p>
+                <a href="https://www.linkedin.com/in/-dalmedo0/" target="_blank">
+                <img src="img/linkedin.png" alt="Logo de LinkedIn"></a>
+           		</div>
             </div>
             <div class="card">
                 <img src="img/nago.jpeg" alt="Alumno 5">
                 <h2>Nagore de la Fuente</h2>
                 <p>Desarrolladora Web</p>
-                <br><br>
-                <p><a href="https://github.com/Nagoredelafuente" target="_blank">
-                <img src="img/github1.png" alt="Logo de Github" style="width: 40px; height: 40px;"></a></p>
                 
-                <p><a href="https://www.linkedin.com/in/nagore-delafuente/" target="_blank">
-                <img src="img/linkedin.png" alt="Logo de LinkedIn" style="width: 40px; height: 40px;"></a></p>
+                <div class="contenedor-logos">
+                <a href="https://github.com/Nagoredelafuente" target="_blank">
+                <img src="img/github1.png" alt="Logo de Github"></a>
+                
+                <a href="https://www.linkedin.com/in/nagore-delafuente/" target="_blank">
+                <img src="img/linkedin.png" alt="Logo de LinkedIn"></a>
+                </div>
             </div>
             <div class="card">
                 <img src="img/ronald1.jpeg" alt="Alumno 6">
                 <h2>Ronald Ticonipa Aruquipa</h2>
                 <p>Desarrollador web · Desarrollador de back-end</p>
-                <br><br>
-                <p><a href="https://github.com/RmtaDev" target="_blank">
-                <img src="img/github1.png" alt="Logo de Github" style="width: 40px; height: 40px;"></a></p>
                 
-                <p><a href="https://www.linkedin.com/in/ronald-ticonipa-4991s/" target="_blank">
-                <img src="img/linkedin.png" alt="Logo de LinkedIn" style="width: 40px; height: 40px;"></a></p>
+                <div class="contenedor-logos">
+                <a href="https://github.com/RmtaDev" target="_blank">
+                <img src="img/github1.png" alt="Logo de Github"></a>
+                
+                <a href="https://www.linkedin.com/in/ronald-ticonipa-4991s/" target="_blank">
+                <img src="img/linkedin.png" alt="Logo de LinkedIn"></a>
+           		</div>
             </div>
             <div class="card">
                 <img src="img/daniel1.jpeg" alt="Alumno 7">
                 <h2>Daniel Gómez</h2>
                 <p>Desarrollador Full Stack Java | Progamación y desarrollo con Unreal Engine 5</p>
-                <br><br>
-                <p><a href="https://instagram.com/alumno7" target="_blank">
-                <img src="img/github1.png" alt="Logo de Github" style="width: 40px; height: 40px;"></a></p>
                 
-                <p><a href="https://www.linkedin.com/in/daniel-g%C3%B3mez-9799b9277/" target="_blank">
-                <img src="img/linkedin.png" alt="Logo de LinkedIn" style="width: 40px; height: 40px;"></a></p>
+                <div class="contenedor-logos">
+                <a href="https://instagram.com/alumno7" target="_blank">
+                <img src="img/github1.png" alt="Logo de Github"></a>
                 
+                <a href="https://www.linkedin.com/in/daniel-g%C3%B3mez-9799b9277/" target="_blank">
+                <img src="img/linkedin.png" alt="Logo de LinkedIn"></a>
+                </div>
             </div>
        	 </div>
     	</div>
@@ -134,12 +165,12 @@
         </main>
        <footer>
 		<div class="imagenes-footer">
-			<p><a href="https://portalentodigital.fundaciononce.es/" target="_blank">
-            <img src="img/talentodigital.jpg" title= "Por talento Digital" alt="Logo de XTD" style="width: 150px; height: 40px;"></a></p>
-			<p><a href="https://www.instagram.com/portalento_/" target="_blank">
-			<img src="img/instagram.png" title="Instagram" alt="Instagram" style="width: 40px; height: 40px;"></a></p>
-			<p><a href="https://www.facebook.com/PorTalento" target="_blank">
-			<img src="img/facebook.png" title="Facebook" alt="Facebook" style="width: 40px; height: 40px;"></a></p>
+			<a href="https://portalentodigital.fundaciononce.es/" target="_blank">
+            <img src="img/talentodigital.jpg" title= "Por talento Digital" alt="Logo de XTD" style="width: 150px; height: 40px;"></a>
+			<a href="https://www.instagram.com/portalento_/" target="_blank">
+			<img src="img/instagram.png" title="Instagram" alt="Instagram" style="width: 40px; height: 40px;"></a>
+			<a href="https://www.facebook.com/PorTalento" target="_blank">
+			<img src="img/facebook.png" title="Facebook" alt="Facebook" style="width: 40px; height: 40px;"></a>
 			
 		</div>
 

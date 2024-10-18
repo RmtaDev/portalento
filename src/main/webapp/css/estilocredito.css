@@ -11,10 +11,6 @@ main {
 	padding-top: 60px;
 	padding-bottom : 60px;
 }
-p {
-	float: left;
-	
-}
 
 .container {
     max-width: 800px;
@@ -29,6 +25,7 @@ h1 {
 h2 {
 	text-align: center;
     color: #333;
+    
 }
 
 .grid {
@@ -56,16 +53,29 @@ h2 {
 .card h2 {
     font-size: 18px;
     color: #444;
+    margin-top: 10px;
 }
 
 .card p {
-    margin: 10px 0 0;
+    margin: 10px 0 20px 0;
    
 }
 
 .card a {
     text-decoration: none;
     color: #007bff;
+}
+
+.card .contenedor-logos{
+	display:flex;
+	justify-content: center;
+	top: 100%;
+ 	position: sticky;
+}
+
+.card .contenedor-logos img{
+	height: 40px;
+	width: 40px;
 }
 
 .card:hover {

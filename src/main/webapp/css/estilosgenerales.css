@@ -14,6 +14,13 @@ nav {
 	justify-content: space-between;
 }
 
+.inicio {
+	color: black;
+	font-size: 15px;
+	font-weight: bolder;
+	text-decoration: none;
+}
+
 body {
 	margin: 0;
 	padding: 0;

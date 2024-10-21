@@ -10,7 +10,7 @@ import java.util.List;
 import proyectoAbilitySwap.talento.beans.HabilidadOfertada;
 
 public class BuscadorHabRepository {
-    private static final String BUSCAR_HABILIDAD_POR_NOMBRE = "SELECT * FROM abilityswapbd.habilidades_ofertadas WHERE nombre LIKE ?";
+    private static final String BUSCAR_HABILIDAD_POR_NOMBRE = "SELECT DISTINCT nombre FROM abilityswapbd.habilidades_ofertadas WHERE nombre LIKE ?";
 	
 	public List<HabilidadOfertada> extraerHabilidad(String consulta) throws SQLException {
 		List<HabilidadOfertada> listaHabilidades = null;
@@ -22,10 +22,10 @@ public class BuscadorHabRepository {
 		listaHabilidades = new ArrayList<HabilidadOfertada>();
 		while (rs.next()) {
 			String habilidad = rs.getString("nombre");
-			int id = rs.getInt("id_habilidad");
+			/*int id = rs.getInt("id_habilidad");
 			int usuario = rs.getInt("usuario");
-			int categoria = rs.getInt("id_categoria");
-			HabilidadOfertada habilidades = new HabilidadOfertada(usuario, id, habilidad, categoria);
+			int categoria = rs.getInt("id_categoria");*/
+			HabilidadOfertada habilidades = new HabilidadOfertada(habilidad);
 			listaHabilidades.add(habilidades);
 		}
 		Pool.liberarRecursos(connection, pstatement, rs);

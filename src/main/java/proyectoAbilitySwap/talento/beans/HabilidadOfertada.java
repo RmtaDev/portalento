@@ -49,6 +49,10 @@ public class HabilidadOfertada {
 		this.idCategoria = idCategoria;
 	}
 	
+	public HabilidadOfertada (String nombre)
+	{
+		this.nombre = nombre;
+	}
 	
 	public HabilidadOfertada() {
 		super();

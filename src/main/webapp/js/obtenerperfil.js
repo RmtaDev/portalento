@@ -1,12 +1,8 @@
-const usuarioAutorizado = localStorage.getItem("login");
+//const usuarioAutorizado = localStorage.getItem("login");
 
 function obtenerPerfilUsuario () {
 	
-	if (!usuarioAutorizado) {
-		console.log("Usuario no autorizado");
-		location.href = "inicio.html";
-		return;
-	}
+
 	
 	fetch('ObtenerPerfilUsuario', {
 		method: "GET"

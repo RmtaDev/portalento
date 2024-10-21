@@ -73,6 +73,9 @@ public class AltaNuevoUsuario extends HttpServlet {
 		log.info("### -> Datos recibidos: Usuario = " + usuario + ", Email = " + email);
 
 		try {
+			//TODO: Comprobar que no existe un usuario ya con ese nombre
+			//If (!existe) {
+			//}
 			
 			
 			Validar validar = new Validar();

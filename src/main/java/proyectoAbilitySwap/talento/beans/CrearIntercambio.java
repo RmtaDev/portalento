@@ -3,15 +3,15 @@ package proyectoAbilitySwap.talento.beans;
 public class CrearIntercambio {
 
 	private int idIntercambio;
-	private Usuario usuarioOfertada;
-	private Usuario usuarioDemandada;
-	private HabilidadOfertada habilidadOfertada;
-	private HabilidadDemandada habilidadDemandada;
+	private int usuarioOfertada;
+	private int usuarioDemandada;
+	private int habilidadOfertada;
+	private int habilidadDemandada;
 	private String estado;
-	
-	
-	public CrearIntercambio(int idIntercambio, Usuario usuarioOfertada, Usuario usuarioDemandada,
-			HabilidadOfertada habilidadOfertada, HabilidadDemandada habilidadDemandada, String estado) {
+	private EstadoIntercambio estda;
+
+	public CrearIntercambio(int idIntercambio, int usuarioOfertada, int usuarioDemandada, int habilidadOfertada,
+			int habilidadDemandada, String estado) {
 		super();
 		this.idIntercambio = idIntercambio;
 		this.usuarioOfertada = usuarioOfertada;
@@ -20,67 +20,58 @@ public class CrearIntercambio {
 		this.habilidadDemandada = habilidadDemandada;
 		this.estado = estado;
 	}
-
+	public enum EstadoIntercambio {
+        PENDIENTE,
+        RECHAZADO,
+        ACEPTADO;
+    }
 
 	public int getIdIntercambio() {
 		return idIntercambio;
 	}
 
-
 	public void setIdIntercambio(int idIntercambio) {
 		this.idIntercambio = idIntercambio;
 	}
 
-
-	public Usuario getUsuarioOfertada() {
+	public int getUsuarioOfertada() {
 		return usuarioOfertada;
 	}
 
-
-	public void setUsuarioOfertada(Usuario usuarioOfertada) {
+	public void setUsuarioOfertada(int usuarioOfertada) {
 		this.usuarioOfertada = usuarioOfertada;
 	}
 
-
-	public Usuario getUsuarioDemandada() {
+	public int getUsuarioDemandada() {
 		return usuarioDemandada;
 	}
 
-
-	public void setUsuarioDemandada(Usuario usuarioDemandada) {
+	public void setUsuarioDemandada(int usuarioDemandada) {
 		this.usuarioDemandada = usuarioDemandada;
 	}
 
-
-	public HabilidadOfertada getHabilidadOfertada() {
+	public int getHabilidadOfertada() {
 		return habilidadOfertada;
 	}
 
-
-	public void setHabilidadOfertada(HabilidadOfertada habilidadOfertada) {
+	public void setHabilidadOfertada(int habilidadOfertada) {
 		this.habilidadOfertada = habilidadOfertada;
 	}
 
-
-	public HabilidadDemandada getHabilidadDemandada() {
+	public int getHabilidadDemandada() {
 		return habilidadDemandada;
 	}
 
-
-	public void setHabilidadDemandada(HabilidadDemandada habilidadDemandada) {
+	public void setHabilidadDemandada(int habilidadDemandada) {
 		this.habilidadDemandada = habilidadDemandada;
 	}
-
 
 	public String getEstado() {
 		return estado;
 	}
 
-
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
-	
-	
+
 }

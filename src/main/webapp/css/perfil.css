@@ -108,6 +108,7 @@
 	.container-etiquetas {
 		display: flex; 
 		gap: 20px; 
+		flex-wrap: wrap;
 	}
 	.etiqueta {
 		background-color: #FFB74D;

@@ -87,4 +87,14 @@
     <filter-name>FiltroInicio</filter-name>
     <url-pattern>/FiltroInicio</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CrearIntercambio</display-name>
+    <servlet-name>CrearIntercambio</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.CrearIntercambio</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CrearIntercambio</servlet-name>
+    <url-pattern>/CrearIntercambio</url-pattern>
+  </servlet-mapping>
 </web-app>

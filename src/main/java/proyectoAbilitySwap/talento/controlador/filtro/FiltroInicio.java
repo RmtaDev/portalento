@@ -1,4 +1,4 @@
-package proyectoAbilitySwap.talento.controlador;
+package proyectoAbilitySwap.talento.controlador.filtro;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.annotation.WebFilter;

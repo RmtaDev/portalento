@@ -7,11 +7,10 @@ public class CrearIntercambio {
 	private int usuarioDemandada;
 	private int habilidadOfertada;
 	private int habilidadDemandada;
-	private String estado;
-	private EstadoIntercambio estda;
+	private EstadoIntercambio estado;
 
 	public CrearIntercambio(int idIntercambio, int usuarioOfertada, int usuarioDemandada, int habilidadOfertada,
-			int habilidadDemandada, String estado) {
+			int habilidadDemandada, EstadoIntercambio estado) {
 		super();
 		this.idIntercambio = idIntercambio;
 		this.usuarioOfertada = usuarioOfertada;
@@ -20,6 +19,7 @@ public class CrearIntercambio {
 		this.habilidadDemandada = habilidadDemandada;
 		this.estado = estado;
 	}
+	
 	public enum EstadoIntercambio {
         PENDIENTE,
         RECHAZADO,
@@ -66,11 +66,11 @@ public class CrearIntercambio {
 		this.habilidadDemandada = habilidadDemandada;
 	}
 
-	public String getEstado() {
+	public EstadoIntercambio getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(EstadoIntercambio estado) {
 		this.estado = estado;
 	}
 

@@ -3,7 +3,7 @@
 <html lang="es">
 	<head>
 		<meta charset=UTF-8>
-		<title>Créditos del proyecto</title>
+		<title>Buscador</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
@@ -19,6 +19,8 @@
 			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 			crossorigin="anonymous"></script>
 		<script src="js/accesibilidad.js"></script>
+		<script src="js/buscador.js"></script>
+
 	</head>
 	
 	<body>
@@ -36,18 +38,14 @@
 							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
 							  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
 							</svg>
-					    	<input class="input-buscador" type="search" list="habilidades" placeholder="Escribe la habilidad que quieres aprender" aria-label="Search">
-					    	
-					    	<datalist id="habilidades">
-					    	 	<option value="Cocina"></option>
-					    	 	<option value="Karate"></option>
-					    	  	<option value="Sevillanas"></option>
-					    	 	
-					    	</datalist>
-					    	
+					    	<input id="input-buscador" type="search" list="habilidades" placeholder="Escribe la habilidad que quieres aprender" aria-label="Search" onkeyup="habilidadesLike">
 					    </label>
 				    	<button class="btn btn-outline-success" type="submit">Buscar</button>
 				    </form>
+
+					<div id="sugerencias" class="form-control contenedor-sugerencias d-none">
+					</div>
+
         			<div class="grid">
             			<div class="card">
                 			<img src="img/jesusfoto.jpg" alt="Alumno 1">
@@ -121,6 +119,59 @@
                 			</div>
             			</div>
             			
+            			<div class="card">
+                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
+                			<h2>Usuario</h2>
+                			<div class="contenedor-edad-genero">
+                				<div class="contenedor-edad">
+	                				<label>Edad</label>
+	                				<p class="edad">48</p>
+                				</div>
+                				<div class="contenedor-genero">
+	               					<label>Género</label>
+	                				<p class="genero">Masculino</p>
+                				</div>
+                			</div>
+                			<div class="contenedor-boton">
+                				<button class="btn btn-secondary">Contactar</button>
+                			</div>
+            			</div>
+
+            			<div class="card">
+                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
+                			<h2>Usuario</h2>
+                			<div class="contenedor-edad-genero">
+                				<div class="contenedor-edad">
+	                				<label>Edad</label>
+	                				<p class="edad">48</p>
+                				</div>
+                				<div class="contenedor-genero">
+	               					<label>Género</label>
+	                				<p class="genero">Masculino</p>
+                				</div>
+                			</div>
+                			<div class="contenedor-boton">
+                				<button class="btn btn-secondary">Contactar</button>
+                			</div>
+            			</div>
+
+            			<div class="card">
+                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
+                			<h2>Usuario</h2>
+                			<div class="contenedor-edad-genero">
+                				<div class="contenedor-edad">
+	                				<label>Edad</label>
+	                				<p class="edad">48</p>
+                				</div>
+                				<div class="contenedor-genero">
+	               					<label>Género</label>
+	                				<p class="genero">Masculino</p>
+                				</div>
+                			</div>
+                			<div class="contenedor-boton">
+                				<button class="btn btn-secondary">Contactar</button>
+                			</div>
+            			</div>
             			
        	 			</div>
     			</div>

@@ -3,19 +3,31 @@ section {
 }
 
 .container {
-	text-align: center;	
+	text-align: center;
+	position: relative;
 }
 
 .buscador {
 	align-items: center;	
 }
 
-.input-buscador {
+#input-buscador {
 	border: none;
+	outline: none;
 	width: 100%;
 	margin-left: .5rem;	
 }
 
+.contenedor-sugerencias ul li {
+	list-style: none;
+	text-align: left;
+}
+
+.contenedor-sugerencias {
+	width: auto !important;
+    margin-right: 5rem;
+}
+    
 .contenedor-edad-genero {
 	display: flex;
 	justify-content: space-around;
@@ -36,6 +48,11 @@ section {
     grid-template-columns: repeat(auto-fill, minmax(250px, 4fr));
     gap: 20px;
     padding: 3rem 0;
+    position: absolute;
+    z-index: -1;
+    top: 80px;
+    width: -webkit-fill-available;
+    padding-bottom: 120px;
 }
 
 .card {
@@ -82,4 +99,11 @@ section {
 
 .card:hover {
     transform: scale(1.05);
+}
+
+footer {
+	position: fixed !important;
+	left: 0;
+	bottom: 0;
+	right: 0;
 }

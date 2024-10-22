@@ -11,6 +11,7 @@ import proyectoAbilitySwap.talento.beans.Usuario;
 
 public class UsuarioRepository {
 	public static final String EXISTE_USUARIO = "SELECT * FROM abilityswapbd.usuarios WHERE usuario = ? AND password = ?";
+	public static final String EXISTE_USUARIO_NUEVO = "SELECT 1 FROM abilityswapbd.usuarios WHERE usuario = ?";
 	public static final String CONSULTAR_USUARIO_POR_ID = "SELECT * FROM abilityswapbd.usuarios WHERE id_usuario = ?";
 	public static final String INSERTAR_USUARIO = "INSERT INTO `abilityswapbd`.`usuarios` (`usuario`, `password`, `nombre`, `apellidos`, `edad`, `genero`, `telefono`, `email`, `foto`, `rutaFoto`, `habla_sobre_ti`) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
 
@@ -110,5 +111,21 @@ public class UsuarioRepository {
 		Pool.liberarRecursos(connection, ps, null);
 
 		return idnuevo;
+	}
+	
+	public boolean existeUsuarioNuevo(Usuario usuario) throws SQLException{
+		
+		boolean usuarioExiste = false;
+		Connection connection = Pool.getConnection();
+		PreparedStatement ps = connection.prepareStatement(EXISTE_USUARIO_NUEVO);
+		ps.setString(1, usuario.getUsuario());
+		ResultSet rs = ps.executeQuery();
+		if (rs.next()) {
+			usuarioExiste = true;
+		}
+		
+		Pool.liberarRecursos(connection, ps, rs);
+		
+		return usuarioExiste;
 	}
 }

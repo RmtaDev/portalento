@@ -81,10 +81,19 @@
   <filter>
     <display-name>FiltroInicio</display-name>
     <filter-name>FiltroInicio</filter-name>
-    <filter-class>proyectoAbilitySwap.talento.controlador.FiltroInicio</filter-class>
+    <filter-class>proyectoAbilitySwap.talento.controlador.filtro.FiltroInicio</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>FiltroInicio</filter-name>
     <url-pattern>/FiltroInicio</url-pattern>
+  </filter-mapping>
+  <filter>
+    <display-name>FiltroLoginPerformance</display-name>
+    <filter-name>FiltroLoginPerformance</filter-name>
+    <filter-class>proyectoAbilitySwap.talento.controlador.filtro.FiltroLoginPerformance</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FiltroLoginPerformance</filter-name>
+    <url-pattern>/FiltroLoginPerformance</url-pattern>
   </filter-mapping>
 </web-app>

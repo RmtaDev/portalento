@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" version="6.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+  
   <display-name>proyectoAbilitySwap</display-name>
+  
   <welcome-file-list>
     <welcome-file>inicio.html</welcome-file>
   </welcome-file-list>
+  
+  <!-- Login Servlet -->
   <servlet>
     <description></description>
     <display-name>Login</display-name>
@@ -14,6 +21,8 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
+
+  <!-- Alta Nuevo Usuario Servlet -->
   <servlet>
     <description></description>
     <display-name>AltaNuevoUsuario</display-name>
@@ -24,11 +33,52 @@
     <servlet-name>AltaNuevoUsuario</servlet-name>
     <url-pattern>/AltaNuevoUsuario</url-pattern>
   </servlet-mapping>
-  <listener>
-    <listener-class>
-			proyectoAbilitySwap.talento.controlador.EscuchaInicioFinApp
-		</listener-class>
-  </listener>
+
+  <!-- Insertar Habilidades Ofertadas Servlet -->
+  <servlet>
+    <display-name>InsertarHabilidadesOfertadas</display-name>
+    <servlet-name>InsertarHabilidadesOfertadas</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.InsertarHabilidadesOfertadas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertarHabilidadesOfertadas</servlet-name>
+    <url-pattern>/InsertarHabilidadesOfertadas</url-pattern>
+  </servlet-mapping>
+
+  <!-- Insertar Habilidades Demandadas Servlet -->
+  <servlet>
+    <display-name>InsertarHabilidadesDemandadas</display-name>
+    <servlet-name>InsertarHabilidadesDemandadas</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.InsertarHabilidadesDemandadas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertarHabilidadesDemandadas</servlet-name>
+    <url-pattern>/InsertarHabilidadesDemandadas</url-pattern>
+  </servlet-mapping>
+
+  <!-- Borrar Habilidades Ofertadas Servlet -->
+  <servlet>
+    <display-name>BorrarHabilidadesOfertadas</display-name>
+    <servlet-name>BorrarHabilidadesOfertadas</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.BorrarHabilidadesOfertadas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BorrarHabilidadesOfertadas</servlet-name>
+    <url-pattern>/BorrarHabilidadesOfertadas</url-pattern>
+  </servlet-mapping>
+
+  <!-- Borrar Habilidades Demandadas Servlet -->
+  <servlet>
+    <display-name>BorrarHabilidadesDemandadas</display-name>
+    <servlet-name>BorrarHabilidadesDemandadas</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.BorrarHabilidadesDemandadas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BorrarHabilidadesDemandadas</servlet-name>
+    <url-pattern>/BorrarHabilidadesDemandadas</url-pattern>
+  </servlet-mapping>
+
+  <!-- Obtener Perfil de Usuario Servlet -->
   <servlet>
     <description></description>
     <display-name>ObtenerPerfilUsuario</display-name>
@@ -39,6 +89,8 @@
     <servlet-name>ObtenerPerfilUsuario</servlet-name>
     <url-pattern>/ObtenerPerfilUsuario</url-pattern>
   </servlet-mapping>
+
+  <!-- Obtener Foto de Usuario Servlet -->
   <servlet>
     <description></description>
     <display-name>ObtenerFoto</display-name>
@@ -49,6 +101,8 @@
     <servlet-name>ObtenerFoto</servlet-name>
     <url-pattern>/ObtenerFoto</url-pattern>
   </servlet-mapping>
+
+  <!-- Listado de Categorías de Habilidades Servlet -->
   <servlet>
     <description></description>
     <display-name>ListadoCategoriasHabilidadesServlet</display-name>
@@ -59,6 +113,8 @@
     <servlet-name>ListadoCategoriasHabilidadesServlet</servlet-name>
     <url-pattern>/ListadoCategoriasHabilidadesServlet</url-pattern>
   </servlet-mapping>
+
+  <!-- Obtener Usuarios por Habilidad Servlet -->
   <servlet>
     <description></description>
     <display-name>ObtenerUsuariosPorHabilidad</display-name>
@@ -69,6 +125,8 @@
     <servlet-name>ObtenerUsuariosPorHabilidad</servlet-name>
     <url-pattern>/ObtenerUsuariosPorHabilidad</url-pattern>
   </servlet-mapping>
+
+  <!-- Buscador de Habilidades Servlet -->
   <servlet>
     <display-name>BuscadorHabServlet</display-name>
     <servlet-name>BuscadorHabServlet</servlet-name>
@@ -78,13 +136,44 @@
     <servlet-name>BuscadorHabServlet</servlet-name>
     <url-pattern>/BuscadorHabServlet</url-pattern>
   </servlet-mapping>
+
+  <!-- Crear Intercambio Servlet -->
+  <servlet>
+    <description></description>
+    <display-name>CrearIntercambio</display-name>
+    <servlet-name>CrearIntercambio</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.CrearIntercambio</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CrearIntercambio</servlet-name>
+    <url-pattern>/CrearIntercambio</url-pattern>
+  </servlet-mapping>
+
+  <!-- Filtros -->
   <filter>
     <display-name>FiltroInicio</display-name>
     <filter-name>FiltroInicio</filter-name>
-    <filter-class>proyectoAbilitySwap.talento.controlador.FiltroInicio</filter-class>
+    <filter-class>proyectoAbilitySwap.talento.controlador.filtro.FiltroInicio</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>FiltroInicio</filter-name>
     <url-pattern>/FiltroInicio</url-pattern>
   </filter-mapping>
+
+  <filter>
+    <display-name>FiltroLoginPerformance</display-name>
+    <filter-name>FiltroLoginPerformance</filter-name>
+    <filter-class>proyectoAbilitySwap.talento.controlador.filtro.FiltroLoginPerformance</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FiltroLoginPerformance</filter-name>
+    <url-pattern>/FiltroLoginPerformance</url-pattern>
+  </filter-mapping>
+
+  <!-- Listener de Inicio/Fin de la Aplicación -->
+  <listener>
+    <listener-class>proyectoAbilitySwap.talento.controlador.EscuchaInicioFinApp</listener-class>
+  </listener>
+  
 </web-app>
+

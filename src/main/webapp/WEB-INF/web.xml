@@ -115,8 +115,6 @@
     <servlet-name>InsertarHabilidadesOfertadas</servlet-name>
     <url-pattern>/InsertarHabilidadesOfertadas</url-pattern>
   </servlet-mapping>
-
-  <!-- Insertar Habilidades Demandadas Servlet -->
   <servlet>
     <display-name>InsertarHabilidadesDemandadas</display-name>
     <servlet-name>InsertarHabilidadesDemandadas</servlet-name>
@@ -126,8 +124,6 @@
     <servlet-name>InsertarHabilidadesDemandadas</servlet-name>
     <url-pattern>/InsertarHabilidadesDemandadas</url-pattern>
   </servlet-mapping>
-
-  <!-- Borrar Habilidades Ofertadas Servlet -->
   <servlet>
     <display-name>BorrarHabilidadesOfertadas</display-name>
     <servlet-name>BorrarHabilidadesOfertadas</servlet-name>
@@ -137,8 +133,6 @@
     <servlet-name>BorrarHabilidadesOfertadas</servlet-name>
     <url-pattern>/BorrarHabilidadesOfertadas</url-pattern>
   </servlet-mapping>
-
-  <!-- Borrar Habilidades Demandadas Servlet -->
   <servlet>
     <display-name>BorrarHabilidadesDemandadas</display-name>
     <servlet-name>BorrarHabilidadesDemandadas</servlet-name>
@@ -147,5 +141,15 @@
   <servlet-mapping>
     <servlet-name>BorrarHabilidadesDemandadas</servlet-name>
     <url-pattern>/BorrarHabilidadesDemandadas</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Logout</display-name>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
 </web-app>

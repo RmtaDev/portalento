@@ -36,5 +36,4 @@ function mostrarPerfil (infousuario)
 // Llamamos a la función para obtener el perfil del usuario cuando se cargue la página
 window.onload = () => {
 	obtenerPerfilUsuario();
-}
-	
+}	

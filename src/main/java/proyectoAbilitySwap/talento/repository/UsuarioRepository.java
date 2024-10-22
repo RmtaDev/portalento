@@ -113,6 +113,16 @@ public class UsuarioRepository {
 		return idnuevo;
 	}
 	
+	/**
+	 * Verifica si un usuario ya existe en la base de datos basándose en su nombre de usuario.
+	 * 
+	 * Este método consulta la base de datos para determinar si un nombre de usuario ya está registrado,
+	 * lo cual es útil para prevenir la creación de usuarios duplicados.
+	 * 
+	 * @param usuario Objeto Usuario que contiene el nombre de usuario a verificar.
+	 * @return true si el usuario existe, false en caso contrario.
+	 * @throws SQLException Si ocurre algún error de acceso a la base de datos o al ejecutar la consulta.
+	 */
 	public boolean existeUsuarioNuevo(Usuario usuario) throws SQLException{
 		
 		boolean usuarioExiste = false;

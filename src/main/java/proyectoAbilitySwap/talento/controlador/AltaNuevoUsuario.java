@@ -71,44 +71,54 @@ public class AltaNuevoUsuario extends HttpServlet {
 		Part filePart = request.getPart("foto");
 
 		log.info("### -> Datos recibidos: Usuario = " + usuario + ", Email = " + email);
+		
 		UsuarioService usuarioService = new UsuarioService();
 		Usuario nuevoUsuario = null;
 
 		try {
-			// TODO: Comprobar que no existe un usuario ya con ese nombre
-			// If (!existe) {
 
-			// }
+			log.info("### -> Iniciando verificación de usuario existente... ");
+			
 			Usuario usuarioConsulta = new Usuario();
 			usuarioConsulta.setUsuario(usuario);
 
 			if (usuarioService.existeUsuarioNuevo(usuarioConsulta)) {
+				
 				log.warn("### -> El usuario ya existe: " + usuario);
+				
 				response.setStatus(409);
 			} else {
-
+				
+				log.info("### -> El usuario no existe, comenzando validaciones...");
+				
 				Validar validar = new Validar();
 				if (validar.validarNombre(usuario) && validar.validarPassword(password)
 						&& validar.validarConfirmacionPassword(password, confirmPassword)) {
 
 					byte[] foto = filePart.getInputStream().readAllBytes();
+					
 					log.debug("### -> foto recibida con tamaño: " + foto.length + " bytes ");
 
 					String rutaFotoPerfil = EscuchaInicioFinApp.RUTAS_FOTO + File.separator + new Date().getTime();
 					Path fichero = Path.of(rutaFotoPerfil);
 
 					Files.copy(filePart.getInputStream(), fichero, StandardCopyOption.REPLACE_EXISTING);
+					
 					log.debug("### -> Foto guardada en: " + rutaFotoPerfil);
+					
 					nuevoUsuario = new Usuario(0, usuario, password, nombre, apellidos, edadPersona, genero, telefono,
 							email, foto, rutaFotoPerfil, hablaSobreTi);
 
 					log.debug("### -> Validación de usuario exitosa.");
+					
 					String fileName = filePart.getSubmittedFileName();
+					
 					log.debug("### -> Nombre del fichero: " + fileName);
 
 					// UsuarioService usuarioService = new UsuarioService();
 
 					int idUsuario = usuarioService.insertarUsuario(nuevoUsuario);
+					
 					HttpSession session = request.getSession(true);
 					session.setAttribute("idusuario", idUsuario);
 
@@ -117,27 +127,31 @@ public class AltaNuevoUsuario extends HttpServlet {
 					log.debug("### -> Usuario insertado correctamente con ID: " + idUsuario);
 
 				} else {
-					// TODO: declarar log y comentar todo
-
-					response.setStatus(400);// error en la petición
 					log.warn("### error en la validacion de usuario: " + usuario);
+					
+					response.setStatus(400);// error en la petición
+					
 				}
 			}
 		} catch (SQLException e) {
 
 			if (e instanceof java.sql.SQLIntegrityConstraintViolationException) {
+				
 				log.error("### -> Error SQL al insertar el usuario " + usuario, e);
+				
 				response.setStatus(404);
 			} else {
+				
 				log.error("### -> Error SQL al insertar el usuario " + usuario, e);
+				
 				e.printStackTrace();
-				// TODO devolver 500
 				response.setStatus(500);
 
 			}
 
 		} catch (Exception e) {
 			log.error("### -> Error inesperado al procesar la solicitud", e);
+			response.setStatus(500);
 		}
 
 	}

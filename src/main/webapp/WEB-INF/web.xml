@@ -98,13 +98,13 @@
   </filter-mapping>
   <servlet>
     <description></description>
-    <display-name>CrearIntercambio</display-name>
-    <servlet-name>CrearIntercambio</servlet-name>
-    <servlet-class>proyectoAbilitySwap.talento.controlador.CrearIntercambio</servlet-class>
+    <display-name>CrearIntercambioControlador</display-name>
+    <servlet-name>CrearIntercambioControlador</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.CrearIntercambioControlador</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>CrearIntercambio</servlet-name>
-    <url-pattern>/CrearIntercambio</url-pattern>
+    <servlet-name>CrearIntercambioControlador</servlet-name>
+    <url-pattern>/CrearIntercambioControlador</url-pattern>
   </servlet-mapping>
   <servlet>
     <display-name>InsertarHabilidadesOfertadas</display-name>

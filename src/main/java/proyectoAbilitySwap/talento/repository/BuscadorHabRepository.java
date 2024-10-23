@@ -17,7 +17,13 @@ public class BuscadorHabRepository {
 
 		Connection connection = Pool.getConnection();
 		PreparedStatement pstatement = connection.prepareStatement(BUSCAR_HABILIDAD_POR_NOMBRE);
-		pstatement.setString(1, consulta+"%");
+
+		if (consulta!= "") {
+			pstatement.setString(1, consulta+"%");
+		} else {
+			pstatement.setString(1, "");
+		}
+		
 		ResultSet rs = pstatement.executeQuery();
 		listaHabilidades = new ArrayList<HabilidadOfertada>();
 		while (rs.next()) {

@@ -24,20 +24,25 @@ function habilidadesLike() {
 function mostrarHabilidadesLike(listadoHabilidadesLike) {
 	console.log ("INFO = " + listadoHabilidadesLike);
 	let divSugerencias = document.getElementById("sugerencias");
-	let ulSugerencias = document.createElement("ul");
-	let nolis = ulSugerencias.childElementCount;
-	
-	//borrar todos los lis del ul del div
-	for (let i=0; i<nolis; i++){
-		ulSugerencias.removeChild("li");
-	}
-	
-	listadoHabilidadesLike.forEach((hablidad, indice) => {
+	let ulSugerencias = divSugerencias.querySelector("ul");
+
+	// Si no hay un <ul>, lo creo
+	if (!ulSugerencias) {
+		ulSugerencias = document.createElement("ul");
+    	divSugerencias.appendChild(ulSugerencias);
+    // y si lo hay lo vacío	
+	} else {
+		ulSugerencias.innerHTML = "";
+		divSugerencias.classList.add("d-none");
+	}	
+
+	// lo relleno con las habilidades 	
+	listadoHabilidadesLike.forEach(hablidad => {
 		let liSugerencia = document.createElement("li");
-		liSugerencia.innerHTML = hablidad.nombre;
+		liSugerencia.textContent = hablidad.nombre;
 		ulSugerencias.appendChild(liSugerencia);
 	})
-	divSugerencias.appendChild(ulSugerencias);
+	// lo muestro
 	divSugerencias.classList.remove("d-none");
 
 

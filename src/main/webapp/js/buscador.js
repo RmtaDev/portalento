@@ -25,8 +25,13 @@ function mostrarHabilidadesLike(listadoHabilidadesLike) {
 	console.log ("INFO = " + listadoHabilidadesLike);
 	let divSugerencias = document.getElementById("sugerencias");
 	let ulSugerencias = document.createElement("ul");
+	let nolis = ulSugerencias.childElementCount;
 	
 	//borrar todos los lis del ul del div
+	for (let i=0; i<nolis; i++){
+		ulSugerencias.removeChild("li");
+	}
+	
 	listadoHabilidadesLike.forEach((hablidad, indice) => {
 		let liSugerencia = document.createElement("li");
 		liSugerencia.innerHTML = hablidad.nombre;

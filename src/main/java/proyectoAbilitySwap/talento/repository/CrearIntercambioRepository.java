@@ -4,19 +4,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import proyectoAbilitySwap.talento.beans.CrearIntercambio;
 
 public class CrearIntercambioRepository {
 
-	public static final String INSERTAR_INTERCAMBIO = "INSERT INTO `abilityswapbd`.`intercambios` (`idintercambio`, `usuario_ofertada`, `usuario_demandada`, `habilidad_ofertada`, `habilidad_demandada`, `estado`) VALUES (?,?,?,?,?,?);";
+	public static final String INSERTAR_INTERCAMBIO = "INSERT INTO `abilityswapbd`.`intercambios` ( `usuario_ofertada`, `usuario_demandada`, `habilidad_ofertada`, `habilidad_demandada`, `estado`) VALUES (?,?,?,?,?);";
 
 	public int insertarIntercambio(CrearIntercambio crearIntercambio) throws SQLException {
 
 		int idNuevoIntercambio = -1;
 
 		Connection connection = Pool.getConnection();
-		PreparedStatement ps = connection.prepareStatement(INSERTAR_INTERCAMBIO);
+		PreparedStatement ps = connection.prepareStatement(INSERTAR_INTERCAMBIO, Statement.RETURN_GENERATED_KEYS);
 
 		
 		ps.setInt(1, crearIntercambio.getUsuarioOfertada());

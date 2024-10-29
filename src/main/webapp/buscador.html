@@ -33,146 +33,18 @@
 	        <section>
 		        <div class="container">
 		        	<h2>Encuentra usuarios que ofrecen la habilidad que quieres aprender</h2>
-					<form class=" d-flex" role="search">
-						<label class="buscador d-flex form-control me-2" >
+					<form class=" d-flex" role="search" onsubmit="event.preventDefault();">
+						<label class="buscador d-flex form-control" >
 							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
 							  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
 							</svg>
 					    	<input id="input-buscador" type="search" placeholder="Escribe la habilidad que quieres aprender" aria-label="Search" autofocus autocomplete="off" onkeyup="habilidadesLike()">
 					    </label>
-				    	<button class="btn btn-outline-success" type="submit">Buscar</button>
 				    </form>
 
 					<div id="sugerencias" class="form-control contenedor-sugerencias d-none">
 					</div>
-
-        			<div class="grid">
-            			<div class="card">
-                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
-                			<h2>Usuario</h2>
-                			<div class="contenedor-edad-genero">
-                				<div class="contenedor-edad">
-	                				<label>Edad</label>
-	                				<p class="edad">48</p>
-                				</div>
-                				<div class="contenedor-genero">
-	               					<label>Género</label>
-	                				<p class="genero">Masculino</p>
-                				</div>
-                			</div>
-                			<div class="contenedor-boton">
-                				<button class="btn btn-secondary">Contactar</button>
-                			</div>
-            			</div>
-            			
-            			<div class="card">
-                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
-                			<h2>Usuario</h2>
-                			<div class="contenedor-edad-genero">
-                				<div class="contenedor-edad">
-	                				<label>Edad</label>
-	                				<p class="edad">48</p>
-                				</div>
-                				<div class="contenedor-genero">
-	               					<label>Género</label>
-	                				<p class="genero">Masculino</p>
-                				</div>
-                			</div>
-                			<div class="contenedor-boton">
-                				<button class="btn btn-secondary">Contactar</button>
-                			</div>
-            			</div>
-            			
-            			<div class="card">
-                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
-                			<h2>Usuario</h2>
-                			<div class="contenedor-edad-genero">
-                				<div class="contenedor-edad">
-	                				<label>Edad</label>
-	                				<p class="edad">48</p>
-                				</div>
-                				<div class="contenedor-genero">
-	               					<label>Género</label>
-	                				<p class="genero">Masculino</p>
-                				</div>
-                			</div>
-                			<div class="contenedor-boton">
-                				<button class="btn btn-secondary">Contactar</button>
-                			</div>
-            			</div>
-            			
-            			<div class="card">
-                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
-                			<h2>Usuario</h2>
-                			<div class="contenedor-edad-genero">
-                				<div class="contenedor-edad">
-	                				<label>Edad</label>
-	                				<p class="edad">48</p>
-                				</div>
-                				<div class="contenedor-genero">
-	               					<label>Género</label>
-	                				<p class="genero">Masculino</p>
-                				</div>
-                			</div>
-                			<div class="contenedor-boton">
-                				<button class="btn btn-secondary">Contactar</button>
-                			</div>
-            			</div>
-            			
-            			<div class="card">
-                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
-                			<h2>Usuario</h2>
-                			<div class="contenedor-edad-genero">
-                				<div class="contenedor-edad">
-	                				<label>Edad</label>
-	                				<p class="edad">48</p>
-                				</div>
-                				<div class="contenedor-genero">
-	               					<label>Género</label>
-	                				<p class="genero">Masculino</p>
-                				</div>
-                			</div>
-                			<div class="contenedor-boton">
-                				<button class="btn btn-secondary">Contactar</button>
-                			</div>
-            			</div>
-
-            			<div class="card">
-                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
-                			<h2>Usuario</h2>
-                			<div class="contenedor-edad-genero">
-                				<div class="contenedor-edad">
-	                				<label>Edad</label>
-	                				<p class="edad">48</p>
-                				</div>
-                				<div class="contenedor-genero">
-	               					<label>Género</label>
-	                				<p class="genero">Masculino</p>
-                				</div>
-                			</div>
-                			<div class="contenedor-boton">
-                				<button class="btn btn-secondary">Contactar</button>
-                			</div>
-            			</div>
-
-            			<div class="card">
-                			<img src="img/jesusfoto.jpg" alt="Alumno 1">
-                			<h2>Usuario</h2>
-                			<div class="contenedor-edad-genero">
-                				<div class="contenedor-edad">
-	                				<label>Edad</label>
-	                				<p class="edad">48</p>
-                				</div>
-                				<div class="contenedor-genero">
-	               					<label>Género</label>
-	                				<p class="genero">Masculino</p>
-                				</div>
-                			</div>
-                			<div class="contenedor-boton">
-                				<button class="btn btn-secondary">Contactar</button>
-                			</div>
-            			</div>
-            			
+        			<div id="grid" class="grid">
        	 			</div>
     			</div>
         	</section>

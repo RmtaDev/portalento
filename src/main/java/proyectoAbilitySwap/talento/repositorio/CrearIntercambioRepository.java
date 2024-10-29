@@ -1,4 +1,4 @@
-package proyectoAbilitySwap.talento.repository;
+package proyectoAbilitySwap.talento.repositorio;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

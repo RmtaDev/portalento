@@ -1,4 +1,4 @@
-package proyectoAbilitySwap.talento.repository;
+package proyectoAbilitySwap.talento.repositorio;
 
 import java.sql.Connection;
 import java.sql.Driver;
@@ -24,7 +24,7 @@ public class HabilidadesRepository implements IHabilidadesDemandadasRepository, 
 
 	@Override
 	public void insertarHabilidadOfertada(String nombreHabilidad, int idUsuario, int idCategoria) throws SQLException {
-		Connection connection = obtenerConexionlocal();
+		Connection connection = Pool.getConnection();
 		PreparedStatement ps = connection.prepareStatement(INSERTAR_HABILIDAD_OFERTADA);
 
 		ps.setInt(1, idUsuario);
@@ -33,14 +33,14 @@ public class HabilidadesRepository implements IHabilidadesDemandadasRepository, 
 
 		int filasInsertadas = ps.executeUpdate();
 
-		liberarRecursos(connection, ps, null);
+		Pool.liberarRecursos(connection, ps, null);
 		return;
 	}
 
 	@Override
 	public List<HabilidadOfertada> consultarTodasOfertadas(int idUsuario) throws SQLException {
 		List<HabilidadOfertada> listaHabilidadOfertada = null;
-		Connection connection = obtenerConexionlocal();
+		Connection connection = Pool.getConnection();
 		PreparedStatement ps = connection.prepareStatement(CONSULTAR_HABILIDAD_OFERTADA);
 		ps.setInt(1, idUsuario);
 
@@ -58,24 +58,24 @@ public class HabilidadesRepository implements IHabilidadesDemandadasRepository, 
 			listaHabilidadOfertada.add(habilidadOfertada);
 		}
 
-		liberarRecursos(connection, ps, rs);
+		Pool.liberarRecursos(connection, ps, rs);
 		return listaHabilidadOfertada;
 	}
 
 	@Override
 	public void borrarHabilidadOfertada(int idHabilidad) throws SQLException {
-		Connection connection = obtenerConexionlocal();
+		Connection connection = Pool.getConnection();
 		PreparedStatement ps = connection.prepareStatement(BORRAR_HABILIDAD_OFERTADA);
 
 		ps.setInt(1, idHabilidad);
 		ps.executeUpdate();
 
-		liberarRecursos(connection, ps, null);
+		Pool.liberarRecursos(connection, ps, null);
 	}
 
 	@Override
 	public void insertarHabilidadDemandada(String nombreHabilidad, int idUsuario, int idCategoria) throws SQLException {
-		Connection connection = obtenerConexionlocal();
+		Connection connection = Pool.getConnection();
 		PreparedStatement ps = connection.prepareStatement(INSERTAR_HABILIDAD_DEMANDA);
 
 		ps.setInt(1, idUsuario);
@@ -83,13 +83,13 @@ public class HabilidadesRepository implements IHabilidadesDemandadasRepository, 
 		ps.setInt(3, idCategoria);
 
 		int filasInsertadas = ps.executeUpdate();
-		liberarRecursos(connection, ps, null);
+		Pool.liberarRecursos(connection, ps, null);
 	}
 
 	@Override
 	public List<HabilidadDemandada> consultarTodasDemandadas(int idUsuario) throws SQLException {
 		List<HabilidadDemandada> listaHabilidadDemandada = null;
-		Connection connection = obtenerConexionlocal();
+		Connection connection = Pool.getConnection();
 		PreparedStatement ps = connection.prepareStatement(CONSULTAR_HABILIDAD_DEMANDA);
 		ps.setInt(1, idUsuario);
 
@@ -105,21 +105,22 @@ public class HabilidadesRepository implements IHabilidadesDemandadasRepository, 
 			listaHabilidadDemandada.add(habilidadDemandada);
 		}
 
-		liberarRecursos(connection, ps, rs);
+		Pool.liberarRecursos(connection, ps, rs);
 		return listaHabilidadDemandada;
 	}
 
 	@Override
 	public void borrarHabilidadDemandada(int idHabilidad) throws SQLException {
-		Connection connection = obtenerConexionlocal();
+		Connection connection = Pool.getConnection();
 		PreparedStatement ps = connection.prepareStatement(BORRAR_HABILIDAD_DEMANDA);
 
 		ps.setInt(1, idHabilidad);
 		ps.executeUpdate();
 
-		liberarRecursos(connection, ps, null);
+		Pool.liberarRecursos(connection, ps, null);
 	}
 
+	/*
 	public static Connection obtenerConexionlocal() {
 		Driver driver = null;
 		Connection connection = null;
@@ -213,5 +214,5 @@ public class HabilidadesRepository implements IHabilidadesDemandadasRepository, 
 		} catch (SQLException e) {
 			System.err.println("Error en la operación con la base de datos: " + e.getMessage());
 		}
-	}
+	}*/
 }

@@ -3,7 +3,7 @@ package proyectoAbilitySwap.talento.servicio;
 import java.sql.SQLException;
 
 import proyectoAbilitySwap.talento.beans.Usuario;
-import proyectoAbilitySwap.talento.repository.UsuarioRepository;
+import proyectoAbilitySwap.talento.repositorio.UsuarioRepository;
 
 public class UsuarioService {
 

@@ -1,3 +1,7 @@
+body {
+	background-color: #cee8ea !important;
+}
+
 section {
 	padding-top: 100px;	
 }
@@ -8,7 +12,8 @@ section {
 }
 
 .buscador {
-	align-items: center;	
+	align-items: center;
+	margin-right: 5em;	
 }
 
 #input-buscador {
@@ -16,6 +21,10 @@ section {
 	outline: none;
 	width: 100%;
 	margin-left: .5rem;	
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
 }
 
 .contenedor-sugerencias ul li {
@@ -68,6 +77,7 @@ section {
     width: 100%;
     border-radius: 8px;
     height: 250px;
+    object-fit: cover;
 }
 
 .card h2 {

@@ -1,9 +1,9 @@
-body {
+body{
 	height: 100vh;
 }
 
 main {
-	background: url("../img/fondo.png");
+	background-color: #cee8ea; 
 	height: 100%;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -16,6 +16,7 @@ main {
 
 .contenedor-botones {
 	gap: 2rem;
-	display: flex;
-	justify-content: center;
+	display: flex; 
+	justify-content: center; 
 }
+

@@ -19,12 +19,13 @@ function habilidadesLike() {
 	})
 	
 	.then(listadoHabilidadesLike => mostrarHabilidadesLike(listadoHabilidadesLike));
-
+}
  
 function mostrarHabilidadesLike(listadoHabilidadesLike) {
 	console.log ("INFO = " + listadoHabilidadesLike);
 	let divSugerencias = document.getElementById("sugerencias");
 	let ulSugerencias = divSugerencias.querySelector("ul");
+	let divGrid = document.getElementById("grid");
 
 	// Si no hay un <ul>, lo creo
 	if (!ulSugerencias) {
@@ -34,23 +35,101 @@ function mostrarHabilidadesLike(listadoHabilidadesLike) {
 	} else {
 		ulSugerencias.innerHTML = "";
 		divSugerencias.classList.add("d-none");
+		divGrid.innerHTML = "";		
 	}	
 
 	// lo relleno con las habilidades 	
-	listadoHabilidadesLike.forEach(hablidad => {
+	listadoHabilidadesLike.forEach(habilidad => {
 		let liSugerencia = document.createElement("li");
-		liSugerencia.textContent = hablidad.nombre;
+		liSugerencia.textContent = habilidad.nombre;
 		ulSugerencias.appendChild(liSugerencia);
+		
+		liSugerencia.id = habilidad.nombre;
+		liSugerencia.addEventListener("click", (evento)=>{
+			console.log("HA TOCADO UNA HABLILIDAD " + evento.target.id);
+			//sera el li
+			let inputHabilidad = document.getElementById("input-buscador");
+			inputHabilidad.value = liSugerencia.textContent;
+			divSugerencias.classList.add("d-none");
+			
+			
+			fetch("ObtenerUsuariosPorHabilidad?habilidad=" + evento.target.id)
+			.then (respuesta => {
+				switch (respuesta.status) {
+					case 200:
+						return respuesta.json();
+					case 400:
+						alert("No se encontró el recurso");
+               			break;
+					case 500:
+            			alert("Error en el servidor");
+						break;
+				}
+			})
+
+			.then(listadoUsuariosPorHabilidad => mostrarUsuariosPorHabilidad(listadoUsuariosPorHabilidad));	
+			})
 	})
-	// lo muestro
-	divSugerencias.classList.remove("d-none");
-
-
-	
-	/* getElementByIdSugerencias, Crearul, crearli, 
-	document.getElementById ("nombre").innerHTML = infoHabilidadesLike.nombre
-	document.getElementById ("fotoPerfil").src = "ObtenerFoto?idfoto="+infoHabilidadesLike.rutaFoto.substring(infoHabilidadesLike.rutaFoto.lastIndexOf('\\') + 1);
-	//fotosperfil\foto1728286525650 */
+	// lo muestro si no esta vacio
+	if (ulSugerencias.innerHTML != "") {
+		divSugerencias.classList.remove("d-none");
+	}
 }
 
+function mostrarUsuariosPorHabilidad(listadoUsuariosPorHabilidad) {
+	let divGrid = document.getElementById("grid");
+	divGrid.innerHTML = "";
+
+	listadoUsuariosPorHabilidad.forEach(usuario => {
+		let divCard = document.createElement("div");
+		divCard.classList.add("card");
+
+		let imgCard = document.createElement("img");
+		if (usuario.rutaFoto != null){
+			imgCard.src = "ObtenerFoto?idfoto=" + usuario.rutaFoto.substring(usuario.rutaFoto.lastIndexOf('\\') + 1);
+		} else {
+			imgCard.src = "img/avatar.png"
+		}
+		
+		divCard.appendChild(imgCard);
+
+		let h2Card = document.createElement("h2");
+		h2Card.innerText = usuario.usuario;
+		divCard.appendChild(h2Card);
+
+		let divEdadGenero =  document.createElement("div");
+		divEdadGenero.classList.add("contenedor-edad-genero");
+
+		let divEdad =  document.createElement("div");
+		divEdad.classList.add("contenedor-edad");
+		let labelEdad = document.createElement("label");
+		labelEdad.innerText = "Edad";
+		let pEdad = document.createElement("p");
+		pEdad.innerText = usuario.edad;
+		divEdad.appendChild(labelEdad)
+		divEdad.appendChild(pEdad);
+
+		let divGenero =  document.createElement("div");
+		divGenero.classList.add("contenedor-genero");
+		let labelGenero = document.createElement("label");
+		labelGenero.innerText = "Genero";
+		let pGenero = document.createElement("p");
+		pGenero.innerText = usuario.genero;
+		divGenero.appendChild(labelGenero);
+		divGenero.appendChild(pGenero);
+
+		divEdadGenero.appendChild(divEdad);
+		divEdadGenero.appendChild(divGenero);
+		divCard.appendChild(divEdadGenero);
+		
+		let divBoton = document.createElement("div");
+		divBoton.classList.add("contenedor-boton");
+		let boton = document.createElement("button"); 		
+		boton.classList.add("btn", "btn-secondary");
+		boton.innerText = "Contactar";
+		divBoton.appendChild(boton);
+		divCard.appendChild(divBoton);
+		
+		divGrid.appendChild(divCard);
+});
 }

@@ -1,4 +1,4 @@
-package proyectoAbilitySwap.talento.controlador;
+package proyectoAbilitySwap.talento.controlador.habilidades;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -7,7 +7,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import proyectoAbilitySwap.talento.service.HabilidadesService;
+import proyectoAbilitySwap.talento.servicio.HabilidadesService;
 
 public class BorrarHabilidadesOfertadas extends HttpServlet {
 
@@ -20,8 +20,15 @@ public class BorrarHabilidadesOfertadas extends HttpServlet {
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	//TODO DEBERÍAMOS COMPROBAR QUE
+    	//1. TIENE SESIÓN 
+    	//2. EL USUARIO DE LA SESIÓN TIENE ASOCIADA ESE ID HABILIDAD
+    	//ESTO protegería que un usuario distinto borre habilidades de otros
+    	//lo suyo sería modificar la intrstucción de borrado para añadirle la restricción del id de usuario
+    	//PENDIENTE. Caso especial
+    	try {
             // 1. Recoge el parámetro "idHabilidad" que envía el cliente (por ejemplo, desde un formulario)
             String habilidadParam = request.getParameter("idHabilidad");
 

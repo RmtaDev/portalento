@@ -1,4 +1,4 @@
-package proyectoAbilitySwap.talento.controlador;
+package proyectoAbilitySwap.talento.controlador.categoria;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import proyectoAbilitySwap.talento.beans.Categoria;
-import proyectoAbilitySwap.talento.repository.CategoriasRepository;
+import proyectoAbilitySwap.talento.repositorio.CategoriasRepository;
 
 public class CategoriasService {
 

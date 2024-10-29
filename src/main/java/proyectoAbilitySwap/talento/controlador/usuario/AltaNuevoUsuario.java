@@ -1,4 +1,4 @@
-package proyectoAbilitySwap.talento.controlador;
+package proyectoAbilitySwap.talento.controlador.usuario;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 import proyectoAbilitySwap.talento.beans.Usuario;
+import proyectoAbilitySwap.talento.controlador.EscuchaInicioFinApp;
 import proyectoAbilitySwap.talento.servicio.UsuarioService;
 import proyectoAbilitySwap.talento.validacion.Validar;
 

@@ -1,0 +1,96 @@
+	body {
+	    font-family: Arial, sans-serif;
+	    background-color: #f4f4f4;
+	    height: 100%;
+	    width: 100%;
+	    
+	}
+	
+	main {
+		background-color: #cee8ea; 
+		height: 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		padding-top: 60px;
+		padding-bottom : 60px;
+	}
+	
+	.enlace {
+	    font-size: 15px; 
+	    font-weight: bolder; 
+	    text-decoration: none;
+	  	display: flex;
+	  	gap: 3rem; 
+	  	margin: 0 3rem;
+	}
+	
+	.enlace a {
+		text-decoration: none;
+		color: black;
+	}
+
+	h1 {
+		text-align: center;
+	    color: #333;
+	}
+	
+	h2 {
+		text-align: center;
+	    color: #333;
+	    
+	}
+	
+	h5{
+		text-align: center;
+	    padding: 160px 0;
+	}
+	
+	.grid {
+	    display: grid;
+	    grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+	    gap: 90px;
+	    display: flex;
+	   	justify-content: center;    
+	   	padding: 35.3px;
+	}
+	
+
+	.card {
+	    background: white;
+	    border-radius: 8px;
+	    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	    padding: 15px;
+	    transition: transform 0.2s;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+	
+	
+	.card img {
+	    width: 100%;
+	    border-radius: 8px;
+	    height: 250px;
+	    
+	}
+	
+	.card h2 {
+	    font-size: 18px;
+	    color: #444;
+	    margin-top: 10px;
+	}
+	
+	.card p {
+	    margin: 10px 0 20px 0;
+	   
+	}
+	
+	.card a {
+	    text-decoration: none;
+	    color: #007bff;
+	}
+
+	
+	.card:hover {
+	    transform: scale(1.05);
+	}

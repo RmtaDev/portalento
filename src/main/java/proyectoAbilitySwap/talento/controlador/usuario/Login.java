@@ -1,4 +1,4 @@
-package proyectoAbilitySwap.talento.controlador;
+package proyectoAbilitySwap.talento.controlador.usuario;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;

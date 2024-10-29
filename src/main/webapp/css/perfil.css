@@ -1,5 +1,4 @@
 	.enlace {
-	
 	    font-size: 15px; 
 	    font-weight: bolder; 
 	    text-decoration: none;
@@ -16,7 +15,7 @@
 	
 
 	main {
-		background: url("../img/fondo.png");
+		background-color: #cee8ea; 
 		background-size: contain;
 		background-repeat: no-repeat;
 		margin: 0;
@@ -29,8 +28,7 @@
 	    padding: 0; 
 	}
 	
-	.opacidad {
-		background-color: #FFFFFF99; 
+	.opacidad { 
 		width: 100%; 
 		padding: 100px 0 35px 0;
 		 
@@ -108,7 +106,6 @@
 	.container-etiquetas {
 		display: flex; 
 		gap: 20px; 
-		flex-wrap: wrap;
 	}
 	.etiqueta {
 		background-color: #FFB74D;

@@ -1,4 +1,4 @@
-package proyectoAbilitySwap.talento.repository;
+package proyectoAbilitySwap.talento.repositorio;
 
 import java.sql.SQLException;
 import java.util.List;

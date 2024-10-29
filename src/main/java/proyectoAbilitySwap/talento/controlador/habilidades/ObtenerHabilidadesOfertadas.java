@@ -1,4 +1,4 @@
-package proyectoAbilitySwap.talento.controlador;
+package proyectoAbilitySwap.talento.controlador.habilidades;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import proyectoAbilitySwap.talento.beans.HabilidadOfertada;
 import proyectoAbilitySwap.talento.beans.Usuario;
-import proyectoAbilitySwap.talento.service.HabilidadesService;
+import proyectoAbilitySwap.talento.servicio.HabilidadesService;
 
 import java.io.IOException;
 import java.sql.SQLException;

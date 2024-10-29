@@ -1,11 +1,12 @@
-package proyectoAbilitySwap.talento.controlador;
+package proyectoAbilitySwap.talento.controlador.habilidades;
 
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import proyectoAbilitySwap.talento.service.HabilidadesService;
+import proyectoAbilitySwap.talento.servicio.HabilidadesService;
+
 import java.sql.SQLException;
 
 public class BorrarHabilidadesDemandadas extends HttpServlet {
@@ -20,7 +21,19 @@ public class BorrarHabilidadesDemandadas extends HttpServlet {
 
     // El método doPost es el que se ejecuta cuando recibimos una solicitud POST desde el frontend
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
+        
+    }
+    
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	//TODO DEBERÍAMOS COMPROBAR QUE
+    	//1. TIENE SESIÓN 
+    	//2. EL USUARIO DE LA SESIÓN TIENE ASOCIADA ESE ID HABILIDAD
+    	//ESTO protegería que un usuario distinto borre habilidades de otros
+    	//lo suyo sería modificar la intrstucción de borrado para añadirle la restricción del id de usuario
+    	//PENDIENTE. Caso especial
+    	
+    	try {
             // 1. Recoge el parámetro "idHabilidad" que envía el cliente (por ejemplo, desde un formulario)
             String habilidadParam = request.getParameter("idHabilidad");
 

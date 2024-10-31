@@ -15,19 +15,21 @@ public class HabilidadesRepositoryAntonio {
 
 	public static final String USUARIOS_POR_HABILIDAD = "SELECT usuarios.id_usuario, usuarios.usuario, usuarios.edad, usuarios.genero, usuarios.rutafoto " +
 														"FROM abilityswapbd.usuarios INNER JOIN abilityswapbd.habilidades_ofertadas ON habilidades_ofertadas.usuario = usuarios.id_usuario " +
-														"WHERE habilidades_ofertadas.nombre = ?";
+														"WHERE habilidades_ofertadas.nombre = ? AND usuarios.id_usuario <> ?";
 	
 	private static Logger log = Logger.getLogger("mylog");	
 
 
 
-	public List<Usuario> consultarUsuariosPorHabilidad(String habilidad) throws SQLException {
+	public List<Usuario> consultarUsuariosPorHabilidad(String habilidad, int idusuario) throws SQLException {
 		log.debug("Peticion en repositorio: consultarUsuariosPorHabilidad");
 		List<Usuario> listaUsuarios = null;
 
 		Connection connection = Pool.getConnection();
 		PreparedStatement ps = connection.prepareStatement(USUARIOS_POR_HABILIDAD);
 		ps.setString(1, habilidad);
+		ps.setInt(2, idusuario);
+		
 		ResultSet rs = ps.executeQuery();		
 		listaUsuarios = new ArrayList<Usuario>();
 

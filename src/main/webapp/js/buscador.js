@@ -130,10 +130,11 @@ function mostrarUsuariosPorHabilidad(listadoUsuariosPorHabilidad) {
 		divCard.appendChild(divEdadGenero);
 		
 		let divBoton = document.createElement("div");
+		
 		divBoton.classList.add("contenedor-boton");
 		let boton = document.createElement("button"); 		
 		boton.classList.add("btn", "btn-secondary");
-		boton.innerText = "Contactar";
+		boton.innerText = "Ver perfil";
 		divBoton.appendChild(boton);
 		divCard.appendChild(divBoton);
 		

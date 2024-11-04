@@ -10,7 +10,7 @@
 		<link rel="icon" href="img/favicon.png">
 		<link rel="stylesheet" href="css/estilosgenerales.css">
 		<link rel="stylesheet" href="css/accesibilidad.css">
-		<link rel="stylesheet" type="text/css" href="css/buscador.css" />
+		<link rel="stylesheet" type="text/css" href="css/buscador.css"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -18,28 +18,56 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 			crossorigin="anonymous"></script>
-		<!--  <script src="js/accesibilidad.js"></script>  -->
+		<script src="js/accesibilidad.js"></script>
 		<script src="js/buscador.js"></script>
 
 	</head>
 	
 	<body>
-		<nav class="navbar fixed-top navbar-light bg-light">
-			<a href="inicio.html" class="inicio"> <img alt="inicio" src="img/favicon.png">Inicio</a>
-		</nav>
-
+		<div class="sidebar">
+			<button id="openModalBtn" class="open-btn" aria-label="Menú de accesibilidad">
+				<img class="fa-solid fa-universal-access" src="img/accesibilidad.png" alt="imagen accesibilidad">
+			</button>
+			<div id="radialMenu" class="radial-menu">
+				<button id="monocromaticoBtn" aria-label="Activar/Desactivar modo monocromático"
+					title="Activar/Desactivar modo monocromático">
+					<i id="monocromaticoIcon" class="fas fa-eye-slash"></i>
+				</button>
+				<button id="speakerBtn" aria-label="Activar/Desactivar lector de texto"
+					title="Activar/Desactivar lector de texto. Mantener pulsado sobre el texto a leer.">
+					<i id="speakerIcon" class="fas fa-volume-mute"></i>
+				</button>
+				<button id="zoomBtn" aria-label="Aumentar/Disminuir zoom" title="Aumentar/Disminuir zoom">
+					<i id="zoomIcon" class="fa fa-search-plus"></i>
+				</button>
+			</div>
+			<div id="contentContainer"></div>
+		</div>
+		
+		<div class="enlace">
+			<nav class="navbar fixed-top navbar-light bg-light">
+				<a href="inicio.html"><img alt="inicio"	src="img/favicon.png">Inicio</a>
+	
+				<div class="enlace">
+					<a href="registro.html">Registro</a>
+					<a href="Logout">Salir</a>
+					<a href="perfil.html">Perfil</a>
+					<a href="creditos.html">Quienes somos</a>
+				</div>
+			</nav>
+		</div>
    		 
 		<main>
 	        <section>
 		        <div class="container">
 		        	<h2>Encuentra usuarios que ofrecen la habilidad que quieres aprender</h2>
 					<form class=" d-flex" role="search" onsubmit="event.preventDefault();">
-						<label class="buscador d-flex form-control" >
+						<div class="buscador d-flex form-control" >
 							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
 							  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
 							</svg>
 					    	<input id="input-buscador" type="search" placeholder="Escribe la habilidad que quieres aprender" aria-label="Search" autofocus autocomplete="off" onkeyup="habilidadesLike()">
-					    </label>
+					    </div>
 				    </form>
 
 					<div id="sugerencias" class="form-control contenedor-sugerencias d-none">

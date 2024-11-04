@@ -23,6 +23,7 @@ function habilidadesLike() {
  
 function mostrarHabilidadesLike(listadoHabilidadesLike) {
 	console.log ("INFO = " + listadoHabilidadesLike);
+	let patronBusqueda = document.getElementById("input-buscador").value;
 	let divSugerencias = document.getElementById("sugerencias");
 	let ulSugerencias = divSugerencias.querySelector("ul");
 	let divGrid = document.getElementById("grid");
@@ -39,39 +40,45 @@ function mostrarHabilidadesLike(listadoHabilidadesLike) {
 	}	
 
 	// lo relleno con las habilidades 	
-	listadoHabilidadesLike.forEach(habilidad => {
-		let liSugerencia = document.createElement("li");
-		liSugerencia.textContent = habilidad.nombre;
-		ulSugerencias.appendChild(liSugerencia);
+	if (listadoHabilidadesLike.length != 0){
+		listadoHabilidadesLike.forEach(habilidad => {
+			let liSugerencia = document.createElement("li");
+			liSugerencia.textContent = habilidad.nombre;
+			ulSugerencias.appendChild(liSugerencia);
 		
-		liSugerencia.id = habilidad.nombre;
-		liSugerencia.addEventListener("click", (evento)=>{
-			console.log("HA TOCADO UNA HABLILIDAD " + evento.target.id);
-			//sera el li
-			let inputHabilidad = document.getElementById("input-buscador");
-			inputHabilidad.value = liSugerencia.textContent;
-			divSugerencias.classList.add("d-none");
+			liSugerencia.id = habilidad.nombre;
+			liSugerencia.addEventListener("click", (evento)=>{
+				console.log("HA TOCADO UNA HABLILIDAD " + evento.target.id);
+				//sera el li
+				let inputHabilidad = document.getElementById("input-buscador");
+				inputHabilidad.value = liSugerencia.textContent;
+				divSugerencias.classList.add("d-none");
 			
-			
-			fetch("ObtenerUsuariosPorHabilidad?habilidad=" + evento.target.id)
-			.then (respuesta => {
-				switch (respuesta.status) {
-					case 200:
-						return respuesta.json();
-					case 400:
-						alert("No se encontró el recurso");
-               			break;
-					case 500:
-            			alert("Error en el servidor");
-						break;
-				}
-			})
+				fetch("ObtenerUsuariosPorHabilidad?habilidad=" + evento.target.id)
+				.then (respuesta => {
+					switch (respuesta.status) {
+						case 200:
+							return respuesta.json();
+						case 400:
+							alert("No se encontró el recurso");
+   	            			break;
+						case 500:
+	            			alert("Error en el servidor");
+							break;
+					}
+				})
 
-			.then(listadoUsuariosPorHabilidad => mostrarUsuariosPorHabilidad(listadoUsuariosPorHabilidad));	
-			})
-	})
-	// lo muestro si no esta vacio
-	if (ulSugerencias.innerHTML != "") {
+				.then(listadoUsuariosPorHabilidad => mostrarUsuariosPorHabilidad(listadoUsuariosPorHabilidad));	
+				})
+		})
+	} else { // si no hay habilidades lo relleno con una indicación al respecto
+		liSugerencia = document.createElement("li");
+		liSugerencia.textContent = "No existen habilidades coincidentes con el patrón de busqueda introducido";
+		ulSugerencias.appendChild(liSugerencia);
+	}
+
+	// lo muestro si el patrón de búsqueda no está vacío 
+	if (patronBusqueda != "") {
 		divSugerencias.classList.remove("d-none");
 	}
 }
@@ -123,13 +130,20 @@ function mostrarUsuariosPorHabilidad(listadoUsuariosPorHabilidad) {
 		divCard.appendChild(divEdadGenero);
 		
 		let divBoton = document.createElement("div");
+		
 		divBoton.classList.add("contenedor-boton");
 		let boton = document.createElement("button"); 		
 		boton.classList.add("btn", "btn-secondary");
-		boton.innerText = "Contactar";
+		boton.id = usuario.idusuario;
+		boton.innerText = "Ver perfil";
+		boton.addEventListener("click", (evento)=>{verPerfil(usuario.idusuario)});
 		divBoton.appendChild(boton);
 		divCard.appendChild(divBoton);
 		
 		divGrid.appendChild(divCard);
-});
+	});
+}
+
+function verPerfil(usuario) {
+	console.log("Ver perfil usuario, idusuario: " + usuario)
 }

@@ -1,3 +1,17 @@
+.enlace {
+    font-size: 15px; 
+    font-weight: bolder; 
+    text-decoration: none;
+  	display: flex;
+  	gap: 3rem; 
+  	margin: 0 3rem;
+}
+
+.enlace a {
+	text-decoration: none;
+	color: black;
+}
+		
 body {
 	background-color: #cee8ea !important;
 }
@@ -30,6 +44,7 @@ input[type="search"]::-webkit-search-cancel-button {
 .contenedor-sugerencias ul li {
 	list-style: none;
 	text-align: left;
+	cursor: pointer;
 }
 
 .contenedor-sugerencias {

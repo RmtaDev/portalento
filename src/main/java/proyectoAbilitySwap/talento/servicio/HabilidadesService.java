@@ -17,13 +17,12 @@ public class HabilidadesService {
 
 	private static Logger log = Logger.getLogger("mylog");
 
-	public List<Usuario> listadoUsuariosPorHabilidad(String habilidad) throws SQLException {
+	public List<Usuario> listadoUsuariosPorHabilidad(String habilidad, int idusuario) throws SQLException {
 		log.debug("Peticion en Servicio listadoUsuariosPorHabilidad");
 		List<Usuario> listaUsuarios = null;
-		HabilidadesRepositoryAntonio habilidadesRepositoryAntonio = null;// Habilidades repository seria el repositorio
-																			// de habilidades que esta haciendo Carlos
+		HabilidadesRepositoryAntonio habilidadesRepositoryAntonio = null;
 		habilidadesRepositoryAntonio = new HabilidadesRepositoryAntonio();
-		listaUsuarios = habilidadesRepositoryAntonio.consultarUsuariosPorHabilidad(habilidad);
+		listaUsuarios = habilidadesRepositoryAntonio.consultarUsuariosPorHabilidad(habilidad, idusuario);
 		log.debug("El servicio fue bien " + listaUsuarios);
 
 		return listaUsuarios;

@@ -37,16 +37,13 @@ public class ObtenerUsuariosPorHabilidad extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		log.debug("Peticion en el Servlet ObtenerUsuariosPorHabilidad");
 		HabilidadesService habilidadesServiceAntonio = new HabilidadesService();// HabilidadesService seria el servicio de habilidades que esta haciendo Carlos
-		
-		/*
-		HttpSession httpSession = request.getSession(false);
-		String usuario = httpSession.getAttribute(LEGACY_DO_HEAD)
-		*/
-		
 		String habilidad = request.getParameter("habilidad");
+		HttpSession httpSession = request.getSession(false);
+		Integer integerUsuario = (Integer) httpSession.getAttribute("idusuario");
+		int idusuario = integerUsuario != null ? integerUsuario : 0;
+		
 		try {
-			List<Usuario> listaUsuarios =  habilidadesServiceAntonio.listadoUsuariosPorHabilidad(habilidad);//definir ListadoUsuariosPorHabilidad en el servicio de habilidades
-																									 		//habilidad seria la que haya hecho click el usuario que me la tendrian que pasar
+			List<Usuario> listaUsuarios =  habilidadesServiceAntonio.listadoUsuariosPorHabilidad(habilidad, idusuario);
 			Gson gson = new Gson();
 			String listaJsonUsuarios = gson.toJson(listaUsuarios);
 			response.getWriter().write(listaJsonUsuarios);

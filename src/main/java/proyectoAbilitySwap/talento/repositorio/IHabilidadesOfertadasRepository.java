@@ -12,7 +12,7 @@ import proyectoAbilitySwap.talento.beans.HabilidadOfertada;
  */
 public interface IHabilidadesOfertadasRepository {
 
-	void insertarHabilidadOfertada (String nombreHabilidad, int idUsuario, int idCategoria) throws SQLException;
+	HabilidadOfertada insertarHabilidadOfertada (String nombreHabilidad, int idUsuario, int idCategoria) throws SQLException;
 	
 	List<HabilidadOfertada> consultarTodasOfertadas (int idUsuario) throws SQLException;
 	

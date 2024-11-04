@@ -28,12 +28,16 @@ public class HabilidadesService {
 		return listaUsuarios;
 	}
 
-	public void insertarHabilidadDemandada(String nombreHabilidad, int idUsuario, int idCategoria) throws SQLException {
+	public HabilidadDemandada insertarHabilidadDemandada(String nombreHabilidad, int idUsuario, int idCategoria) throws SQLException {
 
-		HabilidadesRepository habilidadesDemandadasRepository = new HabilidadesRepository();
+		HabilidadDemandada habilidadDemandada = null;
+		
+			HabilidadesRepository habilidadesDemandadasRepository = new HabilidadesRepository();
+	
+			habilidadDemandada = habilidadesDemandadasRepository.insertarHabilidadDemandada(nombreHabilidad, idUsuario, idCategoria);
 
-		habilidadesDemandadasRepository.insertarHabilidadDemandada(nombreHabilidad, idUsuario, idCategoria);
-
+		return habilidadDemandada;
+		
 	}
 
 	public List<HabilidadDemandada> consultarTodasDemandadas(int idUsuario) throws SQLException {
@@ -56,12 +60,15 @@ public class HabilidadesService {
 
 	}
 
-	public void insertarHabilidadOfertada(String nombreHabilidad, int idUsuario, int idCategoria) throws SQLException {
+	public HabilidadOfertada insertarHabilidadOfertada(String nombreHabilidad, int idUsuario, int idCategoria) throws SQLException {
 
-		HabilidadesRepository habilidadesDemandadasRepository = new HabilidadesRepository();
+		HabilidadOfertada habilidadOfertada = null;
+		
+			HabilidadesRepository habilidadesDemandadasRepository = new HabilidadesRepository();
+	
+			habilidadOfertada = habilidadesDemandadasRepository.insertarHabilidadOfertada(nombreHabilidad, idUsuario, idCategoria);
 
-		habilidadesDemandadasRepository.insertarHabilidadOfertada(nombreHabilidad, idUsuario, idCategoria);
-
+		return habilidadOfertada;
 	}
 
 	public List<HabilidadOfertada> consultarTodasOfertadas(int idUsuario) throws SQLException {

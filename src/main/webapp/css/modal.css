@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.modalEmergente {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalEmergente img {
+	width: 25%;
+	height: 25%;
+}
+
+.contenidoModal {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+#cerrarModal {
+    color: red;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cerrarModal:hover,
+.cerrarModal:focus {
+    color: #000;
+    text-decoration: none;
+}

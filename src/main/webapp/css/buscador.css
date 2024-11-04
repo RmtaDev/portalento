@@ -30,6 +30,7 @@ input[type="search"]::-webkit-search-cancel-button {
 .contenedor-sugerencias ul li {
 	list-style: none;
 	text-align: left;
+	cursor: pointer;
 }
 
 .contenedor-sugerencias {

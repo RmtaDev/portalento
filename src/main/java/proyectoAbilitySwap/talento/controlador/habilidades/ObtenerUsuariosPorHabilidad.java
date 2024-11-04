@@ -1,10 +1,10 @@
 package proyectoAbilitySwap.talento.controlador.habilidades;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import proyectoAbilitySwap.talento.beans.Usuario;
 import proyectoAbilitySwap.talento.servicio.HabilidadesService;
 
@@ -37,7 +37,12 @@ public class ObtenerUsuariosPorHabilidad extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		log.debug("Peticion en el Servlet ObtenerUsuariosPorHabilidad");
 		HabilidadesService habilidadesServiceAntonio = new HabilidadesService();// HabilidadesService seria el servicio de habilidades que esta haciendo Carlos
-
+		
+		/*
+		HttpSession httpSession = request.getSession(false);
+		String usuario = httpSession.getAttribute(LEGACY_DO_HEAD)
+		*/
+		
 		String habilidad = request.getParameter("habilidad");
 		try {
 			List<Usuario> listaUsuarios =  habilidadesServiceAntonio.listadoUsuariosPorHabilidad(habilidad);//definir ListadoUsuariosPorHabilidad en el servicio de habilidades

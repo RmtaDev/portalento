@@ -71,6 +71,7 @@
 	    width: 100%;
 	    border-radius: 8px;
 	    height: 250px;
+	    object-fit: cover;
 	    
 	}
 	

@@ -9,10 +9,8 @@ public class Mensaje {
     private Date fecha;
     private int idusuario;
 
-    // Constructor vacío
     public Mensaje() {}
 
-    // Constructor con parámetros
     public Mensaje(int idmensajes, String mensaje, int idintercambio, Date fecha, int idusuario) {
         this.idmensajes = idmensajes;
         this.mensaje = mensaje;
@@ -21,7 +19,6 @@ public class Mensaje {
         this.idusuario = idusuario;
     }
 
-    // Getters y Setters
     public int getIdmensajes() {
         return idmensajes;
     }

@@ -1,15 +1,11 @@
 package proyectoAbilitySwap.talento.controlador.habilidades;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import proyectoAbilitySwap.talento.beans.Categoria;
 import proyectoAbilitySwap.talento.beans.HabilidadOfertada;
 import proyectoAbilitySwap.talento.servicio.BuscadorHabService;
-import proyectoAbilitySwap.talento.servicio.CategoriasService;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;

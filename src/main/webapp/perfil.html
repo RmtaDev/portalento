@@ -3,159 +3,184 @@
 <html lang="es">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Perfil</title>
-	<link rel="icon" href="img/favicon.png">
-	<link rel="stylesheet" href="css/estilosgenerales.css">
-	<link rel="stylesheet" href="css/perfil.css">
-	<link rel="stylesheet" href="css/accesibilidad.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-	<script src="js/accesibilidad.js"></script>
-	<script src="js/obtenerperfil.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil</title>
+<link rel="icon" href="img/favicon.png">
+<link rel="stylesheet" href="css/estilosgenerales.css">
+<link rel="stylesheet" href="css/perfil.css">
+<link rel="stylesheet" href="css/accesibilidad.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="js/accesibilidad.js"></script>
+<script src="js/obtenerperfil.js"></script>
+<script src="js/habilidades.js"></script>
+
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+	crossorigin="anonymous">
 	
-	
-	<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-		crossorigin="anonymous">
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-		crossorigin="anonymous">
-	</script>
+</script>
 </head>
 
 <body>
 	<div class="sidebar">
-		<button id="openModalBtn" class="open-btn" aria-label="Menú de accesibilidad">
+		<button id="openModalBtn" class="open-btn"
+			aria-label="Menú de accesibilidad">
 			<img class="fa-solid fa-universal-access" src="img/accesibilidad.png">
 		</button>
 		<div id="radialMenu" class="radial-menu">
-			<button id="monocromaticoBtn" aria-label="Activar/Desactivar modo monocromático"
+			<button id="monocromaticoBtn"
+				aria-label="Activar/Desactivar modo monocromático"
 				title="Activar/Desactivar modo monocromático">
 				<i id="monocromaticoIcon" class="fas fa-eye-slash"></i>
 			</button>
-			<button id="speakerBtn" aria-label="Activar/Desactivar lector de texto"
+			<button id="speakerBtn"
+				aria-label="Activar/Desactivar lector de texto"
 				title="Activar/Desactivar lector de texto. Mantener pulsado sobre el texto a leer.">
 				<i id="speakerIcon" class="fas fa-volume-mute"></i>
 			</button>
-			<button id="zoomBtn" aria-label="Aumentar/Disminuir zoom" title="Aumentar/Disminuir zoom">
+			<button id="zoomBtn" aria-label="Aumentar/Disminuir zoom"
+				title="Aumentar/Disminuir zoom">
 				<i id="zoomIcon" class="fa fa-search-plus"></i>
 			</button>
 		</div>
 	</div>
-	
+
 	<header>
 		<div class="enlace">
 			<nav class="navbar fixed-top navbar-light bg-light">
-				<a href="inicio.html"><img alt="inicio"
-					src="img/favicon.png">Inicio
+				<a href="inicio.html"><img alt="inicio" src="img/favicon.png">Inicio
 				</a>
-		
-			<div class="enlace">
-			
-				<a href="registro.html">Registro</a>
-				<a href="Logout">Salir</a>
-				<a href="buscador.html">Búsqueda</a>
-				<a href="creditos.html">Quienes somos</a>
-			</div>
-			
+
+				<div class="enlace">
+
+					<a href="registro.html">Registro</a> <a href="Logout">Salir</a> <a
+						href="buscador.html">Búsqueda</a> <a href="creditos.html">Quienes
+						somos</a>
+				</div>
+
 			</nav>
 		</div>
-	
+
 	</header>
 
 	<main>
-			<div class="opacidad">
-	
-				<div class="container">
-	
-					<div class="container-perfil">
-						<div class="container-imagen-perfil">
-							<img id="foto" alt="" src="img/avatar.png">
-						</div>
-	
-						<div class="container-perfil-datos">
-							<h3>Mi perfil</h3>
-							
-							<p>Usuario: <span id="usuario"></span></p>
-	
-							<p>Nombre: <span id="nombre"></span></p>
-	
-							<p>Apellidos: <span id="apellidos"></span></p>
-	
-							<p>Edad: <span id="edad"></span></p>
-							
-							<p>Género: <span id="genero"></span></p>
-							
-							<p>Teléfono: <span id="telefono"></span></p>
-							
-							<p>Email: <span id="email"></span></p>
-							
-							<p>Habla sobre ti: <span id="hablasobreti"></span></p>
-							
-						</div>
-	
+		<div class="opacidad">
+
+			<div class="container">
+
+				<div class="container-perfil">
+					<div class="container-imagen-perfil">
+						<img id="foto" alt="" src="img/avatar.png">
 					</div>
-					
-	
-					<div class="container-habilidades">
-						<div class="habilidad-ofertada">
-							<h3>Habilidades ofertadas</h3>
-	
-	
-							<label class="elige">Ingresa tu habilidad: </label>
-							<select class="form-select" id="ofertadas" name="form-select	" required>
-								<option selected>Elige categoria:</option>
-								
-							</select>
-							
-							<div class="lista">
-								<input type="text" class="form-control"
-									placeholder="Escribe la habilidad que tienes">
-	
-								<button class="btn btn-secondary">Insertar</button>
-							</div>
-							
-							<div id="container-hb-ofertadas" class="container-etiquetas">
-								<!-- Aquí van las habilidades ofertadas -->
-							</div>
+
+					<div class="container-perfil-datos">
+						<h3>Mi perfil</h3>
+
+						<p>
+							Usuario: <span id="usuario"></span>
+						</p>
+
+						<p>
+							Nombre: <span id="nombre"></span>
+						</p>
+
+						<p>
+							Apellidos: <span id="apellidos"></span>
+						</p>
+
+						<p>
+							Edad: <span id="edad"></span>
+						</p>
+
+						<p>
+							Género: <span id="genero"></span>
+						</p>
+
+						<p>
+							Teléfono: <span id="telefono"></span>
+						</p>
+
+						<p>
+							Email: <span id="email"></span>
+						</p>
+
+						<p>
+							Habla sobre ti: <span id="hablasobreti"></span>
+						</p>
+
+					</div>
+
+				</div>
+
+
+				<div class="container-habilidades">
+					<div class="habilidad-ofertada">
+						<h3>Habilidades ofertadas</h3>
+
+
+						<label class="elige">Ingresa tu habilidad: </label> <select
+							class="form-select" id="ofertadas" name="form-select	" required>
+							<option selected>Elige categoria:</option>
+
+						</select>
+
+						<div class="lista">
+							<input type="text" class="form-control" id = "texto"
+								placeholder="Escribe la habilidad que tienes">
+
+							<button id="botonInsertar" class="btn btn-secondary">Insertar</button>
 						</div>
-	
-						<div class="habilidad-demandada">
-							<h3>Habilidades demandadas</h3>
-	
-							<label>Elige categoria: </label> <label class="elige">Ingresa
-								la habilidad que quieres aprender: </label> 
-								<select class="form-select" id="demandadas" name="form-select" required>
-								<option selected>Elige categoria:</option>
-								
-							</select>
-							<div class="lista">
-								<input type="text" class="form-control"
-									placeholder="Escribe la habilidad que quieres aprender">
-	
-								<button class="btn btn-secondary">Insertar</button>
-							</div>
-	
-							<div id="container-hb-demandadas" class="container-etiquetas">
-								<!-- Aquí van las habilidades demandadas -->
-							</div>
+
+						<div id="container-hb-ofertadas" class="container-etiquetas">
+							<!-- Aquí van las habilidades ofertadas -->
+						</div>
+					</div>
+
+					<div class="habilidad-demandada">
+						<h3>Habilidades demandadas</h3>
+
+						<label>Elige categoria: </label> <label class="elige">Ingresa
+							la habilidad que quieres aprender: </label> <select class="form-select"
+							id="demandadas" name="form-select" required>
+							<option selected>Elige categoria:</option>
+
+						</select>
+						<div class="lista">
+							<input type="text" class="form-control"
+								placeholder="Escribe la habilidad que quieres aprender">
+
+							<button class="btn btn-secondary">Insertar</button>
+						</div>
+
+						<div id="container-hb-demandadas" class="container-etiquetas">
+							<!-- Aquí van las habilidades demandadas -->
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 	</main>
 
 	<footer>
 		<div class="imagenes-footer">
 			<img src="img/instagram.png" title="Instagram" alt="Instagram">
-			<img src="img/facebook.png" title="Facebook" alt="Facebook"> 
-			<img src="img/twiter.jpeg" title="Twiter" alt="Twiter">
-			<p><a href="https://portalentodigital.fundaciononce.es/" target="_blank">
-            <img src="img/talentodigital.jpg" title= "Por talento Digital" alt="Logo de XTD" style="width: 130px; height: 25px;"></a></p>
+			<img src="img/facebook.png" title="Facebook" alt="Facebook"> <img
+				src="img/twiter.jpeg" title="Twiter" alt="Twiter">
+			<p>
+				<a href="https://portalentodigital.fundaciononce.es/"
+					target="_blank"> <img src="img/talentodigital.jpg"
+					title="Por talento Digital" alt="Logo de XTD"
+					style="width: 130px; height: 25px;"></a>
+			</p>
 		</div>
 
 		<p>Todos los dererechos reservados - @Copyright</p>

@@ -29,18 +29,14 @@ function insertarHabilidadOfertada() {
 				})
 				.then(data => {
 					console.log("respuesta del servidor: ", data);
-					//alert("Habilidad insertada exitosamente");
 					
-					/*const container = document.getElementById("container-hb-ofertadas");
-					const nuevoElemento = document.createElement("div");
-					
-					nuevoElemento.className = "etiqueta";
-					nuevoElemento.textContent = habilidadOfertada;
-					container.appendChild(nuevoElemento);*/
 					let divPadre = document.getElementById("container-hb-ofertadas");
 					pintarHabilidadOfertada (data, divPadre);
 					
-					
+					const selectCategoria = document.getElementById("ofertadas");
+                selectCategoria.selectedIndex = 0; 
+
+                document.getElementById("texto").value = "";
 					
 					
 				})

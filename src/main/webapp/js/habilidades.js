@@ -12,7 +12,7 @@ function insertarHabilidadOfertada() {
 			console.log(`Has insertado : Categoria = ${idCategoria}, Texto = ${habilidadOfertada}`);
 
 			//Crear la URL con parametros de consulta
-			const url = `http://localhost:8080/proyectoAbilitySwap/InsertarHabilidadesOfertadas?habilidadOfertada=${encodeURIComponent(habilidadOfertada)}&idCategoria=${encodeURIComponent(idCategoria)}`;
+			const url = `InsertarHabilidadesOfertadas?habilidadOfertada=${encodeURIComponent(habilidadOfertada)}&idCategoria=${encodeURIComponent(idCategoria)}`;
 
 			// Enviar los datos al servidor usando fetch
 			fetch(url, {
@@ -31,12 +31,18 @@ function insertarHabilidadOfertada() {
 					console.log("respuesta del servidor: ", data);
 					//alert("Habilidad insertada exitosamente");
 					
-					const container = document.getElementById("container-hb-ofertadas");
+					/*const container = document.getElementById("container-hb-ofertadas");
 					const nuevoElemento = document.createElement("div");
 					
 					nuevoElemento.className = "etiqueta";
 					nuevoElemento.textContent = habilidadOfertada;
-					container.appendChild(nuevoElemento);
+					container.appendChild(nuevoElemento);*/
+					let divPadre = document.getElementById("container-hb-ofertadas");
+					pintarHabilidadOfertada (data, divPadre);
+					
+					
+					
+					
 				})
 				.catch(error => {
 					console.error("Hubo un problema con la solicitud: ", error);

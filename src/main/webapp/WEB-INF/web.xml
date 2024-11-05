@@ -188,4 +188,7 @@
     <servlet-name>MensajeServlet</servlet-name>
     <url-pattern>/MensajeServlet</url-pattern>
   </servlet-mapping>
+  <listener>
+    <listener-class>proyectoAbilitySwap.talento.controlador.SessionNueva</listener-class>
+  </listener>
 </web-app>

@@ -188,7 +188,14 @@
     <servlet-name>MensajeServlet</servlet-name>
     <url-pattern>/MensajeServlet</url-pattern>
   </servlet-mapping>
-  <listener>
-    <listener-class>proyectoAbilitySwap.talento.controlador.SessionNueva</listener-class>
-  </listener>
+  <servlet>
+    <description></description>
+    <display-name>ObtenerNumeroIntercambiosPendientesPorUsuario</display-name>
+    <servlet-name>ObtenerNumeroIntercambiosPendientesPorUsuario</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.mensajes.ObtenerNumeroIntercambiosPendientesPorUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ObtenerNumeroIntercambiosPendientesPorUsuario</servlet-name>
+    <url-pattern>/ObtenerNumeroIntercambiosPendientesPorUsuario</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -1,5 +1,6 @@
 package proyectoAbilitySwap.talento.controlador.usuario;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -38,6 +39,9 @@ public class ObtenerPerfilUsuario extends HttpServlet {
 		
 		try {
 			
+			ServletContext contexto =  request.getServletContext();
+			int ns = (int) contexto.getAttribute("numsesiones");
+			log.debug("HAY " + ns + " sesiones activas");
 			//request.getSession();//NO porque una sesión
 			HttpSession httpSession =  request.getSession(false);
 			if (httpSession!=null)

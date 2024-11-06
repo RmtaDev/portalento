@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ability Swap</title>
+    <title>Habilidades</title>
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="css/habilidades.css">
     <link rel="stylesheet" href="css/estilosgenerales.css">
     <link rel="stylesheet" href="css/accesibilidad.css">
-	<link rel="stylesheet" href="css/inicio.css">
-	<script src="js/accesibilidad.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="js/listadoCategorias.js"></script>
+    <script src="js/accesibilidad.js"></script>
+    
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 		crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class="sidebar">
+	<div class="sidebar">
 		<button id="openModalBtn" class="open-btn" aria-label="Menú de accesibilidad">
 			<img class="fa-solid fa-universal-access" src="img/accesibilidad.png" alt="imagen accesibilidad">
 		</button>
@@ -35,53 +40,49 @@
 		</div>
 		<div id="contentContainer"></div>
 	</div>
-     <header>
+
+    <header>
 		<nav>
-			<a href="inicio.html" class="inicio"> <img alt="inicio" src="img/favicon.png" class="logo"></a>
-			<h1>Ability Swap</h1>
+			<a href="inicio.html" class="inicio-logo"> 
+			<img alt="inicio" src="img/favicon.png"></a>
 			<ul>
 				<li>
-					<a href="creditos.html">Quienes somos</a>
+					 <h1>ABILITY SWAP</h1>
 				</li>
 				<li>
-					<a href="login.html">Iniciar sesión</a>
+					<a href="registro.html">Registro</a>
 				</li>
 				<li>
-					<a href="registro.html">Registrarse</a>
+					<a href="login.html">Login</a>
 				</li>
-				
-				
-				
-        	</ul>
-		</nav>	
+				<li>
+					<a href="buscador.html">Buscador</a>
+				</li>
+				<li>
+					<a href="perfil.html">Perfil</a>
+				</li>
+				<li>
+					<a href="intercambio.html">Intercambio</a>
+				</li>
+				<li>
+					<a href="creditos.html.html">Quienes somos</a>
+				</li>
+		</nav>
     </header>
+
     <main>
         <div class="contenedor">
 
-			<div class="fondo">
-				<h1>Bienvenido a la Plataforma de Intercambio de Habilidades</h1>
-				<div class="parrafos">
-					<p>Esta plataforma tiene como finalidad intercambiar
-						diferentes habilidades con otras personas para enriquecer nuestros
-						conocimientos.</p>
-
-					<p>Regístrate o inicia sesión para empezar a intercambiar tus
-						habilidades.</p>
-				</div>
-
-
-				<div class="contenedor-botones">
-
-					<button class="boton-inicio btn btn-secondary" type="button" id="boton-registro"
-						onclick="window.location.href='registro.html'">Registro</button>
-
-					<button class="boton-inicio btn btn-primary" type="button" id="boton-iniciar"
-						onclick="window.location.href='login.html'">Iniciar
-						sesión</button>
-				</div>
-			</div>
-		</div>
+                <div class="contenedor-desplegable">
+                    <label for="opciones">Selecciona una opción:</label>
+                    <select id="selectHabilidades" class="desplegable">
+                        <option value="listHabilidades"></option>
+                        
+                    </select>
+                </div>
+            </div>
     </main>
+
     <footer>
         <a href="https://portalentodigital.fundaciononce.es/" target="_blank">
         <img class="logo" src="img/talentodigital.jpg" title= "Por talento Digital" alt="Logo de XTD" style="width: 150px; height: 40px; border-radius: 5px;"></a>
@@ -98,5 +99,5 @@
 			
 		</div>
     </footer>
-    </body>
+</body>
 </html>

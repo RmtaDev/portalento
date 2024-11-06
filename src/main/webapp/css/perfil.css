@@ -13,25 +13,10 @@
 	}
 
 	
-
-	main {
-		background-color: #cee8ea; 
-		background-size: contain;
-		background-repeat: no-repeat;
-		margin: 0;
-		padding: 0;
-	}
-	
-	body {
-	  	background: url("../img/fondo.png");
-	    margin: 0;
-	    padding: 0; 
-	}
-	
 	.opacidad { 
 		width: 100%; 
 		padding: 100px 0 35px 0;
-		 
+		 margin-bottom: 75px;
 		
 	}
 	

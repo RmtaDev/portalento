@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta intercambio</title>
+<link rel="icon" href="img/favicon.png">
+<link rel="stylesheet" href="css/estilosgenerales.css">
+<link rel="stylesheet" href="css/propuestaIntercambio.css">
+<link rel="stylesheet" href="css/accesibilidad.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="js/accesibilidad.js"></script>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+	crossorigin="anonymous">
+	
+</script>
+
+<script src="js/propuestaIntercambio.js"></script>
+</head>
+
+<body>
+	<div class="sidebar">
+		<button id="openModalBtn" class="open-btn"
+			aria-label="Menú de accesibilidad">
+			<img class="fa-solid fa-universal-access" src="img/accesibilidad.png">
+		</button>
+		<div id="radialMenu" class="radial-menu">
+			<button id="monocromaticoBtn"
+				aria-label="Activar/Desactivar modo monocromático"
+				title="Activar/Desactivar modo monocromático">
+				<i id="monocromaticoIcon" class="fas fa-eye-slash"></i>
+			</button>
+			<button id="speakerBtn"
+				aria-label="Activar/Desactivar lector de texto"
+				title="Activar/Desactivar lector de texto. Mantener pulsado sobre el texto a leer.">
+				<i id="speakerIcon" class="fas fa-volume-mute"></i>
+			</button>
+			<button id="zoomBtn" aria-label="Aumentar/Disminuir zoom"
+				title="Aumentar/Disminuir zoom">
+				<i id="zoomIcon" class="fa fa-search-plus"></i>
+			</button>
+		</div>
+	</div>
+
+	<header>
+		<div class="enlace">
+			<nav class="navbar fixed-top navbar-light bg-light">
+				<a href="inicio.html"><img alt="inicio" src="img/favicon.png">Inicio
+				</a>
+
+				<div class="enlace">
+
+					<a href="registro.html">Registro</a> <a href="login.html">Login</a>
+					<a href="busqueda.html">Búsqueda</a> <a href="creditos.html">¿Quienes
+						somos?</a>
+				</div>
+
+			</nav>
+		</div>
+
+	</header>
+
+	<main>
+		<div class="opacidad">
+
+			<div class="container">
+
+				<div class="container-perfil">
+					<div class="container-imagen-perfil">
+						<img id="foto" alt="" src="img/perfil.jpg">
+					</div>
+
+					<div class="container-perfil-datos">
+						<h3>Mi perfil</h3>
+						<p>
+							Usuario: <span id="usuario">Maria20</span>
+						</p>
+
+						<p>
+							Nombre: <span id="nombre">Maria</span>
+						</p>
+
+						<p>
+							Apellidos: <span id="apellidos">Gomez</span>
+						</p>
+
+						<p>Edad:</p>
+						<span id="edad"></span>
+						<p>Género:</p>
+						<span id="genero"></span>
+						<p>Habla sobre ti:</p>
+						<span id="hablasobreti"></span>
+					</div>
+
+				</div>
+
+
+				<div class="container-habilidades">
+					<div class="habilidad-ofertada">
+						<h3>Proponer intercambio</h3>
+
+						<p class="parrafos">Elige una habilidad que ofrece este usuario:</p>
+
+						<div class="container-etiquetas">
+							<div class="etiqueta">
+								<label>Bailar</label>
+								<button type="submit" aria-pressed="true"></button>
+							</div>
+
+
+							<div class="etiqueta">
+								<label>Padel</label>
+								<button type="submit"></button>
+							</div>
+						</div>
+						
+							<p class="parrafos">Estas son las habilidades que el usuario le gustaría
+								aprender:</p>
+						
+							<div class="container-etiquetas">
+								<ul>
+									<li>Bailar</li>
+									
+								</ul>
+							</div>
+						
+
+						<p class="parrafos">Si este usuario acepta tu propueste elegirá una de las
+							habilidades que tu ofreces</p>
+
+						<div class="Intercambiar">
+							<button class="btn btn-secondary" onclick="proponer()">Proponer</button>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<div class="imagenes-footer">
+			<img src="img/instagram.png" title="Instagram" alt="Instagram">
+			<img src="img/facebook.png" title="Facebook" alt="Facebook"> <img
+				src="img/twiter.jpeg" title="Twiter" alt="Twiter">
+			<p>
+				<a href="https://portalentodigital.fundaciononce.es/"
+					target="_blank"> <img src="img/talentodigital.jpg"
+					title="Por talento Digital" alt="Logo de XTD"
+					style="width: 130px; height: 25px;"></a>
+			</p>
+		</div>
+
+		<p>Todos los dererechos reservados - @Copyright</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+	
+	.enlace {
+	    font-size: 15px; 
+	    font-weight: bolder; 
+	    text-decoration: none;
+	  	display: flex;
+	  	gap: 3rem; 
+	  	margin: 0 3rem;
+	}
+	
+	.enlace a {
+		text-decoration: none;
+		color: black;
+	}
+
+	main {
+		background-color: #cee8ea; 
+		background-size: contain;
+		background-repeat: no-repeat;
+		margin: 0;
+		padding: 0;
+	}
+	
+	body {
+	    margin: 0;
+	    padding: 0; 
+	}
+	
+	.opacidad { 
+		width: 100%; 
+		padding: 100px 0 35px 0;
+		 
+		
+	}
+	
+	.parrafos {
+		padding: 0%;
+		margin-top: 50px; 
+	}
+	
+	.container {
+		
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(2,1fr);
+		gap: 2rem;
+		
+	}
+	
+	.container-perfil {
+		display: flex;
+		flex-direction: column;
+		gap: 20px; 
+	}
+	
+	
+	.container-perfil-datos p{
+		font-weight: bold; 
+	}
+	
+	.container-perfil-datos span{
+		font-weight: normal;
+	}
+	.container-imagen-perfil{
+		width: 100%;
+		
+		
+	}
+	
+	.container-imagen-perfil img{
+		width: 100%;
+		height: auto; 
+		border-radius: 10px; 
+	}
+	
+	
+	.container-perfil, .habilidad-ofertada {
+		background-color: #fff;
+	    padding: 40px;
+	    border-radius: 10px;
+	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	}
+	
+	
+	.lista {
+	  	display: flex;
+		justify-content: space-between; 
+		margin: 10px 0 40px 0;
+		gap: 10px;	
+ 
+	}
+	
+	.btn-x {
+		background-color: white; 
+		
+	}
+	
+	.container-etiquetas {
+		display: flex; 
+		gap: 20px; 
+	}
+	
+	.etiqueta {
+		background-color: #FFB74D;
+		padding: 5px 15px;
+		padding-left: 15px;
+		border-radius: 50px;
+		width: fit-content;
+		display: flex;
+		align-items: center;
+		cursor:pointer;
+	}
+	
+	.etiqueta label {
+		
+		cursor:pointer;
+	}
+	
+	.etiqueta button{
+		background-color: transparent;
+		border: none;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		transition: .5s;
+	}
+	
+	.etiqueta button:hover{
+		color: white;
+	}
+	
+	.habilidadOfertada {
+		background-color: lime;
+		border-radius: 30%; 
+		padding: 10px; 
+		width: 20px;
+	}

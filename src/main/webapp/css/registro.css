@@ -1,22 +1,10 @@
-main {
-	background-color: #cee8ea; 
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
 .container-formulario {
-	background-color: #FFFFFF99;
 	position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    padding: 3rem;
+    width: 100%;
+    margin-bottom: 75px;
 }
 
 .inicio {

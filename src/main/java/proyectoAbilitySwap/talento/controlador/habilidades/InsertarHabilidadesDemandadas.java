@@ -3,11 +3,14 @@ package proyectoAbilitySwap.talento.controlador.habilidades;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import com.google.gson.Gson;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import proyectoAbilitySwap.talento.beans.HabilidadDemandada;
 import proyectoAbilitySwap.talento.servicio.HabilidadesService;
 
 public class InsertarHabilidadesDemandadas extends HttpServlet {
@@ -36,10 +39,13 @@ public class InsertarHabilidadesDemandadas extends HttpServlet {
             HabilidadesService habilidadesService = new HabilidadesService();
             try {
                 // 3. Realizar la operación de inserción usando el servicio
-                habilidadesService.insertarHabilidadDemandada(habilidadDemandada, idUsuario, idCategoria);
-
+                HabilidadDemandada hd = habilidadesService.insertarHabilidadDemandada(habilidadDemandada, idUsuario, idCategoria);
+                Gson gson = new Gson();
+                String jsonhd = gson.toJson(hd);
                 // 4. Enviar una respuesta de éxito al frontend
                 response.setStatus(201); // 201 Created, la habilidad demandada fue creada
+                response.setContentType("application/json");
+                response.getWriter().write(jsonhd);
             } catch (SQLException e) {
                 e.printStackTrace();
                 // 5. Enviar una respuesta de error al frontend

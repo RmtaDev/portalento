@@ -5,18 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perfil</title>
+<title>Propuesta intercambio</title>
 <link rel="icon" href="img/favicon.png">
 <link rel="stylesheet" href="css/estilosgenerales.css">
-<link rel="stylesheet" href="css/perfil.css">
+<link rel="stylesheet" href="css/propuestaIntercambio.css">
 <link rel="stylesheet" href="css/accesibilidad.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <script src="js/accesibilidad.js"></script>
-<script src="js/obtenerperfil.js"></script>
-<script src="js/insertarHabilidadOfertada.js"></script>
-<script src="js/InsertarHabilidadDemandada.js"></script>
-
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -29,6 +25,8 @@
 	crossorigin="anonymous">
 	
 </script>
+
+<script src="js/propuestaIntercambio.js"></script>
 </head>
 
 <body>
@@ -63,9 +61,9 @@
 
 				<div class="enlace">
 
-					<a href="registro.html">Registro</a> <a href="Logout">Salir</a> <a
-						href="buscador.html">Búsqueda</a> <a href="creditos.html">Quienes
-						somos</a>
+					<a href="registro.html">Registro</a> <a href="login.html">Login</a>
+					<a href="busqueda.html">Búsqueda</a> <a href="creditos.html">¿Quienes
+						somos?</a>
 				</div>
 
 			</nav>
@@ -80,44 +78,29 @@
 
 				<div class="container-perfil">
 					<div class="container-imagen-perfil">
-						<img id="foto" alt="" src="img/avatar.png">
+						<img id="foto" alt="" src="img/perfil.jpg">
 					</div>
 
 					<div class="container-perfil-datos">
 						<h3>Mi perfil</h3>
-
 						<p>
-							Usuario: <span id="usuario"></span>
+							Usuario: <span id="usuario">Maria20</span>
 						</p>
 
 						<p>
-							Nombre: <span id="nombre"></span>
+							Nombre: <span id="nombre">Maria</span>
 						</p>
 
 						<p>
-							Apellidos: <span id="apellidos"></span>
+							Apellidos: <span id="apellidos">Gomez</span>
 						</p>
 
-						<p>
-							Edad: <span id="edad"></span>
-						</p>
-
-						<p>
-							Género: <span id="genero"></span>
-						</p>
-
-						<p>
-							Teléfono: <span id="telefono"></span>
-						</p>
-
-						<p>
-							Email: <span id="email"></span>
-						</p>
-
-						<p>
-							Habla sobre ti: <span id="hablasobreti"></span>
-						</p>
-
+						<p>Edad:</p>
+						<span id="edad"></span>
+						<p>Género:</p>
+						<span id="genero"></span>
+						<p>Habla sobre ti:</p>
+						<span id="hablasobreti"></span>
 					</div>
 
 				</div>
@@ -125,46 +108,42 @@
 
 				<div class="container-habilidades">
 					<div class="habilidad-ofertada">
-						<h3>Habilidades ofertadas</h3>
+						<h3>Proponer intercambio</h3>
+
+						<p class="parrafos">Elige una habilidad que ofrece este usuario:</p>
+
+						<div class="container-etiquetas">
+							<div class="etiqueta">
+								<label>Bailar</label>
+								<button type="submit" aria-pressed="true"></button>
+							</div>
 
 
-						<label class="elige">Ingresa tu habilidad: </label> <select
-							class="form-select" id="ofertadas" name="form-select	" required>
-							<option selected>Elige categoria:</option>
+							<div class="etiqueta">
+								<label>Padel</label>
+								<button type="submit"></button>
+							</div>
+						</div>
+						
+							<p class="parrafos">Estas son las habilidades que el usuario le gustaría
+								aprender:</p>
+						
+							<div class="container-etiquetas">
+								<ul>
+									<li>Bailar</li>
+									
+								</ul>
+							</div>
+						
 
-						</select>
+						<p class="parrafos">Si este usuario acepta tu propueste elegirá una de las
+							habilidades que tu ofreces</p>
 
-						<div class="lista">
-							<input type="text" class="form-control" id="texto"
-								placeholder="Escribe la habilidad que tienes">
-
-							<button id="botonInsertar" class="btn btn-secondary">Insertar</button>
+						<div class="Intercambiar">
+							<button class="btn btn-secondary" onclick="proponer()">Proponer</button>
 						</div>
 
-						<div id="container-hb-ofertadas" class="container-etiquetas">
-							<!-- Aquí van las habilidades ofertadas -->
-						</div>
-					</div>
 
-					<div class="habilidad-demandada">
-						<h3>Habilidades demandadas</h3>
-
-						<label>Elige categoria: </label> <label class="elige">Ingresa
-							la habilidad que quieres aprender: </label> <select class="form-select"
-							id="demandadas" name="form-select" required>
-							<option selected>Elige categoria:</option>
-
-						</select>
-						<div class="lista">
-							<input type="text" class="form-control" id="textoDemandada"
-								placeholder="Escribe la habilidad que quieres aprender">
-
-							<button id="botonInsertarDemandada" class="btn btn-secondary">Insertar</button>
-						</div>
-
-						<div id="container-hb-demandadas" class="container-etiquetas">
-							<!-- Aquí van las habilidades demandadas -->
-						</div>
 					</div>
 				</div>
 			</div>

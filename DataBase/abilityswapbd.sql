@@ -58,7 +58,7 @@ CREATE TABLE `habilidades_demandadas` (
   KEY `fk_categoria_habilidades_demandadas_idx` (`id_categoria`),
   CONSTRAINT `fk_categoria_habilidades_demandadas` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_usuario_habilidades_demandadas` FOREIGN KEY (`usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,6 +67,7 @@ CREATE TABLE `habilidades_demandadas` (
 
 LOCK TABLES `habilidades_demandadas` WRITE;
 /*!40000 ALTER TABLE `habilidades_demandadas` DISABLE KEYS */;
+INSERT INTO `habilidades_demandadas` VALUES (3,3,'MYSQL',1);
 /*!40000 ALTER TABLE `habilidades_demandadas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +124,7 @@ CREATE TABLE `intercambios` (
   CONSTRAINT `fk_habilidad_ofertada` FOREIGN KEY (`habilidad_ofertada`) REFERENCES `habilidades_ofertadas` (`id_habilidad`),
   CONSTRAINT `fk_usuario_demandada` FOREIGN KEY (`usuario_demandada`) REFERENCES `usuarios` (`id_usuario`),
   CONSTRAINT `fk_usuario_ofertada` FOREIGN KEY (`usuario_ofertada`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +133,41 @@ CREATE TABLE `intercambios` (
 
 LOCK TABLES `intercambios` WRITE;
 /*!40000 ALTER TABLE `intercambios` DISABLE KEYS */;
+INSERT INTO `intercambios` VALUES (2,4,3,2,3,'PENDIENTE');
 /*!40000 ALTER TABLE `intercambios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `mensajes`
+--
+
+DROP TABLE IF EXISTS `mensajes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `mensajes` (
+  `idmensaje` int NOT NULL AUTO_INCREMENT,
+  `idintercambio` int NOT NULL,
+  `emisor` int NOT NULL,
+  `receptor` int NOT NULL,
+  `fecha_hora` datetime NOT NULL,
+  `texto` varchar(500) NOT NULL,
+  PRIMARY KEY (`idmensaje`),
+  KEY `fk_intercambios_idintercambio_idx` (`idintercambio`),
+  KEY `fk_usuarios_emisor_idx` (`emisor`),
+  KEY `fk_usuarios_receptor_idx` (`receptor`),
+  CONSTRAINT `fk_intercambios_idintercambio` FOREIGN KEY (`idintercambio`) REFERENCES `intercambios` (`idintercambio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_usuarios_emisor` FOREIGN KEY (`emisor`) REFERENCES `usuarios` (`id_usuario`),
+  CONSTRAINT `fk_usuarios_receptor` FOREIGN KEY (`receptor`) REFERENCES `usuarios` (`id_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mensajes`
+--
+
+LOCK TABLES `mensajes` WRITE;
+/*!40000 ALTER TABLE `mensajes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mensajes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -179,4 +214,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-23 13:27:26
+-- Dump completed on 2024-11-06 12:36:06

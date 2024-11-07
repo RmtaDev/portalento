@@ -134,10 +134,16 @@ function mostrarUsuariosPorHabilidad(listadoUsuariosPorHabilidad) {
 		divBoton.classList.add("contenedor-boton");
 		let boton = document.createElement("button"); 		
 		boton.classList.add("btn", "btn-secondary");
+		boton.id = usuario.idusuario;
 		boton.innerText = "Ver perfil";
+		boton.addEventListener("click", (evento)=>{verPerfil(usuario.idusuario)});
 		divBoton.appendChild(boton);
 		divCard.appendChild(divBoton);
 		
 		divGrid.appendChild(divCard);
 	});
+}
+
+function verPerfil(usuario) {
+	console.log("Ver perfil usuario, idusuario: " + usuario)
 }

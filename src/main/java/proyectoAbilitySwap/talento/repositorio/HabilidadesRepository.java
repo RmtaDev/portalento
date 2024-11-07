@@ -23,9 +23,11 @@ public class HabilidadesRepository implements IHabilidadesDemandadasRepository, 
 	public static final String BORRAR_HABILIDAD_DEMANDA = "DELETE FROM `abilityswapbd`.`habilidades_demandadas` WHERE (`id_habilidad` = ?)";
 
 	@Override
-	public void insertarHabilidadOfertada(String nombreHabilidad, int idUsuario, int idCategoria) throws SQLException {
+	public HabilidadOfertada insertarHabilidadOfertada(String nombreHabilidad, int idUsuario, int idCategoria)
+			throws SQLException {
+		HabilidadOfertada habilidadOfertada = null;
 		Connection connection = Pool.getConnection();
-		PreparedStatement ps = connection.prepareStatement(INSERTAR_HABILIDAD_OFERTADA);
+		PreparedStatement ps = connection.prepareStatement(INSERTAR_HABILIDAD_OFERTADA, Statement.RETURN_GENERATED_KEYS);
 
 		ps.setInt(1, idUsuario);
 		ps.setString(2, nombreHabilidad);
@@ -33,8 +35,17 @@ public class HabilidadesRepository implements IHabilidadesDemandadasRepository, 
 
 		int filasInsertadas = ps.executeUpdate();
 
+		if (filasInsertadas == 1) {
+			ResultSet rs = ps.getGeneratedKeys();
+
+			if (rs.next()) {
+				int idnuevo = rs.getInt(1);
+				habilidadOfertada = new HabilidadOfertada(idnuevo, idUsuario, nombreHabilidad, idCategoria);
+			}
+		}
+
 		Pool.liberarRecursos(connection, ps, null);
-		return;
+		return habilidadOfertada;
 	}
 
 	@Override
@@ -74,16 +85,27 @@ public class HabilidadesRepository implements IHabilidadesDemandadasRepository, 
 	}
 
 	@Override
-	public void insertarHabilidadDemandada(String nombreHabilidad, int idUsuario, int idCategoria) throws SQLException {
+	public HabilidadDemandada insertarHabilidadDemandada(String nombreHabilidad, int idUsuario, int idCategoria)
+			throws SQLException {
+		HabilidadDemandada habilidadDemandada = null;
 		Connection connection = Pool.getConnection();
-		PreparedStatement ps = connection.prepareStatement(INSERTAR_HABILIDAD_DEMANDA);
+		PreparedStatement ps = connection.prepareStatement(INSERTAR_HABILIDAD_DEMANDA, Statement.RETURN_GENERATED_KEYS);
 
 		ps.setInt(1, idUsuario);
 		ps.setString(2, nombreHabilidad);
 		ps.setInt(3, idCategoria);
 
 		int filasInsertadas = ps.executeUpdate();
+		if (filasInsertadas == 1) {
+			ResultSet rs = ps.getGeneratedKeys();
+
+			if (rs.next()) {
+				int idnuevo = rs.getInt(1);
+				habilidadDemandada = new HabilidadDemandada(idnuevo, idUsuario, nombreHabilidad, idCategoria);
+			}
+		}
 		Pool.liberarRecursos(connection, ps, null);
+		return habilidadDemandada;
 	}
 
 	@Override
@@ -121,98 +143,76 @@ public class HabilidadesRepository implements IHabilidadesDemandadasRepository, 
 	}
 
 	/*
-	public static Connection obtenerConexionlocal() {
-		Driver driver = null;
-		Connection connection = null;
-
-		try {
-			driver = new com.mysql.cj.jdbc.Driver();
-			DriverManager.registerDriver(driver);
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/abilityswapbd", "root", "user0");
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return connection;
-	}
-
-	public static void liberarRecursos(Connection conexion, Statement st, ResultSet rs) {
-
-		if (rs != null) {
-			try {
-				rs.close();
-			} catch (SQLException e) {
-				System.err.println("Error al liberar el ResultSet");
-			}
-		}
-		if (st != null) {
-			try {
-				st.close();
-			} catch (SQLException e) {
-				System.err.println("Error al liberar el Statement");
-			}
-		}
-
-		if (conexion != null) {
-			try {
-				conexion.close();
-			} catch (SQLException e) {
-				System.err.println("Error al liberar la conexion");
-			}
-		}
-	}
-
-	public static void main(String[] args) {
-		HabilidadesRepository habilidadesRepo = new HabilidadesRepository();
-
-		// Parámetros para insertar una habilidad demandada
-		String nombreHabilidadDemandada = "Latín";
-		int idUsuarioDemandada = 3;
-		int idCategoriaDemandada = 2;
-
-		// Parámetros para insertar una habilidad ofertada
-		String nombreHabilidadOfertada = "Desarrollo Web";
-		int idUsuarioOfertada = 3;
-		int idCategoriaOfertada = 1;
-
-		try {
-			// Inserción de habilidad demandada
-			habilidadesRepo.insertarHabilidadDemandada(nombreHabilidadDemandada, idUsuarioDemandada,
-					idCategoriaDemandada);
-			System.out.println("Inserción exitosa de habilidad demandada en la base de datos.");
-
-			// Inserción de habilidad ofertada
-			habilidadesRepo.insertarHabilidadOfertada(nombreHabilidadOfertada, idUsuarioOfertada, idCategoriaOfertada);
-			System.out.println("Inserción exitosa de habilidad ofertada en la base de datos.");
-
-			// Consulta de todas las habilidades demandadas de un usuario
-			System.out.println("Consultando todas las habilidades demandadas del usuario con ID " + idUsuarioDemandada);
-			List<HabilidadDemandada> habilidadesDemandadas = habilidadesRepo
-					.consultarTodasDemandadas(idUsuarioDemandada);
-			for (HabilidadDemandada habilidad : habilidadesDemandadas) {
-				System.out.println("Habilidad Demandada: " + habilidad.getNombre());
-			}
-
-			// Consulta de todas las habilidades ofertadas de un usuario
-			System.out.println("Consultando todas las habilidades ofertadas del usuario con ID " + idUsuarioOfertada);
-			List<HabilidadOfertada> habilidadesOfertadas = habilidadesRepo.consultarTodasOfertadas(idUsuarioOfertada);
-			for (HabilidadOfertada habilidad : habilidadesOfertadas) {
-				System.out.println("Habilidad Ofertada: " + habilidad.getNombre());
-			}
-
-			// Borrado de una habilidad demandada por ID
-			System.out.println("Borrando habilidad demandada con ID 1");
-			habilidadesRepo.borrarHabilidadDemandada(1);
-			System.out.println("Habilidad demandada borrada exitosamente.");
-
-			// Borrado de una habilidad ofertada por ID
-			System.out.println("Borrando habilidad ofertada con ID 1");
-			habilidadesRepo.borrarHabilidadOfertada(1);
-			System.out.println("Habilidad ofertada borrada exitosamente.");
-
-		} catch (SQLException e) {
-			System.err.println("Error en la operación con la base de datos: " + e.getMessage());
-		}
-	}*/
+	 * public static Connection obtenerConexionlocal() { Driver driver = null;
+	 * Connection connection = null;
+	 * 
+	 * try { driver = new com.mysql.cj.jdbc.Driver();
+	 * DriverManager.registerDriver(driver); connection =
+	 * DriverManager.getConnection("jdbc:mysql://localhost:3306/abilityswapbd",
+	 * "root", "user0");
+	 * 
+	 * } catch (Exception e) { e.printStackTrace(); }
+	 * 
+	 * return connection; }
+	 * 
+	 * public static void liberarRecursos(Connection conexion, Statement st,
+	 * ResultSet rs) {
+	 * 
+	 * if (rs != null) { try { rs.close(); } catch (SQLException e) {
+	 * System.err.println("Error al liberar el ResultSet"); } } if (st != null) {
+	 * try { st.close(); } catch (SQLException e) {
+	 * System.err.println("Error al liberar el Statement"); } }
+	 * 
+	 * if (conexion != null) { try { conexion.close(); } catch (SQLException e) {
+	 * System.err.println("Error al liberar la conexion"); } } }
+	 * 
+	 * public static void main(String[] args) { HabilidadesRepository
+	 * habilidadesRepo = new HabilidadesRepository();
+	 * 
+	 * // Parámetros para insertar una habilidad demandada String
+	 * nombreHabilidadDemandada = "Latín"; int idUsuarioDemandada = 3; int
+	 * idCategoriaDemandada = 2;
+	 * 
+	 * // Parámetros para insertar una habilidad ofertada String
+	 * nombreHabilidadOfertada = "Desarrollo Web"; int idUsuarioOfertada = 3; int
+	 * idCategoriaOfertada = 1;
+	 * 
+	 * try { // Inserción de habilidad demandada
+	 * habilidadesRepo.insertarHabilidadDemandada(nombreHabilidadDemandada,
+	 * idUsuarioDemandada, idCategoriaDemandada); System.out.
+	 * println("Inserción exitosa de habilidad demandada en la base de datos.");
+	 * 
+	 * // Inserción de habilidad ofertada
+	 * habilidadesRepo.insertarHabilidadOfertada(nombreHabilidadOfertada,
+	 * idUsuarioOfertada, idCategoriaOfertada); System.out.
+	 * println("Inserción exitosa de habilidad ofertada en la base de datos.");
+	 * 
+	 * // Consulta de todas las habilidades demandadas de un usuario System.out.
+	 * println("Consultando todas las habilidades demandadas del usuario con ID " +
+	 * idUsuarioDemandada); List<HabilidadDemandada> habilidadesDemandadas =
+	 * habilidadesRepo .consultarTodasDemandadas(idUsuarioDemandada); for
+	 * (HabilidadDemandada habilidad : habilidadesDemandadas) {
+	 * System.out.println("Habilidad Demandada: " + habilidad.getNombre()); }
+	 * 
+	 * // Consulta de todas las habilidades ofertadas de un usuario System.out.
+	 * println("Consultando todas las habilidades ofertadas del usuario con ID " +
+	 * idUsuarioOfertada); List<HabilidadOfertada> habilidadesOfertadas =
+	 * habilidadesRepo.consultarTodasOfertadas(idUsuarioOfertada); for
+	 * (HabilidadOfertada habilidad : habilidadesOfertadas) {
+	 * System.out.println("Habilidad Ofertada: " + habilidad.getNombre()); }
+	 * 
+	 * // Borrado de una habilidad demandada por ID
+	 * System.out.println("Borrando habilidad demandada con ID 1");
+	 * habilidadesRepo.borrarHabilidadDemandada(1);
+	 * System.out.println("Habilidad demandada borrada exitosamente.");
+	 * 
+	 * // Borrado de una habilidad ofertada por ID
+	 * System.out.println("Borrando habilidad ofertada con ID 1");
+	 * habilidadesRepo.borrarHabilidadOfertada(1);
+	 * System.out.println("Habilidad ofertada borrada exitosamente.");
+	 * 
+	 * } catch (SQLException e) {
+	 * System.err.println("Error en la operación con la base de datos: " +
+	 * e.getMessage()); } }
+	 */
 }

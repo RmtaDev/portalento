@@ -1,85 +1,87 @@
-header {
-	background: #F0F0F0;
-	height: auto;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: #9fe4e9 !important;
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
-nav img {
+header {
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+	background: #c0c0c0 !important;
+	z-index: 10; 
+}
+
+nav {
+	display: flex;
+    align-items: center;
+    height: 100%;
+	padding: 0 4rem;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+	font-weight: bolder;
+    font-size: 16px;
+}
+nav .inicio-logo {
+	left: 0;
+	top: 0;
+}
+ul{
+	display: flex;
+	margin-left: auto;
+	align-items: center;
+	gap: 3rem;
+}
+li {
+	list-style-type: none;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+a:hover {
+	color: #385165;
+	cursor: pointer;
+}
+header img {
 	width: 40px;
 	height: 40px;
 	margin: 10px;
 }
 
-nav {
-	display: flex;
-	justify-content: space-between;
-}
-
-.inicio {
-	color: black;
-	font-size: 15px;
-	font-weight: bolder;
-	text-decoration: none;
-}
-
-body {
-	margin: 0;
-	padding: 0;
-	display: flex;
-	flex-direction: column;
-	font-family: 'Arial', sans-serif;
-}
-
-.contenedor {
-	background-color: #FFFFFF99;
-	position: relative;
-	height: 100%;
-	/* Altura del contenedor */
-	overflow: hidden;
-}
-
-h1 {
-	font-family: Lucida Calligraphy;
-	text-align: center;
-}
-
-.parrafos {
-	padding: 40px 200px;
-}
-
-p {
-	font-family: Calibri;
-	font-size: 17px;
-}
-
-.btn-primary {
-	background-color: #FFB74D !important;
-	color: black !important;
-	border: gray solid 1px !important;
-}
-
-.btn-secondary {
-	background-color: #8BC34A !important;
-	color: black !important;
-	border: gray solid 1px !important;
+main {
+    flex: 1; 
 }
 
 footer {
+	position: fixed;
+    bottom: 0;
 	background: #35495E;
-	height: 5rem;
+	height: 70px;
 	color: white;
 	font-size: 20px;
-	position: relative;
-	
-}
-
-.imagenes-footer {
+	width: 100%;
 	display: flex;
-	justify-content: flex-end;
-	/* Alinea la imagen a la derecha */
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+	z-index: 10;
 }
 
 .imagenes-footer img {
-	width: 20px;
-	height: 20px;
-	margin: 10px;
+	width: 30px;
+	height: 30px;
+	margin: 10px;
+	border-radius: 50%;
 }

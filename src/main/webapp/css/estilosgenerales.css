@@ -38,6 +38,13 @@ nav .inicio-logo {
 	left: 0;
 	top: 0;
 }
+nav p {
+	font-size: 2rem;
+}
+
+.link-activo{
+	text-decoration: underline;
+}
 ul{
 	display: flex;
 	margin-left: auto;

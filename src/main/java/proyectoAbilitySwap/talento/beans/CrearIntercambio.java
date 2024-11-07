@@ -5,11 +5,11 @@ public class CrearIntercambio {
 	private int idIntercambio;
 	private int usuarioOfertada;
 	private int usuarioDemandada;
-	private int habilidadOfertada;
+	private Integer habilidadOfertada;
 	private int habilidadDemandada;
 	private EstadoIntercambio estado;
 
-	public CrearIntercambio(int idIntercambio, int usuarioOfertada, int usuarioDemandada, int habilidadOfertada,
+	public CrearIntercambio(int idIntercambio, int usuarioOfertada, int usuarioDemandada, Integer habilidadOfertada,
 			int habilidadDemandada, EstadoIntercambio estado) {
 		super();
 		this.idIntercambio = idIntercambio;
@@ -27,6 +27,7 @@ public class CrearIntercambio {
 		this.idIntercambio = idIntercambio;
 		this.usuarioOfertada = usuarioOfertada;
 		this.usuarioDemandada = usuarioDemandada;
+		this.habilidadOfertada = null;
 		this.habilidadDemandada = habilidadDemandada;
 		this.estado = estado;
 	}
@@ -62,7 +63,7 @@ public class CrearIntercambio {
 		this.usuarioDemandada = usuarioDemandada;
 	}
 
-	public int getHabilidadOfertada() {
+	public Integer getHabilidadOfertada() {
 		return habilidadOfertada;
 	}
 

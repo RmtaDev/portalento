@@ -201,4 +201,34 @@
     <servlet-name>ObtenerNumeroIntercambiosPendientesPorUsuario</servlet-name>
     <url-pattern>/ObtenerNumeroIntercambiosPendientesPorUsuario</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ObtenerPerfilUsuarioIntercambio</display-name>
+    <servlet-name>ObtenerPerfilUsuarioIntercambio</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.usuario.ObtenerPerfilUsuarioIntercambio</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ObtenerPerfilUsuarioIntercambio</servlet-name>
+    <url-pattern>/ObtenerPerfilUsuarioIntercambio</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ConsultarHabiidadDemandadaIntercambio</display-name>
+    <servlet-name>ConsultarHabiidadDemandadaIntercambio</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.habilidades.ConsultarHabiidadDemandadaIntercambio</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConsultarHabiidadDemandadaIntercambio</servlet-name>
+    <url-pattern>/ConsultarHabiidadDemandadaIntercambio</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ConsultarHabiidadOfertadaIntercambio</display-name>
+    <servlet-name>ConsultarHabiidadOfertadaIntercambio</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.habilidades.ConsultarHabiidadOfertadaIntercambio</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConsultarHabiidadOfertadaIntercambio</servlet-name>
+    <url-pattern>/ConsultarHabiidadOfertadaIntercambio</url-pattern>
+  </servlet-mapping>
 </web-app>

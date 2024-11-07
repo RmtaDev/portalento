@@ -146,4 +146,5 @@ function mostrarUsuariosPorHabilidad(listadoUsuariosPorHabilidad) {
 
 function verPerfil(usuario) {
 	console.log("Ver perfil usuario, idusuario: " + usuario)
+	window.location="propuestaIntercambio.html?idusuario=" + usuario;
 }

@@ -111,6 +111,21 @@
 		cursor:pointer;
 	}
 	
+	.etiquetad {
+		background-color: #FFB74D;
+		padding: 5px 15px;
+		padding-left: 15px;
+		border-radius: 50px;
+		width: fit-content;
+		display: flex;
+		align-items: center;
+	}
+	
+	.etiquetad label {
+		
+		cursor:default;
+	}
+	
 	.etiqueta label {
 		
 		cursor:pointer;

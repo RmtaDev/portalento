@@ -20,6 +20,18 @@ public class CrearIntercambio {
 		this.estado = estado;
 	}
 	
+	
+	public CrearIntercambio(int idIntercambio, int usuarioOfertada, int usuarioDemandada, int habilidadDemandada,
+			EstadoIntercambio estado) {
+		super();
+		this.idIntercambio = idIntercambio;
+		this.usuarioOfertada = usuarioOfertada;
+		this.usuarioDemandada = usuarioDemandada;
+		this.habilidadDemandada = habilidadDemandada;
+		this.estado = estado;
+	}
+
+
 	public enum EstadoIntercambio {
         PENDIENTE,
         RECHAZADO,

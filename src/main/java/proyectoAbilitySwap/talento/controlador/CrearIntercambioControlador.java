@@ -46,7 +46,6 @@ public class CrearIntercambioControlador extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, NumberFormatException {
 
-		//String usuarioOfertadaParam = request.getParameter("usuarioOfertada");
 		String usuarioDemandadaParam = request.getParameter("usuarioDemandada");
 		String habilidadOfertadaParam = request.getParameter("habilidadOfertada");
 		String habilidadDemandadaParam = request.getParameter("habilidadDemandada");
@@ -70,8 +69,8 @@ public class CrearIntercambioControlador extends HttpServlet {
 			} else {
 
 				if (usuarioDemandadaParam == null || habilidadOfertadaParam == null || habilidadDemandadaParam == null
-						|| estadoParam == null || usuarioDemandadaParam.isEmpty() || habilidadOfertadaParam.isEmpty()
-						|| habilidadDemandadaParam.isEmpty() || estadoParam.isEmpty()) {
+						|| usuarioDemandadaParam.isEmpty() || habilidadOfertadaParam.isEmpty()
+						|| habilidadDemandadaParam.isEmpty()) {
 					log.error("### Error: uno o mas paramteros son nulos.");
 					response.setStatus(400);
 					
@@ -81,7 +80,15 @@ public class CrearIntercambioControlador extends HttpServlet {
 					int habilidadOfertada = Integer.parseInt(habilidadOfertadaParam);
 					int habilidadDemandada = Integer.parseInt(habilidadDemandadaParam);
 
-					EstadoIntercambio estado = EstadoIntercambio.valueOf(request.getParameter("estado").toUpperCase());
+					EstadoIntercambio estado = EstadoIntercambio.PENDIENTE;
+					
+					if (estadoParam != null && !estadoParam.isEmpty()) {
+						try {
+						estado = EstadoIntercambio.valueOf(estadoParam.toUpperCase());
+						} catch(IllegalArgumentException e){
+							log.warn("### Valor de estado no válido. Se asignará 'PENDIENTE' por defecto");
+						}
+					}
 
 					log.info("### -> Datos recibidos: Usuario Ofertada = " + idUsuarioOfertada + ", Usuario Demandada = "
 							+ usuarioDemandada + ", Habilidad Ofertada = " + habilidadOfertada

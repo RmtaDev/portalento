@@ -56,20 +56,29 @@
 	</div>
 
 	<header>
-		<div class="enlace">
-			<nav class="navbar fixed-top navbar-light bg-light">
-				<a href="inicio.html"><img alt="inicio" src="img/favicon.png">Inicio
-				</a>
-
-				<div class="enlace">
-
-					<a href="registro.html">Registro</a> <a href="Logout">Salir</a> <a
-						href="buscador.html">Búsqueda</a> <a href="creditos.html">Quienes
-						somos</a>
-				</div>
-
-			</nav>
-		</div>
+		<nav>
+			<a href="inicio.html" class="inicio"> <img alt="inicio" src="img/favicon.png" class="logo"></a>
+			<p>Ability Swap</p>
+			<ul>
+				<li>
+					<a href="creditos.html">Quiénes somos</a>
+				</li>
+				<li>
+					<a href="buscador.html">Búsqueda</a>
+				</li>
+				<li>
+					<a href="intercambio.html">Intercambio</a>
+				</li>
+				<li>
+					<a class="link-activo" href="#">Perfil</a>
+				</li>
+				<li>
+					<a href="Logout">Salir</a>
+					
+				</li>
+        	</ul>
+		</nav>	
+		
 
 	</header>
 
@@ -84,7 +93,7 @@
 					</div>
 
 					<div class="container-perfil-datos">
-						<h3>Mi perfil</h3>
+						<h1>Mi perfil</h1>
 
 						<p>
 							Usuario: <span id="usuario"></span>
@@ -125,7 +134,7 @@
 
 				<div class="container-habilidades">
 					<div class="habilidad-ofertada">
-						<h3>Habilidades ofertadas</h3>
+						<h2>Habilidades ofertadas</h2>
 
 
 						<label class="elige">Ingresa tu habilidad: </label> <select
@@ -147,7 +156,7 @@
 					</div>
 
 					<div class="habilidad-demandada">
-						<h3>Habilidades demandadas</h3>
+						<h2>Habilidades demandadas</h2>
 
 						<label>Elige categoria: </label> <label class="elige">Ingresa
 							la habilidad que quieres aprender: </label> <select class="form-select"
@@ -172,19 +181,20 @@
 	</main>
 
 	<footer>
+		<a href="https://portalentodigital.fundaciononce.es/" target="_blank">
+        <img class="logo" src="img/talentodigital.jpg" title= "Por talento Digital" alt="Logo de XTD" style="width: 150px; height: 40px; border-radius: 5px;"></a>
+        <p>Todos los dererechos reservados - @Copyright</p>
 		<div class="imagenes-footer">
-			<img src="img/instagram.png" title="Instagram" alt="Instagram">
-			<img src="img/facebook.png" title="Facebook" alt="Facebook"> <img
-				src="img/twiter.jpeg" title="Twiter" alt="Twiter">
-			<p>
-				<a href="https://portalentodigital.fundaciononce.es/"
-					target="_blank"> <img src="img/talentodigital.jpg"
-					title="Por talento Digital" alt="Logo de XTD"
-					style="width: 130px; height: 25px;"></a>
-			</p>
+            <a href="https://x.com/portalento_" target="_blank">
+            <img src="img/x-twitter.avif" title="Twitter" alt="Twitter"></a>
+			<a href="https://www.facebook.com/PorTalento" target="_blank">
+            <img src="img/facebook.png" title="Facebook" alt="Facebook"></a>
+			<a href="https://www.instagram.com/portalento_/" target="_blank">
+			<img src="img/instagram.png" title="Instagram" alt="Instagram"></a>
+			<a href="https://www.tiktok.com/@portalento" target="_blank">
+			<img src="img/tiktok.webp" title="Tiktok" alt="Tiktok"></a>
+			
 		</div>
-
-		<p>Todos los dererechos reservados - @Copyright</p>
 	</footer>
 </body>
 </html>

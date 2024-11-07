@@ -1,22 +1,25 @@
-body{
-	height: 100vh;
-}
-
-main {
-	background-color: #cee8ea; 
-	height: 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-
 .contenedor {
-	padding: 7rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.contenedor h1 {
+	margin-top: 80px;
+}
+
+.parrafos p {
+	margin-top: 20px;
+	font-size: larger;
 }
 
 .contenedor-botones {
-	gap: 2rem;
-	display: flex; 
-	justify-content: center; 
+	margin-top: 25px;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
 }
 
+.fondo {
+	margin-top: 4rem;
+}

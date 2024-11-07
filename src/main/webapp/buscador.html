@@ -43,24 +43,34 @@
 			</div>
 			<div id="contentContainer"></div>
 		</div>
-		
-		<div class="enlace">
-			<nav class="navbar fixed-top navbar-light bg-light">
-				<a href="inicio.html"><img alt="inicio"	src="img/favicon.png">Inicio</a>
-	
-				<div class="enlace">
-					<a href="registro.html">Registro</a>
-					<a href="Logout">Salir</a>
+	<header>	
+		<nav>
+			<a href="inicio.html" class="inicio"> <img alt="inicio" src="img/favicon.png" class="logo"></a>
+			<p>Ability Swap</p>
+			<ul>
+				<li>
+					<a href="creditos.html">Quiénes somos</a>
+				</li>
+				<li>
+					<a class="link-activo" href="#">Búsqueda</a>
+				</li>
+				<li>
+					<a href="intercambio.html">Intercambio</a>
+				</li>
+				<li>
 					<a href="perfil.html">Perfil</a>
-					<a href="creditos.html">Quienes somos</a>
-				</div>
-			</nav>
-		</div>
-   		 
+				</li>
+				<li>
+					<a href="Logout">Salir</a>
+					
+				</li>
+        	</ul>
+		</nav>	
+   	</header> 
 		<main>
 	        <section>
 		        <div class="container">
-		        	<h2>Encuentra usuarios que ofrecen la habilidad que quieres aprender</h2>
+		        	<h1>Encuentra usuarios que ofrecen la habilidad que quieres aprender</h1>
 					<form class=" d-flex" role="search" onsubmit="event.preventDefault();">
 						<div class="buscador d-flex form-control" >
 							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -79,15 +89,20 @@
         </main>
 
 		<footer>
-			<div class="imagenes-footer">
-				<p><a href="https://portalentodigital.fundaciononce.es/" target="_blank">
-            	<img src="img/talentodigital.jpg" title= "Por talento Digital" alt="Logo de XTD" style="width: 150px; height: 40px;"></a></p>
-				<p><a href="https://www.instagram.com/portalento_/" target="_blank">
-				<img src="img/instagram.png" title="Instagram" alt="Instagram" style="width: 40px; height: 40px;"></a></p>
-				<p><a href="https://www.facebook.com/PorTalento" target="_blank">
-				<img src="img/facebook.png" title="Facebook" alt="Facebook" style="width: 40px; height: 40px;"></a></p>
-			</div>
-			<p>Todos los dererechos reservados - @Copyright</p>
+			 <a href="https://portalentodigital.fundaciononce.es/" target="_blank">
+        <img class="logo" src="img/talentodigital.jpg" title= "Por talento Digital" alt="Logo de XTD" style="width: 150px; height: 40px; border-radius: 5px;"></a>
+        <p>Todos los dererechos reservados - @Copyright</p>
+		<div class="imagenes-footer">
+            <a href="https://x.com/portalento_" target="_blank">
+            <img src="img/x-twitter.avif" title="Twitter" alt="Twitter"></a>
+			<a href="https://www.facebook.com/PorTalento" target="_blank">
+            <img src="img/facebook.png" title="Facebook" alt="Facebook"></a>
+			<a href="https://www.instagram.com/portalento_/" target="_blank">
+			<img src="img/instagram.png" title="Instagram" alt="Instagram"></a>
+			<a href="https://www.tiktok.com/@portalento" target="_blank">
+			<img src="img/tiktok.webp" title="Tiktok" alt="Tiktok"></a>
+			
+		</div>
 		</footer>
 	</body>
 </html>

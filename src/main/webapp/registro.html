@@ -46,15 +46,30 @@
 	</div>
 	
 	<header>
-		<nav class="navbar fixed-top navbar-light bg-light">
-			<a href="inicio.html" class="inicio"> <img alt="inicio" src="img/favicon.png">Inicio</a>
-		</nav>
+		<nav>
+			<a href="inicio.html" class="inicio"> <img alt="inicio" src="img/favicon.png" class="logo"></a>
+			<p>Ability Swap</p>
+			<ul>
+				<li>
+					<a href="creditos.html">Quienes somos</a>
+				</li>
+				<li>
+					<a href="login.html">Iniciar sesión</a>
+				</li>
+				<li>
+					<a class="link-activo" href="#">Registrarse</a>
+				</li>
+				
+				
+				
+        	</ul>
+		</nav>	
 
 	</header>
 	<main>
 		<div class="container-formulario">
 			<div class="form-container">
-				<h2>Registro</h2>
+				<h1>Registro</h1>
 				<form id="formulario" onsubmit="event.preventDefault(); validarFormulario(event);">
 					<div class="form-group">
 						<label for="usuario">Usuario: </label> <input type="text"
@@ -147,13 +162,20 @@
 	</main>
 
 	<footer>
+		<a href="https://portalentodigital.fundaciononce.es/" target="_blank">
+        <img class="logo" src="img/talentodigital.jpg" title= "Por talento Digital" alt="Logo de XTD" style="width: 150px; height: 40px; border-radius: 5px;"></a>
+        <p>Todos los dererechos reservados - @Copyright</p>
 		<div class="imagenes-footer">
-			<img src="img/instagram.png" title="Instagram" alt="Instagram">
-			<img src="img/facebook.png" title="Facebook" alt="Facebook"> 
-			<img src="img/twiter.jpeg" title="Twiter" alt="Twiter">
+            <a href="https://x.com/portalento_" target="_blank">
+            <img src="img/x-twitter.avif" title="Twitter" alt="Twitter"></a>
+			<a href="https://www.facebook.com/PorTalento" target="_blank">
+            <img src="img/facebook.png" title="Facebook" alt="Facebook"></a>
+			<a href="https://www.instagram.com/portalento_/" target="_blank">
+			<img src="img/instagram.png" title="Instagram" alt="Instagram"></a>
+			<a href="https://www.tiktok.com/@portalento" target="_blank">
+			<img src="img/tiktok.webp" title="Tiktok" alt="Tiktok"></a>
+			
 		</div>
-
-		<p>Todos los dererechos reservados - @Copyright</p>
 	</footer>
 	
 </body>

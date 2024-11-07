@@ -5,11 +5,16 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import proyectoAbilitySwap.talento.beans.Usuario;
 import proyectoAbilitySwap.talento.servicio.NumeroIntercambiosPendientesPorUsuarioService;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 import org.apache.log4j.Logger;
+
+import com.google.gson.Gson;
 
 /**
  * Servlet implementation class ObtenerNumeroIntercambiosPendientesPorUsuario
@@ -31,10 +36,25 @@ public class ObtenerNumeroIntercambiosPendientesPorUsuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		log.debug("Peticion en el Servlet ObtenerNumeroIntercambiosPendientesPorUsuario");
-		NumeroIntercambiosPendientesPorUsuarioService intercambiosPendientesPorUsuarioService = new NumeroIntercambiosPendientesPorUsuarioService();
+		NumeroIntercambiosPendientesPorUsuarioService numeroIntercambiosPendientesPorUsuarioService = new NumeroIntercambiosPendientesPorUsuarioService();
 		HttpSession httpSession = request.getSession(false);
-		Integer integerUsuario = (Integer) httpSession.getAttribute("idusuario");
-		int idusuario = integerUsuario != null ? integerUsuario : 0;
+		int idusuario = (int) httpSession.getAttribute("idusuario");
+
+		try {
+			int noIntercambiosPendientes =  numeroIntercambiosPendientesPorUsuarioService.noIntercambiosPendientesPorUsuario(idusuario);
+			String stringNoIntercambiosPendientes = Integer.toString(noIntercambiosPendientes);
+			response.getWriter().write(stringNoIntercambiosPendientes);
+			response.setStatus(200);
+			response.setContentType("text/plain");
+			log.debug("La petición fue bien " + stringNoIntercambiosPendientes);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			log.error("Ha habido un error de base de datos", e);
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error("Ha habido un error general", e);
+		}
 
 	}
 

@@ -6,7 +6,7 @@
 		auth="Container"
 		type="javax.sql.DataSource"
 		username="root"
-		password="user0"
+		password="root"
 		driverClassName="com.mysql.cj.jdbc.Driver"
 		url="jdbc:mysql://localhost:3306/abilityswapbd?serverTimezone=UTC"
 		maxTotal="50"

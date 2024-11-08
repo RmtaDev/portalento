@@ -10,26 +10,25 @@ public class Mensaje {
     private LocalDateTime fecha_hora;
     private String texto;
 
-    public Mensaje() {}
 
-
-    // Constructor con parámetros
-    public Mensaje(int idmensaje, int idintercambio, int emisor, int receptor, LocalDateTime fecha_hora, String texto) {
-        this.idmensaje = idmensaje;
-
-    public Mensaje(int idmensaje, String mensaje, int idintercambio, LocalDateTime fecha, int idusuario) {
-        this.idmensaje = idmensaje;
-        this.idintercambio = idintercambio;
-        this.emisor = emisor;
-        this.receptor = receptor;
-        this.fecha_hora = fecha_hora;
-        this.texto = texto;
-
-    }
 
 
     
-    // Getters y Setters
+    public Mensaje() {
+		super();
+	}
+
+	public Mensaje(int idmensaje, int idintercambio, int emisor, int receptor, LocalDateTime fecha_hora, String texto) {
+		super();
+		this.idmensaje = idmensaje;
+		this.idintercambio = idintercambio;
+		this.emisor = emisor;
+		this.receptor = receptor;
+		this.fecha_hora = fecha_hora;
+		this.texto = texto;
+	}
+
+	// Getters y Setters
     public int getIdmensaje() {
         return idmensaje;
     }

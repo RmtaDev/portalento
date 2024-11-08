@@ -42,6 +42,7 @@ input[type="search"]::-webkit-search-cancel-button {
 	list-style: none;
 	text-align: left;
 	cursor: pointer;
+    width: -webkit-fill-available;
 }
 
 .contenedor-sugerencias {
@@ -122,4 +123,3 @@ input[type="search"]::-webkit-search-cancel-button {
 .card:hover {
     transform: scale(1.05);
 }
-

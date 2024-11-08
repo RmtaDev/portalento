@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/estilosgenerales.css">
 <link rel="stylesheet" href="css/perfil.css">
 <link rel="stylesheet" href="css/accesibilidad.css">
+<link rel="stylesheet" href="css/modal.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <script src="js/accesibilidad.js"></script>
@@ -57,28 +58,18 @@
 
 	<header>
 		<nav>
-			<a href="inicio.html" class="inicio"> <img alt="inicio" src="img/favicon.png" class="logo"></a>
+			<a href="inicio.html" class="inicio"> <img alt="inicio"
+				src="img/favicon.png" class="logo"></a>
 			<p>Ability Swap</p>
 			<ul>
-				<li>
-					<a href="creditos.html">Quiénes somos</a>
-				</li>
-				<li>
-					<a href="buscador.html">Búsqueda</a>
-				</li>
-				<li>
-					<a href="intercambio.html">Intercambio</a>
-				</li>
-				<li>
-					<a class="link-activo" href="#">Perfil</a>
-				</li>
-				<li>
-					<a href="Logout">Salir</a>
-					
-				</li>
-        	</ul>
-		</nav>	
-		
+				<li><a href="creditos.html">Quiénes somos</a></li>
+				<li><a href="buscador.html">Búsqueda</a></li>
+				<li><a href="intercambio.html">Intercambio</a></li>
+				<li><a class="link-activo" href="#">Perfil</a></li>
+				<li><a href="Logout">Salir</a></li>
+			</ul>
+		</nav>
+
 
 	</header>
 
@@ -88,12 +79,13 @@
 			<div class="container">
 
 				<div class="container-perfil">
+					<h1>Mi perfil</h1>
 					<div class="container-imagen-perfil">
 						<img id="foto" alt="" src="img/avatar.png">
 					</div>
 
 					<div class="container-perfil-datos">
-						<h1>Mi perfil</h1>
+
 
 						<p>
 							Usuario: <span id="usuario"></span>
@@ -137,14 +129,14 @@
 						<h2>Habilidades ofertadas</h2>
 
 
-						<label class="elige">Ingresa tu habilidad: </label> <select
-							class="form-select" id="ofertadas" name="form-select	" required>
+						<label class="elige" for="habilidad-ofertada">Ingresa tu habilidad: </label> <select
+							class="form-select" id="ofertadas" name="habilidad-ofertada" required>
 							<option selected>Elige categoria:</option>
 
 						</select>
 
 						<div class="lista">
-							<input type="text" class="form-control" id="texto"
+							<input type="text" name="habilidad-ofertada" class="form-control" id="texto"
 								placeholder="Escribe la habilidad que tienes">
 
 							<button id="botonInsertar" class="btn btn-secondary">Insertar</button>
@@ -158,14 +150,14 @@
 					<div class="habilidad-demandada">
 						<h2>Habilidades demandadas</h2>
 
-						<label>Elige categoria: </label> <label class="elige">Ingresa
-							la habilidad que quieres aprender: </label> <select class="form-select"
-							id="demandadas" name="form-select" required>
+						<label class="elige" for="habilidad-demandada">Ingresa la habilidad que quieres aprender: </label> 
+						<select class="form-select"
+							id="demandadas" name="habilidad-demandada" required>
 							<option selected>Elige categoria:</option>
 
 						</select>
 						<div class="lista">
-							<input type="text" class="form-control" id="textoDemandada"
+							<input type="text" name="habilidad-demandada" class="form-control" id="textoDemandada"
 								placeholder="Escribe la habilidad que quieres aprender">
 
 							<button id="botonInsertarDemandada" class="btn btn-secondary">Insertar</button>
@@ -182,19 +174,39 @@
 
 	<footer>
 		<a href="https://portalentodigital.fundaciononce.es/" target="_blank">
-        <img class="logo" src="img/talentodigital.jpg" title= "Por talento Digital" alt="Logo de XTD" style="width: 150px; height: 40px; border-radius: 5px;"></a>
-        <p>Todos los dererechos reservados - @Copyright</p>
+			<img class="logo" src="img/talentodigital.jpg"
+			title="Por talento Digital" alt="Logo de XTD"
+			style="width: 150px; height: 40px; border-radius: 5px;">
+		</a>
+		<p>Todos los dererechos reservados - @Copyright</p>
 		<div class="imagenes-footer">
-            <a href="https://x.com/portalento_" target="_blank">
-            <img src="img/x-twitter.avif" title="Twitter" alt="Twitter"></a>
-			<a href="https://www.facebook.com/PorTalento" target="_blank">
-            <img src="img/facebook.png" title="Facebook" alt="Facebook"></a>
-			<a href="https://www.instagram.com/portalento_/" target="_blank">
-			<img src="img/instagram.png" title="Instagram" alt="Instagram"></a>
-			<a href="https://www.tiktok.com/@portalento" target="_blank">
-			<img src="img/tiktok.webp" title="Tiktok" alt="Tiktok"></a>
-			
+			<a href="https://x.com/portalento_" target="_blank"> <img
+				src="img/x-twitter.avif" title="Twitter" alt="Twitter"></a> <a
+				href="https://www.facebook.com/PorTalento" target="_blank"> <img
+				src="img/facebook.png" title="Facebook" alt="Facebook"></a> <a
+				href="https://www.instagram.com/portalento_/" target="_blank"> <img
+				src="img/instagram.png" title="Instagram" alt="Instagram"></a> <a
+				href="https://www.tiktok.com/@portalento" target="_blank"> <img
+				src="img/tiktok.webp" title="Tiktok" alt="Tiktok"></a>
+
 		</div>
 	</footer>
+
+	<div id="modal" class="modal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Perfil Incompleto</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close" id="cerrar-modal"></button>
+				</div>
+				<div class="modal-body">
+					<p>Por favor, selecciona las habilidades ofertadas y demandadas para completar tu
+						perfil.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>

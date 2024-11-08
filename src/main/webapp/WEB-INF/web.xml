@@ -231,4 +231,14 @@
     <servlet-name>ConsultarHabiidadOfertadaIntercambio</servlet-name>
     <url-pattern>/ConsultarHabiidadOfertadaIntercambio</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InsertarMensaje</display-name>
+    <servlet-name>InsertarMensaje</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.mensajes.InsertarMensaje</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertarMensaje</servlet-name>
+    <url-pattern>/InsertarMensaje</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -60,7 +60,7 @@ public class InsertarMensaje extends HttpServlet {
 			Mensaje mensajeRespuesta = mensajeService.insertarMensaje(idintercambio, emisor, receptor, fecha_hora, texto);
 
 	        String mensajeResputestaJson = gson.toJson(mensajeRespuesta);
-            response.setStatus(201); // 201 Created, la habilidad demandada fue creada
+            response.setStatus(201); // 201 Created, el mensaje fue creado
             response.setContentType("application/json");
             response.getWriter().write(mensajeResputestaJson);
 		

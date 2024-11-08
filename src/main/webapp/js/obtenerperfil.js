@@ -30,7 +30,7 @@ function pintarHabilidadDemandada (habilidad, divpadre)
 {
 		//crearme el div para le eiqueta
 	let divHabilidad = document.createElement("div");
-	divHabilidad.className = "etiquetad";
+	divHabilidad.className = "etiqueta";
 	divHabilidad.id = habilidad.idHabilidad;
 	let hijosDiv = "<label>"+habilidad.nombre+"</label>"+ botonHabilidadDe;
 	divHabilidad.innerHTML = hijosDiv.trim();

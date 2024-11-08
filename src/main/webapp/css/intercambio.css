@@ -1,80 +1,61 @@
 	
-	.enlace {
-	    font-size: 15px; 
-	    font-weight: bolder; 
-	    text-decoration: none;
-	  	display: flex;
-	  	gap: 3rem; 
-	  	margin: 0 3rem;
-	}
-	
-	.enlace a {
-		text-decoration: none;
-		color: black;
-	}
-
-	h1 {
-		text-align: center;
-	    color: #333;
-	}
-	
-	h2 {
-		text-align: center;
-	    color: #333;
-	    
-	}
-	
-	h5{
-		text-align: center;
-	    padding: 160px 0;
-	}
-	
-	.grid {
-	    gap: 90px;
-	    display: flex;
-	   	justify-content: center;    
-	   	padding: 35.3px;
-	   	margin-top: 50px;
-	}
-	
-
-	.card {
-		width: 300px;
-	    background: white;
-	    border-radius: 8px;
-	    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	    padding: 15px;
-	    transition: transform 0.2s;
-	    justify-content: center;
-	    align-items: center;
-	}
-	
-	
-	.card img {
-	    width: 100%;
-	    border-radius: 8px;
-	    height: 250px;
-	    object-fit: cover;
-	    
-	}
-	
-	.card h2 {
-	    font-size: 18px;
-	    color: #444;
-	    margin-top: 10px;
-	}
-	
-	.card p {
-	    margin: 10px 0 20px 0;
-	   
-	}
-	
-	.card a {
-	    text-decoration: none;
-	    color: #007bff;
-	}
-
-	
-	.card:hover {
-	    transform: scale(1.05);
-	}
+	.container-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            flex-direction: column;
+            width: 100%;
+        }
+        .chat-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            width: 100%;
+        }
+        .user-photo {
+            width: 100px;
+            height: 100px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #555;
+        }
+        .chat-box {
+            width: 35%; 
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 0 20px;
+            border-radius: 5px;
+            height: 300px; 
+            overflow-y: auto; 
+        }
+        .table-container {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+       
+        .table {
+            width: 100%;
+            min-width: 800px;
+            table-layout: auto;
+            word-wrap: break-word;
+        }
+        .table th, .table td {
+            white-space: nowrap;
+        }
+        
+        footer .imagenes-footer {
+            margin-top: 10px;
+        }

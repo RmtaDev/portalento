@@ -3,7 +3,6 @@ build/
 *.war
 *.ear
 *.class
-context.xml
 
 # eclipse specific git ignore
 *.pydevproject

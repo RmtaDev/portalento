@@ -1,20 +1,21 @@
-let seleccionada = 0;
+let seleccionDd = 0;
+let seleccionOf = 0;
 var idusuario = 0;
-let idhabilidaddemandad = 0;
+let idhabilidadDd = 0;
+let idhabilidadOf = 0;
 
 window.onload = () => {
 	
-//obtenemos id de usuario de la url
 	var matches = /idusuario=([^&#=]*)/.exec(window.location.search);
 	idusuario = matches[1];
-	//window.alert("pagina cargada")
 	obtenerPerfilUsuario();
 	obtenerHabilidadesOfertadas();
 	obtenerHabilidadesDemandadas();
-	
-	//proponer el intercambio
+
 }
-function pintarHabilidadOfertada (habilidad, divpadre)
+
+
+function pintarHabilidad (habilidad, divpadre)
 {
 		//crearme el div para le eiqueta
 	let divHabilidad = document.createElement("div");
@@ -22,37 +23,38 @@ function pintarHabilidadOfertada (habilidad, divpadre)
 	divHabilidad.id = habilidad.idHabilidad;
 	let hijosDiv = "<label>"+habilidad.nombre+"</label>";
 	divHabilidad.innerHTML = hijosDiv.trim();
-	
 	divpadre.appendChild (divHabilidad);
 }
 
+function programarBotonesSeleccionOfertadas () {
+	let etiquetas = Array.from (document.getElementById("container-etiquetas-ofertadas").children)
+	etiquetas.forEach(
+		(etiqueta) => {
+			etiqueta.addEventListener("click", habilidadOfertadaTocada);
+		}
+	)
+}
+
+function programarBotonesseleccionDdemandadas () {
+	let etiquetas = Array.from (document.getElementById("container-etiquetas-demandadas").children)
+	etiquetas.forEach(
+		(etiqueta) => {
+			etiqueta.addEventListener("click", habilidadDemandadaTocada);
+		}
+	)
+}
+
 function obtenerHabilidadesOfertadas() {
-	//pintarHabilidades(null, document.getElementById("container-hb-ofertadas"));
-	//FETCH HABILIDAES OFERTADAS
 	fetch("ConsultarHabiidadOfertadaIntercambio?idusuario="+idusuario)//obtengo las habilidades del Servlet Ofertadas
 	.then(respuesta=> respuesta.json())//lo paso a Objeto javascritp
 	.then (listaHabilidadesOfertadas => {
 		console.log("Tamaño lista habilidades ofertadas " + listaHabilidadesOfertadas.length);
 		let divPadre = document.getElementById("container-etiquetas-ofertadas");
 		listaHabilidadesOfertadas.forEach(habilidad=> {
-			pintarHabilidadOfertada (habilidad, divPadre);
+			pintarHabilidad (habilidad, divPadre);
 		});//foreach
-		programarBotonesSeleccion();
+		programarBotonesSeleccionOfertadas();
 	});//then json()
-	//FOR - PARA CADA HABLIDAD
-	//PINTAR HABILIDADES
-}
-
-function pintarHabilidadDemandada (habilidad, divpadre)
-{
-		//crearme el div para le eiqueta
-	let divHabilidad = document.createElement("div");
-	divHabilidad.className = "etiquetad";
-	divHabilidad.id = habilidad.idHabilidad;
-	let hijosDiv = "<label>"+habilidad.nombre+"</label>";
-	divHabilidad.innerHTML = hijosDiv.trim();
-	
-	divpadre.appendChild (divHabilidad);
 }
 
 function obtenerHabilidadesDemandadas()
@@ -64,23 +66,117 @@ function obtenerHabilidadesDemandadas()
 		console.log("Tamaño lista habilidades demandadas " + listaHabilidadesDemandadas.length);
 		let divPadre = document.getElementById("container-etiquetas-demandadas");
 		listaHabilidadesDemandadas.forEach(habilidad=> {
-			pintarHabilidadDemandada(habilidad, divPadre);
+			pintarHabilidad(habilidad, divPadre);
 		});//foreach
-	});//then json()
-	//FOR - PARA CADA HABLIDAD
-	//PINTAR HABILIDADES
+		programarBotonesseleccionDdemandadas();
+	});//then json()	
+}
+
+
+
+function marcarHabilidad(label, div, ofertada) {
+	div.style.backgroundColor = "#b2babb";
+	label.style.color = "white";
+	div.dataset.marcado = '1';
+	label.dataset.marcado = '1';
+	if (ofertada==1)
+	{
+		idhabilidadOf = div.id;
+	}
+	else {
+		idhabilidadDd = div.id; 
+	}
 	
 }
 
-function programarBotonesSeleccion () {
-	let etiquetas = Array.from(document.getElementsByClassName("etiqueta")); // Obtener todas las etiquetas
-	//etiquetas [0].addEventListener("click", marcarSelecionada); 
-	etiquetas.forEach(
-		(etiqueta) => {
-			etiqueta.addEventListener("click", habilidadTocada);
-		}
-	)
+function desmarcarHabilidad(label, div) {
+	div.style.backgroundColor = "#FFB74D";
+	label.style.color = "black";
+	div.dataset.marcado = '0';
+	label.dataset.marcado = '0';
 }
+
+function habilidadDemandadaTocada(evento) {
+	let label;
+	let div;
+
+
+	if (seleccionDd == 0) {
+		console.log("no hay habilidad demandad seleccionada")
+		if (evento.target instanceof HTMLDivElement) {
+			div = evento.target;
+			label = div.firstElementChild;
+			//console.log("Ha tocado el div");
+
+		} else {
+			//console.log("Ha tocado el label");
+			label = evento.target;
+			div = label.parentNode;
+		}
+		marcarHabilidad(label, div, 0);
+		seleccionDd = 1;
+	} else {
+		console.log("Ya hay una seleccionada");
+		if (evento.target.dataset.marcado == '1') {
+			//hay que desmarcarlo
+			if (evento.target instanceof HTMLDivElement) {
+				div = evento.target;
+				label = div.firstElementChild;
+				console.log("Ha tocado el div");
+
+			} else {
+				console.log("Ha tocado el label");
+				label = evento.target;
+				div = label.parentNode;
+			}
+			desmarcarHabilidad(label, div);
+			seleccionDd=0;
+		}
+
+	}
+}
+
+
+function habilidadOfertadaTocada(evento) {
+	let label;
+	let div;
+
+
+	if (seleccionOf == 0) {
+		console.log("no hay habilidad demandad seleccionada")
+		if (evento.target instanceof HTMLDivElement) {
+			div = evento.target;
+			label = div.firstElementChild;
+			//console.log("Ha tocado el div");
+
+		} else {
+			//console.log("Ha tocado el label");
+			label = evento.target;
+			div = label.parentNode;
+		}
+		marcarHabilidad(label, div, 1);
+		seleccionOf = 1;
+	} else {
+		console.log("Ya hay una seleccionada");
+		if (evento.target.dataset.marcado == '1') {
+			//hay que desmarcarlo
+			if (evento.target instanceof HTMLDivElement) {
+				div = evento.target;
+				label = div.firstElementChild;
+				console.log("Ha tocado el div");
+
+			} else {
+				console.log("Ha tocado el label");
+				label = evento.target;
+				div = label.parentNode;
+			}
+			desmarcarHabilidad(label, div);
+			seleccionOf=0;
+		}
+
+	}
+}
+
 
 function obtenerPerfilUsuario() {
 
@@ -122,74 +218,11 @@ function mostrarPerfil(infousuario) {
 	document.getElementById("foto").src = "ObtenerFoto?idfoto=" + infousuario.rutaFoto.substring(infousuario.rutaFoto.lastIndexOf('\\') + 1);
 }
 
-function marcarHabilidad(label, div) {
-	div.style.backgroundColor = "#b2babb";
-	label.style.color = "white";
-	div.dataset.marcado = '1';
-	label.dataset.marcado = '1';
-	idhabilidaddemandad = div.id; 
-}
-
-function desmarcarHabilidad(label, div) {
-	div.style.backgroundColor = "#FFB74D";
-	label.style.color = "black";
-	div.dataset.marcado = '0';
-	label.dataset.marcado = '0';
-}
-
-function habilidadTocada(evento) {
-	let label;
-	let div;
-
-	//alert("Etiqueta tocada " + evento.target);
-	if (seleccionada == 0) {
-		console.log("no hay habilidad seleccionada")
-		if (evento.target instanceof HTMLDivElement) {
-			div = evento.target;
-			label = div.firstElementChild;
-			//console.log("Ha tocado el div");
-
-		} else {
-			//console.log("Ha tocado el label");
-			label = evento.target;
-			div = label.parentNode;
-		}
-		marcarHabilidad(label, div);
-		seleccionada = 1;
-	} else {
-		console.log("Ya hay una seleccionada");
-		if (evento.target.dataset.marcado == '1') {
-			//hay que desmarcarlo
-			if (evento.target instanceof HTMLDivElement) {
-				div = evento.target;
-				label = div.firstElementChild;
-				console.log("Ha tocado el div");
-
-			} else {
-				console.log("Ha tocado el label");
-				label = evento.target;
-				div = label.parentNode;
-			}
-			desmarcarHabilidad(label, div);
-			seleccionada=0;
-		}
-
-	}
-}
-
-
 function proponer() {
-	//alert("Proponer tocado");
-	//Tiene que saber que etiqueta ha elegido el usuario
-	// y si el usuario no selecciona nada mostrar aviso 
 
-	
-	
-	// CrearIntercambioControlador
-	if (seleccionada==1) {
-		fetch("CrearIntercambioControlador? usuarioDemandadaParam=" + idusuario + "&habilidadDemandadaParam=" + idhabilidaddemandad, {
-			method: "POST",
-			body: infousuarioJson
+	if (seleccionDd ==1 && seleccionOf == 1) {
+		fetch("CrearIntercambioControlador?usuarioDemandada=" + idusuario + "&habilidadDemandada=" + idhabilidadDd+"&habilidadOfertada="+idhabilidadOf, {
+			method: "POST"
 		})//12 ACTUALIZO LA INTERFAZ DE USUARIO
 			.then(respuesta => {
 				console.log("Procesando la vuelta ..");
@@ -213,10 +246,9 @@ function proponer() {
 				}
 			});
 	} else {
-		alert("Elige una habilidad antes de proponer");
+		alert("Elige una habilidad ofertada y demandada");
 	}
 	
 	
 
 }
-

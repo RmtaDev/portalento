@@ -112,7 +112,7 @@ CREATE TABLE `intercambios` (
   `idintercambio` int NOT NULL AUTO_INCREMENT,
   `usuario_ofertada` int NOT NULL,
   `usuario_demandada` int NOT NULL,
-  `habilidad_ofertada` int NOT NULL,
+  `habilidad_ofertada` int DEFAULT NULL,
   `habilidad_demandada` int NOT NULL,
   `estado` enum('PENDIENTE','ACEPTADO','RECHAZADO') NOT NULL,
   PRIMARY KEY (`idintercambio`),
@@ -214,4 +214,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-06 12:36:06
+-- Dump completed on 2024-11-07 11:46:46

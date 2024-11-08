@@ -46,11 +46,8 @@ public class CrearIntercambioControlador extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, NumberFormatException {
 
-		//String usuarioOfertadaParam = request.getParameter("usuarioOfertada");
 		String usuarioDemandadaParam = request.getParameter("usuarioDemandada");
-		String habilidadOfertadaParam = request.getParameter("habilidadOfertada");
 		String habilidadDemandadaParam = request.getParameter("habilidadDemandada");
-		String estadoParam = request.getParameter("estado");
 
 		log.debug("### Solicitud recibida en CreaIntercambioControlador.");
 
@@ -69,48 +66,41 @@ public class CrearIntercambioControlador extends HttpServlet {
 
 			} else {
 
-				if (usuarioDemandadaParam == null || habilidadOfertadaParam == null || habilidadDemandadaParam == null
-						|| estadoParam == null || usuarioDemandadaParam.isEmpty() || habilidadOfertadaParam.isEmpty()
-						|| habilidadDemandadaParam.isEmpty() || estadoParam.isEmpty()) {
+				if (usuarioDemandadaParam == null || habilidadDemandadaParam == null || usuarioDemandadaParam.isEmpty()
+						|| habilidadDemandadaParam.isEmpty()) {
 					log.error("### Error: uno o mas paramteros son nulos.");
 					response.setStatus(400);
-					
-				}else {
-				try {
-					int usuarioDemandada = Integer.parseInt(usuarioDemandadaParam);
-					int habilidadOfertada = Integer.parseInt(habilidadOfertadaParam);
-					int habilidadDemandada = Integer.parseInt(habilidadDemandadaParam);
 
-					EstadoIntercambio estado = EstadoIntercambio.valueOf(request.getParameter("estado").toUpperCase());
+				} else {
+					try {
+						int usuarioDemandada = Integer.parseInt(usuarioDemandadaParam);
+						int habilidadDemandada = Integer.parseInt(habilidadDemandadaParam);
 
-					log.info("### -> Datos recibidos: Usuario Ofertada = " + idUsuarioOfertada + ", Usuario Demandada = "
-							+ usuarioDemandada + ", Habilidad Ofertada = " + habilidadOfertada
-							+ ", Habilidad Demandada = " + habilidadDemandada + ", estado = " + estado);
+						EstadoIntercambio estado = EstadoIntercambio.PENDIENTE;
 
-					CrearIntercambio intercambio = new CrearIntercambio(0, idUsuarioOfertada, usuarioDemandada,
-							habilidadOfertada, habilidadDemandada, estado);
+						log.info("### -> Datos recibidos: Usuario Ofertada = " + idUsuarioOfertada
+								+ ", Usuario Demandada = " + usuarioDemandada + ", Habilidad Ofertada = null"
+								+ ", Habilidad Demandada = " + habilidadDemandada + ", estado = " + estado);
 
-					CrearIntercambioService crearIntercambioService = new CrearIntercambioService();
+						CrearIntercambio intercambio = new CrearIntercambio(0, idUsuarioOfertada, usuarioDemandada,
+								habilidadDemandada, estado);
 
-					int idIntercambio = crearIntercambioService.insertarIntercambio(intercambio);
-					response.setStatus(201);
-					log.info("### El intercambio nuevo ha sido insertado correctamente: " + idIntercambio);
+						CrearIntercambioService crearIntercambioService = new CrearIntercambioService();
 
-				}catch (NumberFormatException e) {
-					log.error("Error al convertir uno de los parametros a número:" + e.getMessage());
-					response.setStatus(400);
-				} catch (IllegalArgumentException e) {
+						int idIntercambio = crearIntercambioService.insertarIntercambio(intercambio);
+						response.setStatus(201);
+						log.info("### El intercambio nuevo ha sido insertado correctamente: " + idIntercambio);
 
-					log.error("Error en los parametros recibidos: " + e.getMessage());
-					response.setStatus(400);
+					} catch (NumberFormatException e) {
+						log.error("Error al convertir uno de los parametros a número:" + e.getMessage());
+						response.setStatus(400);
+					} catch (SQLException e) {
 
-				} catch (SQLException e) {
-
-					log.error("Error al insertar el intercambio en la base de daos: " + e.getMessage(), e);
-					e.printStackTrace();
-					response.setStatus(500);
+						log.error("Error al insertar el intercambio en la base de daos: " + e.getMessage(), e);
+						e.printStackTrace();
+						response.setStatus(500);
+					}
 				}
-			}
 			}
 		}
 	}

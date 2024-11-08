@@ -2,12 +2,17 @@
 let botonHabilidadOf = "<button onclick=\"borrarHabilidadOfertada(this)\" type=\"submit\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-x-lg\" viewBox=\"0 0 16 16\">											<path d=\"M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z\" />	</svg></button>";
 let botonHabilidadDe = "<button onclick=\"borrarHabilidadDemandada(this)\" type=\"submit\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-x-lg\" viewBox=\"0 0 16 16\">											<path d=\"M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z\" />	</svg></button>";
 
-window.onload = () => {
-	obtenerPerfilUsuario();
-	obtenerCategorias();
-	obtenerHabilidadesOfertadas();
-	obtenerHabilidadesDemandadas();
-}
+let listaHabilidadesOfertadas = [];
+let listaHabilidadesDemandadas = [];
+
+document.addEventListener("DOMContentLoaded", function() {
+    obtenerPerfilUsuario();
+    obtenerCategorias();
+    obtenerHabilidadesOfertadas();
+    obtenerHabilidadesDemandadas();
+
+   
+});
 
 function pintarHabilidadOfertada (habilidad, divpadre)
 {
@@ -33,10 +38,10 @@ function pintarHabilidadDemandada (habilidad, divpadre)
 	divpadre.appendChild (divHabilidad);
 }
 
-function pintarHabilidades (listaHabilidades, divpadre)
-{
+//function pintarHabilidades (listaHabilidades, divpadre)
+//{
 	
-}
+//}
 
 function obtenerHabilidadesOfertadas() {
 	//pintarHabilidades(null, document.getElementById("container-hb-ofertadas"));
@@ -49,6 +54,18 @@ function obtenerHabilidadesOfertadas() {
 		listaHabilidadesOfertadas.forEach(habilidad=> {
 			pintarHabilidadOfertada (habilidad, divPadre);
 		});//foreach
+		
+		// Mostrar el modal si las listas están vacías
+				if (listaHabilidadesOfertadas.length == 0) {
+			       setTimeout(function() {
+			           document.getElementById("modal").style.display = "block";
+			       }, 500);
+			   }
+
+			   // Cerrar el modal al hacer clic en el botón
+			   document.getElementById("cerrar-modal").onclick = function() {
+			      document.getElementById("modal").style.display = "none";
+			   };
 	});//then json()
 	//FOR - PARA CADA HABLIDAD
 	//PINTAR HABILIDADES
@@ -65,6 +82,18 @@ function obtenerHabilidadesDemandadas()
 		listaHabilidadesDemandadas.forEach(habilidad=> {
 			pintarHabilidadDemandada(habilidad, divPadre);
 		});//foreach
+		
+		// Mostrar el modal si las listas están vacías
+				if (listaHabilidadesDemandadas.length == 0) {
+			       setTimeout(function() {
+			           document.getElementById("modal").style.display = "block";
+			       }, 500);
+			   }
+
+			   // Cerrar el modal al hacer clic en el botón
+			   document.getElementById("cerrar-modal").onclick = function() {
+			      document.getElementById("modal").style.display = "none";
+			   };
 	});//then json()
 	//FOR - PARA CADA HABLIDAD
 	//PINTAR HABILIDADES

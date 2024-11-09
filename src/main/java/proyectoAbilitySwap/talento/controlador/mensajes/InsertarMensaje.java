@@ -11,6 +11,7 @@ import proyectoAbilitySwap.talento.servicio.MensajeService;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.apache.log4j.Logger;
 
@@ -43,7 +44,7 @@ public class InsertarMensaje extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		log.debug("Peticion en el Servlet Login");
+		log.debug("Peticion en el Servlet InsertarMensaje");
 		
 		try {
 			String mensajePeticionJson =  request.getReader().readLine();
@@ -53,7 +54,7 @@ public class InsertarMensaje extends HttpServlet {
 			int idintercambio = mensaje.getIdintercambio();
 			int emisor = mensaje.getEmisor();
 			int receptor = mensaje.getReceptor();
-			LocalDateTime fecha_hora = mensaje.getFechaHora();
+			LocalDateTime fecha_hora = LocalDateTime.parse(mensaje.getFechaHora(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 			String texto = mensaje.getTexto();
 			
 			MensajeService mensajeService = new MensajeService();

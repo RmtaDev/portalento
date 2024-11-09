@@ -1,13 +1,11 @@
 package proyectoAbilitySwap.talento.beans;
 
-import java.time.LocalDateTime;
-
 public class Mensaje {
     private int idmensaje;
     private int idintercambio;
     private int emisor;
     private int receptor;
-    private LocalDateTime fecha_hora;
+    private String fecha_hora;
     private String texto;
 
 
@@ -18,7 +16,7 @@ public class Mensaje {
 		super();
 	}
 
-	public Mensaje(int idmensaje, int idintercambio, int emisor, int receptor, LocalDateTime fecha_hora, String texto) {
+	public Mensaje(int idmensaje, int idintercambio, int emisor, int receptor, String fecha_hora, String texto) {
 		super();
 		this.idmensaje = idmensaje;
 		this.idintercambio = idintercambio;
@@ -61,11 +59,11 @@ public class Mensaje {
         this.receptor = receptor;
     }
     
-    public LocalDateTime getFechaHora() {
+    public String getFechaHora() {
         return fecha_hora;
     }
 
-    public void setFechaHora(LocalDateTime fecha_hora) {
+    public void setFechaHora(String fecha_hora) {
         this.fecha_hora = fecha_hora;
     }
     

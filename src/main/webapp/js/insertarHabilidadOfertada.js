@@ -4,8 +4,8 @@ function insertarHabilidadOfertada() {
 
 	boton.addEventListener("click", function() {
 		console.log("haz tocado el boton de insertar");
-		const idCategoria = document.getElementById("ofertadas").value;
-		const habilidadOfertada = document.getElementById("texto").value;
+		const idCategoria = document.getElementById("habilidadOfertada").value;
+		const habilidadOfertada = document.getElementById("ofertadas").value;
 
 
 		if (idCategoria && habilidadOfertada) {
@@ -33,10 +33,10 @@ function insertarHabilidadOfertada() {
 					let divPadre = document.getElementById("container-hb-ofertadas");
 					pintarHabilidadOfertada (data, divPadre);
 					
-					const selectCategoria = document.getElementById("ofertadas");
+					const selectCategoria = document.getElementById("habilidadOfertada");
                 selectCategoria.selectedIndex = 0; 
 
-                document.getElementById("texto").value = "";
+                document.getElementById("ofertadas").value = "";
 					
 					
 				})

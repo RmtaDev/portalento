@@ -2,26 +2,35 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
-    <link rel="icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/estilosgenerales.css">
-    <link rel="stylesheet" href="css/perfil.css">
-    <link rel="stylesheet" href="css/accesibilidad.css">
-    <link rel="stylesheet" href="css/modal.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="js/accesibilidad.js"></script>
-    <script src="js/obtenerperfil.js"></script>
-    <script src="js/insertarHabilidadOfertada.js"></script>
-    <script src="js/InsertarHabilidadDemandada.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Perfil</title>
+	<link rel="icon" href="img/favicon.png">
+	<link rel="stylesheet" href="css/estilosgenerales.css">
+	<link rel="stylesheet" href="css/perfil.css">
+	<link rel="stylesheet" href="css/accesibilidad.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<script src="js/accesibilidad.js"></script>
+	<script src="js/obtenerperfil.js"></script>
+	<script src="js/insertarHabilidadOfertada.js"></script>
+	<script src="js/InsertarHabilidadDemandada.js"></script>
+	<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+		crossorigin="anonymous">
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous">
+	</script>
+</head>
 <body>
-    <div class="sidebar">
+	<div class="sidebar">
         <button id="openModalBtn" class="open-btn" aria-label="Menú de accesibilidad">
-            <img class="fa-solid fa-universal-access" src="img/accesibilidad.png">
+            <img class="fa-solid fa-universal-access" src="img/accesibilidad.png" alt="imagen accesibilidad">
         </button>
         <div id="radialMenu" class="radial-menu">
             <button id="monocromaticoBtn" aria-label="Activar/Desactivar modo monocromático" title="Activar/Desactivar modo monocromático">
@@ -58,15 +67,15 @@
                 </li>
             </ul>
         </nav>
-    </header>
+ </header>
 
-    <main>
+ <main>
         <div class="opacidad">
             <div class="container">
                 <div class="container-perfil">
                     <h1>Mi perfil</h1>
                     <div class="container-imagen-perfil">
-                        <img id="foto" alt="" src="img/avatar.png">
+                        <img id="foto" alt="foto por defecto" src="img/avatar.png">
                     </div>
 
                     <div class="container-perfil-datos">
@@ -84,28 +93,31 @@
                 <div class="container-habilidades">
                     <div class="habilidad-ofertada">
                         <h2>Habilidades ofertadas</h2>
-                        <label class="elige" for="habilidad-ofertada">Ingresa tu habilidad:</label>
-                        <select class="form-select" id="ofertadas" name="habilidad-ofertada" required>
+                        <label class="elige" for="habilidadOfertada">Ingresa tu habilidad:</label>
+                        <select class="form-select" id="habilidadOfertada" name="habilidad-ofertada" required>
                             <option selected>Elige categoria:</option>
                         </select>
                         <div class="lista">
-                            <input type="text" name="habilidad-ofertada" class="form-control" id="texto" placeholder="Escribe la habilidad que tienes">
-                            <button id="botonInsertar" class="btn btn-secondary">Insertar</button>
+                            <input type="text" name="habilidad-ofertada" class="form-control" id="ofertadas" placeholder="Escribe la habilidad que tienes" 
+                            aria-label="ofertadas">
+                            <button aria-label="Insertar" id="botonInsertar" class="btn btn-secondary">Insertar</button>
                         </div>
                         <div id="container-hb-ofertadas" class="container-etiquetas">
                             <!-- Aquí van las habilidades ofertadas -->
                         </div>
                     </div>
 
+
                     <div class="habilidad-demandada">
                         <h2>Habilidades demandadas</h2>
-                        <label class="elige" for="habilidad-demandada">Ingresa la habilidad que quieres aprender:</label>
-                        <select class="form-select" id="demandadas" name="habilidad-demandada" required>
+                        <label class="elige" for="habilidadDemandada">Ingresa la habilidad que quieres aprender:</label>
+                        <select class="form-select" id="habilidadDemandada" name="habilidad-demandada" required>
                             <option selected>Elige categoria:</option>
                         </select>
                         <div class="lista">
-                            <input type="text" name="habilidad-demandada" class="form-control" id="textoDemandada" placeholder="Escribe la habilidad que quieres aprender">
-                            <button id="botonInsertarDemandada" class="btn btn-secondary">Insertar</button>
+                            <input type="text" name="habilidad-demandada" class="form-control" id="habilidadDemandadas" placeholder="Escribe la habilidad que quieres aprender"
+                            aria-label="habilidadDemandadas">
+                            <button aria-label="Insertar" id="botonInsertarDemandada" class="btn btn-secondary">Insertar</button>
                         </div>
                         <div id="container-hb-demandadas" class="container-etiquetas">
                             <!-- Aquí van las habilidades demandadas -->
@@ -114,9 +126,23 @@
                 </div>
             </div>
         </div>
-    </main>
-
-    <footer>
+        <div id="modal" class="modal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Perfil Incompleto</h3>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close" id="cerrar-modal"></button>
+				</div>
+				<div class="modal-body">
+					<p>Por favor, selecciona las habilidades ofertadas y demandadas para completar tu
+						perfil.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+ </main>
+ <footer>
         <a href="https://portalentodigital.fundaciononce.es/" target="_blank">
             <img class="logo" src="img/talentodigital.jpg" title="Por talento Digital" alt="Logo de XTD" style="width: 150px; height: 40px; border-radius: 5px;">
         </a>
@@ -127,21 +153,8 @@
             <a href="https://www.instagram.com/portalento_/" target="_blank"><img src="img/instagram.png" title="Instagram" alt="Instagram"></a>
             <a href="https://www.tiktok.com/@portalento" target="_blank"><img src="img/tiktok.webp" title="Tiktok" alt="Tiktok"></a>
         </div>
-    </footer>
-
-    <div id="modal" class="modal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Perfil Incompleto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="cerrar-modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Por favor, selecciona las habilidades ofertadas y demandadas para completar tu perfil.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+</footer>
+	
 </body>
 
 </html>

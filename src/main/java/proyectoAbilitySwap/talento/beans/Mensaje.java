@@ -1,38 +1,40 @@
 package proyectoAbilitySwap.talento.beans;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Mensaje {
-    private int idmensajes;
-    private String mensaje;
+    private int idmensaje;
     private int idintercambio;
-    private Date fecha;
-    private int idusuario;
+    private int emisor;
+    private int receptor;
+    private LocalDateTime fecha_hora;
+    private String texto;
 
-    public Mensaje() {}
 
-    public Mensaje(int idmensajes, String mensaje, int idintercambio, Date fecha, int idusuario) {
-        this.idmensajes = idmensajes;
-        this.mensaje = mensaje;
-        this.idintercambio = idintercambio;
-        this.fecha = fecha;
-        this.idusuario = idusuario;
+
+
+    
+    public Mensaje() {
+		super();
+	}
+
+	public Mensaje(int idmensaje, int idintercambio, int emisor, int receptor, LocalDateTime fecha_hora, String texto) {
+		super();
+		this.idmensaje = idmensaje;
+		this.idintercambio = idintercambio;
+		this.emisor = emisor;
+		this.receptor = receptor;
+		this.fecha_hora = fecha_hora;
+		this.texto = texto;
+	}
+
+	// Getters y Setters
+    public int getIdmensaje() {
+        return idmensaje;
     }
 
-    public int getIdmensajes() {
-        return idmensajes;
-    }
-
-    public void setIdmensajes(int idmensajes) {
-        this.idmensajes = idmensajes;
-    }
-
-    public String getMensaje() {
-        return mensaje;
-    }
-
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
+    public void setIdmensaje(int idmensajes) {
+        this.idmensaje = idmensaje;
     }
 
     public int getIdintercambio() {
@@ -43,26 +45,42 @@ public class Mensaje {
         this.idintercambio = idintercambio;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public int getEmisor() {
+        return emisor;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setEmisor(int emisor) {
+        this.emisor = emisor;
     }
 
-    public int getIdusuario() {
-        return idusuario;
+    public int getReceptor() {
+        return receptor;
     }
 
-    public void setIdusuario(int idusuario) {
-        this.idusuario = idusuario;
+    public void setReceptor(int emisor) {
+        this.receptor = receptor;
     }
+    
+    public LocalDateTime getFechaHora() {
+        return fecha_hora;
+    }
+
+    public void setFechaHora(LocalDateTime fecha_hora) {
+        this.fecha_hora = fecha_hora;
+    }
+    
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
     @Override
     public String toString() {
-        return "Mensaje [idmensajes=" + idmensajes + ", mensaje=" + mensaje + ", idintercambio=" + idintercambio
-                + ", fecha=" + fecha + ", idusuario=" + idusuario + "]";
+        return "Mensaje [idmensaje=" + idmensaje + ", idintercambio=" + idintercambio + 
+        		", emisor=" + emisor + ", receptor=" + receptor + 
+        		", fecha_hora=" + fecha_hora + ", texto=" + texto + "]";
     }
-
 }
-

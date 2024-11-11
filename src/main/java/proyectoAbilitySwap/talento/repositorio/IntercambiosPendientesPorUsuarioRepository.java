@@ -10,7 +10,7 @@ public class IntercambiosPendientesPorUsuarioRepository {
 
 	public static final String NUMERO_INTERCAMBIOS_POR_USUARIO = "SELECT COUNT(idintercambio) AS intercambios_pendientes_por_usuario " +
 																 "FROM intercambios " +
-																 "WHERE usuario_ofertada = ? AND estado = 'PENDIENTE'";
+																 "WHERE usuario_demandada = ? AND estado = 'PENDIENTE'";
 	
 	private static Logger log = Logger.getLogger("mylog");
 	

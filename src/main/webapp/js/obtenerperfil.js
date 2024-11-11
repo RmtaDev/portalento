@@ -59,7 +59,7 @@ function obtenerHabilidadesOfertadas() {
 				if (listaHabilidadesOfertadas.length == 0) {
 			       setTimeout(function() {
 			           document.getElementById("modal").style.display = "block";
-			       }, 500);
+			       }, 800);
 			   }
 
 			   // Cerrar el modal al hacer clic en el botón
@@ -87,7 +87,7 @@ function obtenerHabilidadesDemandadas()
 				if (listaHabilidadesDemandadas.length == 0) {
 			       setTimeout(function() {
 			           document.getElementById("modal").style.display = "block";
-			       }, 500);
+			       }, 800);
 			   }
 
 			   // Cerrar el modal al hacer clic en el botón
@@ -225,7 +225,7 @@ function obtenerCategorias() {
 
 function mostrarCategorias(categorias) {
 	console.log("INFO = " + categorias);
-	let selectOfertadas = document.getElementById("ofertadas");
+	let selectOfertadas = document.getElementById("habilidadOfertada");
 
 	categorias.sort((c1, c2) => {
 		let res = 0;
@@ -251,7 +251,7 @@ categorias.forEach(categoria => {
 })
 
 console.log("INFO = " + categorias);
-let selectDemandadas = document.getElementById("demandadas");
+let selectDemandadas = document.getElementById("habilidadDemandada");
 
 categorias.forEach(categoria => {
 

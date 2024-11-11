@@ -178,16 +178,6 @@
     <filter-name>FiltroSesion</filter-name>
     <url-pattern>/FiltroSesion</url-pattern>
   </filter-mapping>
-  <servlet>
-    <description></description>
-    <display-name>MensajeServlet</display-name>
-    <servlet-name>MensajeServlet</servlet-name>
-    <servlet-class>proyectoAbilitySwap.talento.controlador.mensajes.MensajeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>MensajeServlet</servlet-name>
-    <url-pattern>/MensajeServlet</url-pattern>
-  </servlet-mapping>
   <listener>
     <listener-class>proyectoAbilitySwap.talento.controlador.SessionNueva</listener-class>
   </listener>
@@ -230,5 +220,25 @@
   <servlet-mapping>
     <servlet-name>ConsultarHabiidadOfertadaIntercambio</servlet-name>
     <url-pattern>/ConsultarHabiidadOfertadaIntercambio</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InsertarMensaje</display-name>
+    <servlet-name>InsertarMensaje</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.mensajes.InsertarMensaje</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertarMensaje</servlet-name>
+    <url-pattern>/InsertarMensaje</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>ConsultarMensajes</display-name>
+    <servlet-name>ConsultarMensajes</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.mensajes.ConsultarMensajes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConsultarMensajes</servlet-name>
+    <url-pattern>/ConsultarMensajes</url-pattern>
   </servlet-mapping>
 </web-app>

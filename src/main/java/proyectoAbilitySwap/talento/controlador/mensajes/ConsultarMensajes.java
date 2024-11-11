@@ -23,13 +23,14 @@ import com.mysql.cj.log.Log;
 /**
  * Servlet implementation class MensajeServlet
  */
-public class MensajeServlet extends HttpServlet {
+public class ConsultarMensajes extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static Logger log = Logger.getLogger("mylog");
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MensajeServlet() {
+    public ConsultarMensajes() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,26 +39,25 @@ public class MensajeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Log.debug("Peticion en el Servlet ObtenerMensajes");
-		MensajeService mensajeService = new MensajeService();// HabilidadesService seria el servicio de habilidades que esta haciendo Carlos
+		log.debug("Peticion en el Servlet ConsultarMensajesServlet");
+		MensajeService mensajeService = new MensajeService();
 
-		String mensaje = request.getParameter("mensaje");
+		int idintercambio = Integer.parseInt(request.getParameter("idintercambio"));
 		try {
-			List<Mensaje> listamensajes =  mensajeService.listadoMensajes(mensaje);//definir ListadoUsuariosPorHabilidad en el servicio de habilidades
-																									 		//habilidad seria la que haya hecho click el usuario que me la tendrian que pasar
+			List<Mensaje> listaMensajes =  mensajeService.ConsultarMensajesPorIntercambio(idintercambio);
 			Gson gson = new Gson();
-			String listaMensajes = gson.toJson(listaMensajes);
-			response.getWriter().write(listaMensajes);
+			String listaMensajesJSON = gson.toJson(listaMensajes);
+			response.getWriter().write(listaMensajesJSON);
 			response.setStatus(200);
 			response.setContentType("application/json");
-			Log.debug("La petición fue bien " + listaMensajes);
+			log.debug("La petición fue bien " + listaMensajesJSON);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Log.error("Ha habido un error de base de datos", e);
+			log.error("Ha habido un error de base de datos", e);
 		} catch (Exception e) {
 			e.printStackTrace();
-			Log.error("Ha habido un error general", e);
+			log.error("Ha habido un error general", e);
 		}
 	}
 

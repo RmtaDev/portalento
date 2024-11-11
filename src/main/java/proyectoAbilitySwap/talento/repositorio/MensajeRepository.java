@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +33,8 @@ public class MensajeRepository {
 
 			if (rs.next()) {
 				int idnuevo = rs.getInt(1);
-				mensaje = new Mensaje(idnuevo, idintercambio, emisor, receptor, fecha_hora, texto);
+				String string_fecha_hora = fecha_hora.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+				mensaje = new Mensaje(idnuevo, idintercambio, emisor, receptor, string_fecha_hora, texto);
 			}
 		}
 
@@ -53,8 +55,9 @@ public class MensajeRepository {
 			int emisor = rs.getInt("emisor");
 			int receptor = rs.getInt("receptor");
 			LocalDateTime fecha_hora = rs.getObject("fecha_hora", LocalDateTime.class);
+			String string_fecha_hora = fecha_hora.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 			String texto = rs.getString("texto");
-			Mensaje mensaje = new Mensaje(idmensaje, idintercambio, emisor, receptor, fecha_hora, texto);
+			Mensaje mensaje = new Mensaje(idmensaje, idintercambio, emisor, receptor, string_fecha_hora, texto);
 			listaMensajes.add(mensaje);
 		}
 		Pool.liberarRecursos(connection, pstatement, rs);

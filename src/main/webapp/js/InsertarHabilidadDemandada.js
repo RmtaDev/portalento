@@ -3,9 +3,9 @@ function insertarHabilidDemandada() {
 	const boton = document.getElementById("botonInsertarDemandada");
 
 	boton.addEventListener("click", function() {
-		console.log("haz tocado el boton de insertar");
+		console.log("has tocado el boton de insertar");
 		const idCategoria = document.getElementById("demandadas").value;
-		const habilidadDemandada = document.getElementById("textoDemandada").value;
+		const habilidadDemandada = document.getElementById("habilidadDemandadas").value;
 
 
 		if (idCategoria && habilidadDemandada) {
@@ -35,7 +35,7 @@ function insertarHabilidDemandada() {
 					const selectCategoria = document.getElementById("demandadas");
 					selectCategoria.selectedIndex = 0;
 					
-					document.getElementById("textoDemandada").value = "";
+					document.getElementById("habilidadDemandadas").value = "";
 					
 				})
 				.catch(error => {

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context docBase="proyectoAbilitySwap" path="proyectoAbilitySwap"
+
 	reloadable="true">
 	<Resource
+	
 		name="jdbc/pool"
 		auth="Container"
 		type="javax.sql.DataSource"
@@ -11,4 +13,5 @@
 		url="jdbc:mysql://localhost:3306/abilityswapbd?serverTimezone=UTC"
 		maxTotal="50"
 		maxIdle="20" />
+		
 </Context>

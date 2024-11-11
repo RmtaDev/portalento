@@ -4,7 +4,7 @@ function insertarHabilidDemandada() {
 
 	boton.addEventListener("click", function() {
 		console.log("has tocado el boton de insertar");
-		const idCategoria = document.getElementById("demandadas").value;
+		const idCategoria = document.getElementById("habilidadDemandada").value;
 		const habilidadDemandada = document.getElementById("habilidadDemandadas").value;
 
 
@@ -32,7 +32,7 @@ function insertarHabilidDemandada() {
 					let divPadre = document.getElementById("container-hb-demandadas");
 					pintarHabilidadOfertada (data, divPadre);
 					
-					const selectCategoria = document.getElementById("demandadas");
+					const selectCategoria = document.getElementById("habilidadDemandada");
 					selectCategoria.selectedIndex = 0;
 					
 					document.getElementById("habilidadDemandadas").value = "";
@@ -40,7 +40,8 @@ function insertarHabilidDemandada() {
 				})
 				.catch(error => {
 					console.error("Hubo un problema con la solicitud: ", error);
-					alert("Error al insertar la hibilidad. Intentelo de nuevo.");
+					alert("Error al insertar la habilidad. Inténtelo de nuevo.");
+					
 				})
 
 		}

@@ -48,6 +48,7 @@ public class CrearIntercambioControlador extends HttpServlet {
 
 		String usuarioDemandadaParam = request.getParameter("usuarioDemandada");
 		String habilidadDemandadaParam = request.getParameter("habilidadDemandada");
+		String habilidadOfertadaParam = request.getParameter("habilidadOfertada");
 
 		log.debug("### Solicitud recibida en CreaIntercambioControlador.");
 
@@ -75,6 +76,7 @@ public class CrearIntercambioControlador extends HttpServlet {
 					try {
 						int usuarioDemandada = Integer.parseInt(usuarioDemandadaParam);
 						int habilidadDemandada = Integer.parseInt(habilidadDemandadaParam);
+						int habilidadOfertada = Integer.parseInt(habilidadOfertadaParam);
 
 						EstadoIntercambio estado = EstadoIntercambio.PENDIENTE;
 
@@ -82,8 +84,8 @@ public class CrearIntercambioControlador extends HttpServlet {
 								+ ", Usuario Demandada = " + usuarioDemandada + ", Habilidad Ofertada = null"
 								+ ", Habilidad Demandada = " + habilidadDemandada + ", estado = " + estado);
 
-						CrearIntercambio intercambio = new CrearIntercambio(0, idUsuarioOfertada, usuarioDemandada,
-								habilidadDemandada, estado);
+						CrearIntercambio intercambio = new CrearIntercambio(0, idUsuarioOfertada, usuarioDemandada
+								, habilidadOfertada,habilidadDemandada, estado);
 
 						CrearIntercambioService crearIntercambioService = new CrearIntercambioService();
 

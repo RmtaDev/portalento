@@ -6,10 +6,13 @@ let listaHabilidadesOfertadas = [];
 let listaHabilidadesDemandadas = [];
 
 document.addEventListener("DOMContentLoaded", function() {
+	//mostar cargando
     obtenerPerfilUsuario();
     obtenerCategorias();
+    console.log("Cargando Info");
     obtenerHabilidadesOfertadas();
     obtenerHabilidadesDemandadas();
+    //fin cargando
 
    
 });
@@ -221,6 +224,7 @@ function obtenerCategorias() {
 		.catch(error => {
 			console.error('Error al obtener el listado:', error);
 		})
+		console.log("ha pedido las categorias")
 }
 
 function mostrarCategorias(categorias) {

@@ -24,13 +24,7 @@ public class CrearIntercambioRepository {
 		
 		ps.setInt(1, crearIntercambio.getUsuarioOfertada());
         ps.setInt(2, crearIntercambio.getUsuarioDemandada());
-        
-        if (crearIntercambio.getHabilidadOfertada() != null) {
-        	ps.setInt(3, crearIntercambio.getHabilidadOfertada());
-		} else {
-			ps.setNull(3, java.sql.Types.INTEGER);
-		}
-        
+        ps.setInt(3, crearIntercambio.getHabilidadOfertada());
         ps.setInt(4, crearIntercambio.getHabilidadDemandada());
         ps.setString (5, crearIntercambio.getEstado().toString());
 		

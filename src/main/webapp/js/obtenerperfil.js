@@ -6,161 +6,205 @@ let listaHabilidadesOfertadas = [];
 let listaHabilidadesDemandadas = [];
 
 document.addEventListener("DOMContentLoaded", function() {
-	//mostar cargando
-    obtenerPerfilUsuario();
-    obtenerCategorias();
-    console.log("Cargando Info");
-    obtenerHabilidadesOfertadas();
-    obtenerHabilidadesDemandadas();
-    //fin cargando
 
-   
+	obtenerPerfilUsuario();
+	obtenerCategorias();
+	console.log("Cargando Info");
+	obtenerHabilidadesOfertadas();
+	obtenerHabilidadesDemandadas();
+	obtenerNotificacionesPendientes();
+
+
 });
 
-function pintarHabilidadOfertada (habilidad, divpadre)
-{
-		//crearme el div para le eiqueta
-	let divHabilidad = document.createElement("div");
-	divHabilidad.className = "etiqueta";
-	divHabilidad.id = habilidad.idHabilidad;
-	let hijosDiv = "<label>"+habilidad.nombre+"</label>"+ botonHabilidadOf;
-	divHabilidad.innerHTML = hijosDiv.trim();
-	
-	divpadre.appendChild (divHabilidad);
+function pintarCampana(notificaciones) {
+    const campanaContenedor = document.querySelector('.contenedor-campana');
+    if (!campanaContenedor) {
+        console.error("No se encontró la campana de notificaciones.");
+        return;
+    }
+    
+    let contadorNotificaciones = campanaContenedor.querySelector('.contador-notificaciones');
+
+    if (!contadorNotificaciones) {
+        // Crea el contador si no existe
+        contadorNotificaciones = document.createElement('span');
+        contadorNotificaciones.classList.add('contador-notificaciones');
+        campanaContenedor.appendChild(contadorNotificaciones);
+    }
+
+    // Actualiza el número de notificaciones
+    contadorNotificaciones.textContent = notificaciones.cantidad;
+    contadorNotificaciones.style.display = notificaciones.cantidad > 0 ? 'block' : 'none';
 }
 
-function pintarHabilidadDemandada (habilidad, divpadre)
-{
-		//crearme el div para le eiqueta
+
+
+function obtenerNotificacionesPendientes() {
+	fetch('ObtenerNumeroIntercambiosPendientesPorUsuario', { method: 'GET' })
+		.then(respuesta => {
+			switch (respuesta.status) {
+				case 200:
+					respuesta.text().then(cantidadNotificaciones => {
+						const notificaciones = { cantidad: parseInt(cantidadNotificaciones) };
+						pintarCampana(notificaciones); // Actualiza la campana con el número de notificaciones
+					});
+					break;
+				case 400:
+					console.error("Error en la solicitud para obtener notificaciones: 400");
+					break;
+				case 404:
+					console.error("No se encontraron notificaciones pendientes");
+					break;
+				case 500:
+					console.error("Error en el servidor al obtener notificaciones");
+					break;
+				default:
+					console.error("Código de respuesta no manejado: ", respuesta.status);
+			}
+		})
+		.catch(error => console.error('Error en la solicitud al servidor:', error));
+}
+
+function pintarHabilidadOfertada(habilidad, divpadre) {
+	//crearme el div para le eiqueta
 	let divHabilidad = document.createElement("div");
 	divHabilidad.className = "etiqueta";
 	divHabilidad.id = habilidad.idHabilidad;
-	let hijosDiv = "<label>"+habilidad.nombre+"</label>"+ botonHabilidadDe;
+	let hijosDiv = "<label>" + habilidad.nombre + "</label>" + botonHabilidadOf;
 	divHabilidad.innerHTML = hijosDiv.trim();
-	
-	divpadre.appendChild (divHabilidad);
+
+	divpadre.appendChild(divHabilidad);
+}
+
+function pintarHabilidadDemandada(habilidad, divpadre) {
+	//crearme el div para le eiqueta
+	let divHabilidad = document.createElement("div");
+	divHabilidad.className = "etiqueta";
+	divHabilidad.id = habilidad.idHabilidad;
+	let hijosDiv = "<label>" + habilidad.nombre + "</label>" + botonHabilidadDe;
+	divHabilidad.innerHTML = hijosDiv.trim();
+
+	divpadre.appendChild(divHabilidad);
 }
 
 //function pintarHabilidades (listaHabilidades, divpadre)
 //{
-	
+
 //}
 
 function obtenerHabilidadesOfertadas() {
 	//pintarHabilidades(null, document.getElementById("container-hb-ofertadas"));
 	//FETCH HABILIDAES OFERTADAS
 	fetch("ConsultarHabilidadOfertada")//obtengo las habilidades del Servlet Ofertadas
-	.then(respuesta=> respuesta.json())//lo paso a Objeto javascritp
-	.then (listaHabilidadesOfertadas => {
-		console.log("Tamaño lista habilidades ofertadas " + listaHabilidadesOfertadas.length);
-		let divPadre = document.getElementById("container-hb-ofertadas");
-		listaHabilidadesOfertadas.forEach(habilidad=> {
-			pintarHabilidadOfertada (habilidad, divPadre);
-		});//foreach
-		
-		// Mostrar el modal si las listas están vacías
-				if (listaHabilidadesOfertadas.length == 0) {
-			       setTimeout(function() {
-			           document.getElementById("modal").style.display = "block";
-			       }, 800);
-			   }
+		.then(respuesta => respuesta.json())//lo paso a Objeto javascritp
+		.then(listaHabilidadesOfertadas => {
+			console.log("Tamaño lista habilidades ofertadas " + listaHabilidadesOfertadas.length);
+			let divPadre = document.getElementById("container-hb-ofertadas");
+			listaHabilidadesOfertadas.forEach(habilidad => {
+				pintarHabilidadOfertada(habilidad, divPadre);
+			});//foreach
 
-			   // Cerrar el modal al hacer clic en el botón
-			   document.getElementById("cerrar-modal").onclick = function() {
-			      document.getElementById("modal").style.display = "none";
-			   };
-	});//then json()
+			// Mostrar el modal si las listas están vacías
+			if (listaHabilidadesOfertadas.length == 0) {
+				setTimeout(function() {
+					document.getElementById("modal").style.display = "block";
+				}, 800);
+			}
+
+			// Cerrar el modal al hacer clic en el botón
+			document.getElementById("cerrar-modal").onclick = function() {
+				document.getElementById("modal").style.display = "none";
+			};
+		});//then json()
 	//FOR - PARA CADA HABLIDAD
 	//PINTAR HABILIDADES
 }
 
-function obtenerHabilidadesDemandadas()
-{
+function obtenerHabilidadesDemandadas() {
 	//FETCH HABILIDAES DEMANDADAS
 	fetch("ConsultarHabilidadDemandada")//obtengo las habilidades del Servlet Ofertadas
-	.then(respuesta=> respuesta.json())//lo paso a Objeto javascritp
-	.then (listaHabilidadesDemandadas => {
-		console.log("Tamaño lista habilidades demandadas " + listaHabilidadesDemandadas.length);
-		let divPadre = document.getElementById("container-hb-demandadas");
-		listaHabilidadesDemandadas.forEach(habilidad=> {
-			pintarHabilidadDemandada(habilidad, divPadre);
-		});//foreach
-		
-		// Mostrar el modal si las listas están vacías
-				if (listaHabilidadesDemandadas.length == 0) {
-			       setTimeout(function() {
-			           document.getElementById("modal").style.display = "block";
-			       }, 800);
-			   }
+		.then(respuesta => respuesta.json())//lo paso a Objeto javascritp
+		.then(listaHabilidadesDemandadas => {
+			console.log("Tamaño lista habilidades demandadas " + listaHabilidadesDemandadas.length);
+			let divPadre = document.getElementById("container-hb-demandadas");
+			listaHabilidadesDemandadas.forEach(habilidad => {
+				pintarHabilidadDemandada(habilidad, divPadre);
+			});//foreach
 
-			   // Cerrar el modal al hacer clic en el botón
-			   document.getElementById("cerrar-modal").onclick = function() {
-			      document.getElementById("modal").style.display = "none";
-			   };
-	});//then json()
+			// Mostrar el modal si las listas están vacías
+			if (listaHabilidadesDemandadas.length == 0) {
+				setTimeout(function() {
+					document.getElementById("modal").style.display = "block";
+				}, 800);
+			}
+
+			// Cerrar el modal al hacer clic en el botón
+			document.getElementById("cerrar-modal").onclick = function() {
+				document.getElementById("modal").style.display = "none";
+			};
+		});//then json()
 	//FOR - PARA CADA HABLIDAD
 	//PINTAR HABILIDADES
-	
+
 }
 
-function borrarHabilidadOfertada (evento)
-{
+function borrarHabilidadOfertada(evento) {
 	console.log("Ha tocado borrar una habilidad Ofertada");
 	console.log(evento.parentElement.id);
-	let url = "BorrarHabilidadesOfertadas?idHabilidad="+evento.parentElement.id;
+	let url = "BorrarHabilidadesOfertadas?idHabilidad=" + evento.parentElement.id;
 	fetch(url, {
-            method: "DELETE"
-        })
-        .then(respuesta => {
-            switch (respuesta.status) {
-                case 204:
-                    alert("Habilidad borrada correctamente");
-                    //window.location.href = "perfil.html";
-                    //TODO borrar botón
-                    evento.parentElement.remove(); 
-                    break;
-                case 400:
-                    alert("Error en la petición");
-                    break;
-                case 500:
-                    alert("Error en el servidor");
-                    break;
-            }
-        })
-        .catch(error => {
-            console.error("Error en la solicitud:", error);
-            mensajeDiv.innerHTML += 'Error en la conexión con el servidor.<br>';
-        });
+		method: "DELETE"
+	})
+		.then(respuesta => {
+			switch (respuesta.status) {
+				case 204:
+					alert("Habilidad borrada correctamente");
+					//window.location.href = "perfil.html";
+					//TODO borrar botón
+					evento.parentElement.remove();
+					break;
+				case 400:
+					alert("Error en la petición");
+					break;
+				case 500:
+					alert("Error en el servidor");
+					break;
+			}
+		})
+		.catch(error => {
+			console.error("Error en la solicitud:", error);
+			mensajeDiv.innerHTML += 'Error en la conexión con el servidor.<br>';
+		});
 }
 
-function borrarHabilidadDemandada (evento)
-{
+function borrarHabilidadDemandada(evento) {
 	console.log("Ha tocado borrar una habilidad Demandada");
 	console.log(evento.parentElement.id);
-	let url = "BorrarHabilidadesDemandadas?idHabilidad="+evento.parentElement.id;
+	let url = "BorrarHabilidadesDemandadas?idHabilidad=" + evento.parentElement.id;
 	fetch(url, {
-            method: "DELETE"
-        })
-        .then(respuesta => {
-            switch (respuesta.status) {
-                case 204:
-                    alert("Habilidad borrada correctamente");
-                    //window.location.href = "perfil.html";
-                    //TODO borrar botón
-                    evento.parentElement.remove(); 
-                    break;
-                case 400:
-                    alert("Error en la petición");
-                    break;
-                case 500:
-                    alert("Error en el servidor");
-                    break;
-            }
-        })
-        .catch(error => {
-            console.error("Error en la solicitud:", error);
-            mensajeDiv.innerHTML += 'Error en la conexión con el servidor.<br>';
-        });
+		method: "DELETE"
+	})
+		.then(respuesta => {
+			switch (respuesta.status) {
+				case 204:
+					alert("Habilidad borrada correctamente");
+					//window.location.href = "perfil.html";
+					//TODO borrar botón
+					evento.parentElement.remove();
+					break;
+				case 400:
+					alert("Error en la petición");
+					break;
+				case 500:
+					alert("Error en el servidor");
+					break;
+			}
+		})
+		.catch(error => {
+			console.error("Error en la solicitud:", error);
+			mensajeDiv.innerHTML += 'Error en la conexión con el servidor.<br>';
+		});
 }
 
 
@@ -224,7 +268,7 @@ function obtenerCategorias() {
 		.catch(error => {
 			console.error('Error al obtener el listado:', error);
 		})
-		console.log("ha pedido las categorias")
+	console.log("ha pedido las categorias")
 }
 
 function mostrarCategorias(categorias) {
@@ -233,37 +277,37 @@ function mostrarCategorias(categorias) {
 
 	categorias.sort((c1, c2) => {
 		let res = 0;
-			if (c1.nombre == 'Otras')
-			{
-				res = 1;
-			}
-			else if  (c2.nombre == 'Otras') {
-				res = -1;
-	
-			} else {
-				res = c1.nombre.localeCompare(c2.nombre);
-			}
+		if (c1.nombre == 'Otras') {
+			res = 1;
+		}
+		else if (c2.nombre == 'Otras') {
+			res = -1;
+
+		} else {
+			res = c1.nombre.localeCompare(c2.nombre);
+		}
 		return res;
-			
+
 	});
-categorias.forEach(categoria => {
+	categorias.forEach(categoria => {
 
-	let option = document.createElement("option");
-	option.innerHTML = categoria.nombre;
-	option.value = categoria.id_categoria;
-	selectOfertadas.appendChild(option);
-})
+		let option = document.createElement("option");
+		option.innerHTML = categoria.nombre;
+		option.value = categoria.id_categoria;
+		selectOfertadas.appendChild(option);
+	})
 
-console.log("INFO = " + categorias);
-let selectDemandadas = document.getElementById("habilidadDemandada");
+	console.log("INFO = " + categorias);
+	let selectDemandadas = document.getElementById("habilidadDemandada");
 
-categorias.forEach(categoria => {
+	categorias.forEach(categoria => {
 
-	let option = document.createElement("option");
-	option.innerHTML = categoria.nombre;
-	option.value = categoria.id_categoria;
-	selectDemandadas.appendChild(option);
-})};
+		let option = document.createElement("option");
+		option.innerHTML = categoria.nombre;
+		option.value = categoria.id_categoria;
+		selectDemandadas.appendChild(option);
+	})
+};
 
 
 

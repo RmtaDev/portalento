@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import proyectoAbilitySwap.talento.beans.CrearIntercambio;
+import proyectoAbilitySwap.talento.beans.IntercambioJoined;
 import proyectoAbilitySwap.talento.servicio.ObtenerTodosLosIntercambiosCursadosService;
 
 import java.io.IOException;
@@ -40,7 +40,7 @@ public class ObtenerTodosLosIntercambiosCursados extends HttpServlet {
         HttpSession httpSession = request.getSession(false);
         int idusuario = (int) httpSession.getAttribute("idusuario");
         try {
-            List<CrearIntercambio> listaIntercambios = intercambiosService. IntercambiosCursadosPorUsuario(idusuario);
+            List<IntercambioJoined> listaIntercambios = intercambiosService. IntercambiosCursadosPorUsuario(idusuario);
             Gson gson = new Gson();
             String listaIntercambiosJSON = gson.toJson(listaIntercambios);
             response.getWriter().write(listaIntercambiosJSON);

@@ -1,0 +1,74 @@
+.onlyscreenreader {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+}
+
+.table-container {
+    margin-top: calc(-6.25%); /* Mueve el div hacia arriba la mitad de la mitad de la mitad de la mitad de la distancia original */
+    margin-bottom: 100px;
+}
+
+.table p {
+    margin-bottom: 0;
+}
+
+.nombre {
+    font-weight: bold;
+}
+
+.aceptado {
+    color: green !important;
+    font-weight: bold;
+}
+
+.pendiente {
+    color: orange !important;
+    font-weight: bold;
+}
+
+.rechazado {
+    color: red !important;
+    font-weight: bold;
+}
+
+.seleccionada td {
+    background-color: #f0f9fa !important;
+}
+
+.icono-estado, .foto-usuario1, .estado-intercambio, .foto-usuario2,
+    .botones {
+    text-align: center;
+}
+
+.icono-estado {
+    padding: 0 1.5rem !important;
+}
+
+.foto-usuario1 img, .foto-usuario2 img {
+    border-radius: 50%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.table {
+    width: 100%;
+    min-width: 800px;
+    table-layout: auto;
+    word-wrap: break-word;
+}
+
+.table th, .table td {
+    white-space: nowrap;
+}

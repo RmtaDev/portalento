@@ -137,9 +137,7 @@ footer {
 	color: #ffffff; /* Blanco para el texto */
 	font-size: 13px;
 	font-weight: bold;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	text-align: center;
 	border-radius: 50%;
 	box-shadow: 0 0 3px 2px #0d3a4b; /* Sombra adaptada al nuevo fondo */
 }

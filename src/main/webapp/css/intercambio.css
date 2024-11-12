@@ -28,19 +28,22 @@ header .logo {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
-    height: 300px;
+    height: 450px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5%; 
 }
 
 .user-info {
     width: 165px;
+    height: 330px;
     text-align: center;
     padding: 1.2rem;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 2%; /
 }
 
 .user-info:first-child {
@@ -70,6 +73,7 @@ header .logo {
     position: relative;
     overflow-y: auto;
     max-height: 300px;
+    margin-top: 5%; 
 }
 
 .message {
@@ -104,6 +108,8 @@ header .logo {
     z-index: 1;
     transform: translateY(-100%);
     border-radius: 10px;
+    margin-top: 5%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .message-input {
@@ -112,6 +118,7 @@ header .logo {
     border: none;
     border-radius: 5px;
     margin-right: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .send-button {
@@ -121,49 +128,17 @@ header .logo {
     background-color: #007bff;
     color: white;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.table-container {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15vh;
-}
 
-.table-container table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table-container th,
-.table-container td {
-    padding: 0.75rem;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-}
-
-.table-container th {
-    background-color: #f0f0f0;
-}
-
-.status-aceptado {
-    color: green;
-}
-
-.status-pendiente {
-    color: orange;
-}
-
-.status-rechazado {
-    color: red;
-}
 
 footer {
     background-color: #2c3e50;
     color: white;
     padding: 1rem;
     text-align: center;
+    margin-top: 5%; 
 }
 
 footer .imagenes-footer img {
@@ -171,4 +146,3 @@ footer .imagenes-footer img {
     height: 30px;
     margin: 0 10px;
 }
-

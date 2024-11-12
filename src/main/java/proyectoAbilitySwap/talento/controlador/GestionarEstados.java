@@ -24,7 +24,6 @@ import com.google.gson.JsonObject;
 public class GestionarEstados extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Logger log = Logger.getLogger("mylog");
-	private GestionarEstadoService estadoService = new GestionarEstadoService();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -40,6 +39,7 @@ public class GestionarEstados extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.debug("peticion en método get");
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
@@ -63,6 +63,7 @@ public class GestionarEstados extends HttpServlet {
 			Gson gson = new Gson();
 			JsonObject estadoJSON = gson.fromJson(request.getReader(), JsonObject.class);
 
+			GestionarEstadoService estadoService = new GestionarEstadoService();
 			log.debug("### solicitud recibida en GestionarEstado");
 			try {
 
@@ -80,7 +81,9 @@ public class GestionarEstados extends HttpServlet {
 					if (actualizado) {
 						response.setStatus(200);
 					} else {
+						log.error("### Error al modificar " + actualizado);
 						response.setStatus(404);
+						
 					}
 				} else {
 					log.error("Estado no válido: " + nuevoEstadoParam);

@@ -10,7 +10,7 @@ public class GestionarEstadoRepository {
 
 	
 	private static final String ACTUALIZAR_ESTADO_INTERCAMBIO = 
-			"UPDATE `abilityswapbd`.`intercambios` SET `estado` = ? WHERE `idintercambio` = ? AND `usuario_demandada` = ?;";
+			"UPDATE `abilityswapbd`.`intercambios` SET `idintercambio` = ? WHERE `usuario_demandada` = ? AND `estado` = ?;";
 	
 	public boolean actualizarEstado(int idusuario, int idIntercambio, CrearIntercambio.EstadoIntercambio nuevoEstado) throws SQLException {
 		Connection connection = Pool.getConnection();

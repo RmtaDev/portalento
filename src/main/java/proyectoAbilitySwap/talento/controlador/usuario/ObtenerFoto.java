@@ -60,7 +60,7 @@ public class ObtenerFoto extends HttpServlet {
 
 				buffer_lectura_escritura = new byte[1024];
 				OutputStream os = response.getOutputStream();// FICHERO DE SALIDA / BODY RESPUESTA
-				response.setContentType("img/jpeg");
+				response.setContentType("img/*");
 
 				// VOY VOLCANDO LA ENTRADA (INPUTSTREAM) EN LA SALIDA (OUTPUTSTREAM)
 				while ((leido = is.read(buffer_lectura_escritura)) != -1) {

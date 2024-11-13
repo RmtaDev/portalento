@@ -21,6 +21,10 @@ public class CrearIntercambio {
 	}
 	
 	
+	public static void main(String[] args) {
+		CrearIntercambio crearIntercambio = new CrearIntercambio(0, 0, 0, 0, 0, EstadoIntercambio.ACEPTADO);
+		System.out.println( EstadoIntercambio.valueOf("ACEPTADO"));
+	}
 	
 
 

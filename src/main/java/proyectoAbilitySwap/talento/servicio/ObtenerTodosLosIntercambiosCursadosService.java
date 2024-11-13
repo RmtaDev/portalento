@@ -14,7 +14,7 @@ public class ObtenerTodosLosIntercambiosCursadosService {
 	
 private static Logger log = Logger.getLogger("mylog");
 	
-	public List<IntercambioJoined> IntercambiosCursadosPorUsuario(int idusuario) throws SQLException {
+	public List<IntercambioJoined> intercambiosCursadosPorUsuario(int idusuario) throws SQLException {
 		log.debug("Peticion en Servicio noIntercambiosCursadosPorUsuario");
 		List<IntercambioJoined> listaIntercambios = null;
 		IntercambiosCursadosPorUsuarioRepository intercambiosCursadosPorUsuarioRepository = null;

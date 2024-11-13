@@ -251,5 +251,14 @@
     <servlet-name>ObtenerTodosLosIntercambiosCursados</servlet-name>
     <url-pattern>/ObtenerTodosLosIntercambiosCursados</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description></description>
+    <display-name>ObtenerUsuarioSesion</display-name>
+    <servlet-name>ObtenerUsuarioSesion</servlet-name>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.usuario.ObtenerUsuarioSesion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ObtenerUsuarioSesion</servlet-name>
+    <url-pattern>/ObtenerUsuarioSesion</url-pattern>
+  </servlet-mapping>
 </web-app>

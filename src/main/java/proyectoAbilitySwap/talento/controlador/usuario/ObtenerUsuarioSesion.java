@@ -29,9 +29,10 @@ public class ObtenerUsuarioSesion extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		int idusuario =  (request.getSession()!=null) ? ((int) request.getSession().getAttribute("idusuario")) : -1;
+	
+		Integer idusuario =  (request.getSession(false)!=null) ? ((Integer)request.getSession(false).getAttribute("idusuario")) : -1;
 		
-		response.getWriter().write(idusuario);
+		response.getWriter().write(idusuario.toString());
 		response.setContentType("text/plain");
 		
 	}

@@ -1,4 +1,4 @@
-package proyectoAbilitySwap.talento.controlador.mensajes;
+package proyectoAbilitySwap.talento.controlador.intercambios;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import proyectoAbilitySwap.talento.beans.Usuario;
-import proyectoAbilitySwap.talento.servicio.NumeroIntercambiosPendientesPorUsuarioService;
+import proyectoAbilitySwap.talento.servicio.IntercambioService;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -36,12 +36,12 @@ public class ObtenerNumeroIntercambiosPendientesPorUsuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		log.debug("Peticion en el Servlet ObtenerNumeroIntercambiosPendientesPorUsuario");
-		NumeroIntercambiosPendientesPorUsuarioService numeroIntercambiosPendientesPorUsuarioService = new NumeroIntercambiosPendientesPorUsuarioService();
+		IntercambioService intercambioService = new IntercambioService();
 		HttpSession httpSession = request.getSession(false);
 		int idusuario = (int) httpSession.getAttribute("idusuario");
 
 		try {
-			int noIntercambiosPendientes =  numeroIntercambiosPendientesPorUsuarioService.noIntercambiosPendientesPorUsuario(idusuario);
+			int noIntercambiosPendientes =  intercambioService.noIntercambiosPendientesPorUsuario(idusuario);
 			String stringNoIntercambiosPendientes = Integer.toString(noIntercambiosPendientes);
 			response.getWriter().write(stringNoIntercambiosPendientes);
 			response.setStatus(200);

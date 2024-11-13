@@ -185,7 +185,7 @@
     <description></description>
     <display-name>ObtenerNumeroIntercambiosPendientesPorUsuario</display-name>
     <servlet-name>ObtenerNumeroIntercambiosPendientesPorUsuario</servlet-name>
-    <servlet-class>proyectoAbilitySwap.talento.controlador.mensajes.ObtenerNumeroIntercambiosPendientesPorUsuario</servlet-class>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.intercambios.ObtenerNumeroIntercambiosPendientesPorUsuario</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ObtenerNumeroIntercambiosPendientesPorUsuario</servlet-name>
@@ -245,7 +245,7 @@
     <description></description>
     <display-name>ObtenerTodosLosIntercambiosCursados</display-name>
     <servlet-name>ObtenerTodosLosIntercambiosCursados</servlet-name>
-    <servlet-class>proyectoAbilitySwap.talento.controlador.usuario.ObtenerTodosLosIntercambiosCursados</servlet-class>
+    <servlet-class>proyectoAbilitySwap.talento.controlador.intercambios.ObtenerTodosLosIntercambiosCursados</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ObtenerTodosLosIntercambiosCursados</servlet-name>

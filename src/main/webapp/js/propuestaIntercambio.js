@@ -75,7 +75,7 @@ function obtenerHabilidadesDemandadas()
 
 
 function marcarHabilidad(label, div, ofertada) {
-	div.style.backgroundColor = "#b2babb";
+	div.style.backgroundColor = "#198754";
 	label.style.color = "white";
 	div.dataset.marcado = '1';
 	label.dataset.marcado = '1';
@@ -90,7 +90,7 @@ function marcarHabilidad(label, div, ofertada) {
 }
 
 function desmarcarHabilidad(label, div) {
-	div.style.backgroundColor = "#FFB74D";
+	div.style.backgroundColor = "#ffc107";
 	label.style.color = "black";
 	div.dataset.marcado = '0';
 	label.dataset.marcado = '0';
@@ -251,4 +251,9 @@ function proponer() {
 	
 	
 
+}
+
+function volver ()
+{
+	window.history.back();
 }

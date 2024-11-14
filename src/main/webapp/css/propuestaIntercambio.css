@@ -88,7 +88,7 @@
 	}
 	
 	.etiqueta {
-		background-color: #FFB74D;
+		background-color: #ffc107; /*#ffc107*/
 		padding: 5px 15px;
 		padding-left: 15px;
 		border-radius: 50px;
@@ -98,8 +98,13 @@
 		cursor:pointer;
 	}
 	
+	.etiqueta:hover {
+		background-color: #198754;
+		color: white;
+	}
+	
 	.etiquetad {
-		background-color: #FFB74D;
+		background-color: #ffc107;
 		padding: 5px 15px;
 		padding-left: 15px;
 		border-radius: 50px;

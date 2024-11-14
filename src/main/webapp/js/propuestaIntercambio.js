@@ -95,7 +95,10 @@ function desmarcarHabilidad(label, div) {
 	div.dataset.marcado = '0';
 	label.dataset.marcado = '0';
 }
-
+function volver ()
+{
+	window.history.back();
+}
 function habilidadDemandadaTocada(evento) {
 	let label;
 	let div;

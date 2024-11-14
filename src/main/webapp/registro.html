@@ -105,22 +105,22 @@
 						<input type="radio" id="femenino" name="genero" value="femenino"> 
 						<label for="femenino"> Femenino </label> 
 						<input type="radio" id="otro" name="genero" value="otro"> 
-						<label for="otro"> Otro </label>
+						<label for="otro"> Otro </label><br>
 						<span id="mensajeGenero"></span>
 					</div>
 
 					<div class="form-group">
 						<label for="foto">Foto:</label> 
-						<input type="file" id="foto" name="foto" multiple accept="image/jpeg">
+						<input type="file" id="foto" name="foto" accept="image/jpg">
 						<span id="mensajeFoto"></span>
 					</div>
 
 					<div class="form-group">
 						<label for="hablaSobreTi">Habla sobre ti:</label>
 						
-						<textarea name="hablaSobreTi" id="hablaSobreTi" rows="5" cols="50"
-							placeholder="Habla sobre ti...">
-	                    </textarea>
+						<textarea name="hablaSobreTi" id="hablaSobreTi" placeholder="Habla sobre ti..." 
+						style="resize:none" maxlength="199">
+	                    </textarea><small>Máximo 200 caracteres.</small>
 	                    <span id="mensajeSobreTi"></span>
 					</div>
 
@@ -141,8 +141,8 @@
 					<div class="form-group">
 						<label for="password">Contraseña:</label> <input type="password"
 							id="password" name="password"
-							placeholder="Introduce tu contraseña">
-							<span id="mensajeContraseña"></span>
+							placeholder="Introduce tu contraseña" minlength="8">
+							<!-- <span id="mensajeContraseña"></span>-->
 					</div>
 
 					<div class="form-group">

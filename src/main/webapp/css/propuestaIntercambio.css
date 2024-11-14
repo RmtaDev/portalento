@@ -12,19 +12,6 @@
 		text-decoration: none;
 		color: black;
 	}
-
-	main {
-		background-color: #cee8ea; 
-		background-size: contain;
-		background-repeat: no-repeat;
-		margin: 0;
-		padding: 0;
-	}
-	
-	body {
-	    margin: 0;
-	    padding: 0; 
-	}
 	
 	.opacidad { 
 		width: 100%; 

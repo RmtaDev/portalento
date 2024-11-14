@@ -25,6 +25,25 @@
 </head>
 
 <body>
+    <div class="sidebar">
+		<button id="openModalBtn" class="open-btn" aria-label="Menú de accesibilidad">
+			<img class="fa-solid fa-universal-access" src="img/accesibilidad.png" alt="imagen accesibilidad">
+		</button>
+		<div id="radialMenu" class="radial-menu">
+			<button id="monocromaticoBtn" aria-label="Activar/Desactivar modo monocromático"
+				title="Activar/Desactivar modo monocromático">
+				<i id="monocromaticoIcon" class="fas fa-eye-slash"></i>
+			</button>
+			<button id="speakerBtn" aria-label="Activar/Desactivar lector de texto"
+				title="Activar/Desactivar lector de texto. Mantener pulsado sobre el texto a leer.">
+				<i id="speakerIcon" class="fas fa-volume-mute"></i>
+			</button>
+			<button id="zoomBtn" aria-label="Aumentar/Disminuir zoom" title="Aumentar/Disminuir zoom">
+				<i id="zoomIcon" class="fa fa-search-plus"></i>
+			</button>
+		</div>
+		<div id="contentContainer"></div>
+	</div>
 	<header>
 		 <nav>
             <a href="inicio.html" class="inicio">

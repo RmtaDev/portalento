@@ -4,6 +4,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import proyectoAbilitySwap.talento.beans.HabilidadOfertada;
 import proyectoAbilitySwap.talento.beans.Mensaje;
 import proyectoAbilitySwap.talento.servicio.HabilidadesService;
@@ -52,7 +53,10 @@ public class InsertarMensaje extends HttpServlet {
 			Mensaje mensaje = gson.fromJson(mensajePeticionJson, Mensaje.class);
 
 			int idintercambio = mensaje.getIdintercambio();
-			int emisor = mensaje.getEmisor();
+			
+			HttpSession httpSession = request.getSession(false);
+			int idusuario = (int) httpSession.getAttribute("idusuario");
+			int emisor = idusuario;
 			int receptor = mensaje.getReceptor();
 			LocalDateTime fecha_hora = LocalDateTime.parse(mensaje.getFechaHora(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 			String texto = mensaje.getTexto();

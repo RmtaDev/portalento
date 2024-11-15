@@ -5,10 +5,10 @@ function insertarHabilidadOfertada() {
 	boton.addEventListener("click", function() {
 		console.log("haz tocado el boton de insertar");
 		const idCategoria = document.getElementById("habilidadOfertada").value;
-		const habilidadOfertada = document.getElementById("ofertadas").value.toUpperCase();
+		const habilidadOfertada = document.getElementById("ofertadas").value.trim().toUpperCase();
 		
 
-		if (idCategoria && habilidadOfertada) {
+		if (idCategoria && habilidadOfertada && habilidadOfertada.length > 1 && habilidadOfertada.length <= 10) {
 			console.log(`Has insertado : Categoria = ${idCategoria}, Texto = ${habilidadOfertada}`);
 
 			//Crear la URL con parametros de consulta
@@ -49,7 +49,7 @@ function insertarHabilidadOfertada() {
 
 		else {
 			console.log("por favor, completa todos los campos.");
-			alert("Por favor, completa todos los campos antes de insertar.");
+			alert("Por favor, complete categoria y habilidad (máximo 10 caracteres).");
 		}
 
 

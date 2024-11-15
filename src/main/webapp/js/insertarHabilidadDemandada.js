@@ -5,10 +5,10 @@ function insertarHabilidDemandada() {
 	boton.addEventListener("click", function() {
 		console.log("has tocado el boton de insertar");
 		const idCategoria = document.getElementById("habilidadDemandada").value;
-		const habilidadDemandada = document.getElementById("habilidadDemandadas").value.toUpperCase();
+		const habilidadDemandada = document.getElementById("habilidadDemandadas").value.trim().toUpperCase();
 
 
-		if (idCategoria && habilidadDemandada) {
+		if (idCategoria && habilidadDemandada && habilidadDemandada.length > 1 && habilidadDemandada.length <= 10) {
 			console.log(`Has insertado : Categoria = ${idCategoria}, Texto = ${habilidadDemandada}`);
 			
 			//Crear la URL con parametros de consulta
@@ -48,7 +48,7 @@ function insertarHabilidDemandada() {
 
 		else {
 			console.log("por favor, completa todos los campos.");
-			alert("Por favor, completa todos los campos antes de insertar.");
+			alert("Por favor, complete categoria y habilidad (máximo 10 caracteres).");
 		}
 	});
 }

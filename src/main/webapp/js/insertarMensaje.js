@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // El DOM está completamente cargado aquí
 
     // Seleccionar los elementos del DOM necesarios
+    const idIntercambio = document.querySelector('idIntercambio')
+    const emisorV = document.querySelector('nombre-usuario2')
     const inputMensaje = document.querySelector('.message-input');
     const botonEnviar = document.querySelector('.send-button');
 
@@ -20,10 +22,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Crear el objeto 'mensaje'
             const mensaje = {
-                idintercambio: 5,
-                emisor: 4,
+                idintercambio: idIntercambio,
+                emisor: emisorV,
                 receptor: 5,
-                fechaHora: new Date().toISOString().slice(0,19), // Elimina la zona horaria
+                fecha_hora: new Date().toISOString().slice(0,19), // Elimina la zona horaria
                 texto: textoMensaje // Asignamos el texto capturado en el input
             };
 
@@ -60,3 +62,4 @@ async function insertarMensaje(mensaje) {
         console.error('Error en la solicitud: ', error);
     }
 }
+

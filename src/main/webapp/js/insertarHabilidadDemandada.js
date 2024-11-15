@@ -5,12 +5,12 @@ function insertarHabilidDemandada() {
 	boton.addEventListener("click", function() {
 		console.log("has tocado el boton de insertar");
 		const idCategoria = document.getElementById("habilidadDemandada").value;
-		const habilidadDemandada = document.getElementById("habilidadDemandadas").value;
+		const habilidadDemandada = document.getElementById("habilidadDemandadas").value.toUpperCase();
 
 
 		if (idCategoria && habilidadDemandada) {
 			console.log(`Has insertado : Categoria = ${idCategoria}, Texto = ${habilidadDemandada}`);
-
+			
 			//Crear la URL con parametros de consulta
 			const url = `InsertarHabilidadesDemandadas?habilidadDemandada=${encodeURIComponent(habilidadDemandada)}&idCategoria=${encodeURIComponent(idCategoria)}`;
 

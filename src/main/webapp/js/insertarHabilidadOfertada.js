@@ -5,8 +5,8 @@ function insertarHabilidadOfertada() {
 	boton.addEventListener("click", function() {
 		console.log("haz tocado el boton de insertar");
 		const idCategoria = document.getElementById("habilidadOfertada").value;
-		const habilidadOfertada = document.getElementById("ofertadas").value;
-
+		const habilidadOfertada = document.getElementById("ofertadas").value.toUpperCase();
+		
 
 		if (idCategoria && habilidadOfertada) {
 			console.log(`Has insertado : Categoria = ${idCategoria}, Texto = ${habilidadOfertada}`);

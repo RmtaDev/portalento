@@ -1,103 +1,3 @@
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body {
-	background-color: #9fe4e9 !important;
-	font-family: 'Arial', sans-serif;
-	display: flex;
-	flex-direction: column;
-}
-
-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 70px;
-	background: #c0c0c0 !important;
-	z-index: 10;
-}
-
-nav {
-	display: flex;
-	align-items: center;
-	height: 100%;
-	padding: 0 4rem;
-}
-
-nav a {
-	color: black;
-	text-decoration: none;
-	font-weight: bolder;
-	font-size: 16px;
-}
-
-nav .inicio-logo {
-	left: 0;
-	top: 0;
-}
-
-nav p {
-	font-size: 2rem;
-}
-
-.link-activo {
-	text-decoration: underline;
-}
-
-ul {
-	display: flex;
-	margin-left: auto;
-	align-items: center;
-	gap: 3rem;
-}
-
-li {
-	list-style-type: none;
-	margin-top: 10px;
-	font-weight: bold;
-}
-
-a:hover {
-	color: #385165;
-	cursor: pointer;
-}
-
-header img {
-	width: 40px;
-	height: 40px;
-	margin: 10px;
-}
-
-main {
-	flex: 1;
-}
-
-footer {
-	position: fixed;
-	bottom: 0;
-	background: #35495E; /* Color del footer */
-	height: 70px;
-	color: white;
-	font-size: 20px;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0 20px;
-	z-index: 10;
-}
-
-.imagenes-footer img {
-	width: 30px;
-	height: 30px;
-	margin: 10px;
-	border-radius: 50%;
-}
-
 /* Contenedor de la campana */
 .contenedor-campana {
 	position: relative;
@@ -183,6 +83,7 @@ footer {
 
 .container-perfil-datos p {
 	font-weight: bold;
+	font-size: larger;
 }
 
 .container-perfil-datos span {
@@ -228,8 +129,10 @@ footer {
 }
 
 .container-etiquetas {
-	display: flex;
-	gap: 20px;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-auto-rows: minmax(10px, 40px);
+	grid-gap: 10px;
 }
 
 .etiqueta {

@@ -96,13 +96,13 @@
                 <div class="container-habilidades">
                     <div class="habilidad-ofertada">
                         <h2>Habilidades ofertadas</h2>
-                        <label class="elige" for="habilidadOfertada">Ingresa tu habilidad:</label>
+                        <label class="elige" for="habilidadOfertada" style="font-size:x-large">¿Qué ofreces?</label>
                         <select class="form-select" id="habilidadOfertada" name="habilidad-ofertada" required>
                             <option selected>Elige categoria:</option>
                         </select>
                         <div class="lista">
                             <input type="text" name="habilidad-ofertada" class="form-control" id="ofertadas" placeholder="Escribe la habilidad que tienes" 
-                            aria-label="ofertadas">
+                            aria-label="ofertadas" maxlength="10">
                             <button aria-label="Insertar" id="botonInsertar" class="btn btn-secondary">Insertar</button>
                         </div>
                         <div id="container-hb-ofertadas" class="container-etiquetas">
@@ -113,13 +113,13 @@
 
                     <div class="habilidad-demandada">
                         <h2>Habilidades demandadas</h2>
-                        <label class="elige" for="habilidadDemandada">Ingresa la habilidad que quieres aprender:</label>
+                        <label class="elige" for="habilidadDemandada" style="font-size:x-large">¿Qué buscas?</label>
                         <select class="form-select" id="habilidadDemandada" name="habilidad-demandada" required>
                             <option selected>Elige categoria:</option>
                         </select>
                         <div class="lista">
                             <input type="text" name="habilidad-demandada" class="form-control" id="habilidadDemandadas" placeholder="Escribe la habilidad que quieres aprender"
-                            aria-label="habilidadDemandadas">
+                            aria-label="habilidadDemandadas" maxlength="10">
                             <button aria-label="Insertar" id="botonInsertarDemandada" class="btn btn-secondary">Insertar</button>
                         </div>
                         <div id="container-hb-demandadas" class="container-etiquetas">
@@ -138,7 +138,7 @@
 						aria-label="Close" id="cerrar-modal"></button>
 				</div>
 				<div class="modal-body">
-					<p>Por favor, selecciona las habilidades ofertadas y demandadas para completar tu
+					<p>Por favor, selecciona introduce las ofertadas y demandadas para completar tu
 						perfil.</p>
 				</div>
 			</div>

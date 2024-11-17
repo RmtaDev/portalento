@@ -32,7 +32,7 @@ nav a {
     color: black;
     text-decoration: none;
 	font-weight: bolder;
-    font-size: 16px;
+    font-size: 20px;
 }
 nav .inicio-logo {
 	left: 0;
@@ -57,8 +57,8 @@ li {
 	font-weight: bold;
 }
 
-a:hover {
-	color: #385165;
+nav a:hover {
+	color: blue;
 	cursor: pointer;
 }
 header img {
@@ -86,6 +86,14 @@ footer {
 	z-index: 10;
 }
 
+footer a {
+	text-decoration: none;
+    font-size: 20px;
+    color: white;
+}
+footer p{
+	margin: 0 !important;
+}
 .imagenes-footer img {
 	width: 30px;
 	height: 30px;

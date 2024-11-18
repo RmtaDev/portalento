@@ -20,19 +20,19 @@ function validarCampos() {
     let esValido = true;
 	
     // Mensajes de error
-    if (!usuario) {
+    if (!usuario || usuario.length ==0) {
         document.getElementById("mensajeUsuario").innerHTML = 'El nombre de usuario es requerido.';
         esValido = false;
     }
-    if (!nombre) {
+    if (!nombre || nombre.length ==0) {
         document.getElementById("mensajeNombre").innerHTML = 'El nombre es requerido.';
         esValido = false;
     }
-    if (!apellidos) {
+    if (!apellidos || apellidos.length ==0) {
         document.getElementById("mensajeApellidos").innerHTML = 'Los apellidos son requeridos.';
         esValido = false;
     }
-    if (!edad || isNaN(edad) || edad <= 0) {
+    if (!edad || isNaN(edad) || edad <= 0 || edad > 110 ) {
         document.getElementById("mensajeEdad").innerHTML = 'Por favor, ingresa una edad válida.';
         esValido = false;
     }

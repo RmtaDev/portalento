@@ -20,7 +20,7 @@ import jakarta.servlet.annotation.WebFilter;
 /**
  * Servlet Filter implementation class FiltroSesion
  */
-@WebFilter(urlPatterns = {"/perfil.html", "/buscador.html"})
+@WebFilter(urlPatterns = {"/perfil.html", "/buscador.html", "/intercambios.html", "/propuestaIntercambio.html"})
 public class FiltroSesion extends HttpFilter implements Filter {
        
 	private static Logger log = Logger.getLogger("mylog");

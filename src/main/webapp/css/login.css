@@ -1,3 +1,5 @@
+
+
 .inicio {
 	color: black;
     font-size: 15px; 
@@ -36,21 +38,24 @@
     text-align: left;
 }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"],
-							input[type="number"], textarea {
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+textarea {
+    /* Otros estilos generales para los inputs */
     width: 100%;
     padding: 12px;
-    margin-top: 8px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Suavidad en la transición */
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="tel"]:focus,
-							input[type="password"]:focus, textarea:focus {
-    border-color: #5cb85c;
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="password"]:focus, 
+textarea:focus {
+    border-color: #28a745; /* Color verde brillante */
+    box-shadow: 0 0 5px #28a745; /* Efecto de brillo */
     outline: none;
 }
 
@@ -59,3 +64,54 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus,
 	display: flex;
 	justify-content: center;
 }
+
+/* Contenedor del campo de contraseña */
+.password-container {
+    position: relative; /* Necesario para que el botón se posicione correctamente */
+    display: flex; /* Flexbox para alinear los elementos */
+    align-items: center; /* Alinea verticalmente el input y el botón */
+    width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
+}
+
+/* Campo de entrada de contraseña */
+.password-container input {
+      width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 12px; /* Espacio interior del campo */
+    padding-right: 2.5rem; /* Espacio para el botón del ojo */
+    margin: 0; /* Elimina márgenes adicionales */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Botón del ojo */
+.toggle-password {
+    position: absolute; /* Permite posicionarlo dentro del contenedor */
+    right: 10px; /* Ajusta la distancia del borde derecho */
+    background: none; /* Elimina el fondo predeterminado */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    display: flex; /* Asegura que el ícono esté centrado */
+    align-items: center;
+    justify-content: center;
+    font-size: 24px; /* Tamaño del icono */
+    color: #666; /* Color del icono */
+    transition: color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+/* Ícono de Material Symbols */
+.material-symbols-outlined {
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+/* Cambiar color al pasar el mouse sobre el botón */
+.toggle-password:hover .material-symbols-outlined {
+    color: #333; /* Oscurece el color del icono */
+}
+
+
+
+

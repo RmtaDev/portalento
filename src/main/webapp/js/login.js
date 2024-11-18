@@ -1,51 +1,53 @@
-function validarNombre(nombre) {
-	valido = false;
-	valido = ((null != nombre) && (nombre.length >= 4) && (nombre.length <= 100));
-	return valido;
-}
+// Función para alternar la visibilidad de la contraseña
+function alternarVisibilidadPassword() {
+    const passwordInput = document.getElementById("contraseña");
+    const toggleIcon = document.getElementById("togglePasswordIcon");
 
-function validarPassword(password) {
-	valido = false;
-	valido = ((null != password) && (password.length >= 4) && (password.length <= 50));
-	return valido;
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text"; // Muestra la contraseña
+        toggleIcon.textContent = "visibility_off"; // Cambia el ícono al ojo tachado
+    } else {
+        passwordInput.type = "password"; // Oculta la contraseña
+        toggleIcon.textContent = "visibility"; // Cambia el ícono al ojo abierto
+    }
 }
 
 function loginServidor() {
-	let usuario = document.getElementById("nombreUsuario").value;
-	let password = document.getElementById("contraseña").value;
+    const usuario = document.getElementById("nombreUsuario").value;
+    const password = document.getElementById("contraseña").value;
 
-	if (validarNombre(usuario) && validarPassword(password)) {
+    if (validarNombre(usuario) && validarPassword(password)) {
+        const infousuario = { usuario, password };
 
-		let infousuario = {
-			usuario: usuario,
-			password: password
+        fetch("Login", {
+            method: "POST",
+            body: JSON.stringify(infousuario),
+            headers: { "Content-Type": "application/json" },
+        })
+            .then((respuesta) => {
+                switch (respuesta.status) {
+                    case 200:
+                        window.location.href = "perfil.html";
+                        break;
+                    case 400:
+                        alert("Datos no validados");
+                        break;
+                    case 403:
+                        alert("No existe ese usuario o contraseña");
+                        break;
+                    case 500:
+                        alert("Error en la autenticación");
+                        break;
+                    default:
+                        alert("Error desconocido");
+                }
+            })
+            .catch((error) => {
+                console.error("Error en la solicitud:", error);
+                alert("Ocurrió un error");
+            });
+    } else {
+        alert("Por favor, introduce datos válidos");
 		}
-
-		let infousuarioJson = JSON.stringify(infousuario);
-
-		fetch("Login", {
-			method: "POST",
-			body: infousuarioJson
-		})//12 ACTUALIZO LA INTERFAZ DE USUARIO
-			.then(respuesta => {
-				console.log("Procesando la vuelta ..");
-				switch (respuesta.status) {
-					case 200:
-						window.location.href = "perfil.html";
-						break;
-					case 400:
-						console.log("Datos no validados");
-						alert("Datos no validados");
-						break;
-					case 403:
-						console.log("No existe ese usuario password");
-						alert("No existe ese usuario password");
-						break;
-					case 500:
-						console.log("Error en la autenticación");
-						alert("Error en la autenticación");
-						break;
-				}
-			})
-	}
 }
+

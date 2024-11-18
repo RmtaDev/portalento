@@ -1,40 +1,37 @@
-// Validar nombre de usuario
+// Validar el nombre de usuario (mínimo 4 caracteres, máximo 100)
 function validarNombre(nombre) {
     return nombre && nombre.length >= 4 && nombre.length <= 100;
 }
 
-// Validar contraseña
+// Validar la contraseña (mínimo 4 caracteres, máximo 50)
 function validarPassword(password) {
     return password && password.length >= 4 && password.length <= 50;
 }
 
 // Alternar visibilidad de la contraseña
-function alternarVisibilidadPassword(inputId, iconId) {
-    const passwordInput = document.getElementById(inputId);
-    const toggleIcon = document.getElementById(iconId);
+function alternarVisibilidadPassword() {
+    const passwordInput = document.getElementById("contraseña");
+    const toggleIcon = document.getElementById("togglePasswordIcon");
 
     if (passwordInput.type === "password") {
         passwordInput.type = "text"; // Muestra la contraseña
-        toggleIcon.textContent = "visibility_off"; // Cambia al ícono de ojo tachado
+        toggleIcon.textContent = "visibility_off"; // Cambia el ícono al ojo tachado
     } else {
         passwordInput.type = "password"; // Oculta la contraseña
-        toggleIcon.textContent = "visibility"; // Cambia al ícono de ojo abierto
+        toggleIcon.textContent = "visibility"; // Cambia el ícono al ojo abierto
     }
 }
 
-// Enviar datos al servidor para iniciar sesión
+// Función para manejar el inicio de sesión
 function loginServidor() {
-    const usuario = document.getElementById("nombreUsuario").value.trim();
-    const password = document.getElementById("contraseña").value.trim();
+    const usuario = document.getElementById("nombreUsuario").value;
+    const password = document.getElementById("contraseña").value;
 
-    // Validar datos antes de enviar
+    // Validar que los campos estén correctamente llenados
     if (validarNombre(usuario) && validarPassword(password)) {
         const infousuario = { usuario, password };
-        
-        // Bloqueo temporal del botón para evitar múltiples envíos
-        const loginButton = document.querySelector("button[type='submit']");
-        loginButton.disabled = true;
 
+        // Realizar la solicitud al servidor con fetch
         fetch("Login", {
             method: "POST",
             body: JSON.stringify(infousuario),
@@ -43,30 +40,26 @@ function loginServidor() {
             .then((respuesta) => {
                 switch (respuesta.status) {
                     case 200:
-                        window.location.href = "perfil.html";
+                        window.location.href = "perfil.html"; // Redirigir al perfil en caso de éxito
                         break;
                     case 400:
-                        alert("Datos no validados");
+                        alert("Datos no validados"); // Error en los datos
                         break;
                     case 403:
-                        alert("No existe ese usuario o contraseña");
+                        alert("No existe ese usuario o contraseña"); // Usuario no encontrado
                         break;
                     case 500:
-                        alert("Error en la autenticación");
+                        alert("Error en la autenticación"); // Error del servidor
                         break;
                     default:
-                        alert("Error desconocido");
+                        alert("Error desconocido"); // Otros errores
                 }
             })
             .catch((error) => {
                 console.error("Error en la solicitud:", error);
-                alert("Ocurrió un error");
-            })
-            .finally(() => {
-                // Reactivar el botón al finalizar la petición
-                loginButton.disabled = false;
+                alert("Ocurrió un error en la conexión");
             });
     } else {
-        alert("Por favor, introduce datos válidos");
+        alert("Por favor, introduce datos válidos"); // Mensaje en caso de que no se cumplan las validaciones
     }
 }

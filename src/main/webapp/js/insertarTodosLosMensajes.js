@@ -24,7 +24,8 @@ function mostrarMensajes(listaMensajes) {
 	console.log("INFO = " + listaMensajes);
 	listaMensajes.forEach(mensaje => {
 		let divMensaje = document.createElement("div");
-		divMensaje.innerText = mensaje.texto;
+		divMensaje.innerText = mensaje.fecha_hora + "\n";
+		divMensaje.innerText += mensaje.texto;
 		
 		if (mensaje.emisor == usuarioSesion){
 			divMensaje.classList.add("message", "user1");

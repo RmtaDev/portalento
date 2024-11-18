@@ -1,12 +1,9 @@
-
-
 .inicio {
 	color: black;
     font-size: 15px; 
     font-weight: bolder; 
     text-decoration: none; 
 }
-
 .container-formulario {
 	position: relative;
     display: flex;
@@ -96,22 +93,19 @@ textarea:focus {
     display: flex; /* Asegura que el ícono esté centrado */
     align-items: center;
     justify-content: center;
-    font-size: 24px; /* Tamaño del icono */
-    color: #666; /* Color del icono */
+    font-size: 24px; /* Tamaño del ícono */
+    color: #666; /* Color del ícono */
     transition: color 0.3s ease; /* Suaviza el cambio de color */
 }
 
 /* Ícono de Material Symbols */
 .material-symbols-outlined {
+     font-size: 24px; /* Tamaño del ícono */
     color: #666;
     transition: color 0.3s ease;
 }
 
 /* Cambiar color al pasar el mouse sobre el botón */
 .toggle-password:hover .material-symbols-outlined {
-    color: #333; /* Oscurece el color del icono */
+    color: #333; /* Oscurece el color del ícono */
 }
-
-
-
-

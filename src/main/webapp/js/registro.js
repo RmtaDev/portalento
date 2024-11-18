@@ -19,17 +19,16 @@ function validarCampos() {
 
     let esValido = true;
 	
-    // Mensajes de error
     if (!usuario || usuario.length ==0) {
-        document.getElementById("mensajeUsuario").innerHTML = 'El nombre de usuario es requerido.';
+        document.getElementById("mensajeUsuario").innerHTML = 'El usuario es obligatorio.';
         esValido = false;
     }
     if (!nombre || nombre.length ==0) {
-        document.getElementById("mensajeNombre").innerHTML = 'El nombre es requerido.';
+        document.getElementById("mensajeNombre").innerHTML = 'El nombre es obligatorio.';
         esValido = false;
     }
     if (!apellidos || apellidos.length ==0) {
-        document.getElementById("mensajeApellidos").innerHTML = 'Los apellidos son requeridos.';
+        document.getElementById("mensajeApellidos").innerHTML = 'Los apellidos son obligatorios.';
         esValido = false;
     }
     if (!edad || isNaN(edad) || edad <= 0 || edad > 110 ) {
@@ -37,11 +36,11 @@ function validarCampos() {
         esValido = false;
     }
     if (!genero) {
-        document.getElementById("mensajeGenero").innerHTML = 'El género es requerido.';
+        document.getElementById("mensajeGenero").innerHTML = 'Selecciona el género.';
         esValido = false;
     }
     if (!telefono) {
-        document.getElementById("mensajeTelefono").innerHTML = 'El teléfono es inválido.';
+        document.getElementById("mensajeTelefono").innerHTML = 'El teléfono no es válido.';
         esValido = false;
     }
     
@@ -53,23 +52,41 @@ function validarCampos() {
         document.getElementById("mensajeContraseña").innerHTML = 'La contraseña debe tener al menos 8 caracteres.';
         esValido = false;
     }
-    if (password !== confirmPassword) {
-        document.getElementById("mensajeContraseña").innerHTML = 'Las contraseñas no coinciden.';
+    if (confirmPassword !== password ) {
+        document.getElementById("mensajeCContraseña").innerHTML = 'La contraseña no coincide.';
         esValido = false;
     }
     if (!foto) {
         document.getElementById("mensajeFoto").innerHTML = 'Inserta una foto.';
         esValido = false;
-    }
-    if (!hablaSobreTi) {
-        document.getElementById("mensajeSobreTi").innerHTML = 'Comenta sobre ti.';
-        esValido = false;
-    }
+	}
+	if (!hablaSobreTi) {
+	        document.getElementById("mensajeSobreTi").innerHTML = 'Comenta sobre ti.';
+	        esValido = false;
+	    }
+	    	console.log("validado");
+		   return esValido;
+	}
 
-    return esValido;
-}
-	console.log("validado");
-
+	
+		
+	//PARA VALIDAR TIPO DE FORMATO Y TAMAÑO MAXIMO
+	//if (foto) {
+		 //if (!foto.type.startsWith("image/")) {
+			  //alert("Por favor, selecciona un archivo válido de imagen.");
+			  //esValido = false;
+	//}
+		// if (foto.size > 2 * 1024 * 1024) { // Máximo 2MB
+			  //alert("El archivo de imagen no debe superar los 2MB.");
+			 // esValido = false;
+	//}
+		//} else {
+			 // alert("Por favor, selecciona una imagen.");
+			 // esValido = false;
+	//}
+    
+ 	    
+	
 function validarFormulario(event) {
     
     limpiarMensajesError(); // Limpiamos mensajes previos

@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 let usuarioSesionId = null;
+let estadoBD = "";
+let textoEstado = "";
+let claseEstado = "";
 
 function obtenerUsuarioSesion() {
 	fetch('ObtenerUsuarioSesion')
@@ -29,6 +32,7 @@ function obtenerUsuarioSesion() {
 
 }
 
+
 function obtenerIntercambios() {
 	fetch('ObtenerTodosLosIntercambiosCursados')
 		.then(respuesta => {
@@ -48,9 +52,9 @@ function obtenerIntercambios() {
 		.catch(error => {
 			console.error('Error al obtener los intercambios:', error);
 		});
-
-
 }
+
+
 
 function mostrarIntercambios(infoIntercambios) {
 	console.log("INFO = " + infoIntercambios);
@@ -63,14 +67,16 @@ function mostrarIntercambios(infoIntercambios) {
 		//Coge la tabla y crea la fila
 		let tabla = document.getElementById("tabla-intercambios");
 		let tr = document.createElement("tr");
+		tr.id = intercambio.idIntercambio;
+		tr.classList.add("fila");
 		tabla.appendChild(tr);
 
 		//Crea columna icono estado
 		let icono = document.createElement("td");
 		icono.classList.add("icono-estado");
 		tr.appendChild(icono);
+		estadoBD = intercambio.estado;
 
-		let claseEstado;
 
 
 
@@ -99,9 +105,9 @@ function mostrarIntercambios(infoIntercambios) {
 
 		//Crea columna de estado de intercambio
 		let estadoIntercambio = document.createElement("td");
-		estadoIntercambio.classList.add("estado-intercambio", claseEstado);
+
 		let estado = document.createElement("p");
-		estado.innerHTML = intercambio.estado;
+
 		estadoIntercambio.appendChild(estado);
 		tr.appendChild(estadoIntercambio);
 
@@ -149,7 +155,7 @@ function mostrarIntercambios(infoIntercambios) {
 			nombre2.innerHTML = nombreUsuario2;
 			habilidad2.innerHTML = habilidadUsuario2;
 
-			if (intercambio.estado == "PENDIENTE") {
+			if (estadoBD == "PENDIENTE") {
 				let mensaje = document.createElement("p");
 				mensaje.innerText = "Esperando respuesta";
 				botones.appendChild(mensaje);
@@ -168,41 +174,126 @@ function mostrarIntercambios(infoIntercambios) {
 			nombre1.innerHTML = nombreUsuario1;
 			habilidad1.innerHTML = habilidadUsuario1;
 
-			if (intercambio.estado == "PENDIENTE") {
+			if (estadoBD == "PENDIENTE") {
 				let botonRechazar = document.createElement("button");
-				botonRechazar.innerText = "Rechazar";
+				botonRechazar.setAttribute('data-intercambio-id', intercambio.idIntercambio);
+				botonRechazar.setAttribute('data-nuevo-estado', "RECHAZADO");
+				botonRechazar.onclick = () => actualizarEstadoIntercambio(intercambio.idIntercambio, "RECHAZADO"); botonRechazar.innerText = "Rechazar";
 				botonRechazar.classList.add('btn', 'btn-danger');
 				botones.appendChild(botonRechazar);
 
 
+
 				let botonAceptar = document.createElement("button");
 				botonAceptar.innerText = "Aceptar";
+				botonAceptar.setAttribute('data-intercambio-id', intercambio.idIntercambio);
+				botonAceptar.setAttribute('data-nuevo-estado', "ACEPTADO");
+				botonAceptar.onclick = () => actualizarEstadoIntercambio(intercambio.idIntercambio, "ACEPTADO");
 				botonAceptar.classList.add('btn', 'btn-success');
 				botones.appendChild(botonAceptar);
+
 			}
 
 		}
+		// Llamar a la función pintarEstado para pintar el estado de la fila
+		pintarEstado(intercambio, icono, estado, estadoIntercambio, botones, estadoBD);
 
-	
-	//Identifica estado de la base de datos para pintar el estado correspondiente en la fila
-		if (intercambio.estado == "PENDIENTE") {
-			icono.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="orange" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>';
-			intercambio.estado = "Pendiente";
-			claseEstado = "pendiente";
-		} else if (intercambio.estado == "ACEPTADO") {
-			icono.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>';
-			intercambio.estado = "Aceptado";
-			claseEstado = "aceptado";
-
-			let botonMensajes = document.createElement("button");
-			botonMensajes.innerText = "Ver mensajes";
-			botonMensajes.classList.add('btn', 'btn-warning');
-
-			botones.appendChild(botonMensajes);
-		} else {
-			icono.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/></svg>';
-			intercambio.estado = "Rechazado";
-			claseEstado = "rechazado";
-		}
 	});
+}
+
+//Identifica estado de la base de datos para pintar el estado correspondiente en la fila
+function pintarEstado(intercambio, icono, estado, estadoIntercambio, botones, estadoBD) {
+ 	icono.innerHTML = '';
+    estado.innerHTML = '';
+    estadoIntercambio.className = 'estado-intercambio';
+
+	if (estadoBD == "PENDIENTE") {
+		icono.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="orange" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>';
+		textoEstado = "Pendiente";
+		estado.innerHTML = textoEstado;
+		claseEstado = "pendiente";
+		estadoIntercambio.classList.add("estado-intercambio", claseEstado);
+
+	} else if (estadoBD == "ACEPTADO") {
+		icono.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>';
+		textoEstado = "Aceptado";
+		estado.innerHTML = textoEstado;
+		claseEstado = "aceptado";
+		estadoIntercambio.classList.add("estado-intercambio", claseEstado);
+
+		let botonMensajes = document.createElement("button");
+		botonMensajes.innerText = "Ver mensajes";
+		botonMensajes.onclick = () => mostrarMensajes(intercambio.idIntercambio);
+		botonMensajes.classList.add('btn', 'btn-warning');
+
+		//TODO añadir clase seleccionada a la fila y el mensaje de chat activo
+
+		botones.appendChild(botonMensajes);
+	} else if (estadoBD == "RECHAZADO") {
+		icono.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/></svg>';
+		textoEstado = "Rechazado";
+		estado.innerHTML = textoEstado;
+		claseEstado = "rechazado";
+		estadoIntercambio.classList.add("estado-intercambio", claseEstado);
+	}
+
+
+
+}
+
+
+//CAMBIO DE ESTADO AL CLICAR BOTON ACEPTAR O RECHAZAR
+function actualizarEstadoIntercambio(intercambioId, nuevoEstado) {
+    let estadoIntercambio = {
+        idIntercambio: intercambioId,
+        nuevoEstado: nuevoEstado
+    };
+
+    let estadoIntercambioJson = JSON.stringify(estadoIntercambio);
+
+    fetch("GestionarEstados", {
+        method: "POST",
+        body: estadoIntercambioJson
+    })
+        .then(respuesta => {
+            console.log("Procesando la vuelta ..");
+            switch (respuesta.status) {
+                case 200:
+                    let fila = document.getElementById(intercambioId);
+
+                    if (fila) {
+                        estadoBD = nuevoEstado;
+
+                        let icono = fila.querySelector('.icono-estado');
+                        let estado = fila.querySelector('.estado-intercambio p');
+                        let botones = fila.querySelector('.botones');
+                        let estadoIntercambio = fila.querySelector('.estado-intercambio');
+
+                        botones.innerHTML = '';
+
+                        pintarEstado({ idIntercambio: intercambioId }, icono, estado, estadoIntercambio, botones, estadoBD);
+                    } else {
+                        console.error("No se encontró la fila del intercambio en el DOM.");
+                    }
+                    break;
+
+                case 400:
+                    console.log("Datos no validados");
+                    alert("Datos no validados");
+                    break;
+
+                case 403:
+                    console.log("No existe ese usuario/password");
+                    alert("No existe ese usuario/password");
+                    break;
+
+                case 500:
+                    console.log("Error en la autenticación");
+                    alert("Error en la autenticación");
+                    break;
+            }
+        })
+        .catch(error => {
+            console.error("Error al actualizar el estado del intercambio:", error);
+        });
 }

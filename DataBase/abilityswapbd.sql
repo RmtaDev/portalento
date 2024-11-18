@@ -37,7 +37,7 @@ CREATE TABLE `categorias` (
 
 LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
-INSERT INTO `categorias` VALUES (1,'Programación'),(2,'Comunicación'),(3,'Relaciones'),(4,'Creatividad'),(5,'Gestión'),(6,'Análisis'),(7,'Adaptación'),(8,'Digitalización'),(9,'Idiomas'),(10,'Ejercicio'),(11,'Organización'),(12,'Cocina'),(13,'Mantenimiento'),(14,'Compras'),(15,'Cuidado Personal'),(16,'Otras');
+INSERT INTO `categorias` VALUES (1,'Programación'),(2,'Idiomas'),(3,'Deporte'),(4,'Hab interpersonales'),(5,'Estética'),(6,'Artes'),(7,'Cocina'),(8,'Clases de Apoyo'),(9,'Escritura'),(10,'Manualidades'),(11,'Oficios'),(12,'Otras');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,7 +124,7 @@ CREATE TABLE `intercambios` (
   CONSTRAINT `fk_habilidad_ofertada` FOREIGN KEY (`habilidad_ofertada`) REFERENCES `habilidades_ofertadas` (`id_habilidad`),
   CONSTRAINT `fk_usuario_demandada` FOREIGN KEY (`usuario_demandada`) REFERENCES `usuarios` (`id_usuario`),
   CONSTRAINT `fk_usuario_ofertada` FOREIGN KEY (`usuario_ofertada`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +133,7 @@ CREATE TABLE `intercambios` (
 
 LOCK TABLES `intercambios` WRITE;
 /*!40000 ALTER TABLE `intercambios` DISABLE KEYS */;
-INSERT INTO `intercambios` VALUES (2,4,3,2,3,'PENDIENTE');
+INSERT INTO `intercambios` VALUES (2,4,3,2,3,'PENDIENTE'),(3,4,3,1,3,'PENDIENTE');
 /*!40000 ALTER TABLE `intercambios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,7 +158,7 @@ CREATE TABLE `mensajes` (
   CONSTRAINT `fk_intercambios_idintercambio` FOREIGN KEY (`idintercambio`) REFERENCES `intercambios` (`idintercambio`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_usuarios_emisor` FOREIGN KEY (`emisor`) REFERENCES `usuarios` (`id_usuario`),
   CONSTRAINT `fk_usuarios_receptor` FOREIGN KEY (`receptor`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -167,6 +167,7 @@ CREATE TABLE `mensajes` (
 
 LOCK TABLES `mensajes` WRITE;
 /*!40000 ALTER TABLE `mensajes` DISABLE KEYS */;
+INSERT INTO `mensajes` VALUES (1,2,4,3,'2023-11-09 16:30:45','Me gusta tu habilidad'),(2,2,3,4,'2023-11-09 15:30:45','A mi también me gusta la tuya'),(3,2,4,3,'2024-11-11 12:10:45','A mi me gusta la tuya mas'),(4,2,3,4,'2024-11-15 10:41:45','A mi me gusta mucho la tuya');
 /*!40000 ALTER TABLE `mensajes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,4 +215,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-07 11:46:46
+-- Dump completed on 2024-11-15 12:48:38

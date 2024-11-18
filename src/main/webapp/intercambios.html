@@ -26,224 +26,102 @@
 </head>
 
 <body>
-    <div class="sidebar">
-		<button id="openModalBtn" class="open-btn" aria-label="Menú de accesibilidad">
-			<img class="fa-solid fa-universal-access" src="img/accesibilidad.png" alt="imagen accesibilidad">
+	<div class="sidebar">
+		<button id="openModalBtn" class="open-btn"
+			aria-label="Menú de accesibilidad">
+			<img class="fa-solid fa-universal-access" src="img/accesibilidad.png"
+				alt="imagen accesibilidad">
 		</button>
 		<div id="radialMenu" class="radial-menu">
-			<button id="monocromaticoBtn" aria-label="Activar/Desactivar modo monocromático"
+			<button id="monocromaticoBtn"
+				aria-label="Activar/Desactivar modo monocromático"
 				title="Activar/Desactivar modo monocromático">
 				<i id="monocromaticoIcon" class="fas fa-eye-slash"></i>
 			</button>
-			<button id="speakerBtn" aria-label="Activar/Desactivar lector de texto"
+			<button id="speakerBtn"
+				aria-label="Activar/Desactivar lector de texto"
 				title="Activar/Desactivar lector de texto. Mantener pulsado sobre el texto a leer.">
 				<i id="speakerIcon" class="fas fa-volume-mute"></i>
 			</button>
-			<button id="zoomBtn" aria-label="Aumentar/Disminuir zoom" title="Aumentar/Disminuir zoom">
+			<button id="zoomBtn" aria-label="Aumentar/Disminuir zoom"
+				title="Aumentar/Disminuir zoom">
 				<i id="zoomIcon" class="fa fa-search-plus"></i>
 			</button>
 		</div>
 		<div id="contentContainer"></div>
 	</div>
 	<header>
-		 <nav>
-            <a href="inicio.html" class="inicio">
-                <img alt="inicio" src="img/favicon.png" class="logo">
-            </a>
-            <p>Ability Swap</p>
-            <ul>
-                <li><a href="creditos.html">Quiénes somos</a></li>
-                <li><a href="buscador.html">Búsqueda</a></li>
-                <li><a class="link-activo" href="#">Intercambios</a></li>
-                <li><a href="perfil.html">Perfil</a></li>
-                <li><a href="Logout">Salir</a></li>
-                
-            </ul>
-        </nav>
+		<nav>
+			<a href="inicio.html" class="inicio"> <img alt="inicio"
+				src="img/favicon.png" class="logo">
+			</a>
+			<p>Ability Swap</p>
+			<ul>
+				
+				<li><a href="buscador.html">Búsqueda</a></li>
+				<li><a class="link-activo" href="#">Intercambios</a></li>
+				<li><a href="perfil.html">Perfil</a></li>
+				<li><a href="Logout">Salir</a></li>
+
+			</ul>
+		</nav>
 	</header>
 
-<div class="chat-container">
-            <div class="user-info">
-                <img src="img/user1.png" alt="Foto de Rafa">
-                <p>Rafa</p>
-                <p>Ofrece: Tenis</p>
-            </div>
-
-            <div>
-                <div class="chat-box">
-                    <div class="message user2">Hola Rafa, ¿cómo estás?</div>
-                    <div class="message user1">Hola Ana, ¡bien! ¿Y tú?</div>
-                    <div class="message user2">Todo bien, gracias. Oye, sobre el intercambio, ¿qué te parece este fin de semana?</div>
-                    <div class="message user1">Me parece perfecto, el sábado por la mañana estoy libre.</div>
-                    <div class="message user2">Genial, yo también. ¿Nos encontramos en el parque?</div>
-                    <div class="message user1">Perfecto, a las 10 AM entonces.</div>
-                    <div class="message user2">Muy bien, ¡nos vemos el sábado!</div>
-                    <div class="message user1">Nos vemos, ¡hasta pronto!</div>
-                </div>
-                <div class="message-input-container">
-                    <input type="text" class="message-input" placeholder="Escribe un mensaje...">
-                    <button class="send-button">Enviar</button>
-                </div>
-            </div>
-
-            <div class="user-info">
-                <img src="img/user2.png" alt="Foto de Ana Perez">
-                <p>Ana Perez</p>
-                <p>Ofrece: Baile</p>
-            </div>
-        </div>
-
-           
-		<div class="table-container">
-				<table class="table table-sm align-middle">
-					<thead class="onlyscreenreader">
-						<tr>
-							<th scope="col">Icono estado intercambio</th>
-							<th scope="col">Foto usuario 1</th>
-							<th scope="col">Nombre usuario 1 y habilidad ofertada</th>
-							<th scope="col">Estado intercambio</th>
-							<th scope="col">Foto usuario 2</th>
-							<th scope="col">Nombre usuario 2 y habilidad ofertada</th>
-							<th scope="col">Acciones</th>
-						</tr>
-					</thead>
-					
-					<tbody id="tabla-intercambios" >
-					
-						<tr class="seleccionada">
-							<td class="icono-estado">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20"
-									height="20" fill="green" class="bi bi-check-circle-fill"
-									viewBox="0 0 16 16">
-  									<path
-										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-									</svg></td>
-							<td class="foto-usuario1">
-								<picture> <img src="img/daniel1.jpeg"
-									alt="imagen usuario 1">
-								</picture>
-							</td>
-							<td class="nombre-usuario1">
-								<p class="nombre">Nagore</p>
-								<p>Ofrece: Bailar</p>
-							</td>
-							<td class="estado-intercambio aceptado">
-								<p>Aceptado</p>
-							</td>
-							<td class="foto-usuario2">
-								<picture> <img src="img/avatar.png"
-									alt="imagen usuario 2"> </picture>
-							</td>
-							<td class="nombre-usuario2">
-								<p class="nombre">Carlos</p>
-								<p>Ofrece: Filisofia</p>
-							</td>
-							<td class="botones">
-								<p></p>
-							</td>
-						</tr>
-						
-						<tr>
-							<td class="icono-estado">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20"
-									height="20" fill="green" class="bi bi-check-circle-fill"
-									viewBox="0 0 16 16">
-  									<path
-										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-									</svg></td>
-							<td class="foto-usuario1">
-								<picture> <img src="img/daniel1.jpeg"
-									alt="imagen usuario 1">
-								</picture>
-							</td>
-							<td class="nombre-usuario1">
-								<p class="nombre">Nagore</p>
-								<p>Ofrece: Bailar</p>
-							</td>
-							<td class="estado-intercambio aceptado">
-								<p>Aceptado</p>
-							</td>
-							<td class="foto-usuario2">
-								<picture> <img src="img/avatar.png"
-									alt="imagen usuario 2"> </picture>
-							</td>
-							<td class="nombre-usuario2">
-								<p class="nombre">Carlos</p>
-								<p>Ofrece: Filisofia</p>
-							</td>
-							<td class="botones">
-								<button class="boton-inicio btn btn-warning" type="button">Ver Mensajes</button>
-							</td>
-						</tr>
-						
-						<tr>
-							<td class="icono-estado"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-									height="20" fill="orange"
-									class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
-  									<path
-										d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-									</svg></td>
-							<td class="foto-usuario1">
-								<picture> <img src="img/daniel1.jpeg"
-									alt="imagen usuario 1">
-								</picture>
-							</td>
-							<td class="nombre-usuario1">
-								<p class="nombre">Nagore</p>
-								<p>Ofrece: Bailar</p>
-							</td>
-							<td class="estado-intercambio pendiente">
-								<p>Pendiente</p>
-							</td>
-							<td class="foto-usuario2">
-								<picture> <img src="img/avatar.png"
-									alt="imagen usuario 2"> </picture>
-							</td>
-							<td class="nombre-usuario2">
-								<p class="nombre">Carlos</p>
-								<p>Ofrece: Filisofia</p>
-							</td>
-							<td class="botones">
-								<button class="boton-inicio btn btn-danger" type="button">Rechazar</button>
-								<button class="boton-inicio btn btn-success" type="button">Aceptar</button>
-							</td>
-						</tr>
-						
-						
-						<tr>
-							<td class="icono-estado"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-									height="20" fill="red" class="bi bi-x-circle-fill"
-									viewBox="0 0 16 16">
-  									  <path
-										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
-									</svg></td>
-							<td class="foto-usuario1">
-								<picture> <img src="img/daniel1.jpeg"
-									alt="imagen usuario 1">
-								</picture>
-							</td>
-							<td class="nombre-usuario1">
-								<p class="nombre">Nagore</p>
-								<p>Ofrece: Bailar</p>
-							</td>
-							<td class="estado-intercambio rechazado">
-								<p>Rechazado</p>
-							</td>
-							<td class="foto-usuario2">
-								<picture> <img src="img/avatar.png"
-									alt="imagen usuario 2"> </picture>
-							</td>
-							<td class="nombre-usuario2">
-								<p class="nombre">Carlos</p>
-								<p>Ofrece: Filisofia</p>
-							</td>
-							<td class="botones">
-								
-							</td>
-						</tr>
-					</tbody>
-				</table>
+	<main>
+		<div class="chat-container">
+			<div class="user-info">
+				<img src="img/user1.png" alt="Foto de Rafa">
+				<p>Rafa</p>
+				<p>Ofrece: Tenis</p>
 			</div>
+
+			<div>
+				<div id="contenedor-mensajes" class="chat-box">
+					<div class="message user2">Hola Rafa, ¿cómo estás?</div>
+					<div class="message user1">Hola Ana, ¡bien! ¿Y tú?</div>
+					<div class="message user2">Todo bien, gracias. Oye, sobre el
+						intercambio, ¿qué te parece este fin de semana?</div>
+					<div class="message user1">Me parece perfecto, el sábado por
+						la mañana estoy libre.</div>
+					<div class="message user2">Genial, yo también. ¿Nos
+						encontramos en el parque?</div>
+					<div class="message user1">Perfecto, a las 10 AM entonces.</div>
+					<div class="message user2">Muy bien, ¡nos vemos el sábado!</div>
+					<div class="message user1">Nos vemos, ¡hasta pronto!</div>
+				</div>
+				<div class="message-input-container">
+					<input type="text" class="message-input"
+						placeholder="Escribe un mensaje...">
+					<button class="send-button">Enviar</button>
+				</div>
+			</div>
+
+			<div class="user-info">
+				<img src="img/user2.png" alt="Foto de Ana Perez">
+				<p>Ana Perez</p>
+				<p>Ofrece: Baile</p>
+			</div>
+		</div>
+
+
+		<div class="table-container">
+			<table class="table table-sm align-middle">
+				<thead class="onlyscreenreader">
+					<tr>
+						<th scope="col">Icono estado intercambio</th>
+						<th scope="col">Foto usuario 1</th>
+						<th scope="col">Nombre usuario 1 y habilidad ofertada</th>
+						<th scope="col">Estado intercambio</th>
+						<th scope="col">Foto usuario 2</th>
+						<th scope="col">Nombre usuario 2 y habilidad ofertada</th>
+						<th scope="col">Acciones</th>
+					</tr>
+				</thead>
+
+				<tbody id="tabla-intercambios">
+				</tbody>
+			</table>
+		</div>
 	</main>
 
 	<footer>
@@ -253,6 +131,7 @@
 			style="width: 150px; height: 40px; border-radius: 5px;">
 		</a>
 		<p>Todos los derechos reservados - @Copyright</p>
+		<a href="creditos.html">Conocenos</a>
 		<div class="imagenes-footer">
 			<a href="https://x.com/portalento_" target="_blank"><img
 				src="img/x-twitter.avif" title="Twitter" alt="Twitter"></a> <a

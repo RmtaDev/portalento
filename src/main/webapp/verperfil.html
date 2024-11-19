@@ -1,10 +1,150 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
 
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta intercambio</title>
+<link rel="icon" href="img/favicon.png">
+<link rel="stylesheet" href="css/estilosgenerales.css">
+<link rel="stylesheet" href="css/verperfil.css">
+<link rel="stylesheet" href="css/accesibilidad.css">
+<link rel="stylesheet" href="css/perfil.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="js/accesibilidad.js"></script>
+
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+	crossorigin="anonymous">
+	
+</script>
+
+<script src="js/verperfil.js"></script>
+</head>
+
+<body>
+	<div class="sidebar">
+		<button id="openModalBtn" class="open-btn"
+			aria-label="Menú de accesibilidad">
+			<img class="fa-solid fa-universal-access" src="img/accesibilidad.png" alt="imagen de accesibilidad">
+		</button>
+		<div id="radialMenu" class="radial-menu">
+			<button id="monocromaticoBtn"
+				aria-label="Activar/Desactivar modo monocromático"
+				title="Activar/Desactivar modo monocromático">
+				<i id="monocromaticoIcon" class="fas fa-eye-slash"></i>
+			</button>
+			<button id="speakerBtn"
+				aria-label="Activar/Desactivar lector de texto"
+				title="Activar/Desactivar lector de texto. Mantener pulsado sobre el texto a leer.">
+				<i id="speakerIcon" class="fas fa-volume-mute"></i>
+			</button>
+			<button id="zoomBtn" aria-label="Aumentar/Disminuir zoom"
+				title="Aumentar/Disminuir zoom">
+				<i id="zoomIcon" class="fa fa-search-plus"></i>
+			</button>
+		</div>
+	</div>
+
+	<header>
+		<nav>
+			<a href="inicio.html" class="inicio"> <img alt="inicio"
+				src="img/favicon.png" class="logo"></a>
+			<p>Ability Swap</p>
+			<ul>
+				<li><a href="buscador.html">Búsqueda</a></li>
+				<li><a href="intercambios.html">Intercambios</a></li>
+				<li><a class="link-activo" href="#">Perfil</a></li>
+				<li><a href="Logout">Salir</a></li>
+			</ul>
+		</nav>
+
+
+	</header>
+
+
+	<main>
+
+		<div class="opacidad">
+
+			<div class="container">
+
+				<div class="container-perfil">
+					<div class="container-imagen-perfil">
+						<img id="foto" alt="" src="img/avatar.png">
+					</div>
+
+					<div class="container-perfil-datos">
+						<h3>Perfil</h3>
+						<p>Usuario: <span id="usuario"></span></p>
+
+						<p>Nombre: <span id="nombre"></span></p>
+
+						<p>Apellidos: <span id="apellidos"></span></p>
+
+						<p>Edad:</p>
+						<span id="edad"></span>
+						<p>Género:</p>
+						<span id="genero"></span>
+						<p>Habla sobre ti:</p>
+						<span id="hablasobreti"></span>
+					</div>
+
+				</div>
+
+
+				<div class="container-habilidades">
+					<div class="habilidad-ofertada">
+						<h3>Perfil</h3><br>
+
+						<h4>Habilidades Ofertadas</h4><br>
+						<div class="container-etiquetas"
+							id="container-etiquetas-ofertadas"></div>
+
+						<br><h4>Habilidades Demandadas</h4><br>
+						<div class="container-etiquetas"
+							id="container-etiquetas-demandadas"></div>
+
+					<br>
+					<div class="Intercambiar">
+							<button class="btn btn-secondary"
+								aria-label="Volver a la búsqueda" onclick="volver()">Volver</button>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<a href="https://portalentodigital.fundaciononce.es/" target="_blank">
+			<img class="logo" src="img/talentodigital.jpg"
+			title="Por talento Digital" alt="Logo de XTD"
+			style="width: 150px; height: 40px; border-radius: 5px;">
+		</a>
+		<p>Todos los dererechos reservados - @Copyright</p>
+		<a href="creditos.html">Quiénes somos</a>
+		<div class="imagenes-footer">
+			<a href="https://x.com/portalento_" target="_blank"> <img
+				src="img/x-twitter.avif" title="Twitter" alt="Twitter"></a> <a
+				href="https://www.facebook.com/PorTalento" target="_blank"> <img
+				src="img/facebook.png" title="Facebook" alt="Facebook"></a> <a
+				href="https://www.instagram.com/portalento_/" target="_blank"> <img
+				src="img/instagram.png" title="Instagram" alt="Instagram"></a> <a
+				href="https://www.tiktok.com/@portalento" target="_blank"> <img
+				src="img/tiktok.webp" title="Tiktok" alt="Tiktok"></a>
+
+		</div>
+	</footer>
 </body>
 </html>

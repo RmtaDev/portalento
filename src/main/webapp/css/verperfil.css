@@ -1,0 +1,163 @@
+/* Contenedor de la campana */
+.contenedor-campana {
+	position: relative;
+	width: 45px;
+	height: 45px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 10px;
+	margin-left: 20px;
+	background-color: #0d3a4b; /* Fondo mucho más oscuro para mejor contraste */
+	border-radius: 50%;
+	z-index: 11;
+}
+
+/* Icono de campana */
+.icono-campana {
+	font-size: 1.8rem;
+	color: #ffffff; /* Color claro para el icono */
+}
+
+.icono-campana:hover {
+	color: #f0f0f0;
+	transform: scale(1.1);
+	transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Contador de notificaciones (badge) */
+.contador-notificaciones {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	width: 22px;
+	height: 22px;
+	background-color: #c62828; /* Rojo oscuro para un buen contraste */
+	color: #ffffff; /* Blanco para el texto */
+	font-size: 13px;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 50%;
+	box-shadow: 0 0 3px 2px #0d3a4b; /* Sombra adaptada al nuevo fondo */
+}
+
+/* Animación de oscilación */
+@keyframes oscilacion {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(10deg);
+	}
+	50% {
+		transform: rotate(-5deg);
+	}
+	75% {
+		transform: rotate(5deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+/* Estilos específicos para el contenido de perfil y habilidades */
+.opacidad {
+	width: 100%;
+	padding: 100px 0 35px 0;
+	margin-bottom: 75px;
+}
+
+.container {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2rem;
+}
+
+.container-perfil {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.container-perfil-datos p {
+	font-weight: bold;
+	font-size: larger;
+}
+
+.container-perfil-datos span {
+	font-weight: normal;
+}
+
+.container-imagen-perfil {
+	width: 100%;
+}
+
+.container-imagen-perfil img {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+}
+
+.container-habilidades {
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
+	gap: 2rem;
+}
+
+.container-habilidades select {
+	margin-top: 20px;
+}
+
+.container-perfil, .habilidad-ofertada, .habilidad-demandada {
+	background-color: #fff;
+	padding: 40px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lista {
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0 40px 0;
+	gap: 10px;
+}
+
+.btn-x {
+	background-color: white;
+}
+
+.container-etiquetas {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-auto-rows: minmax(10px, 40px);
+	grid-gap: 10px;
+}
+
+.etiqueta {
+	background-color: #FFB74D;
+	padding: 5px 15px;
+	padding-left: 15px;
+	border-radius: 50px;
+	width: fit-content;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.etiqueta button {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	transition: 0.5s;
+}
+
+
+.habilidadOfertada {
+	background-color: lime;
+	border-radius: 30%;
+	padding: 10px;
+}

@@ -3,10 +3,44 @@ document.addEventListener("DOMContentLoaded", function() {
 	obtenerIntercambios();
 });
 
+let listaIntercambios = []; 
+
+
+/**
+ * 
+ * usuarioUno = {
+				
+				nombre: nombreUsuario1,
+				id: intercambio.id_usuario_demandada,
+				ofertada: habilidadUsuario1,
+				foto: fotoUsuario1.src 
+			}
+			
+			usuarioDos = {
+				
+				nombre: nombreUsuario2,
+				id: intercambio.id_usuario_ofertada,
+				ofertada: habilidadUsuario2,
+				foto: fotoUsuario2.src
+			}
+			
+ * intercambioAux = {
+				usuario1: usuarioUno,
+				usuario2: usuarioDos
+			}
+			
+		listaIntercambios.push(intercambioAux)
+ */
+let intercambioAux;
+let usuarioUno;
+let usuarioDos;
+
 let usuarioSesionId = null;
 let estadoBD = "";
 let textoEstado = "";
 let claseEstado = "";
+
+
 
 function obtenerUsuarioSesion() {
 	fetch('ObtenerUsuarioSesion')
@@ -32,6 +66,48 @@ function obtenerUsuarioSesion() {
 
 }
 
+function pintarActivo (intercambioActivo)
+{
+	 let divUsuario1 = document.getElementsByClassName("user-info")[0]
+	 let divUsuario2 = document.getElementsByClassName("user-info")[1]
+	 
+	 divUsuario1.children[0].src = intercambioActivo.usuario1.foto;
+	 divUsuario2.children[0].src = intercambioActivo.usuario1.foto;
+	 
+}
+
+function mostrarIntercambioActivo(intercambios)
+{
+	if (intercambios.length==0)
+	{
+		//no tiene intermcabios
+		document.getElementsByClassName("mensajeSin")[0].style.display="block"
+		document.getElementsByClassName("chat-container")[0].style.display="none"
+		document.getElementsByClassName("table-container")[0].style.display="none"
+		
+	} else {
+		//tiene intermcabios
+		//coger el primero
+		//si es aceptado/rechazado o pendiente
+		
+		let estado =  intercambios[0].estado
+		console.log ("Estado = " +estado);
+		switch (estado)
+		{
+			case "ACEPTADO": 
+				pintarActivo (listaIntercambios[0])
+			break;
+			case "RECHAZADO": 
+				pintarActivo (listaIntercambios[0])
+			break;
+			case "PENDIENTE":
+				pintarActivo (listaIntercambios[0]) 
+			break;
+		}
+	}
+	
+}
+
 
 function obtenerIntercambios() {
 	fetch('ObtenerTodosLosIntercambiosCursados')
@@ -40,7 +116,11 @@ function obtenerIntercambios() {
 				case 200:
 					console.log("Intercambios obtenidos");
 					return respuesta.json()
-						.then(infoIntercambios => mostrarIntercambios(infoIntercambios));
+						.then(infoIntercambios => 
+						{
+							mostrarIntercambios(infoIntercambios);
+							mostrarIntercambioActivo(infoIntercambios)
+						});
 				case 404:
 					console.log("Error en la solicitud");
 					break;
@@ -143,6 +223,8 @@ function mostrarIntercambios(infoIntercambios) {
 
 		//IDENTIFICAR USUARIO 1 Y USUARIO 2
 		if (usuarioSesionId == intercambio.id_usuario_ofertada) {
+			//idintercambio, idemisor, idreceptor, mensaje, 
+			
 			nombreUsuario1 = intercambio.nombre_usuario_ofertada;
 			habilidadUsuario1 = intercambio.nombre_habilidad_demandada;
 			fotoUsuario1.src = "ObtenerFoto?idfoto=" + intercambio.ruta_foto_ofertada.split('\\').pop();
@@ -154,6 +236,22 @@ function mostrarIntercambios(infoIntercambios) {
 			habilidad1.innerHTML = habilidadUsuario1;
 			nombre2.innerHTML = nombreUsuario2;
 			habilidad2.innerHTML = habilidadUsuario2;
+			
+			usuarioUno = {
+				
+				nombre: nombreUsuario1,
+				id: intercambio.id_usuario_ofertada,
+				ofertada: habilidadUsuario1,
+				foto: fotoUsuario1.src 
+			}
+			
+			usuarioDos = {
+				
+				nombre: nombreUsuario2,
+				id: intercambio.id_usuario_demandada,
+				ofertada: habilidadUsuario2,
+				foto: fotoUsuario2.src
+			}
 			
 			actualizarEnlaces (contenedorFoto1, usuario1, picture1, fotoUsuario1, nombre1, habilidad1, intercambio.id_usuario_ofertada);
 			actualizarEnlaces (contenedorFoto2, usuario2, picture2, fotoUsuario2, nombre2, habilidad2, intercambio.id_usuario_demandada);
@@ -176,6 +274,22 @@ function mostrarIntercambios(infoIntercambios) {
 			habilidad2.innerHTML = habilidadUsuario2;
 			nombre1.innerHTML = nombreUsuario1;
 			habilidad1.innerHTML = habilidadUsuario1;
+			
+			usuarioUno = {
+				
+				nombre: nombreUsuario1,
+				id: intercambio.id_usuario_demandada,
+				ofertada: habilidadUsuario1,
+				foto: fotoUsuario1.src 
+			}
+			
+			usuarioDos = {
+				
+				nombre: nombreUsuario2,
+				id: intercambio.id_usuario_ofertada,
+				ofertada: habilidadUsuario2,
+				foto: fotoUsuario2.src
+			}
 			
 			actualizarEnlaces (contenedorFoto1, usuario1, picture1, fotoUsuario1, nombre1, habilidad1, intercambio.id_usuario_demandada);
 			actualizarEnlaces (contenedorFoto2, usuario2, picture2, fotoUsuario2, nombre2, habilidad2, intercambio.id_usuario_ofertada);
@@ -201,6 +315,12 @@ function mostrarIntercambios(infoIntercambios) {
 			}
 
 		}
+		intercambioAux = {
+				usuario1: usuarioUno,
+				usuario2: usuarioDos
+			}
+			
+		listaIntercambios.push(intercambioAux)
 		// Llamar a la función pintarEstado para pintar el estado de la fila
 		pintarEstado(intercambio, icono, estado, estadoIntercambio, botones, estadoBD);
 

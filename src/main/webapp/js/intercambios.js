@@ -177,9 +177,9 @@ function mostrarIntercambios(infoIntercambios) {
 			nombre1.innerHTML = nombreUsuario1;
 			habilidad1.innerHTML = habilidadUsuario1;
 			
-			actualizarEnlaces (contenedorFoto1, usuario1, intercambio.id_usuario_demandada);
-			actualizarEnlaces (contenedorFoto2, usuario2, intercambio.id_usuario_ofertada);
-
+			actualizarEnlaces (contenedorFoto1, usuario1, picture1, fotoUsuario1, nombre1, habilidad1, intercambio.id_usuario_demandada);
+			actualizarEnlaces (contenedorFoto2, usuario2, picture2, fotoUsuario2, nombre2, habilidad2, intercambio.id_usuario_ofertada);
+			
 			if (estadoBD == "PENDIENTE") {
 				let botonRechazar = document.createElement("button");
 				botonRechazar.setAttribute('data-intercambio-id', intercambio.idIntercambio);

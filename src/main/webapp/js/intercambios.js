@@ -154,7 +154,10 @@ function mostrarIntercambios(infoIntercambios) {
 			habilidad1.innerHTML = habilidadUsuario1;
 			nombre2.innerHTML = nombreUsuario2;
 			habilidad2.innerHTML = habilidadUsuario2;
-
+			
+			actualizarEnlaces (contenedorFoto1, usuario1, picture1, fotoUsuario1, nombre1, habilidad1, intercambio.id_usuario_ofertada);
+			actualizarEnlaces (contenedorFoto2, usuario2, picture2, fotoUsuario2, nombre2, habilidad2, intercambio.id_usuario_demandada);
+			
 			if (estadoBD == "PENDIENTE") {
 				let mensaje = document.createElement("p");
 				mensaje.innerText = "Esperando respuesta";
@@ -173,6 +176,9 @@ function mostrarIntercambios(infoIntercambios) {
 			habilidad2.innerHTML = habilidadUsuario2;
 			nombre1.innerHTML = nombreUsuario1;
 			habilidad1.innerHTML = habilidadUsuario1;
+			
+			actualizarEnlaces (contenedorFoto1, usuario1, intercambio.id_usuario_demandada);
+			actualizarEnlaces (contenedorFoto2, usuario2, intercambio.id_usuario_ofertada);
 
 			if (estadoBD == "PENDIENTE") {
 				let botonRechazar = document.createElement("button");
@@ -297,3 +303,29 @@ function actualizarEstadoIntercambio(intercambioId, nuevoEstado) {
             console.error("Error al actualizar el estado del intercambio:", error);
         });
 }
+
+//actualizarEnlaces (contenedorFoto1, usuario1, picture1, fotoUsuario1, nombre1, habilidad1, intercambio.id_usuario_ofertada);
+function actualizarEnlaces (tdfoto, tdnombre, picture, imgu, pnombre, phabilidad, id)
+{
+	tdfoto.dataset.user = id;
+	tdnombre.dataset.user = id;
+	picture.dataset.user = id;
+	imgu.dataset.user = id;
+	pnombre.dataset.user = id;
+	phabilidad.dataset.user = id;
+	
+	tdfoto.addEventListener('click', verPerfil);
+	tdnombre.addEventListener('click', verPerfil);
+	picture.addEventListener('click', verPerfil);
+	imgu.addEventListener('click', verPerfil);
+	pnombre.addEventListener('click', verPerfil);
+	phabilidad.addEventListener('click', verPerfil);
+}
+
+function verPerfil (event) {
+	let id = event.target.dataset.user;
+	console.log (event.target + " " + id)
+	window.location.href = 'verperfil.html?idusuario='+id;
+	
+}
+

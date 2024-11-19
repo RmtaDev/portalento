@@ -117,17 +117,17 @@ function validarFormulario(event) {
 }
 
 // Función para alternar la visibilidad de la contraseña.
-// Cambia entre mostrar y ocultar la contraseña, y actualiza el ícono correspondiente.
+// Cambia entre mostrar y ocultar la contraseña, y actualiza el icono correspondiente.
 function alternarVisibilidadPassword(inputId, iconId) {
     const passwordInput = document.getElementById(inputId); // Campo de contraseña.
-    const toggleIcon = document.getElementById(iconId); // Ícono del ojo.
+    const toggleIcon = document.getElementById(iconId); // icono del ojo.
 
     if (passwordInput.type === "password") {
         passwordInput.type = "text"; // Cambia el tipo a texto para mostrar la contraseña.
-        toggleIcon.textContent = "visibility_off"; // Cambia el ícono al ojo tachado.
+        toggleIcon.textContent = "visibility_off"; // Cambia el icono al ojo tachado.
     } else {
         passwordInput.type = "password"; // Cambia el tipo a contraseña para ocultarla.
-        toggleIcon.textContent = "visibility"; // Cambia el ícono al ojo abierto.
+        toggleIcon.textContent = "visibility"; // Cambia el icono al ojo abierto.
     }
 }
 

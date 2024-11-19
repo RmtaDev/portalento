@@ -229,7 +229,7 @@ function pintarEstado(intercambio, icono, estado, estadoIntercambio, botones, es
 
 		let botonMensajes = document.createElement("button");
 		botonMensajes.innerText = "Ver mensajes";
-		botonMensajes.onclick = () => mostrarMensajes(intercambio.idIntercambio);
+		botonMensajes.onclick = () => obtenerMensajes(intercambio.idIntercambio);
 		botonMensajes.classList.add('btn', 'btn-warning');
 
 		//TODO añadir clase seleccionada a la fila y el mensaje de chat activo
@@ -329,3 +329,44 @@ function verPerfil (event) {
 	
 }
 
+function obtenerMensajes(idIntercambio) {
+	let url = "ConsultarMensajes?idintercambio=" + idIntercambio;
+	fetch(url)
+		.then(respuesta => {
+			switch (respuesta.status) {
+				case 200:
+					console.log("Mensajes obtenidos");
+					return respuesta.json()
+						.then(listaMensajes => mostrarMensajes(listaMensajes));
+				case 404:
+					console.log("Error en la solicitud");
+					break;
+				case 500:
+					console.log("Error al obtener los mensajes");
+					break;
+			}
+		})
+		.catch(error => {
+			console.error('Error al obtener los mensajes:', error);
+		});
+}
+
+function mostrarMensajes(listaMensajes) {
+	console.log("INFO = " + listaMensajes);
+	let divContenedorMensajes = document.getElementById("contenedor-mensajes");
+	divContenedorMensajes.innerHTML = "";
+	
+	listaMensajes.forEach(mensaje => {
+		let divMensaje = document.createElement("div");
+		divMensaje.innerText = mensaje.fecha_hora + "\n";
+		divMensaje.innerText += mensaje.texto;
+		
+		if (mensaje.emisor == usuarioSesionId){
+			divMensaje.classList.add("message", "user1");
+		} else {
+			divMensaje.classList.add("message", "user2");
+		}
+		 
+		divContenedorMensajes.appendChild(divMensaje);
+	});
+}

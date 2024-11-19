@@ -15,10 +15,10 @@ function alternarVisibilidadPassword() {
 
     if (passwordInput.type === "password") {
         passwordInput.type = "text"; // Muestra la contraseña
-        toggleIcon.textContent = "visibility_off"; // Cambia el ícono al ojo tachado
+        toggleIcon.textContent = "visibility_off"; // Cambia el icono al ojo tachado
     } else {
         passwordInput.type = "password"; // Oculta la contraseña
-        toggleIcon.textContent = "visibility"; // Cambia el ícono al ojo abierto
+        toggleIcon.textContent = "visibility"; // Cambia el icono al ojo abierto
     }
 }
 

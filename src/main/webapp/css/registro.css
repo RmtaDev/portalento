@@ -1,70 +1,66 @@
 .container-formulario {
 	position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 75px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 75px;
 }
 
 .inicio {
 	color: black;
-    font-size: 15px; 
-    font-weight: bolder; 
-    text-decoration: none; 
+	font-size: 15px; 
+	font-weight: bolder; 
+	text-decoration: none; 
 }
 
 .form-container {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 2px solid black;
-    width: 500px;
-    text-align: center;
-    margin: 90px 0 20px 0;
-   /* max-height: 817px;
-    overflow-y: scroll;*/
+	background-color: #fff;
+	padding: 40px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	border: 2px solid black;
+	width: 500px;
+	text-align: center;
+	margin: 90px 0 20px 0;
 }
 
-.form-container::-webkit-scrollbar{
+.form-container::-webkit-scrollbar {
 	width: 0;
 }
+
 .form-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+	margin-bottom: 20px;
+	font-size: 24px;
+	color: #333;
 }
 
 .form-group {
-    margin-bottom: 20px;
-    text-align: left;
+	margin-bottom: 20px;
+	text-align: left;
 }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"],
-							input[type="number"], textarea {
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+textarea {
+    /* Otros estilos generales para los inputs */
     width: 100%;
     padding: 12px;
-    margin-top: 8px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Suavidad en la transición */
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, 
-							input[type="tel"]:focus,
-							input[type="password"]:focus, textarea:focus {
-    border-color: #5cb85c;
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="password"]:focus, 
+textarea:focus {
+    border-color: #28a745; /* Color verde brillante */
+    box-shadow: 0 0 5px #28a745; /* Efecto de brillo */
     outline: none;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
 
 .boton-formulario {
 	display: flex;
@@ -74,11 +70,53 @@ input[type=number]::-webkit-outer-spin-button {
 span {
 	color: red;
 }
-/*input:invalid, textarea:invalid {
-  border: 2px solid red;
+
+/* Estilos específicos para el ojo */
+
+/* Contenedor del campo de contraseña */
+.password-container {
+	position: relative; /* Necesario para posicionar el botón del ojo */
+	display: flex; /* Flexbox para alinear input y botón */
+	align-items: center; /* Alinea verticalmente */
+	width: 100%; /* El contenedor ocupa el ancho completo */
 }
-input:valid, textarea:valid {
-  border: 2px solid black;
-}*/
 
+/* Campo de entrada de contraseña */
+.password-container input {
+	width: 100%; /* Asegura que el input ocupa todo el espacio */
+	padding: 12px; /* Espaciado interno */
+	padding-right: 2.5rem; /* Espacio para el botón del ojo */
+	margin: 0; /* Elimina márgenes adicionales */
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
+	box-sizing: border-box;
+	transition: border-color 0.3s ease;
+}
 
+/* Botón del ojo */
+.toggle-password {
+    position: absolute; /* Permite posicionarlo dentro del contenedor */
+    right: 10px; /* Ajusta la distancia del borde derecho */
+    background: none; /* Elimina el fondo predeterminado */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    display: flex; /* Asegura que el ícono esté centrado */
+    align-items: center;
+    justify-content: center;
+    font-size: 24px; /* Tamaño del icono */
+    color: #666; /* Color del icono */
+    transition: color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+/* Ícono de Material Symbols */
+.material-symbols-outlined {
+     font-size: 24px; /* Tamaño del icono */
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+/* Cambiar color al pasar el mouse sobre el botón */
+.toggle-password:hover .material-symbols-outlined {
+    color: #333; /* Oscurece el color del icono */
+}

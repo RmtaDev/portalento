@@ -22,6 +22,9 @@ function obtenerMensajes(idIntercambio) {
 
 function mostrarMensajes(listaMensajes) {
 	console.log("INFO = " + listaMensajes);
+	let divContenedorMensajes = document.getElementById("contenedor-mensajes");
+	divContenedorMensajes.innerHTML = "";
+	
 	listaMensajes.forEach(mensaje => {
 		let divMensaje = document.createElement("div");
 		divMensaje.innerText = mensaje.fecha_hora + "\n";
@@ -33,7 +36,6 @@ function mostrarMensajes(listaMensajes) {
 			divMensaje.classList.add("message", "user2");
 		}
 		 
-		let divContenedorMensajes = document.getElementById("contenedor-mensajes");
 		divContenedorMensajes.appendChild(divMensaje);
 	});
 }

@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	const clearStyles = () => {
 		if (selectedElement) {
 			selectedElement.style.cssText = '';
+			selectedElement = null;
 		}
-		selectedElement = null;
 	};
 
 	const toggleZoom = () => {

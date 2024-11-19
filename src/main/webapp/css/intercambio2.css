@@ -72,3 +72,8 @@
 .table th, .table td {
     white-space: nowrap;
 }
+
+.foto-usuario1, .foto-usuario2, .nombre-usuario1, .nombre-usuario2
+{
+	cursor: pointer;
+}

@@ -8,7 +8,7 @@ function insertarHabilidadOfertada() {
 		const habilidadOfertada = document.getElementById("ofertadas").value.trim().toUpperCase();
 		
 
-		if (idCategoria && habilidadOfertada && habilidadOfertada.length > 1 && habilidadOfertada.length <= 10) {
+		if (idCategoria && habilidadOfertada && habilidadOfertada.length > 1 && habilidadOfertada.length <= 20) {
 			console.log(`Has insertado : Categoria = ${idCategoria}, Texto = ${habilidadOfertada}`);
 
 			//Crear la URL con parametros de consulta
@@ -31,7 +31,7 @@ function insertarHabilidadOfertada() {
 					console.log("respuesta del servidor: ", data);
 					
 					let divPadre = document.getElementById("container-hb-ofertadas");
-					pintarHabilidadOfertada (data, divPadre);
+					pintarHabilidadDemandada (data, divPadre);
 					
 					const selectCategoria = document.getElementById("habilidadOfertada");
                 selectCategoria.selectedIndex = 0; 
@@ -49,7 +49,7 @@ function insertarHabilidadOfertada() {
 
 		else {
 			console.log("por favor, completa todos los campos.");
-			alert("Por favor, complete categoria y habilidad (máximo 10 caracteres).");
+			alert("Por favor, complete categoria y habilidad (máximo 20 caracteres).");
 		}
 
 

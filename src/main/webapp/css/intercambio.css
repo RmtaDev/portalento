@@ -1,25 +1,22 @@
 .mensajeSin
 {
 	display:none;
-	margin-top:125px;
 	text-align: center;
 }
-
-.main-container {
-    padding: 2rem;
-    margin-top: 10vh;
-    margin: 100px;
+  
+main{
+	padding-top: 100px;
 }
 
 .chat-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 1rem;
     height: 450px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5%; 
+    gap:50px;
 }
 
 .user-info {
@@ -30,16 +27,9 @@
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 2%; /
+
 }
 
-.user-info:first-child {
-    margin-right: 5%;
-}
-
-.user-info:last-child {
-    margin-left: 5%;
-}
 
 .user-info img {
     width: 100px;
@@ -60,9 +50,11 @@
     position: relative;
     overflow-y: auto;
     max-height: 300px;
-    margin-top: 5%; 
-}
 
+}
+.chat-box::-webkit-scrollbar {
+	width:0;
+}
 .message {
     max-width: 60%;
     padding: 0.5rem 1rem;
@@ -112,7 +104,7 @@
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #0000a0 !important;
     color: white;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

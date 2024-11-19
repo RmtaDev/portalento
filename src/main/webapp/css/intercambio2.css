@@ -11,8 +11,8 @@
 }
 
 .table-container {
-    margin-top: calc(-6.25%); /* Mueve el div hacia arriba la mitad de la mitad de la mitad de la mitad de la distancia original */
-    margin-bottom: 100px;
+    /*margin-top: calc(-6.25%); /* Mueve el div hacia arriba la mitad de la mitad de la mitad de la mitad de la distancia original */
+    margin: 0 50px 100px 50px;
 }
 
 .table p {
@@ -76,4 +76,8 @@
 .foto-usuario1, .foto-usuario2, .nombre-usuario1, .nombre-usuario2
 {
 	cursor: pointer;
+}
+
+.botones button{
+	margin: 0 10px ;
 }

@@ -90,7 +90,7 @@ textarea:focus {
     background: none; /* Elimina el fondo predeterminado */
     border: none; /* Sin borde */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    display: flex; /* Asegura que el ícono esté centrado */
+    display: flex; /* Asegura que el icono esté centrado */
     align-items: center;
     justify-content: center;
     font-size: 24px; /* Tamaño del icono */
@@ -110,31 +110,88 @@ textarea:focus {
     color: #333; /* Oscurece el color del icono */
 }
 
+/* Centrar Spinner */
 .spinner-container {
-    display: none; /* Ocultarlo inicialmente */
-    position: fixed; /* Posición fija para que quede centrado en la pantalla */
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo respecto a la pantalla */
     top: 0;
     left: 0;
-    width: 100vw; /* Ocupa todo el ancho */
-    height: 100vh; /* Ocupa todo el alto */
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
-    display: flex; /* Flexbox para centrar */
-    justify-content: center; /* Centrado horizontal */
-    align-items: center; /* Centrado vertical */
-    z-index: 9999; /* Asegúrate de que esté encima de todo */
+    width: 100vw; /* 100% del ancho de la pantalla */
+    height: 100vh; /* 100% del alto de la pantalla */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    display: flex; /* Flexbox para centrar contenido */
+    justify-content: center; /* Alineación horizontal */
+    align-items: center; /* Alineación vertical */
+    z-index: 9999; /* Asegúrate de que esté por encima de todo */
 }
 
 .spinner {
-    width: 36px;
-    height: 36px;
-    border: 5px solid #fff;
-    border-top-color: #09f;
-    border-radius: 50%;
-    animation: spin 1s infinite;
+    width: 80px; /* Aumentamos el tamaño */
+    height: 80px;
+    border: 5px solid transparent; /* Bordes transparentes */
+    border-top: 5px solid; /* Borde superior con gradiente */
+    border-radius: 50%; /* Forma circular */
+    animation: spin 1s linear infinite, colorShift 4s ease infinite; /* Rotación y cambio de color */
+    margin: 20px auto; /* Centrar */
 }
 
+/* Efecto gradiente animado */
+.spinner {
+    border-image: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff8000,
+        #ffff00,
+        #80ff00,
+        #00ffff,
+        #8000ff,
+        #ff00ff
+    ) 1;
+}
+
+/* Animación de rotación */
 @keyframes spin {
     to {
-        transform: rotate(360deg);
+        transform: rotate(360deg); /* Rotación completa */
+    }
+}
+
+/* Animación de cambio de color */
+@keyframes colorShift {
+    0% {
+        border-image-source: linear-gradient(
+            45deg,
+            #ff0000,
+            #ff8000,
+            #ffff00,
+            #80ff00,
+            #00ffff,
+            #8000ff,
+            #ff00ff
+        );
+    }
+    50% {
+        border-image-source: linear-gradient(
+            45deg,
+            #00ffff,
+            #8000ff,
+            #ff00ff,
+            #ff0000,
+            #ff8000,
+            #ffff00,
+            #80ff00
+        );
+    }
+    100% {
+        border-image-source: linear-gradient(
+            45deg,
+            #ff0000,
+            #ff8000,
+            #ffff00,
+            #80ff00,
+            #00ffff,
+            #8000ff,
+            #ff00ff
+        );
     }
 }

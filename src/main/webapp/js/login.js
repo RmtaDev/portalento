@@ -26,7 +26,7 @@ function alternarVisibilidadPassword() {
 function mostrarSpinner() {
     const spinner = document.getElementById("spinner");
     if (spinner) {
-        spinner.style.display = "block";
+        spinner.style.display = "flex"; // Mostrar el spinner centrado
         console.log("Spinner mostrado correctamente.");
     } else {
         console.error("No se encontró el elemento spinner en el DOM.");
@@ -42,20 +42,6 @@ function ocultarSpinner() {
     } else {
         console.error("No se encontró el elemento spinner en el DOM.");
     }
-}
-
-// Ocultar el spinner con un retraso de 2 segundos
-function ocultarSpinnerConRetraso() {
-    console.log("Iniciando temporizador para ocultar el spinner...");
-    setTimeout(() => {
-        const spinner = document.getElementById("spinner");
-        if (spinner) {
-            spinner.style.display = "none";
-            console.log("Spinner ocultado después del retraso.");
-        } else {
-            console.error("No se encontró el elemento spinner en el DOM.");
-        }
-    }, 2000); // Retraso de 2 segundos (2000 ms)
 }
 
 // Función para manejar el inicio de sesión
@@ -76,7 +62,10 @@ function loginServidor() {
             headers: { "Content-Type": "application/json" },
         })
             .then((respuesta) => {
-                ocultarSpinnerConRetraso(); // Ocultar el spinner con retraso
+                setTimeout(() => {
+                    ocultarSpinner(); // Ocultar el spinner después de 2 segundos
+                }, 2000);
+
                 switch (respuesta.status) {
                     case 200:
                         window.location.href = "perfil.html"; // Redirigir al perfil en caso de éxito
@@ -95,7 +84,7 @@ function loginServidor() {
                 }
             })
             .catch((error) => {
-                ocultarSpinnerConRetraso(); // Ocultar el spinner incluso en caso de error
+                ocultarSpinner(); // Ocultar el spinner incluso en caso de error
                 console.error("Error en la solicitud:", error);
                 alert("Ocurrió un error en la conexión");
             });
@@ -110,4 +99,3 @@ document.addEventListener("DOMContentLoaded", () => {
     ocultarSpinner(); // Asegurarse de que el spinner esté oculto al cargar la página
     console.log("Página cargada. Spinner ocultado.");
 });
-

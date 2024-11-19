@@ -109,3 +109,32 @@ textarea:focus {
 .toggle-password:hover .material-symbols-outlined {
     color: #333; /* Oscurece el color del icono */
 }
+
+.spinner-container {
+    display: none; /* Ocultarlo inicialmente */
+    position: fixed; /* Posición fija para que quede centrado en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Ocupa todo el ancho */
+    height: 100vh; /* Ocupa todo el alto */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+    display: flex; /* Flexbox para centrar */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    z-index: 9999; /* Asegúrate de que esté encima de todo */
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 5px solid #fff;
+    border-top-color: #09f;
+    border-radius: 50%;
+    animation: spin 1s infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

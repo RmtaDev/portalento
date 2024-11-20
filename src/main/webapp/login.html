@@ -62,7 +62,12 @@
 	</header>
 
 	<main>
+		<div class="spinner-container" id="spinner">
+    	<div class="spinner"></div>
+		</div>
+		
 		<div class="container-formulario">
+		
 			<div class="form-container">
 				<h1>Inicia sesión</h1>
 				<form onsubmit="event.preventDefault(); loginServidor();" action="registro" method="post">
@@ -86,7 +91,9 @@
 
 					<div class="boton-formulario">
 						<button type="submit" class="btn btn-warning">Entrar</button>
-					</div>
+						
+				
+					
 
 				</form>
 			</div>

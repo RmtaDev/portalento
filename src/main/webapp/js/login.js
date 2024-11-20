@@ -22,8 +22,32 @@ function alternarVisibilidadPassword() {
     }
 }
 
+// Mostrar el spinner
+function mostrarSpinner() {
+    const spinner = document.getElementById("spinner");
+    if (spinner) {
+        spinner.style.display = "flex"; // Mostrar el spinner centrado
+        console.log("Spinner mostrado correctamente.");
+    } else {
+        console.error("No se encontró el elemento spinner en el DOM.");
+    }
+}
+
+// Ocultar el spinner inmediatamente
+function ocultarSpinner() {
+    const spinner = document.getElementById("spinner");
+    if (spinner) {
+        spinner.style.display = "none";
+        console.log("Spinner ocultado correctamente.");
+    } else {
+        console.error("No se encontró el elemento spinner en el DOM.");
+    }
+}
+
 // Función para manejar el inicio de sesión
 function loginServidor() {
+    mostrarSpinner(); // Mostrar el spinner al iniciar el proceso de login
+
     const usuario = document.getElementById("nombreUsuario").value;
     const password = document.getElementById("contraseña").value;
 
@@ -38,6 +62,10 @@ function loginServidor() {
             headers: { "Content-Type": "application/json" },
         })
             .then((respuesta) => {
+                setTimeout(() => {
+                    ocultarSpinner(); // Ocultar el spinner después de 2 segundos
+                }, 2000);
+
                 switch (respuesta.status) {
                     case 200:
                         window.location.href = "perfil.html"; // Redirigir al perfil en caso de éxito
@@ -56,10 +84,18 @@ function loginServidor() {
                 }
             })
             .catch((error) => {
+                ocultarSpinner(); // Ocultar el spinner incluso en caso de error
                 console.error("Error en la solicitud:", error);
                 alert("Ocurrió un error en la conexión");
             });
     } else {
-        alert("Por favor, introduce datos válidos"); // Mensaje en caso de que no se cumplan las validaciones
+        ocultarSpinner(); // Si no pasa las validaciones, oculta el spinner directamente
+        alert("Por favor, introduce datos válidos");
     }
 }
+
+// Ocultar el spinner al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+    ocultarSpinner(); // Asegurarse de que el spinner esté oculto al cargar la página
+    console.log("Página cargada. Spinner ocultado.");
+});

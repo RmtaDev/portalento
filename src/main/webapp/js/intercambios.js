@@ -505,15 +505,17 @@ function mostrarMensajes(listaMensajes) {
 	
 	listaMensajes.forEach(mensaje => {
 		let divMensaje = document.createElement("div");
-		divMensaje.innerText = mensaje.fecha_hora + "\n";
-		divMensaje.innerText += mensaje.texto;
 		
 		if (mensaje.emisor == usuarioSesionId){
 			divMensaje.classList.add("message", "user1");
 		} else {
 			divMensaje.classList.add("message", "user2");
 		}
-		 
+		
+		divMensaje.innerHTML = `${mensaje.fecha_hora}<br>${mensaje.texto}`;
+		
 		divContenedorMensajes.appendChild(divMensaje);
 	});
+	
+	divContenedorMensajes.scrollTop = divContenedorMensajes.scrollHeight;
 }

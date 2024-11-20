@@ -8,6 +8,28 @@ function limpiarMensajesError() {
 // Variable global para almacenar el texto del campo 'Habla sobre ti'.
 let hablaSobreTi; // Para setearlo individualmente en el FormData.
 
+// Mostrar el spinner
+function mostrarSpinner() {
+    const spinner = document.getElementById("spinner");
+    if (spinner) {
+        spinner.style.display = "flex"; // Muestra el spinner con flex para centrarlo
+        console.log("Spinner mostrado correctamente.");
+    } else {
+        console.error("No se encontró el elemento spinner en el DOM.");
+    }
+}
+
+// Ocultar el spinner
+function ocultarSpinner() {
+    const spinner = document.getElementById("spinner");
+    if (spinner) {
+        spinner.style.display = "none"; // Oculta el spinner
+        console.log("Spinner ocultado correctamente.");
+    } else {
+        console.error("No se encontró el elemento spinner en el DOM.");
+    }
+}
+
 // Función para validar los campos del formulario.
 function validarCampos() {
     // Capturamos los valores de los campos del formulario.
@@ -71,13 +93,14 @@ function validarCampos() {
         esValido = false;
     }
 
-    console.log("validado"); // Registro en consola para depuración.
+    console.log("Validado"); // Registro en consola para depuración.
     return esValido; // Devuelve si el formulario es válido o no.
 }
 
 // Función para validar y enviar el formulario.
 function validarFormulario(event) {
     limpiarMensajesError(); // Limpiamos los mensajes previos.
+    mostrarSpinner(); // Mostrar el spinner antes de validar
 
     const esValido = validarCampos(); // Validamos los campos del formulario.
 
@@ -92,6 +115,7 @@ function validarFormulario(event) {
             body: infoUsuario
         })
         .then(respuesta => {
+            ocultarSpinner(); // Ocultar el spinner tras obtener la respuesta
             // Manejo de los diferentes estados de la respuesta del servidor.
             switch (respuesta.status) {
                 case 200:
@@ -110,9 +134,13 @@ function validarFormulario(event) {
             }
         })
         .catch(error => {
+            ocultarSpinner(); // Ocultar el spinner en caso de error
             console.error("Error en la solicitud:", error);
-            mensajeDiv.innerHTML += 'Error en la conexión con el servidor.<br>';
+            alert("Ocurrió un error en la conexión");
         });
+    } else {
+        ocultarSpinner(); // Ocultar el spinner si la validación falla
+        alert("Por favor, corrige los errores del formulario");
     }
 }
 
@@ -131,3 +159,8 @@ function alternarVisibilidadPassword(inputId, iconId) {
     }
 }
 
+// Ocultar el spinner al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+    ocultarSpinner(); // Asegurarse de que el spinner esté oculto al cargar la página
+    console.log("Página cargada. Spinner ocultado.");
+});

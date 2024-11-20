@@ -129,10 +129,9 @@
 }
 
 .container-etiquetas {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-auto-rows: minmax(10px, 40px);
-	grid-gap: 10px;
+	display: flex;	
+	gap: 10px;
+	flex-wrap:wrap;
 }
 
 .etiqueta {
@@ -140,7 +139,7 @@
 	padding: 5px 15px;
 	padding-left: 15px;
 	border-radius: 50px;
-	width: fit-content;
+	width: max-content;
 	display: flex;
 	align-items: center;
 	gap: 10px;

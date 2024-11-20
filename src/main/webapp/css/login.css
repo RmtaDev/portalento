@@ -122,11 +122,11 @@ textarea:focus {
     display: flex; /* Flexbox para centrar contenido */
     justify-content: center; /* Alineación horizontal */
     align-items: center; /* Alineación vertical */
-    z-index: 9999; /* Asegúrate de que esté por encima de todo */
+    z-index: 9999; /* se asegura que está encima de todo */
 }
 
 .spinner {
-    width: 80px; /* Aumentamos el tamaño */
+    width: 80px; /* Aumenta el tamaño */
     height: 80px;
     border: 5px solid transparent; /* Bordes transparentes */
     border-top: 5px solid; /* Borde superior con gradiente */

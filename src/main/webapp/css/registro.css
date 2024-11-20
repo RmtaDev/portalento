@@ -42,7 +42,9 @@
 
 input[type="text"], 
 input[type="email"], 
-input[type="password"], 
+input[type="password"],
+input[type="number"],
+input[type="tel"], 
 textarea {
     /* Otros estilos generales para los inputs */
     width: 100%;
@@ -54,12 +56,21 @@ textarea {
 
 input[type="text"]:focus, 
 input[type="email"]:focus, 
-input[type="password"]:focus, 
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus, 
 textarea:focus {
     border-color: #28a745; /* Color verde brillante */
     box-shadow: 0 0 5px #28a745; /* Efecto de brillo */
     outline: none;
 }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
 
 
 .boton-formulario {

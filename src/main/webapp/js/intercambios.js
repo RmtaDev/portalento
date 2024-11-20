@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 let listaIntercambios = []; 
+let nintercambio = 0;//levamos la cuenta del número de intermcabios renderizado
 
 
 /**
@@ -25,6 +26,7 @@ let listaIntercambios = [];
 			}
 			
  * intercambioAux = {
+			    idintercambio: intercambio.idIntercambio,
 				usuario1: usuarioUno,
 				usuario2: usuarioDos
 			}
@@ -66,14 +68,33 @@ function obtenerUsuarioSesion() {
 
 }
 
-function pintarActivo (intercambioActivo)
+function enviarMensaje (evento)
 {
+	//TODO coger el listaIntercambios [numintercambio]
+	console.log ("Enviar mensaje sobre intermcabio " + evento.target.dataset.numintercambio)
+	let nintermcabio = evento.target.dataset.numintercambio;
+	console.log (listaIntercambios[nintermcabio].usuario1.nombre);
+	console.log (listaIntercambios[nintermcabio].idintercambio);
+	
+}
+
+function pintarActivo (numintercambio)
+{
+	 let intercambioActivo = listaIntercambios[numintercambio]
 	 let divUsuario1 = document.getElementsByClassName("user-info")[0]
 	 let divUsuario2 = document.getElementsByClassName("user-info")[1]
 	 
 	 divUsuario1.children[0].src = intercambioActivo.usuario1.foto;
-	 divUsuario2.children[0].src = intercambioActivo.usuario1.foto;
+	 divUsuario1.children[1].innerHTML = intercambioActivo.usuario1.nombre;
+	 divUsuario1.children[2].innerHTML = intercambioActivo.usuario1.ofertada;
 	 
+	 divUsuario2.children[0].src = intercambioActivo.usuario2.foto;
+	 divUsuario2.children[1].innerHTML = intercambioActivo.usuario2.nombre;
+	 divUsuario2.children[2].innerHTML = intercambioActivo.usuario2.ofertada;
+
+	document.getElementById("btnEnviar").dataset.numintercambio = numintercambio;
+	document.getElementById("btnEnviar").removeEventListener('click',enviarMensaje)
+	document.getElementById("btnEnviar").addEventListener('click', enviarMensaje)	 
 }
 
 function mostrarIntercambioActivo(intercambios)
@@ -95,13 +116,13 @@ function mostrarIntercambioActivo(intercambios)
 		switch (estado)
 		{
 			case "ACEPTADO": 
-				pintarActivo (listaIntercambios[0])
+				pintarActivo (0)
 			break;
 			case "RECHAZADO": 
-				pintarActivo (listaIntercambios[0])
+				pintarActivo (0)
 			break;
 			case "PENDIENTE":
-				pintarActivo (listaIntercambios[0]) 
+				pintarActivo (0) 
 			break;
 		}
 	}
@@ -298,7 +319,7 @@ function mostrarIntercambios(infoIntercambios) {
 				let botonRechazar = document.createElement("button");
 				botonRechazar.setAttribute('data-intercambio-id', intercambio.idIntercambio);
 				botonRechazar.setAttribute('data-nuevo-estado', "RECHAZADO");
-				botonRechazar.onclick = () => actualizarEstadoIntercambio(intercambio.idIntercambio, "RECHAZADO"); botonRechazar.innerText = "Rechazar";
+				botonRechazar.onclick = () => actualizarEstadoIntercambio(intercambio.idIntercambio, "RECHAZADO", nintercambio); botonRechazar.innerText = "Rechazar";
 				botonRechazar.classList.add('btn', 'btn-danger');
 				botones.appendChild(botonRechazar);
 
@@ -308,7 +329,7 @@ function mostrarIntercambios(infoIntercambios) {
 				botonAceptar.innerText = "Aceptar";
 				botonAceptar.setAttribute('data-intercambio-id', intercambio.idIntercambio);
 				botonAceptar.setAttribute('data-nuevo-estado', "ACEPTADO");
-				botonAceptar.onclick = () => actualizarEstadoIntercambio(intercambio.idIntercambio, "ACEPTADO");
+				botonAceptar.onclick = () => actualizarEstadoIntercambio(intercambio.idIntercambio, "ACEPTADO", nintercambio);
 				botonAceptar.classList.add('btn', 'btn-success');
 				botones.appendChild(botonAceptar);
 
@@ -316,19 +337,21 @@ function mostrarIntercambios(infoIntercambios) {
 
 		}
 		intercambioAux = {
+			    idintercambio: intercambio.idIntercambio,
 				usuario1: usuarioUno,
 				usuario2: usuarioDos
 			}
 			
 		listaIntercambios.push(intercambioAux)
+		//let nintercambio = listaIntercambios.length-1;
 		// Llamar a la función pintarEstado para pintar el estado de la fila
-		pintarEstado(intercambio, icono, estado, estadoIntercambio, botones, estadoBD);
-
+		pintarEstado(intercambio, icono, estado, estadoIntercambio, botones, estadoBD, nintercambio);
+		nintercambio = nintercambio+1;
 	});
 }
 
 //Identifica estado de la base de datos para pintar el estado correspondiente en la fila
-function pintarEstado(intercambio, icono, estado, estadoIntercambio, botones, estadoBD) {
+function pintarEstado(intercambio, icono, estado, estadoIntercambio, botones, estadoBD, nintercambio) {
  	icono.innerHTML = '';
     estado.innerHTML = '';
     estadoIntercambio.className = 'estado-intercambio';
@@ -349,7 +372,11 @@ function pintarEstado(intercambio, icono, estado, estadoIntercambio, botones, es
 
 		let botonMensajes = document.createElement("button");
 		botonMensajes.innerText = "Ver mensajes";
-		botonMensajes.onclick = () => obtenerMensajes(intercambio.idIntercambio);
+		botonMensajes.onclick = () => {
+			obtenerMensajes(intercambio.idIntercambio);
+			pintarActivo(nintercambio);
+			}
+			
 		botonMensajes.classList.add('btn', 'btn-warning');
 
 		//TODO añadir clase seleccionada a la fila y el mensaje de chat activo
@@ -369,7 +396,7 @@ function pintarEstado(intercambio, icono, estado, estadoIntercambio, botones, es
 
 
 //CAMBIO DE ESTADO AL CLICAR BOTON ACEPTAR O RECHAZAR
-function actualizarEstadoIntercambio(intercambioId, nuevoEstado) {
+function actualizarEstadoIntercambio(intercambioId, nuevoEstado, numintercambio) {
     let estadoIntercambio = {
         idIntercambio: intercambioId,
         nuevoEstado: nuevoEstado
@@ -397,7 +424,7 @@ function actualizarEstadoIntercambio(intercambioId, nuevoEstado) {
 
                         botones.innerHTML = '';
 
-                        pintarEstado({ idIntercambio: intercambioId }, icono, estado, estadoIntercambio, botones, estadoBD);
+                        pintarEstado({ idIntercambio: intercambioId }, icono, estado, estadoIntercambio, botones, estadoBD, numintercambio);
                     } else {
                         console.error("No se encontró la fila del intercambio en el DOM.");
                     }
@@ -478,15 +505,17 @@ function mostrarMensajes(listaMensajes) {
 	
 	listaMensajes.forEach(mensaje => {
 		let divMensaje = document.createElement("div");
-		divMensaje.innerText = mensaje.fecha_hora + "\n";
-		divMensaje.innerText += mensaje.texto;
 		
 		if (mensaje.emisor == usuarioSesionId){
 			divMensaje.classList.add("message", "user1");
 		} else {
 			divMensaje.classList.add("message", "user2");
 		}
-		 
+		
+		divMensaje.innerHTML = `${mensaje.fecha_hora}<br>${mensaje.texto}`;
+		
 		divContenedorMensajes.appendChild(divMensaje);
 	});
+	
+	divContenedorMensajes.scrollTop = divContenedorMensajes.scrollHeight;
 }

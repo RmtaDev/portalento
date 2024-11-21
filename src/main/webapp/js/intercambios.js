@@ -249,10 +249,12 @@ function mostrarIntercambios(infoIntercambios) {
 			nombreUsuario1 = intercambio.nombre_usuario_ofertada;
 			habilidadUsuario1 = intercambio.nombre_habilidad_demandada;
 			fotoUsuario1.src = "ObtenerFoto?idfoto=" + intercambio.ruta_foto_ofertada.split('\\').pop();
+			fotoUsuario1.alt = "";
 			nombreUsuario2 = intercambio.nombre_usuario_demandada;
 			habilidadUsuario2 = intercambio.nombre_habilidad_ofertada;
 			fotoUsuario2.src = "ObtenerFoto?idfoto=" + intercambio.ruta_foto_demandada.split('\\').pop();
-
+			fotoUsuario2.alt = "";
+			
 			nombre1.innerHTML = nombreUsuario1;
 			habilidad1.innerHTML = habilidadUsuario1;
 			nombre2.innerHTML = nombreUsuario2;
@@ -287,9 +289,11 @@ function mostrarIntercambios(infoIntercambios) {
 			nombreUsuario2 = intercambio.nombre_usuario_ofertada;
 			habilidadUsuario2 = intercambio.nombre_habilidad_demandada;
 			fotoUsuario2.src = "ObtenerFoto?idfoto=" + intercambio.ruta_foto_ofertada.split('\\').pop();
+			fotoUsuario2.alt = "";
 			nombreUsuario1 = intercambio.nombre_usuario_demandada;
 			habilidadUsuario1 = intercambio.nombre_habilidad_ofertada;
 			fotoUsuario1.src = "ObtenerFoto?idfoto=" + intercambio.ruta_foto_demandada.split('\\').pop();
+			fotoUsuario1.alt = "";
 
 			nombre2.innerHTML = nombreUsuario2;
 			habilidad2.innerHTML = habilidadUsuario2;

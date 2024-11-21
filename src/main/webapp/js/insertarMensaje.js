@@ -15,7 +15,7 @@ function prepararDatos(user, id) {
 
 	if (inputMensaje && botonEnviar) {
 		// Primero reemplazamos el botón y luego asignamos el eventListener
-		botonEnviar.replaceWith(botonEnviar.cloneNode(true));
+		//botonEnviar.replaceWith(botonEnviar.cloneNode(true));
 
 		// Verificamos que el texto del mensaje no esté vacío
 		const textoMensaje = inputMensaje.value.trim();

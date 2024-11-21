@@ -55,6 +55,8 @@ public class FiltroSesion extends HttpFilter implements Filter {
 		{
 			log.debug("El usuario ya tiene sesión. Le dejamos pasar");
 			chain.doFilter(request, response);
+			//añadimos para que se fuerce al navegador a no usar la caché
+			((HttpServletResponse) response).setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
 		} else {
 			//si no, le dejo seguir
 			log.debug("El usuario NO tiene sesión. Le redirigo login.html");

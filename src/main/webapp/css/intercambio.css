@@ -70,14 +70,14 @@ main{
 
 .message.user1 {
     background-color: #e0f7fa;
-    margin-left: auto;
-    text-align: right;
+    margin-right: auto;
+    /*text-align: right;*/
 }
 
 .message.user2 {
     background-color: #e8eaf6;
-    margin-right: auto;
-    text-align: left;
+    margin-left: auto;
+    /*text-align: left;*/
 }
 
 .message-input-container {

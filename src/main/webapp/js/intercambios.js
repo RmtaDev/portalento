@@ -532,4 +532,3 @@ function enviarMensaje() {
 	prepararDatos(user2, idtabla);
 	
 }
-

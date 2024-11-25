@@ -3,7 +3,7 @@ window.onload = pedirListadoHabilidades;
 function pedirListadoHabilidades()
 {
 	console.log("Pidiendo datos al servidor . . .");
-	fetch("http://localhost:9090/proyectoAbilitySwap/ListadoCategoriasHabilidadesServlet")
+	fetch("ListadoCategoriasHabilidadesServlet")
 	.then(respuesta=> {
 		console.log("Respuesta recibida " + respuesta.status);
 		return respuesta.json();

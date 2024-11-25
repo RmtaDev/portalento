@@ -100,11 +100,12 @@ function validarCampos() {
 // Función para validar y enviar el formulario.
 function validarFormulario(event) {
     limpiarMensajesError(); // Limpiamos los mensajes previos.
-    mostrarSpinner(); // Mostrar el spinner antes de validar
 
     const esValido = validarCampos(); // Validamos los campos del formulario.
 
     if (esValido) {
+		
+		mostrarSpinner(); // Si es válido muestra el spinner
         // Creamos un objeto FormData con los datos del formulario.
         let infoUsuario = new FormData(event.target);
         infoUsuario.append("hablaSobreTi", hablaSobreTi); // Añadimos el texto de 'Habla sobre ti' porque no se captura automáticamente.

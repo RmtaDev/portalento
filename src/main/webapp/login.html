@@ -29,14 +29,14 @@
 		</button>
 		<div id="radialMenu" class="radial-menu">
 			<button id="monocromaticoBtn" aria-label="Activar/Desactivar modo monocromático"
-				title="Activar/Desactivar modo monocromático">
+				title="Activar/Desactivar modo monocromático" tabindex="-1">
 				<i id="monocromaticoIcon" class="fas fa-eye-slash"></i>
 			</button>
 			<button id="speakerBtn" aria-label="Activar/Desactivar lector de texto"
-				title="Activar/Desactivar lector de texto. Mantener pulsado sobre el texto a leer.">
+				title="Activar/Desactivar lector de texto. Mantener pulsado sobre el texto a leer." tabindex="-1">
 				<i id="speakerIcon" class="fas fa-volume-mute"></i>
 			</button>
-			<button id="zoomBtn" aria-label="Aumentar/Disminuir zoom" title="Aumentar/Disminuir zoom">
+			<button id="zoomBtn" aria-label="Aumentar/Disminuir zoom" title="Aumentar/Disminuir zoom" tabindex="-1">
 				<i id="zoomIcon" class="fa fa-search-plus"></i>
 			</button>
 		</div>
@@ -44,7 +44,8 @@
 	</div>
 	<header>
 		<nav>
-			<a href="inicio.html" class="inicio"> <img alt="inicio" src="img/favicon.png" class="logo"></a>
+			<a href="inicio.html" class="inicio"> 
+			<img alt="inicio" src="img/favicon.png" class="logo"></a>
 			<p>Ability Swap</p>
 							
 			<ul>
@@ -71,31 +72,26 @@
 		
 			<div class="form-container">
 				<h1>Inicia sesión</h1>
-				<form onsubmit="event.preventDefault(); loginServidor();" action="registro" method="post">
+				<form onsubmit="event.preventDefault(); loginServidor();" method="post">
 
 					<div class="form-group">
-						<label for="nombreUsuario">Usuario: </label> <input type="text" id="nombreUsuario" name="nombreUsuario"
-							placeholder="Introduce tu nombre de usuario" minlength="4" maxlength="100" required>
+						<label for="nombreUsuario">Usuario: </label> 
+						<input type="text" id="nombreUsuario" name="nombreUsuario"
+							placeholder="Introduce tu nombre de usuario" maxlength="100" required>
 					</div>
 
 					<div class="form-group">
-					    <label for="contraseña">Contraseña:</label>
+					    <label for="contraseña">Contraseña: </label>
 					    <div class="password-container">
-					        <input type="password" id="contraseña" name="contraseña" placeholder="Introduce tu contraseña" minlength="4" maxlength="50" required>
-					        <button type="button" class="toggle-password" onclick="alternarVisibilidadPassword()">
+					        <input type="password" id="contraseña" name="contraseña" placeholder="Introduce tu contraseña" maxlength="50" required>
+					        <button type="button" class="toggle-password" onclick="alternarVisibilidadPassword()" aria-label="iniciar sesión">
 					            <span id="togglePasswordIcon" class="material-symbols-outlined">visibility</span>
 					        </button>
 					    </div>
 					</div>
-
-
-
 					<div class="boton-formulario">
 						<button type="submit" class="btn btn-warning">Entrar</button>
-						
-				
-					
-
+					</div>	
 				</form>
 			</div>
 		</div>
@@ -104,18 +100,18 @@
 
 	<footer>
 		<a href="https://portalentodigital.fundaciononce.es/" target="_blank">
-        <img class="logo" src="img/talentodigital.jpg" title= "Por talento Digital" alt="Logo de XTD" style="width: 150px; height: 40px; border-radius: 5px;"></a>
-        <p>Todos los dererechos reservados - @Copyright</p>
+        <img class="logo" src="img/talentodigital.jpg" alt="Logo Portalento" style="width: 150px; height: 40px; border-radius: 5px;"></a>
+        <p>Todos los derechos reservados - @Copyright</p>
         <a href="creditos.html">Quienes somos</a>
 		<div class="imagenes-footer">
             <a href="https://x.com/portalento_" target="_blank">
-            <img src="img/x-twitter.avif" title="Twitter" alt="Twitter"></a>
+            <img src="img/x-twitter.avif"  alt="Twitter"></a>
 			<a href="https://www.facebook.com/PorTalento" target="_blank">
-            <img src="img/facebook.png" title="Facebook" alt="Facebook"></a>
+            <img src="img/facebook.png"  alt="Facebook"></a>
 			<a href="https://www.instagram.com/portalento_/" target="_blank">
-			<img src="img/instagram.png" title="Instagram" alt="Instagram"></a>
+			<img src="img/instagram.png"  alt="Instagram"></a>
 			<a href="https://www.tiktok.com/@portalento" target="_blank">
-			<img src="img/tiktok.webp" title="Tiktok" alt="Tiktok"></a>
+			<img src="img/tiktok.webp"  alt="Tiktok"></a>
 			
 		</div>
 	</footer>

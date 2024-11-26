@@ -23,11 +23,11 @@ h2 {
 
 .card {
 	width: 300px;
-    background: white;
+    background: lightgray !important;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    transition: transform 0.2s;
+    
 }
 
 
@@ -64,8 +64,10 @@ h2 {
 .card .contenedor-logos img{
 	height: 40px;
 	width: 40px;
+	border-radius: 50%;
 }
 
-.card:hover {
-    transform: scale(1.05);
+.card .contenedor-logos img:hover {
+    transform: scale(1.3);
+    transition: transform 0.2s;
 }
